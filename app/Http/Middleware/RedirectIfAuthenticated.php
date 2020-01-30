@@ -20,7 +20,7 @@ class RedirectIfAuthenticated
         if (Auth::guard($guard)->check()) {
             switch ($guard) {
                 case 'admin':
-                    $route = 'admin/deshboard';
+                    $route = 'admin/dashboard';
                     break;
                 default:
                     $route = '/user_login';
