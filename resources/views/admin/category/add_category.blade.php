@@ -21,7 +21,7 @@
             </div>
 	        <div>
 	            <div class="x_content">
-	            	{{ Form::open(['method' => 'post','url'=>'#','enctype'=>'multipart/form-data']) }}
+	            	{{ Form::open(['method' => 'post','route'=>'admin.categoryInsert','enctype'=>'multipart/form-data']) }}
 	            	<div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
                             <div class="col-md-4 col-sm-12 col-xs-12 mb-3">

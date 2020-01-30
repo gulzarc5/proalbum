@@ -11,4 +11,12 @@ class CategoryController extends Controller
     {
         return view('admin.category.add_category');
     }
+
+    public function categoryInsert(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+    }
 }

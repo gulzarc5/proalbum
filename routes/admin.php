@@ -9,7 +9,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
 
         // Category Route
         Route::group(['prefix'=>'category'],function(){
-            Route::get('/add','CategoryController@categoryAdd')->name('admin.categoryAdd');
+            Route::get('/add/form','CategoryController@categoryAdd')->name('admin.categoryAdd');
+            Route::post('/add','CategoryController@categoryInsert')->name('admin.categoryInsert');
         });
 
     });
