@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'slug' => 'required',
         ]);
     }
 }
