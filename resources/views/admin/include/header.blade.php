@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="images/favicon.ico" type="image/ico" />
+    <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
     <title>PRO ALBUM</title>
     <link rel="icon" href="{{ asset('logo/logo.png')}}" type="image/icon type">
@@ -86,9 +86,9 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Master <span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu">
-                      <li class="sub_menu"><a href="{{route('admin.categoryAdd')}}">Category</a></li>
-                      <li class="sub_menu"><a href="#">Unit</a></li>
-                      <li class="sub_menu"><a href="#">Slider</a></li>
+                      <li class="sub_menu"><a href="{{route('admin.category_list')}}">Category</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.units_list') }}">Units</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li>
                     </ul>
                   </li>
 
