@@ -48,7 +48,7 @@
 
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="name">Product Code</label>
+                                <label for="p_code">Product Code</label>
                                 <input type="text" class="form-control" name="p_code"  placeholder="Enter Product Code" value="PRO-">
                                   @if($errors->has('p_code'))
                                       <span class="invalid-feedback" role="alert" style="color:red">
@@ -121,7 +121,8 @@
                             </div>  
                         </div>
 
-                        <div class="form-group col-md-6">
+                        
+                        <div class="form-group col-md-6" id="size-div">
                             <label class="col-sm-12 control-label">Size</label>
                             <div class="col-sm-2" style="width:150px;">
                                 <input type="text" name="swidth[]" id="swidth" class="form-control" placeholder="Width" required="">
@@ -133,59 +134,62 @@
                             <div class="col-sm-2">
                                 <input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">
                             </div>
-                           <button type="button" class="btn btn-primary" id="addsize" name="addsize">Add</button>  	
+                           <button type="button" class="btn btn-primary" id="addsize" name="addsize" onclick="addMoreSize()">Add</button> 
                         </div>
 
-                       <div class="form-group col-md-6 sheet" >        
+                        <div class="form-group col-md-6 sheet" >        
                             <label class="col-sm-12 control-label">Sheet Type</label>                   
                             <div class="col-sm-12 type">
                                 <div class="radio">
                                     <label class="hover">
-                                        <div class="iradio_flat-green hover" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Page 
+                                        <div class="iradio_flat-green hover" style="position: relative;">
+                                            <input type="radio" class="flat" checked="" name="sheet_type" style="position: absolute; opacity: 0;" value="1" checked>
+                                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                        </div> Page 
                                     </label>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Display Name">
-                                <input type="text" class="form-control" placeholder="Value">
+                                <div id="page-input">
+                                    <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page">
+                                    <input type="text" class="form-control" placeholder="Value" name="page_value">
+                                </div>                                
                             </div>
                             <div class="col-sm-12 type">
                                 <div class="radio">
                                     <label class="hover">
-                                        <div class="iradio_flat-green hover" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Spread 
+                                        <div class="iradio_flat-green hover" style="position: relative;">
+                                            <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="2">
+                                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                        </div> Spread 
                                     </label>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Display Name">
-                                <input type="text" class="form-control" placeholder="Value">
+                                <div id="spread-div">
+                                    <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display">
+                                    <input type="text" class="form-control" placeholder="Value" name="spread_value">
+                                </div>                                
                             </div>
                             <div class="col-sm-12 type">
                                 <div class="radio">
                                     <label class="hover">
-                                        <div class="iradio_flat-green hover" style="position: relative;"><input type="radio" class="flat" checked="" name="iCheck" style="position: absolute; opacity: 0;"><ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div> Quantity
+                                        <div class="iradio_flat-green hover" style="position: relative;">
+                                            <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="3">
+                                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                        </div> Quantity
                                     </label>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Display Name">
-                                <input type="text" class="form-control" placeholder="Value" >
+                                <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display">
+                                <input type="text" class="form-control" placeholder="Value" name="quantity_value">
                             </div>  	
                         </div>                        
                     </div>
 
                     <div class="well" style="overflow: auto">
-                        <div class="form-row mb-10">
+                        <div class="form-row mb-10" id="option-div">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="name">Option Name</label>
+                                <label for="option">Option Name</label>
                                 <br>
-                                <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name" style="width:80%;float:left">
-                                <button type="button" class="btn btn-sm btn-info" style="float:right">Add More</button>
-                                  @if($errors->has('name'))
-                                      <span class="invalid-feedback" role="alert" style="color:red">
-                                          <strong>{{ $errors->first('name') }}</strong>
-                                      </span>
-                                  @enderror
-                            </div>
-
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                
-                            </div>
-                                                                                    
+                                <input type="text" class="form-control" name="option[]"  placeholder="Enter Product name" id="name" style="width:80%;float:left" required>
+                                <button type="button" class="btn btn-sm btn-info" style="float:right" onclick="moreOption()">Add More</button>
+                            </div>                                                  
                         </div>
                        
                     </div>
@@ -194,27 +198,37 @@
                     <div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
                             <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                              <label for="desc">Category Description</label>
-                              <textarea type="text" class="form-control" name="desc" id="desc"></textarea>
-                               @if($errors->has('desc'))
+                              <label for="shot_desc">Short Description</label>
+                              <textarea type="text" class="form-control" name="shot_desc"></textarea>
+                               @if($errors->has('shot_desc'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('desc') }}</strong>
+                                        <strong>{{ $errors->first('shot_desc') }}</strong>
                                     </span>
                                 @enderror
                             </div>                                                                                 
                         </div>
+
                         <div class="form-row mb-10">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                              <label for="img">Image</label>
-                              <input type="file" onchange="readURL(this)" class="form-control" name="img"></input>
-                               @if($errors->has('img'))
+                            <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
+                              <label for="desc_title">Description Title</label>
+                              <input type="text" class="form-control" name="desc_title"></input>
+                               @if($errors->has('desc_title'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('img') }}</strong>
+                                        <strong>{{ $errors->first('desc_title') }}</strong>
                                     </span>
                                 @enderror
-                            </div>       
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <img src="" height="300px" id="preview" style="padding: 12px;">
+                            </div>                                                                                 
+                        </div>
+
+                        <div class="form-row mb-10">
+                            <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
+                              <label for="long_desc">Long Description</label>
+                              <textarea type="text" class="form-control" name="long_desc" id="desc"></textarea>
+                               @if($errors->has('long_desc'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('long_desc') }}</strong>
+                                    </span>
+                                @enderror
                             </div>                                                                                 
                         </div>
                     </div>
@@ -222,20 +236,20 @@
                     <div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="page_title">Page Title</label>
-                                <input type="text" class="form-control" name="page_title"  placeholder="Enter Product Title" >
-                                  @if($errors->has('page_title'))
+                                <label for="seo_page_title">SEO Page Title</label>
+                                <input type="text" class="form-control" name="seo_page_title"  placeholder="Enter Product Title" >
+                                  @if($errors->has('seo_page_title'))
                                       <span class="invalid-feedback" role="alert" style="color:red">
-                                          <strong>{{ $errors->first('page_title') }}</strong>
+                                          <strong>{{ $errors->first('seo_page_title') }}</strong>
                                       </span>
                                   @enderror
                               </div>
                               <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="meta_desc">Meta Description</label>
-                                <input type="text" class="form-control" name="meta_desc"  placeholder="Enter Tag Name" >
-                                @if($errors->has('meta_desc'))
+                                <label for="seo_meta_desc">SEO Meta Description</label>
+                                <input type="text" class="form-control" name="seo_meta_desc"  placeholder="Enter Tag Name" >
+                                @if($errors->has('seo_meta_desc'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('meta_desc') }}</strong>
+                                        <strong>{{ $errors->first('seo_meta_desc') }}</strong>
                                     </span>
                                 @enderror
                             </div>  
@@ -243,11 +257,11 @@
                         </div>
                         <div class="form-row mb-10">
                             <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                              <label for="meta_tag">Meta Tag</label>
-                              <textarea type="text" class="form-control" name="meta_tag" id="desc"></textarea>
-                              @if($errors->has('meta_tag'))
+                              <label for="seo_meta_tag">SEO Meta Tag</label>
+                              <textarea type="text" class="form-control" name="seo_meta_tag" id="desc"></textarea>
+                              @if($errors->has('seo_meta_tag'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('meta_tag') }}</strong>
+                                        <strong>{{ $errors->first('seo_meta_tag') }}</strong>
                                     </span>
                                 @enderror
                             </div>                                                                                 
@@ -276,6 +290,7 @@
 
  @endsection
  @section('script')
+
  <script src="{{ asset('admin/ckeditor4/ckeditor.js')}}"></script>
 <script>
     CKEDITOR.replace( 'desc', {
@@ -307,4 +322,6 @@ $(document).ready(function(){
     });
 });
 </script>
+
+<script src="{{ asset('admin/admin_product.js')}}"></script>
  @endsection
