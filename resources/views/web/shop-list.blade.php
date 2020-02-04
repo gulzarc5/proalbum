@@ -25,13 +25,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_01.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Table Pink Lamp</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Table Pink Lamp</a></h3>
                                         <small class="regular">$90.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -44,13 +44,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_02.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Oldschool Armchair</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Oldschool Armchair</a></h3>
                                         <small class="regular">$1233.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -63,13 +63,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_03.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Classic Gramophone</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Classic Gramophone</a></h3>
                                         <small class="regular">$553.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -82,13 +82,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_04.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Berlingo Armchair</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Berlingo Armchair</a></h3>
                                         <small class="regular">$600.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -101,13 +101,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_05.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Triple coffee table</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Triple coffee table</a></h3>
                                         <small class="regular">$90.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -120,13 +120,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_06.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Oldschool Telephone</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Oldschool Telephone</a></h3>
                                         <small class="regular">$1233.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -139,13 +139,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_07.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Long Lampshade</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Long Lampshade</a></h3>
                                         <small class="regular">$553.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -158,13 +158,13 @@
                                        <a href=""><img src="{{asset('web/upload/shop_08.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Sweing Machine</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Sweing Machine</a></h3>
                                         <small class="regular">$600.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -177,13 +177,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_09.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Blue Edition Chair</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Blue Edition Chair</a></h3>
                                         <small class="regular">$90.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -196,13 +196,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_10.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Three Pink Armchair</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Three Pink Armchair</a></h3>
                                         <small class="regular">$1233.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -215,13 +215,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_11.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Classic Radio Machine</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Classic Radio Machine</a></h3>
                                         <small class="regular">$553.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 
@@ -234,13 +234,13 @@
                                         <a href=""><img src="{{asset('web/upload/shop_12.jpg')}}" alt="" class="img-responsive"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="shop-single.html" title="">Large Green Armchair</a></h3>
+                                        <h3><a href="{{route('web.shop-single')}}" title="">Large Green Armchair</a></h3>
                                         <small class="regular">$600.00</small>
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
                                         <ul class="">
-                                            <li><a href="shop-single.html"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
+                                            <li><a href="{{route('web.shop-single')}}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
                                             <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                         </ul><!-- end list -->
                                     </div><!-- end shop-meta --> 

@@ -19,22 +19,37 @@
                             <p>Welcome! register by entering few basic detail</p>
                         </div>
                         <form>
-                            <div class="form-group pl-0 col-md-6">
+                            <div class="form-group pl-0">
                                 <label for="inputEmail4">Name</label>
                                 <input type="text" class="form-control" id="inputname4" placeholder="Name">
                             </div>
-                            <div class="form-group pr-0 col-md-6">
-                                <label for="inputPassword4">Password</label>
-                                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email address</label>
+                            <div class="form-group pr-0">
+                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
+                            <div class="form-group pl-0 col-md-6">
+                                <label for="inputPassword4">Password</label>
+                                <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                            </div>
+                            <div class="form-group pr-0 col-md-6">
+                                <label for="inputPassword4">Confirm Password</label>
+                                <input type="password" class="form-control" id="inputConfirmpassword4" placeholder="Password">
+                            </div>
+                            <div class="form-group pl-0 col-md-6">
+                                <label for="inputPassword4">Profile</label><br>
+                                <input type="radio" name="profile"> Lab Owner<br>
+                                <input type="radio" name="profile"> Distributor<br>
+                                <input type="radio" name="profile"> Studio/Photographer
+                            </div>
+                            <div class="form-group pr-0 col-md-6">
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Lab Owner">
+                                <br>
+                                <input type="text" class="form-control" id="inputPassword4" placeholder="Contact person">
+                            </div>
                             <div class="form-group">
-                                <label for="inputAddress2">Address 2</label>
-                                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                <label for="inputAddress2">Address</label>
+                                <textarea type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"></textarea>
                             </div>
                             <div class="form-group pl-0 col-md-5">
                                 <label for="inputCity">City</label>
