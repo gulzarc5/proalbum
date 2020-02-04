@@ -9,7 +9,7 @@
 	    <div class="x_panel">
 
 	        <div class="x_title">
-	            <h2>Edit Uni</h2>
+	            <h2>Edit Units</h2>
 	            <div class="clearfix"></div>
 	        </div>
             <div>
