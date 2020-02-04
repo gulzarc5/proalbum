@@ -5,7 +5,7 @@
 <div class="right_col" role="main">
     <div class="row">
 	<div class="col-md-12">
-        <a href="{{ route('admin.category_list') }}" class="btn btn-primary" style="float: right;">Category List</a>
+        <a href="{{ route('admin.product_list') }}" class="btn btn-primary" style="float: right;">Product List</a>
 	    <div class="x_panel">
 
 	        <div class="x_title">
@@ -270,7 +270,8 @@
 
                     
                     <div class="form-group">    	            	
-                        {{ Form::submit('Submit', array('class'=>'btn btn-success')) }}  
+                        {{-- {{ Form::submit('Submit', array('class'=>'btn btn-success')) }}   --}}
+                    <a href="{{route('admin.products.add_product_option')}}" class="btn btn-primary">Next</a>
                     </div>
 	            	{{ Form::close() }}
 	            </div>

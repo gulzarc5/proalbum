@@ -5,7 +5,7 @@
 <div class="right_col" role="main">
   <div class="row">
 	  <div class="col-md-12">
-      <a href="{{ route('admin.category_list') }}" class="btn btn-primary" style="float: right;">Category List</a>
+        <a href="{{ route('admin.product_list') }}" class="btn btn-primary" style="float: right;">Product List</a>
 	    <div class="x_panel">
 
 	        <div class="x_title">
@@ -73,7 +73,8 @@
                     </div>
 
                     <div class="form-group">    	            	
-                        {{ Form::submit('Submit', array('class'=>'btn btn-success')) }}  
+                        <button type="button" onclick="last()" class="btn btn-primary">Submit</button>
+                        <a href="{{route('admin.product_add_form')}}" class="btn btn-warning">Back</a>
                     </div>
 	            	{{ Form::close() }}
 	            </div>
@@ -93,6 +94,7 @@
 
  @endsection
  @section('script')
+
  <script src="{{ asset('admin/ckeditor4/ckeditor.js')}}"></script>
 <script>
     CKEDITOR.replace( 'desc', {
@@ -123,5 +125,9 @@ $(document).ready(function(){
         $('#slug').val(d);
     });
 });
+
+function last() {
+    alert('Sorry We Are Working On this Page');
+}
 </script>
  @endsection
