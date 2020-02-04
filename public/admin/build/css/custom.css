@@ -4267,3 +4267,11 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
     float:left;
     margin-right: 10px;
 }
+.option-size {
+    display: flex;
+}
+.option-size input {
+    width: 50%;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}

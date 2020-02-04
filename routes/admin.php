@@ -63,3 +63,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
         });
     });
 });
+
+Route::get('/add/edit', function () {
+    return view('admin.products.add_product_option');
+})->name('admin.products.add_product_option');
