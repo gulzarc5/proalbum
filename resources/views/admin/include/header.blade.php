@@ -47,7 +47,7 @@
     <link href="{{asset('admin/vendors/pnotify/dist/pnotify.nonblock.css')}}" rel="stylesheet"> --}}
 
     <!-- Custom Theme Style -->
-    <link href="{{asset('admin/build/css/custom.min.css')}}" rel="stylesheet">
+    <link href="{{asset('admin/build/css/custom.css')}}" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -82,9 +82,11 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a href="{{ route('admin.deshboard')}}"><i class="fa fa-home"></i> Home </span></a>
-                  </li>
-                  <li><a><i class="fa fa-edit"></i> Master <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="{{ route('admin.deshboard')}}"><i class="fa fa-home"></i> Home </span></a></li>
+
+                  <li><a href="{{ route('admin.product_list')}}"><i class="fa fa-folder-o" aria-hidden="true"></i> Products </span></a></li>
+                  
+                  <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Master <span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu">
                       <li class="sub_menu"><a href="{{route('admin.category_list')}}">Category</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.units_list') }}">Units</a></li>

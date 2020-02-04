@@ -9,7 +9,6 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
 
         // Category Route
         Route::group(['prefix'=>'category'],function(){
-
             /** Category Addition Section **/
             Route::get('/add/form','CategoryController@categoryAdd')->name('admin.categoryAdd');
             Route::put('/add','CategoryController@categoryInsert')->name('admin.categoryInsert');
@@ -24,6 +23,11 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
 
             /** Category CK Editor Image Upload **/
             Route::post('ck-editor-image-upload','CategoryController@ckEditorImageUpload')->name('admin.ck_editor_image_upload');
+        });
+
+        Route::group(['prefix'=>'product'],function(){
+            Route::get('list','ProductController@productList')->name('admin.product_list');
+            Route::get('add/form','ProductController@productAddForm')->name('admin.product_add_form');
         });
 
         // Units Route
