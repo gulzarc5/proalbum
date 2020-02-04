@@ -2355,11 +2355,7 @@
         },
         {
             "name": "symfony/mime",
-<<<<<<< HEAD
             "version": "v4.4.4",
-=======
-            "version": "v5.0.4",
->>>>>>> febb7204e485c33e8997357599aa4ca002d19335
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
