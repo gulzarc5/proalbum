@@ -103,3 +103,14 @@
     <script src="{{asset('web/js/hover.js')}}"></script>    
     <script src="{{asset('web/js/banner-grid.js')}}"></script>
     <script src="{{asset('web/js/threecolgallery.js')}}"></script>
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("inputPassword4");
+          if (x.type === "password") {
+            x.type = "text";
+          } else {
+            x.type = "password";
+          }
+        }
+        </script>

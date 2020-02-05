@@ -22,8 +22,11 @@ class RedirectIfAuthenticated
                 case 'admin':
                     $route = 'admin/dashboard';
                     break;
+                case 'users':
+                    $route = '/login';
+                    break;
                 default:
-                    $route = '/user_login';
+                    $route = '/login';
             }
             return redirect($route);
         }

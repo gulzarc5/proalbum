@@ -19,6 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('profile_type')->comment('1 = Lab Owner, 2 = Distributor, 3 = Studio/Photographer');
+            $table->text('address');
+            $table->string('city');
+            $table->string('state');
+            $table->string('zip_code');
+            $table->string('lab_owner');
+            $table->string('contact_person');
             $table->rememberToken();
             $table->timestamps();
         });

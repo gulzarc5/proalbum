@@ -61,9 +61,12 @@ class Handler extends ExceptionHandler
           case 'admin':
             $login = 'admin.login';
             break;
-        default:
-            $login = 'web.userLoginForm';
+        case 'users':
+            $login = 'web.login';
             break;
+            default:
+                $login = 'web.login';
+                break;
         }
         return redirect()->guest(route($login));
     }
