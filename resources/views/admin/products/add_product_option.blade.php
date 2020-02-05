@@ -10,7 +10,10 @@
 
 	        <div class="x_title">
               <h5 style="margin: 0;">Add Option Detail</h5>
-	            <h2>Product 1 Name</h2>
+              @if (isset($product))
+                <h2>{{$product->name}}</h2>
+              @endif
+	            
 	            <div class="clearfix"></div>
 	        </div>
             <div>
@@ -24,54 +27,58 @@
             </div>
 	        <div>
 	            <div class="x_content">
-	            	{{ Form::open(['method' => 'put','route'=>'admin.categoryInsert','enctype'=>'multipart/form-data']) }}
-	            	    <div class="well" style="overflow: auto">
-                      <h4 style="border-bottom: 1px solid #dddd;padding-bottom: 5px;margin: 0 0 5px;">Option 1</h4>
-                        <div class="form-row mb-10">
-                            <div class="col-md-8 col-sm-12 col-xs-12 mb-3">
-                              <label for="name">Name</label>
-                              <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">
-                                @if($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @enderror                                
-                              <label for="img">Image</label>
-                              <input type="file" onchange="readURL(this)" class="form-control" name="img">
-                               @if($errors->has('img'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('img') }}</strong>
-                                    </span>
-                                @enderror
-                              <label for="name">Size</label>
-                              <div class="option-size">
-                                <h4>12 X 12</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                                  @if($errors->has('p_code'))
-                                      <span class="invalid-feedback" role="alert" style="color:red">
-                                          <strong>{{ $errors->first('p_code') }}</strong>
-                                      </span>
-                                  @enderror
-                              </div>
-                              <div class="option-size">
-                                <h4>20 X 20</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                                  @if($errors->has('p_code'))
-                                      <span class="invalid-feedback" role="alert" style="color:red">
-                                          <strong>{{ $errors->first('p_code') }}</strong>
-                                      </span>
-                                  @enderror
-                              </div>
+                    {{ Form::open(['method' => 'put','route'=>'admin.categoryInsert','enctype'=>'multipart/form-data']) }}
+                    @if (isset($option) && !empty($option))
+                        @foreach ($option as $item)
+                            <div class="well" style="overflow: auto">
+                                <h4 style="border-bottom: 1px solid #dddd;padding-bottom: 5px;margin: 0 0 5px;">{{$item->name}}</h4>
+                                
+                                <div class="form-row mb-10">
+                                    <div class="col-md-8 col-sm-12 col-xs-12 mb-3">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">
+                                        @if($errors->has('name'))
+                                            <span class="invalid-feedback" role="alert" style="color:red">
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @enderror                                
+                                    <label for="img">Image</label>
+                                    <input type="file" onchange="readURL(this)" class="form-control" name="img">
+                                    @if($errors->has('img'))
+                                            <span class="invalid-feedback" role="alert" style="color:red">
+                                                <strong>{{ $errors->first('img') }}</strong>
+                                            </span>
+                                        @enderror
+                                    <label for="name">Size</label>
+                                    <div class="option-size">
+                                        <h4>12 X 12</h4>
+                                        <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
+                                        @if($errors->has('p_code'))
+                                            <span class="invalid-feedback" role="alert" style="color:red">
+                                                <strong>{{ $errors->first('p_code') }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    <div class="option-size">
+                                        <h4>20 X 20</h4>
+                                        <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
+                                        @if($errors->has('p_code'))
+                                            <span class="invalid-feedback" role="alert" style="color:red">
+                                                <strong>{{ $errors->first('p_code') }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                    </div>
+
+                                    <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
+                                    <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
+                                    <button type="button" style="margin-left: 50px;position: absolute;top: 13.3%;" class="btn btn-primary">Add More</button>
+                                    </div>                                                           
+                                </div>                                                    
                             </div>
-
-                            <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
-                              <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
-                              <button type="button" style="margin-left: 50px;position: absolute;top: 13.3%;" class="btn btn-primary">Add More</button>
-                            </div>                                                           
-                        </div>
-                        
-                    </div>
-
+                        @endforeach
+                    @endif
+	            	    
                     <div class="form-group">    	            	
                         <button type="button" onclick="last()" class="btn btn-primary">Submit</button>
                         <a href="{{route('admin.product_add_form')}}" class="btn btn-warning">Back</a>

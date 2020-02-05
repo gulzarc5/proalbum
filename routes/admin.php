@@ -28,6 +28,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
         Route::group(['prefix'=>'product'],function(){
             Route::get('list','ProductController@productList')->name('admin.product_list');
             Route::get('add/form','ProductController@productAddForm')->name('admin.product_add_form');
+            Route::post('add','ProductController@productAdd')->name('admin.product_add');
+            Route::get('option/form/{p_id}','ProductController@productOptionForm')->name('admin.product_option_form');
         });
 
         // Units Route

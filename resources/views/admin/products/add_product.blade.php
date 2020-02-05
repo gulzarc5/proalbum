@@ -7,7 +7,6 @@
 	<div class="col-md-12">
         <a href="{{ route('admin.product_list') }}" class="btn btn-primary" style="float: right;">Product List</a>
 	    <div class="x_panel">
-
 	        <div class="x_title">
 	            <h2>Add Product</h2>
 	            <div class="clearfix"></div>
@@ -23,12 +22,12 @@
             </div>
 	        <div>
 	            <div class="x_content">
-	            	{{ Form::open(['method' => 'put','route'=>'admin.categoryInsert','enctype'=>'multipart/form-data']) }}
+	            	{{ Form::open(['method' => 'post','route'=>'admin.product_add','enctype'=>'multipart/form-data']) }}
 	            	<div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">
+                                <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name" value="{{old('name')}}">
                                   @if($errors->has('name'))
                                       <span class="invalid-feedback" role="alert" style="color:red">
                                           <strong>{{ $errors->first('name') }}</strong>
@@ -37,7 +36,7 @@
                               </div>
                               <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="slug">URL Slug</label>
-                                <input type="text" class="form-control" id="slug" name="slug" readonly>
+                                <input type="text" class="form-control" id="slug" name="slug" readonly value="{{old('slug')}}">
                                 @if($errors->has('slug'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('slug') }}</strong>
@@ -48,13 +47,20 @@
 
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="p_code">Product Code</label>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Product Code" value="PRO-">
-                                  @if($errors->has('p_code'))
-                                      <span class="invalid-feedback" role="alert" style="color:red">
-                                          <strong>{{ $errors->first('p_code') }}</strong>
-                                      </span>
-                                  @enderror
+                                <label for="p_code">Product Code</label><br>
+                                <input type="text" class="form-control" name="p_prefix"  placeholder="Enter Prefix" value="{{old('p_prefix', "PRO-")}}" style="width:49.5%;float:left">
+                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Product Code" value="{{old('p_code')}}" style="width:49%;margin-left:5px;float:left">
+                                @if($errors->has('p_prefix'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('p_prefix') }}</strong>
+                                    </span>
+                                @enderror
+                                @if($errors->has('p_code'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('p_code') }}</strong>
+                                    </span>
+                                @enderror
+                                  
                               </div>
                               <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="category">Category</label>
@@ -129,7 +135,7 @@
                             </div>
                             <div class="col-sm-2" style="width:auto;line-height: 40px;">X</div>
                             <div class="col-sm-2" style="width:150px;">
-                                <input type="text" name="sheigth[]" id="sheigth" class="form-control" placeholder="Height" required="">
+                                <input type="text" name="sheight[]" id="sheigth" class="form-control" placeholder="Height" required="">
                             </div>
                             <div class="col-sm-2">
                                 <input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">
@@ -149,8 +155,8 @@
                                     </label>
                                 </div>
                                 <div id="page-input">
-                                    <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page">
-                                    <input type="text" class="form-control" placeholder="Value" name="page_value">
+                                    <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page" required>
+                                    <input type="text" class="form-control" placeholder="Value" name="page_value" required>
                                 </div>                                
                             </div>
                             <div class="col-sm-12 type">
@@ -163,8 +169,8 @@
                                     </label>
                                 </div>
                                 <div id="spread-div">
-                                    <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display">
-                                    <input type="text" class="form-control" placeholder="Value" name="spread_value">
+                                    <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" required>
+                                    <input type="text" class="form-control" placeholder="Value" name="spread_value" required>
                                 </div>                                
                             </div>
                             <div class="col-sm-12 type">
@@ -176,8 +182,8 @@
                                         </div> Quantity
                                     </label>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display">
-                                <input type="text" class="form-control" placeholder="Value" name="quantity_value">
+                                <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display" required>
+                                <input type="text" class="form-control" placeholder="Value" name="quantity_value" required>
                             </div>  	
                         </div>                        
                     </div>
@@ -270,8 +276,8 @@
 
                     
                     <div class="form-group">    	            	
-                        {{-- {{ Form::submit('Submit', array('class'=>'btn btn-success')) }}   --}}
-                    <a href="{{route('admin.products.add_product_option')}}" class="btn btn-primary">Next</a>
+                        {{ Form::submit('Next', array('class'=>'btn btn-success')) }}  
+                    {{-- <a href="{{route('admin.products.add_product_option')}}" class="btn btn-primary">Next</a> --}}
                     </div>
 	            	{{ Form::close() }}
 	            </div>
