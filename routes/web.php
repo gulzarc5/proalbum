@@ -16,6 +16,6 @@ require __DIR__.'/frontend.php';
 
 require __DIR__.'/admin.php';
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

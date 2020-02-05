@@ -15,7 +15,19 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return route('login');
+            if (Auth::guard($guard)->check()) {
+                switch ($guard) {
+                    case 'admin':
+                       $route = 'admin.deshboard';
+                       break;
+                    case 'users':
+                       $route = 'web.login';
+                       break;
+                    default:
+                       $route = 'web.index';
+               }
+               return redirect()->route($route);
+           }
         }
     }
 }
