@@ -155,8 +155,8 @@
                                     </label>
                                 </div>
                                 <div id="page-input">
-                                    <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page" required>
-                                    <input type="text" class="form-control" placeholder="Value" name="page_value" required>
+                                    <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page" >
+                                    <input type="text" class="form-control" placeholder="Value" name="page_value" >
                                 </div>                                
                             </div>
                             <div class="col-sm-12 type">
@@ -169,8 +169,8 @@
                                     </label>
                                 </div>
                                 <div id="spread-div">
-                                    <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" required>
-                                    <input type="text" class="form-control" placeholder="Value" name="spread_value" required>
+                                    <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" >
+                                    <input type="text" class="form-control" placeholder="Value" name="spread_value" >
                                 </div>                                
                             </div>
                             <div class="col-sm-12 type">
@@ -182,8 +182,8 @@
                                         </div> Quantity
                                     </label>
                                 </div>
-                                <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display" required>
-                                <input type="text" class="form-control" placeholder="Value" name="quantity_value" required>
+                                <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display" >
+                                <input type="text" class="form-control" placeholder="Value" name="quantity_value" >
                             </div>  	
                         </div>                        
                     </div>
