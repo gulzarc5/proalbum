@@ -46,7 +46,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a href="{{route('web.login')}}">Login</a></li>
                                         <li><a href="{{route('web.register')}}">Register</a></li>
-                                        <li><a href="{{route('web.shop-list')}}">Profile</a></li>
+                                        <li><a href="{{route('web.account.profile')}}">Profile</a></li>
                                         <li><a href="{{route('web.shop-list')}}">orders</a></li>
                                         <li><a href="{{route('web.shop-list')}}">cart</a></li>
                                         <li><a href="{{route('web.shop-list')}}">wishlist</a></li>

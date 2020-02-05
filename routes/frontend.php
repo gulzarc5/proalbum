@@ -22,3 +22,17 @@ Route::get('/Login', function () {
 Route::get('/Register', function () {
     return view('web.register');
 })->name('web.register');
+
+Route::get('/Cart', function () {
+    return view('web.shop-cart');
+})->name('web.shop-cart');
+
+//-----------------------------------------
+
+Route::get('/Account/Profile', function () {
+    return view('web.account.profile');
+})->name('web.account.profile'); 
+
+Route::get('/Account/Profile/Edit', function () {
+    return view('web.account.profile-edit');
+})->name('web.account.profile-edit'); 

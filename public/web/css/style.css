@@ -1710,7 +1710,9 @@ body.leftside .navbar-toggle {
 }
 
 .page-title.lb {
-    background-color: #f9f9f9;
+    background-color: #f3f0f0;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
 }
 
 .breadcrumb {
