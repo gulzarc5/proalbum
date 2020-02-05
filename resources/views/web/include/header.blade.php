@@ -47,14 +47,15 @@
                                     @auth('users')
                                         <li><a href="{{ route('web.my_profile') }}">Profile</a></li>
                                         <li><a href="{{route('web.shop-list')}}">orders</a></li>
-                                        <li><a href="{{route('web.shop-list')}}">cart</a></li>
-                                        <li><a href="{{route('web.shop-list')}}">wishlist</a></li>
-                                        <li><a href="{{route('web.shop-list')}}">shipping address</a></li>
+                                        <li><a href="{{route('web.shop-list')}}">cart</a></li> 
+                                        <li><a href="{{route('web.account.shipping')}}">shipping address</a></li>
+                                        <li><a href="{{route('web.account.change-password')}}">change password</a></li>
                                         <li><a href="{{route('web.logout')}}">Logout</a></li>
                                     @else
                                         <li><a href="{{ route('web.login') }}">Login</a></li>
                                         <li><a href="{{ route('web.registration_page') }}">Register</a></li>
                                     @endauth
+                                       
                                     </ul>
                                 </li>                             
                                 <li class="active"><a href="">DOWNLOAD FREE SOFTWARE </a></li>

@@ -2756,7 +2756,7 @@ ul.nav-wizard li a:hover {
     transition: transform .3s ease-out;
 }
 
-.shop-item .shop-meta li:hover {
+.shop-item .shop-meta li:hover , .index-product-detail:hover {
     background-color: #f9f9f9;
 }
 
@@ -2874,30 +2874,29 @@ ul.nav-wizard li a:hover {
     margin: 0 !important;
 }
 
-.shop-meta li {
+.shop-meta li, .index-product-detail {
     text-align: center;
     list-style: none;
-    padding: 10px 10px !important;
+    padding: 3px 10px !important;
     margin: 0!important;
     text-transform: uppercase;
     letter-spacing: 1px;
-    border-top: 1px solid #ededed;
-    border-bottom: 1px solid #ededed;
-    border-right: 1px solid #ededed;
+    border: 1px solid #ededed;
     font-size: 11px;
     float: left;
-    width: 50%
+    width: 100%;
 }
 
-.shop-meta li:first-child {
-    border-left: 1px solid #ededed;
+.shop-meta li a {
+    display: flex;
+    justify-content: center;
 }
-
 .shop-meta li i {
     font-size: 13px;
     display: block;
     margin-top: 5px;
     margin-bottom: 2px;
+    margin-right: 10px;
 }
 
 .shop-meta li a,

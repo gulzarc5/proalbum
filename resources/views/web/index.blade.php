@@ -275,7 +275,8 @@
                         <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
@@ -284,7 +285,8 @@
                         <img src="{{asset('web/images/photo/4.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
@@ -294,7 +296,8 @@
                         <img src="{{asset('web/images/photo/5.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
@@ -304,7 +307,8 @@
                         <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
@@ -314,7 +318,8 @@
                         <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
@@ -324,7 +329,8 @@
                         <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
@@ -334,7 +340,8 @@
                         <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
@@ -344,7 +351,8 @@
                         <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <span>Rs. 100</span>
+                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
                 </div>
