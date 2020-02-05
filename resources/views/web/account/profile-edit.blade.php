@@ -18,7 +18,7 @@
                             <h4>Profile Edit</h4>
                             <p>Edit your profile detail with few basic information</p>
                         </div>
-                        @if(!empty($my_account) && (count($my_account) > 0))
+                        @if(isset($my_account)  && !empty($my_account)))
                         <form action="{{ route('web.update_my_profile') }}" method="POST" autocomplete="off">
                              @csrf
                             <div class="form-group pl-0">
