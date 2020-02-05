@@ -96,7 +96,7 @@
                             </div>
                             <button type="submit" name="submit" class="btn btn-primary">Submit</button>                            
                             <div class="form-group form-check mt-20">
-                                <a href="#" class="form-check-label" for="exampleCheck1">Already have an registred to our website? Login </a>
+                                <a href="{{ route('web.login') }}" class="form-check-label" for="exampleCheck1">Already have an registred to our website? Login </a>
                             </div>
                         </form>
                     </div><!-- end content -->

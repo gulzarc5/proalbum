@@ -13,6 +13,16 @@ Route::group(['namespace'=>'Web'],function(){
 
 	/** User Logout **/
 	Route::get('logout', 'LoginController@logout')->name('web.logout');
+
+    Route::group(['middleware'=>'auth:users'],function(){
+
+        /** My Profile **/
+        Route::get('my-profile', 'UserController@myProfile')->name('web.my_profile'); 
+        /** Edit My Profile **/
+        Route::get('edit-my-profile', 'UserController@editMyProfile')->name('web.edit_my_profile');
+        /** Update My Profile **/
+        Route::post('update-my-profile', 'UserController@updateMyProfile')->name('web.update_my_profile');
+    });
 });
 
 /** Frontend Route **/
@@ -29,10 +39,3 @@ Route::get('/Cart', function () {
     return view('web.shop-cart');
 })->name('web.shop-cart');
 
-Route::get('/Account/Profile', function () {
-    return view('web.account.profile');
-})->name('web.account.profile'); 
-
-Route::get('/Account/Profile/Edit', function () {
-    return view('web.account.profile-edit');
-})->name('web.account.profile-edit'); 

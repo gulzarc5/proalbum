@@ -41,7 +41,7 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>                            
                             <div class="form-group form-check mt-20">
-                                <a href="#" class="form-check-label" for="exampleCheck1">New to our website? Resister </a>
+                                <a href="{{ route('web.registration') }}" class="form-check-label" for="exampleCheck1">New to our website? Resister </a>
                             </div>
                         </form>
                     </div><!-- end content -->
