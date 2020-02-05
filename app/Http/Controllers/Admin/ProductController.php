@@ -8,12 +8,39 @@ use Carbon\Carbon;
 use DB;
 use Image;
 use File;
+use Illuminate\Contracts\Encryption\DecryptException;
+use DataTables;
 
 class ProductController extends Controller
 {
     public function productList()
     {
         return view('admin.products.product_list');
+    }
+
+    public function productListAjax()
+    {
+        $query = DB::table('products')
+        ->select('products.*','category.name as cat_name')
+        ->leftjoin('category','category.id','=','products.category_id')
+        ->orderBy('id','desc');
+        return datatables()->of($query->get())
+            ->addIndexColumn()
+            ->addColumn('action', function($row){
+                $btn ='<a href="#" class="btn btn-warning btn-sm" >Edit</a><a href="#" class="btn btn-info btn-sm" >View</a>';
+                return $btn;
+            })
+            ->addColumn('status_tab', function($row){
+                if ($row->status == '1') {
+                    $btn = '<button class="btn btn-sm btn-success">Enabled</button>';
+                } else {
+                    $btn = '<button class="btn btn-sm btn-danger">Disabled</button>';
+                }
+                
+                return $btn;
+            })
+            ->rawColumns(['action','status_tab'])
+            ->make(true);
     }
 
     public function productAddForm()
@@ -180,4 +207,6 @@ class ProductController extends Controller
         $product = DB::table('products')->where('id',$product_id)->first();
         return view('admin.products.add_product_option',compact('option','size','product'));
     }
+
+
 }

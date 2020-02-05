@@ -20,7 +20,6 @@
                               <th>Product Code</th>
                               <th>Product Name</th>
                               <th>Category</th>
-                              <th>Price</th>
                               <th>Status</th>
                               <th>Action</th>
                             </tr>
@@ -47,13 +46,12 @@
                 iDisplayLength: 50,
                 processing: true,
                 serverSide: true,
-                ajax: "#",
+                ajax: "{{route('admin.product_list_ajax')}}",
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-                    {data: 'id', name: 'id',searchable: true},
-                    {data: 'name', name: 'name',searchable: true},
-                    {data: 'c_name', name: 'c_name' ,searchable: true},
-                    {data: 'first_c_name', name: 'first_c_name' ,searchable: true},              
+                    {data: 'product_code', name: 'product_code',searchable: true},
+                    {data: 'name', name: 'name' ,searchable: true}, 
+                    {data: 'cat_name', name: 'cat_name',searchable: true},           
                     {data: 'status_tab', name: 'status_tab',orderable: false, searchable: false},                    
                     {data: 'action', name: 'action', orderable: false, searchable: false},
                 ]
