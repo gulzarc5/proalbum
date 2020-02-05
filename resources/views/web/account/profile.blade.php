@@ -1,4 +1,4 @@
-  @extends('web.templet.master')
+ @extends('web.templet.master')
 
     {{-- META --}}
     @section('meta')
@@ -18,7 +18,7 @@
                             <h4>Profile</h4>
                             <p>Profile Detail with few basic information</p>
                         </div>
-                        @if(!empty($my_account) && (count($my_account) > 0))
+                        @if(!empty($my_account))
                         <form>
                             <div class="form-group pl-0">
                                 <label for="inputEmail4">Name</label>
