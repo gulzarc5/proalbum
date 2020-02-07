@@ -43,8 +43,7 @@
                                         <strong>{{ $errors->first('slug') }}</strong>
                                     </span>
                                 @enderror
-                            </div>  
-                                                        
+                            </div>                   
                         </div>
                         <div class="form-row mb-10">
                             <div class="col-md-12 col-sm-12 col-xs-12 mb-3">

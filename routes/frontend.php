@@ -4,8 +4,8 @@ Route::group(['namespace'=>'Web'],function(){
 	Route::get('/', 'IndexController@index')->name('web.index');
 
     /** User Registration Routes **/
-    Route::get('registration-page', 'RegisterController@registrationPage')->name('web.registration_page');
-    Route::get('registration', 'RegisterController@registration')->name('web.registration');
+    Route::get('registration-page', 'RegisterController@showRegistrationForm')->name('web.registration_page');
+    Route::get('registration', 'RegisterController@registration');
 
     /** User Login Routes */
 	Route::get('login', 'LoginController@showLoginForm')->name('web.login');
@@ -22,6 +22,18 @@ Route::group(['namespace'=>'Web'],function(){
         Route::get('edit-my-profile', 'UserController@editMyProfile')->name('web.edit_my_profile');
         /** Update My Profile **/
         Route::post('update-my-profile', 'UserController@updateMyProfile')->name('web.update_my_profile');
+
+        /** Shipping Address List **/
+        Route::get('shipping-address-list', 'ShippingController@shippingAddressList')->name('web.shipping_address_list'); 
+         /** Edit Shipping Address **/
+        Route::get('edit-shipping-address', 'ShippingController@editShippingAddress')->name('web.edit_shipping_address');
+         /** Update Shipping Address **/
+        Route::post('update-shipping-address', 'ShippingController@updateShippingAddress')->name('web.update_shipping_address');
+
+        /** Change Password **/
+        Route::get('change-password-form', 'PasswordController@showChangePasswordForm')->name('web.change_password_form'); 
+        /** Update Password **/
+        Route::post('update-password', 'PasswordController@updatePassword'); 
     });
 });
 
@@ -57,17 +69,5 @@ Route::get('/Cart', function () {
 // Route::get('/Account/Profile/Edit', function () {
 //     return view('web.account.profile-edit');
 // })->name('web.account.profile-edit'); 
-
-Route::get('/Account/Shipping', function () {
-    return view('web.account.shipping');
-})->name('web.account.shipping'); 
-
-Route::get('/Account/Shipping/Edit', function () {
-    return view('web.account.shipping-edit');
-})->name('web.account.shipping-edit');
-
-Route::get('/Account/Change-password', function () {
-    return view('web.account.change-password');
-})->name('web.account.change-password'); 
 
 

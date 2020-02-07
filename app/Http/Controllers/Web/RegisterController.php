@@ -10,7 +10,7 @@ use Hash;
 
 class RegisterController extends Controller
 {
-    public function registrationPage() {
+    public function showRegistrationForm() {
     	return view('web.register');
     }
 

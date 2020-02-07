@@ -18,7 +18,7 @@
                             <h4>Register</h4>
                             <p>Welcome! register by entering few basic detail</p>
                         </div>
-                        <form action="{{ route('web.registration') }}" autocomplete="off">
+                        <form action="{{ url('registration') }}" autocomplete="off">
                             @csrf
                             <div class="form-group pl-0">
                                 <label for="inputEmail4">Name</label>

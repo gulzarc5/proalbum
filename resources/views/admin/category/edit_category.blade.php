@@ -27,7 +27,7 @@
                     <input type="hidden" value="{{encrypt($category_record->id)}}" name="category_id">
 	            	<div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                            <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
                                 <label for="name">Category name</label>
                                 <input type="text" value="{{ $category_record->name }}" class="form-control" name="name"  placeholder="Enter Product name" id="name">
                                   @if($errors->has('name'))
@@ -36,12 +36,21 @@
                                       </span>
                                   @enderror
                               </div>
-                              <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                              <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
                                 <label for="slug">URL Slug</label>
                                 <input type="text" class="form-control" value="{{ $category_record->url_slug }}" id="slug" name="slug"  placeholder="Enter Tag Name" readonly>
                                 @if($errors->has('slug'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('slug') }}</strong>
+                                    </span>
+                                @enderror
+                            </div> 
+                            <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
+                                <label for="sort">Sort</label>
+                                <input type="number" min="1" class="form-control" id="sort" name="sort" placeholder="Enter Sort">
+                                @if($errors->has('slug'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('sort') }}</strong>
                                     </span>
                                 @enderror
                             </div>  

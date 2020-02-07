@@ -19,6 +19,7 @@
                             <th>Category</th>
                             <th>Status</th>
                             <th>Option</th>
+                            <th>Sort</th>
                         </tr>
                       </thead>
                       <tbody class="form-text-element">
@@ -40,6 +41,7 @@
                                             <i class="fa fa-pencil" style="color: #3273F4; font-size: 18px;"></i>
                                         </a>
                                     </td>
+                                    <td>{{ $item->sort }}</td>
                                 </tr> 
                             @endforeach
                         @endif
