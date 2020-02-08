@@ -4259,11 +4259,14 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 }
 /** /bootstrap-datetimepicker **/
 .sheet .radio{
-    width: 25%;
+    width: 15%;
     float:left;
 }
+.sheet .radio label {
+    padding-left: 0;
+}
 .sheet .type input{
-    width: 35%;
+    width: 25%;
     float:left;
     margin-right: 10px;
 }
@@ -4274,4 +4277,34 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
     width: 50%;
     margin-left: 20px;
     margin-bottom: 10px;
+}
+.option-size-price {
+    display: block;
+}
+.option-size-price b:first-child {
+    padding-right: 50px;
+}
+.option-size-price b input, .name-input{
+    width: 50px;
+    margin-bottom: 3px;
+    height: 20px;
+}
+.name-input{
+    width: 100px
+}
+th.option-size-price b:first-child {
+    padding-right: 70px;
+}
+.wd-300{
+    width: 300px;
+}
+.wd-150{
+    width: 150px;
+}
+.option-img {
+    width: 100px
+}
+.btn-add-option {
+float: right;
+width: 20%;
 }

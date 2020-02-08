@@ -127,74 +127,85 @@
                             </div>  
                         </div>
 
-                        
-                        <div class="form-group col-md-6" id="size-div">
-                            <label class="col-sm-12 control-label">Size</label>
-                            <div class="col-sm-2" style="width:150px;">
-                                <input type="text" name="swidth[]" id="swidth" class="form-control" placeholder="Width" required="">
+                        <div class="form-row mb-10">
+                            <div class="form-group" id="size-div">
+                                <div class="form-row">
+                                    <label class="col-sm-12 control-label">Size</label>
+                                    <div class="col-sm-2" style="width:150px;">
+                                        <input type="text" name="swidth[]" id="swidth" class="form-control" placeholder="Width" required="">
+                                    </div>
+                                    <div class="col-sm-2" style="width:auto;line-height: 40px;">X</div>
+                                    <div class="col-sm-2" style="width:150px;">
+                                        <input type="text" name="sheight[]" id="sheigth" class="form-control" placeholder="Height" required="">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Extra Page/ Sheet/ Quantity Price" required="">
+                                    </div>
+                                </div>    
+                               <button type="button" class="btn btn-info" id="addsize" name="addsize" onclick="addMoreSize()">+ Add More</button> 
                             </div>
-                            <div class="col-sm-2" style="width:auto;line-height: 40px;">X</div>
-                            <div class="col-sm-2" style="width:150px;">
-                                <input type="text" name="sheight[]" id="sheigth" class="form-control" placeholder="Height" required="">
-                            </div>
-                            <div class="col-sm-2">
-                                <input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">
-                            </div>
-                           <button type="button" class="btn btn-primary" id="addsize" name="addsize" onclick="addMoreSize()">Add</button> 
                         </div>
 
-                        <div class="form-group col-md-6 sheet" >        
-                            <label class="col-sm-12 control-label">Sheet Type</label>                   
-                            <div class="col-sm-12 type">
-                                <div class="radio">
-                                    <label class="hover">
-                                        <div class="iradio_flat-green hover" style="position: relative;">
-                                            <input type="radio" class="flat" checked="" name="sheet_type" style="position: absolute; opacity: 0;" value="1" checked>
-                                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                        </div> Page 
-                                    </label>
+                        <div class="form-row mb-10">
+                            <div class="form-group sheet">
+                                <label class="col-sm-12 control-label">Product Type</label>                   
+                                <div class="col-sm-12 type">
+                                    <div class="radio">
+                                        <label class="hover">
+                                            <div class="iradio_flat-green hover" style="position: relative;">
+                                                <input type="radio" class="flat" checked="" name="sheet_type" style="position: absolute; opacity: 0;" value="1" checked>
+                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                            </div> Page 
+                                        </label>
+                                    </div>
+                                    <div id="page-input">
+                                        <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page">
+                                        <input type="text" class="form-control" placeholder="number of pages" name="number_of_pages" >
+                                        <input type="text" class="form-control" placeholder="Price" name="page_value" >
+                                    </div>                                
                                 </div>
-                                <div id="page-input">
-                                    <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page" >
-                                    <input type="text" class="form-control" placeholder="Value" name="page_value" >
-                                </div>                                
-                            </div>
-                            <div class="col-sm-12 type">
-                                <div class="radio">
-                                    <label class="hover">
-                                        <div class="iradio_flat-green hover" style="position: relative;">
-                                            <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="2">
-                                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                        </div> Spread 
-                                    </label>
+                                <div class="col-sm-12 type">
+                                    <div class="radio">
+                                        <label class="hover">
+                                            <div class="iradio_flat-green hover" style="position: relative;">
+                                                <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="2">
+                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                            </div> Spread 
+                                        </label>
+                                    </div>
+                                    <div id="spread-div">
+                                        <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display">
+                                        <input type="text" class="form-control" placeholder="number of spread" name="number_of_pages" >
+                                        <input type="text" class="form-control" placeholder="Price" name="spread_value" >
+                                    </div>                                
                                 </div>
-                                <div id="spread-div">
-                                    <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" >
-                                    <input type="text" class="form-control" placeholder="Value" name="spread_value" >
-                                </div>                                
-                            </div>
-                            <div class="col-sm-12 type">
-                                <div class="radio">
-                                    <label class="hover">
-                                        <div class="iradio_flat-green hover" style="position: relative;">
-                                            <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="3">
-                                            <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                        </div> Quantity
-                                    </label>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display" >
-                                <input type="text" class="form-control" placeholder="Value" name="quantity_value" >
-                            </div>  	
-                        </div>                        
+                                <div class="col-sm-12 type">
+                                    <div class="radio">
+                                        <label class="hover">
+                                            <div class="iradio_flat-green hover" style="position: relative;">
+                                                <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="3">
+                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                            </div> Quantity
+                                        </label>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display">
+                                    <input type="text" class="form-control" placeholder="Enter Quantity" name="number_of_pages" >
+                                    <input type="text" class="form-control" placeholder="Price" name="quantity_value" >
+                                </div>  	
+                            </div> 
+                        </div>                       
                     </div>
 
                     <div class="well" style="overflow: auto">
                         <div class="form-row mb-10" id="option-div">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                            <div class="col-md-7 col-sm-12 col-xs-12 mb-3">
                                 <label for="option">Option Name</label>
                                 <br>
                                 <input type="text" class="form-control" name="option[]"  placeholder="Enter Product name" id="name" style="width:80%;float:left" required>
-                                <button type="button" class="btn btn-sm btn-info" style="float:right" onclick="moreOption()">Add More</button>
+                                <button type="button" class="btn btn-info" style="float:right" onclick="moreOption()">+ Add More</button>
                             </div>                                                  
                         </div>
                        
