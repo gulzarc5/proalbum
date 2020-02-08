@@ -14,6 +14,9 @@ function addMoreSize() {
             '<div class="col-sm-2">'+
                 '<input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">'+
            '</div>'+
+           '<div class="col-sm-4">'+
+                '<input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Extra Page/ Sheet/ Quantity Price" required="">'
+            +'</div>'+
             '<button type="button" style="border:0;background:transparent" onclick="removeSizeDiv('+sizeDivCount+')"><i class="fa fa-trash" aria-hidden="false" style="font-size: 32px;color: #ff7600f0;"></i></button>'+
         '</div>';
     $("#size-div").append(sizeHtml);
@@ -76,6 +79,45 @@ function numToString(num) {
         return "Fiftinth";
     } else {
         return "Sixtinth";
+    }
+}
+
+//////////////////////////// Show Input Of Product Type
+
+function showInput(sheet_type) {
+    // var sheet_type = $( "input[type=radio][name=sheet_type]:checked" ).val();
+
+    if(sheet_type == 1) {
+        $('#page_2').prop('disabled', false);
+        $('#page_3').prop('disabled', false);
+
+        $('#spread_2').prop('disabled', true);
+        $('#spread_3').prop('disabled', true);
+
+        $('#quantity_2').prop('disabled', true);
+        $('#quantity_3').prop('disabled', true);
+    }
+
+    if(sheet_type == 2) {
+        $('#page_2').prop('disabled', true);
+        $('#page_3').prop('disabled', true);
+
+        $('#spread_2').prop('disabled', false);
+        $('#spread_3').prop('disabled', false);
+
+        $('#quantity_2').prop('disabled', true);
+        $('#quantity_3').prop('disabled', true);
+    }
+
+    if(sheet_type == 3) {
+        $('#page_2').prop('disabled', true);
+        $('#page_3').prop('disabled', true);
+
+        $('#spread_2').prop('disabled', true);
+        $('#spread_3').prop('disabled', true);
+
+        $('#quantity_2').prop('disabled', false);
+        $('#quantity_3').prop('disabled', false);
     }
 }
 
