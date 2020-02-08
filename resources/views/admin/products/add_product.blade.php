@@ -101,14 +101,32 @@
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="unit">Select Unit</label>
-                                <select class="form-control" name="unit" >
-                                    <option value="">--Select Unit--</option>
-                                    @if (isset($unit) && !empty($unit))
-                                        @foreach ($unit as $item)
-                                        <option value="{{$item->id}}">{{$item->units}}</option>
-                                        @endforeach                                        
-                                    @endif
-                                </select>
+                                <div style="display: flex;">
+                                    <div class="radio" style="margin-top: 10px;margin-bottom: 10px;float: left;padding-right: 30px">
+                                        <label class="hover" style="padding-left: 0px">
+                                            <div class="iradio_flat-green hover" style="position: relative;">
+                                                <input type="radio" class="flat" name="select_unit" style="position: absolute; opacity: 0;" value="2" checked>
+                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                            </div> CM 
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="margin-top: 10px;margin-bottom: 10px;float: left;padding-right: 30px">
+                                        <label class="hover">
+                                            <div class="iradio_flat-green hover" style="position: relative;">
+                                                <input type="radio" class="flat" name="select_unit" style="position: absolute; opacity: 0;" value="2">
+                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                            </div> INCH
+                                        </label>
+                                    </div>
+                                    <div class="radio" style="margin-top: 10px;margin-bottom: 10px;float: left;">
+                                        <label class="hover">
+                                            <div class="iradio_flat-green hover" style="position: relative;">
+                                                <input type="radio" class="flat" name="select_unit" style="position: absolute; opacity: 0;" value="2">
+                                                <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
+                                            </div> MM
+                                        </label>
+                                    </div>
+                                </div>
                                 @if($errors->has('unit'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('unit') }}</strong>
