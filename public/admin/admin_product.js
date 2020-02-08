@@ -14,6 +14,9 @@ function addMoreSize() {
             '<div class="col-sm-2">'+
                 '<input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">'+
            '</div>'+
+           '<div class="col-sm-4">'+
+                '<input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Extra Page/ Sheet/ Quantity Price" required="">'
+            +'</div>'+
             '<button type="button" style="border:0;background:transparent" onclick="removeSizeDiv('+sizeDivCount+')"><i class="fa fa-trash" aria-hidden="false" style="font-size: 32px;color: #ff7600f0;"></i></button>'+
         '</div>';
     $("#size-div").append(sizeHtml);
