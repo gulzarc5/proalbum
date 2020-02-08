@@ -156,30 +156,30 @@
                                     <div class="radio">
                                         <label class="hover">
                                             <div class="iradio_flat-green hover" style="position: relative;">
-                                                <input type="radio" class="flat" checked="" name="sheet_type" style="position: absolute; opacity: 0;" value="1" checked>
+                                                <input type="radio" class="flat" checked="" name="sheet_type" style="position: absolute; opacity: 0;" value="1" checked id="page_radio_btn">
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                             </div> Page 
                                         </label>
                                     </div>
                                     <div id="page-input">
-                                        <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page">
-                                        <input type="text" class="form-control" placeholder="number of pages" name="number_of_pages" >
-                                        <input type="text" class="form-control" placeholder="Price" name="page_value" >
+                                        <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page" id="page_1">
+                                        <input type="text" class="form-control" placeholder="number of pages" name="number_of_pages" id="page_2">
+                                        <input type="text" class="form-control" placeholder="Price" name="page_value" id="page_3">
                                     </div>                                
                                 </div>
                                 <div class="col-sm-12 type">
                                     <div class="radio">
                                         <label class="hover">
                                             <div class="iradio_flat-green hover" style="position: relative;">
-                                                <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="2">
+                                                <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="2" id="sheet_type_radio_btn">
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                             </div> Spread 
                                         </label>
                                     </div>
                                     <div id="spread-div">
-                                        <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display">
-                                        <input type="text" class="form-control" placeholder="number of spread" name="number_of_pages" >
-                                        <input type="text" class="form-control" placeholder="Price" name="spread_value" >
+                                        <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" id="sheet_type_1">
+                                        <input type="text" class="form-control" placeholder="number of spread" name="number_of_pages" disabled id="sheet_type_2">
+                                        <input type="text" class="form-control" placeholder="Price" name="spread_value" disabled id="sheet_type_3">
                                     </div>                                
                                 </div>
                                 <div class="col-sm-12 type">
@@ -192,8 +192,8 @@
                                         </label>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display">
-                                    <input type="text" class="form-control" placeholder="Enter Quantity" name="number_of_pages" >
-                                    <input type="text" class="form-control" placeholder="Price" name="quantity_value" >
+                                    <input type="text" class="form-control" placeholder="Enter Quantity" name="number_of_pages" disabled>
+                                    <input type="text" class="form-control" placeholder="Price" name="quantity_value" disabled>
                                 </div>  	
                             </div> 
                         </div>                       
@@ -337,6 +337,10 @@ $(document).ready(function(){
         var str = $('#name').val();
         var d = str.replace(/\s+/g, '-').toLowerCase();
         $('#slug').val(d);
+    });
+
+    $('#sheet_type_radio_btn').click(function(){
+        alert('gjyug');
     });
 });
 </script>
