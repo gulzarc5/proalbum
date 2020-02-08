@@ -82,3 +82,42 @@ function numToString(num) {
     }
 }
 
+//////////////////////////// Show Input Of Product Type
+
+function showInput(sheet_type) {
+    // var sheet_type = $( "input[type=radio][name=sheet_type]:checked" ).val();
+
+    if(sheet_type == 1) {
+        $('#page_2').prop('disabled', false);
+        $('#page_3').prop('disabled', false);
+
+        $('#spread_2').prop('disabled', true);
+        $('#spread_3').prop('disabled', true);
+
+        $('#quantity_2').prop('disabled', true);
+        $('#quantity_3').prop('disabled', true);
+    }
+
+    if(sheet_type == 2) {
+        $('#page_2').prop('disabled', true);
+        $('#page_3').prop('disabled', true);
+
+        $('#spread_2').prop('disabled', false);
+        $('#spread_3').prop('disabled', false);
+
+        $('#quantity_2').prop('disabled', true);
+        $('#quantity_3').prop('disabled', true);
+    }
+
+    if(sheet_type == 3) {
+        $('#page_2').prop('disabled', true);
+        $('#page_3').prop('disabled', true);
+
+        $('#spread_2').prop('disabled', true);
+        $('#spread_3').prop('disabled', true);
+
+        $('#quantity_2').prop('disabled', false);
+        $('#quantity_3').prop('disabled', false);
+    }
+}
+
