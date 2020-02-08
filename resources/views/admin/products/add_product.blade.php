@@ -154,7 +154,7 @@
                                 <label class="col-sm-12 control-label">Product Type</label>                   
                                 <div class="col-sm-12 type">
                                     <div class="radio">
-                                        <label class="hover">
+                                        <label class="hover" onclick="showInput(1)">
                                             <div class="iradio_flat-green hover" style="position: relative;">
                                                 <input type="radio" class="flat" checked="" name="sheet_type" style="position: absolute; opacity: 0;" value="1" checked id="page_radio_btn">
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
@@ -169,31 +169,31 @@
                                 </div>
                                 <div class="col-sm-12 type">
                                     <div class="radio">
-                                        <label class="hover">
+                                        <label class="hover" onclick="showInput(2)">
                                             <div class="iradio_flat-green hover" style="position: relative;">
-                                                <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="2" id="sheet_type_radio_btn">
+                                                <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="2">
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                             </div> Spread 
                                         </label>
                                     </div>
                                     <div id="spread-div">
-                                        <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" id="sheet_type_1">
-                                        <input type="text" class="form-control" placeholder="number of spread" name="number_of_pages" disabled id="sheet_type_2">
-                                        <input type="text" class="form-control" placeholder="Price" name="spread_value" disabled id="sheet_type_3">
+                                        <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" id="spread_1">
+                                        <input type="text" class="form-control" placeholder="number of spread" name="number_of_pages" disabled id="spread_2">
+                                        <input type="text" class="form-control" placeholder="Price" name="spread_value" disabled id="spread_3">
                                     </div>                                
                                 </div>
                                 <div class="col-sm-12 type">
                                     <div class="radio">
-                                        <label class="hover">
+                                        <label class="hover" onclick="showInput(3)">
                                             <div class="iradio_flat-green hover" style="position: relative;">
                                                 <input type="radio" class="flat" name="sheet_type" style="position: absolute; opacity: 0;" value="3">
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                             </div> Quantity
                                         </label>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display">
-                                    <input type="text" class="form-control" placeholder="Enter Quantity" name="number_of_pages" disabled>
-                                    <input type="text" class="form-control" placeholder="Price" name="quantity_value" disabled>
+                                    <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display" id="quantity_1">
+                                    <input type="text" class="form-control" placeholder="Enter Quantity" name="number_of_pages" disabled id="quantity_2">
+                                    <input type="text" class="form-control" placeholder="Price" name="quantity_value" disabled id="quantity_3">
                                 </div>  	
                             </div> 
                         </div>                       
