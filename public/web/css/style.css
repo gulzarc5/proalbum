@@ -2558,7 +2558,7 @@ li.vimeo:hover i {
     margin: 10px 0;
 }
 
-.checkout-tab label {
+.checkout-tab label, #product-select label {
     color: #333333;
     font-size: 13px;
     text-transform: capitalize;
@@ -2711,7 +2711,10 @@ ul.nav-wizard li a:hover {
     text-transform: capitalize;
     font-weight: 400;
     letter-spacing: 2px;
-    font-size: 21px;
+    font-size: 25px;
+    border-bottom: 1px solid #b7b5b5;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .bgw.shop-desc small {
