@@ -41,26 +41,40 @@
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="shop-desc bgw">
                                     <h3>Custom Single Shop Item </h3>
-                                    <small>$441.00</small>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
+                                    <div>
+                                        <p>Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet..</p>
+
+                                        <a href="#" class="button button--aylen btn">Product Selection</a>
+
+                                        <div class="addwish">
+                                            <a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> Add to Wishlist</a>
+                                        </div><!-- end addw -->
+                                        <div class="shopmeta">
+                                            <span><strong>Category:</strong> <a href="#">Furniture Supplies Foods</a></span>
+                                            <span><strong>Tags:</strong> <a href="#">Furniture</a>, <a href="#">Art</a></span>
+                                        </div><!-- end shopmeta -->
                                     </div>
-                                    <p>Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet..</p>
-
-                                    <a href="#" class="button button--aylen btn">Add to Cart</a>
-
-                                    <div class="addwish">
-                                        <a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> Add to Wishlist</a>
-                                    </div><!-- end addw -->
-                                    <div class="shopmeta">
-                                        <span><strong>Category:</strong> <a href="#">Furniture Supplies Foods</a></span>
-                                        <span><strong>Tags:</strong> <a href="#">Furniture</a>, <a href="#">Art</a></span>
-                                    </div><!-- end shopmeta -->
-
+                                    <div id="product-select">
+                                        <h4>Product Selection</h4>
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <label>Size*</label>
+                                                <select class="form-control">
+                                                    <option value="">12 x 12</option>
+                                                    <option value="">15 x 15</option>
+                                                    <option value="">20 x 20</option>                                                    
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Number of pages*</label>
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="flex">
+                                            <a href="{{route('web.shipping_address_list')}}" class="btn btn-cancel" style="margin-right:10px">Cancel</a>
+                                            <button type="submit" class="btn btn-primary">Proceed to cart</button>                                
+                                        </div>
+                                    </div>   
                                 </div><!-- end desc -->
                             </div><!-- end col -->
                         </div><!-- end row -->
