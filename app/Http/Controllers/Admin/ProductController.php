@@ -28,7 +28,7 @@ class ProductController extends Controller
         return datatables()->of($query->get())
             ->addIndexColumn()
             ->addColumn('action', function($row){
-                $btn ='<a href="#" class="btn btn-warning btn-sm" >Edit</a><a href="#" class="btn btn-info btn-sm" >View</a>';
+                $btn ='<a href="#" class="btn btn-warning btn-sm" >Edit</a><a href="'.route('admin.products.product_detail').'" class="btn btn-info btn-sm" >View</a>';
                 return $btn;
             })
             ->addColumn('status_tab', function($row){

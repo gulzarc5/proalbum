@@ -70,3 +70,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
 Route::get('admin/add/option/details', function () {
     return view('admin.products.add_product_option');
 })->name('admin.products.add_product_option');
+
+Route::get('admin/product/details', function () {
+    return view('admin.products.product_detail');
+})->name('admin.products.product_detail');

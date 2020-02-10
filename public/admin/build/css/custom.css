@@ -3381,11 +3381,11 @@ ul.project_files li a i {
     height: 100px;
     float: left;
     margin: 10px;
-    border: 1px solid #e5e5e5
+    border: 1px solid #e5e5e5;
+    overflow: hidden;
 }
 .product_gallery a img {
     width: 100%;
-    margin-top: 15px
 }
 .product_price {
     margin: 20px 0;
@@ -4305,6 +4305,9 @@ th.option-size-price b:first-child {
     width: 100px
 }
 .btn-add-option {
-float: right;
-width: 20%;
+    float: right;
+    width: 20%;
+}
+.product-view-tag h5 {
+    margin-bottom: 5px;
 }
