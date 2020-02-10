@@ -23,7 +23,24 @@
 	        <div>
 	            <div class="x_content">
 	            	{{ Form::open(['method' => 'post','route'=>'admin.product_add','enctype'=>'multipart/form-data']) }}
-	            	<div class="well" style="overflow: auto">
+                    <div class="well" style="overflow: auto">
+                        <div class="form-row mb-10">
+                            <div class="form-row mb-10">
+                                <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                  <label for="img">Image</label>
+                                  <input type="file" onchange="readURL(this)" class="form-control" name="img"></input>
+                                   @if($errors->has('img'))
+                                        <span class="invalid-feedback" role="alert" style="color:red">
+                                            <strong>{{ $errors->first('img') }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>       
+                                <div class="col-md-6 col-sm-12 col-xs-12 mb-3" style="min-height: 60px;">
+                                    <img src="" height="300px" id="preview" style="padding: 12px;">
+                                </div>                                                                                 
+                            </div>  
+                        </div>
+
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="name">Name</label>
@@ -33,22 +50,11 @@
                                           <strong>{{ $errors->first('name') }}</strong>
                                       </span>
                                   @enderror
-                              </div>
+                              </div>    
+                              
                               <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="slug">URL Slug</label>
-                                <input type="text" class="form-control" id="slug" name="slug" readonly value="{{old('slug')}}">
-                                @if($errors->has('slug'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('slug') }}</strong>
-                                    </span>
-                                @enderror
-                            </div>                                                          
-                        </div>
-
-                        <div class="form-row mb-10">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="p_code">Product Code</label><br>
-                                <input type="text" class="form-control" name="p_prefix"  placeholder="Enter Prefix" value="{{old('p_prefix', "PRO-")}}" style="width:49.5%;float:left">
+                                <input type="text" class="form-control" name="p_prefix"  placeholder="Enter Prefix" value="{{old('p_prefix', "PRO")}}" style="width:49.5%;float:left">
                                 <input type="text" class="form-control" name="p_code"  placeholder="Enter Product Code" value="{{old('p_code')}}" style="width:49%;margin-left:5px;float:left">
                                 @if($errors->has('p_prefix'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
@@ -62,6 +68,9 @@
                                 @enderror
                                   
                               </div>
+                        </div>
+
+                        <div class="form-row mb-10">                            
                               <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="category">Category</label>
                                 <select class="form-control" name="category" >
@@ -78,22 +87,7 @@
                                     </span>
                                 @enderror
                             </div>                                                          
-                        </div>
-
-                        <div class="form-row mb-10">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                              <label for="img">Image</label>
-                              <input type="file" onchange="readURL(this)" class="form-control" name="img"></input>
-                               @if($errors->has('img'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('img') }}</strong>
-                                    </span>
-                                @enderror
-                            </div>       
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <img src="" height="300px" id="preview" style="padding: 12px;">
-                            </div>                                                                                 
-                        </div>                        
+                        </div>             
                     </div>
 
                     <div class="well" style="overflow: auto">
@@ -105,7 +99,7 @@
                                     <div class="radio" style="margin-top: 10px;margin-bottom: 10px;float: left;padding-right: 30px">
                                         <label class="hover" style="padding-left: 0px">
                                             <div class="iradio_flat-green hover" style="position: relative;">
-                                                <input type="radio" class="flat" name="select_unit" style="position: absolute; opacity: 0;" value="2" checked>
+                                                <input type="radio" class="flat" name="unit" style="position: absolute; opacity: 0;" value="CM" checked>
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                             </div> CM 
                                         </label>
@@ -113,7 +107,7 @@
                                     <div class="radio" style="margin-top: 10px;margin-bottom: 10px;float: left;padding-right: 30px">
                                         <label class="hover">
                                             <div class="iradio_flat-green hover" style="position: relative;">
-                                                <input type="radio" class="flat" name="select_unit" style="position: absolute; opacity: 0;" value="2">
+                                                <input type="radio" class="flat" name="unit" style="position: absolute; opacity: 0;" value="INCH">
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                             </div> INCH
                                         </label>
@@ -121,7 +115,7 @@
                                     <div class="radio" style="margin-top: 10px;margin-bottom: 10px;float: left;">
                                         <label class="hover">
                                             <div class="iradio_flat-green hover" style="position: relative;">
-                                                <input type="radio" class="flat" name="select_unit" style="position: absolute; opacity: 0;" value="2">
+                                                <input type="radio" class="flat" name="unit" style="position: absolute; opacity: 0;" value="MM">
                                                 <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
                                             </div> MM
                                         </label>
@@ -160,7 +154,7 @@
                                         <input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">
                                     </div>
                                     <div class="col-sm-4">
-                                        <input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Extra Page/ Sheet/ Quantity Price" required="">
+                                        <input type="text" name="sprice[]" id="displaysize" class="form-control" placeholder="Extra Page/ Sheet/ Quantity Price" required="">
                                     </div>
                                 </div>    
                                <button type="button" class="btn btn-info" id="addsize" name="addsize" onclick="addMoreSize()">+ Add More</button> 
@@ -181,8 +175,8 @@
                                     </div>
                                     <div id="page-input">
                                         <input type="text" class="form-control" placeholder="Display Name" name="page_display" value="Page" id="page_1">
-                                        <input type="text" class="form-control" placeholder="number of pages" name="number_of_pages" id="page_2">
-                                        <input type="text" class="form-control" placeholder="Price" name="page_value" id="page_3">
+                                        <input type="text" class="form-control" placeholder="number of pages" name="page_value" id="page_2">
+                                        <input type="text" class="form-control" placeholder="Price" name="page_price" id="page_3">
                                     </div>                                
                                 </div>
                                 <div class="col-sm-12 type">
@@ -196,8 +190,8 @@
                                     </div>
                                     <div id="spread-div">
                                         <input type="text" class="form-control" placeholder="Display Name" value="Spread" name="spread_display" id="spread_1">
-                                        <input type="text" class="form-control" placeholder="number of spread" name="number_of_pages" disabled id="spread_2">
-                                        <input type="text" class="form-control" placeholder="Price" name="spread_value" disabled id="spread_3">
+                                        <input type="text" class="form-control" placeholder="number of spread" name="spread_value" disabled id="spread_2">
+                                        <input type="text" class="form-control" placeholder="Price" name="spread_price" disabled id="spread_3">
                                     </div>                                
                                 </div>
                                 <div class="col-sm-12 type">
@@ -210,8 +204,8 @@
                                         </label>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Display Name" value="Quantity" name="quantity_display" id="quantity_1">
-                                    <input type="text" class="form-control" placeholder="Enter Quantity" name="number_of_pages" disabled id="quantity_2">
-                                    <input type="text" class="form-control" placeholder="Price" name="quantity_value" disabled id="quantity_3">
+                                    <input type="text" class="form-control" placeholder="Enter Quantity" name="quantity_value" disabled id="quantity_2">
+                                    <input type="text" class="form-control" placeholder="Price" name="quantity_price" disabled id="quantity_3">
                                 </div>  	
                             </div> 
                         </div>                       
@@ -219,11 +213,11 @@
 
                     <div class="well" style="overflow: auto">
                         <div class="form-row mb-10" id="option-div">
-                            <div class="col-md-7 col-sm-12 col-xs-12 mb-3">
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="option">Option Name</label>
                                 <br>
-                                <input type="text" class="form-control" name="option[]"  placeholder="Enter Product name" id="name" style="width:80%;float:left" required>
-                                <button type="button" class="btn btn-info" style="float:right" onclick="moreOption()">+ Add More</button>
+                                <input type="text" class="form-control" name="option[]"  placeholder="Enter Product name" id="name" style="width:75%;float:left" required>
+                                <button type="button" class="btn btn-info" style="float:right;" onclick="moreOption()">+ Add More</button>
                             </div>                                                  
                         </div>
                        
@@ -266,44 +260,7 @@
                                 @enderror
                             </div>                                                                                 
                         </div>
-                    </div>
-
-                    <div class="well" style="overflow: auto">
-                        <div class="form-row mb-10">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="seo_page_title">SEO Page Title</label>
-                                <input type="text" class="form-control" name="seo_page_title"  placeholder="Enter Product Title" >
-                                  @if($errors->has('seo_page_title'))
-                                      <span class="invalid-feedback" role="alert" style="color:red">
-                                          <strong>{{ $errors->first('seo_page_title') }}</strong>
-                                      </span>
-                                  @enderror
-                              </div>
-                              <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="seo_meta_desc">SEO Meta Description</label>
-                                <input type="text" class="form-control" name="seo_meta_desc"  placeholder="Enter Tag Name" >
-                                @if($errors->has('seo_meta_desc'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('seo_meta_desc') }}</strong>
-                                    </span>
-                                @enderror
-                            </div>  
-                                                        
-                        </div>
-                        <div class="form-row mb-10">
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                              <label for="seo_meta_tag">SEO Meta Tag</label>
-                              <textarea type="text" class="form-control" name="seo_meta_tag" id="desc"></textarea>
-                              @if($errors->has('seo_meta_tag'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('seo_meta_tag') }}</strong>
-                                    </span>
-                                @enderror
-                            </div>                                                                                 
-                        </div>
-                    </div>
-
-                    
+                    </div>                    
                     <div class="form-group">    	            	
                         {{ Form::submit('Next', array('class'=>'btn btn-success')) }}  
                     {{-- <a href="{{route('admin.products.add_product_option')}}" class="btn btn-primary">Next</a> --}}

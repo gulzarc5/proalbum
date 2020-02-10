@@ -9,13 +9,13 @@ function addMoreSize() {
             '</div>'+
             '<div class="col-sm-2" style="width:auto;line-height: 40px;">X</div>'+
             '<div class="col-sm-2" style="width:150px;">'+
-                '<input type="text" name="sheigth[]" id="sheigth" class="form-control" placeholder="Height" required="">'+
+                '<input type="text" name="sheight[]" id="sheigth" class="form-control" placeholder="Height" required="">'+
             '</div>'+
             '<div class="col-sm-2">'+
                 '<input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Display Size" required="">'+
            '</div>'+
            '<div class="col-sm-4">'+
-                '<input type="text" name="displaysize[]" id="displaysize" class="form-control" placeholder="Extra Page/ Sheet/ Quantity Price" required="">'
+                '<input type="text" name="sprice[]" id="sprice" class="form-control" placeholder="Extra Page/ Sheet/ Quantity Price" required="">'
             +'</div>'+
             '<button type="button" style="border:0;background:transparent" onclick="removeSizeDiv('+sizeDivCount+')"><i class="fa fa-trash" aria-hidden="false" style="font-size: 32px;color: #ff7600f0;"></i></button>'+
         '</div>';

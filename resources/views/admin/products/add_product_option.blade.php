@@ -30,7 +30,7 @@
                     {{ Form::open(['method' => 'put','route'=>'admin.categoryInsert','enctype'=>'multipart/form-data']) }}
                     @if (isset($option) && !empty($option))
                         @foreach ($option as $item)
-                            <div class="well" style="overflow: auto">
+                            {{-- <div class="well" style="overflow: auto">
                                 <h4 style="border-bottom: 1px solid #dddd;padding-bottom: 5px;margin: 0 0 5px;">{{$item->name}}</h4>
                                 
                                 <div class="form-row mb-10">
@@ -75,7 +75,7 @@
                                     <button type="button" style="margin-left: 50px;position: absolute;top: 13.3%;" class="btn btn-primary">Add More</button>
                                     </div>                                                           
                                 </div>                                                    
-                            </div>
+                            </div> --}}
                         @endforeach
                     @endif
 	            	    

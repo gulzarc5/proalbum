@@ -10,6 +10,7 @@ use Image;
 use File;
 use Illuminate\Contracts\Encryption\DecryptException;
 use DataTables;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -54,25 +55,23 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'slug' => 'required',
             'p_prefix' => 'required',
             'p_code' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'category' => 'required',
             'unit' => 'required',
             'dpi' => 'required',
-
             'swidth.*' => 'required',
             'sheight.*' => 'required',
             'displaysize.*' => 'required',
-
+            'sprice.*' => 'required',
             'sheet_type' => 'required',
             'option' => 'required',
             'shot_desc' => 'required',
         ]);
 
         $name = $request->input('name');
-        $slug = $request->input('slug');
+        $slug = Str::slug($request->input('name'), '-');
         $p_prefix = $request->input('p_prefix');
         $p_code = $request->input('p_code');
 
@@ -81,7 +80,8 @@ class ProductController extends Controller
         $dpi = $request->input('dpi');
         $swidth = $request->input('swidth'); // Array of Size Width
         $sheight = $request->input('sheight'); // Array of Size Height
-        $displaysize = $request->input('displaysize'); // Array of Size Display
+        $displaysize = $request->input('displaysize'); // Array of Size Display        
+        $sprice = $request->input('sprice'); // Array of Size Price
         $sheet_type = $request->input('sheet_type');        
         $sheet_type_name = null;
         $sheet_type_value = null;
@@ -90,22 +90,21 @@ class ProductController extends Controller
         $shot_desc = $request->input('shot_desc');
         $desc_title = $request->input('desc_title');
         $long_desc = $request->input('long_desc');
-        $seo_page_title = $request->input('seo_page_title');
-        $seo_meta_desc = $request->input('seo_meta_desc');
-        $seo_meta_tag = $request->input('seo_meta_tag');
-
-        $product_code = $p_prefix.$p_code;
+        $product_code = $p_prefix."-".$p_code;
 
         if (isset($sheet_type) && !empty($sheet_type)) {
             if ($sheet_type == 1) {
                 $sheet_type_name = $request->input('page_display');
                 $sheet_type_value = $request->input('page_value');
+                $sheet_type_price = $request->input('page_price');
             } elseif ($sheet_type == 2) {
                 $sheet_type_name = $request->input('spread_display');
                 $sheet_type_value = $request->input('spread_value');
+                $sheet_type_price = $request->input('spread_price');
             } else{
                 $sheet_type_name = $request->input('quantity_display');
                 $sheet_type_value = $request->input('quantity_value');
+                $sheet_type_price = $request->input('quantity_price');
             }
             
         }
@@ -136,17 +135,15 @@ class ProductController extends Controller
             'product_code' => $product_code,
             'category_id' => $category,
             'image' => $image_name,
-            'unit_id' => $unit,
+            'unit' => $unit,
             'dpi' => $dpi,
             'sheet_type' => $sheet_type,
             'sheet_name' => $sheet_type_name,
             'sheet_value' => $sheet_type_value,
+            'sheet_price' => $sheet_type_price,
             'p_short_desc' => $shot_desc,
             'p_long_description_title' => $desc_title,
             'p_long_description' => $long_desc,
-            'seo_page_title' => $seo_page_title,
-            'seo_meta_desc' => $seo_meta_desc,
-            'seo_meta_tag' => $seo_meta_tag,
             'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
             'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
         ]);
@@ -155,12 +152,13 @@ class ProductController extends Controller
             if (isset($swidth) && !empty($swidth)) {
                 $sort_size = 1;
                 for ($i=0; $i < count($swidth); $i++) { 
-                   if (isset($swidth[$i]) && isset($sheight[$i]) && isset($displaysize[$i]) && !empty($swidth[$i]) && !empty($sheight[$i]) && !empty($displaysize[$i])) {
+                   if (isset($swidth[$i]) && isset($sheight[$i]) && isset($displaysize[$i]) && !empty($swidth[$i]) && !empty($sheight[$i]) && !empty($displaysize[$i]) && isset($sprice[$i]) && !empty($sprice[$i])) {
                     DB::table('product_size')->insert([
                         'p_id' => $product,
                         'width' => $swidth[$i],
                         'height' => $sheight[$i],
                         'display_name' => $displaysize[$i],
+                        'extra_page_price' => $sprice[$i],
                         'sort' => $sort_size,
                         'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                         'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
@@ -177,7 +175,7 @@ class ProductController extends Controller
                     DB::table('product_option')->insert([
                         'p_id' => $product,
                         'name' => $option[$i],
-                        'sort' => $sort_size,
+                        'sort' => $sort_option,
                         'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                         'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                     ]);
