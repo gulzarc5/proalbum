@@ -298,7 +298,7 @@ class ProductController extends Controller
             $img->save($destinationPath.'/'.$file);
 
             DB::table('product_option_details')
-                ->where('id',$request->input('option_detail_id'))
+                ->where('id',$request->input('option_detail_id'));
         }
 
 

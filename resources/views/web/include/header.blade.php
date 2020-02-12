@@ -18,19 +18,19 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="index.php"><img src="{{asset('web/images/logo1.png')}}" alt=""></a>
+                            <a class="navbar-brand" href="{{ route('web.index') }}"><img src="{{asset('web/images/logo1.png')}}" alt=""></a>
                         </div>
 
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="{{route('web.index')}}">Home</a></li>
+                                <li><a href="{{ route('web.index') }}">Home</a></li>
                                 <li class="dropdown hasmenu">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="fa fa-angle-down"></span></a>
                                     <ul class="dropdown-menu">
                                         @if(count($header_data['categories']) > 0)
                                             @foreach($header_data['categories'] as $item)
                                             <li>
-                                                <a href="{{route('web.shop-list')}}">
+                                                <a href="{{route('web.product_list')}}">
                                                     {{ $item->name }}
                                                 </a>
                                             </li>
