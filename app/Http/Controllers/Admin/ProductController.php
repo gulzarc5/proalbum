@@ -203,7 +203,105 @@ class ProductController extends Controller
         $option = DB::table('product_option')->where('p_id',$product_id)->get();
         $size = DB::table('product_size')->where('p_id',$product_id)->get();
         $product = DB::table('products')->where('id',$product_id)->first();
+        if ($option->count() > 0) {
+            foreach ($option as $key => $value) {
+                $option_details = DB::table('product_option_details')->where('option_id',$value->id)->get();
+                $value->option_details = $option_details;
+                foreach ($option_details as $key => $value1) {
+                    $option_details_price = DB::table('product_option_details_price')
+                        ->select('product_option_details_price.*','product_size.display_name as size_name')
+                        ->join('product_size','product_size.id','=','product_option_details_price.size_id')
+                        ->where('option_details_id',$value1->id)->get();
+                    $value1->option_details_price = $option_details_price;
+                }
+            }
+        }
+        // dd($option);
         return view('admin.products.add_product_option',compact('option','size','product'));
+    }
+
+    public function productOptionAddd(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'size_id.*' => 'required',
+            'price.*' => 'required',
+            'option_id' => 'required',
+        ]);
+        $file = null;
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $file   = time().date('Y-m-d').'.'.$image->getClientOriginalExtension();
+            //Category Thumbnail
+            $destinationPath = public_path('/assets/option_image/thumb');
+            $img = Image::make($image->getRealPath());
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$file);
+         
+            //Category Original Image
+            $destinationPath = public_path('/assets/option_image');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$file);
+        }
+
+        $addOption = DB::table('product_option_details')
+            ->insertGetId([
+                'option_id' => $request->input('option_id'),
+                'name' => $request->input('name'),
+                'image' => $file,
+                'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+                'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+            ]);
+        if ($addOption) {
+            $size_id = $request->input('size_id'); //Array of size Id
+            $price = $request->input('price'); // Array of Product price
+            for ($i=0; $i < count($size_id); $i++) { 
+                $option_detail_price = DB::table('product_option_details_price')
+                ->insert([
+                    'option_details_id' => $addOption,
+                    'size_id' => $size_id[$i],
+                    'price' => $price[$i],
+                    'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+                    'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+                ]);
+            }            
+            return '2';
+        }else{
+            return "1";
+        }
+    }
+
+    public function productOptionEdit(Request $request)
+    {
+        $request->validate([
+            'option_detail_id' => 'required',
+            'optionDetailsName' => 'required',            
+            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+        ]);
+
+        $file = null;
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $file   = time().date('Y-m-d').'.'.$image->getClientOriginalExtension();
+            //Category Thumbnail
+            $destinationPath = public_path('/assets/option_image/thumb');
+            $img = Image::make($image->getRealPath());
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$file);
+         
+            //Category Original Image
+            $destinationPath = public_path('/assets/option_image');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$file);
+
+            DB::table('product_option_details')
+                ->where('id',$request->input('option_detail_id'))
+        }
+
+
     }
 
 

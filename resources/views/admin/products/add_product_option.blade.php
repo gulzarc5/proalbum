@@ -16,76 +16,6 @@
 	            
 	            <div class="clearfix"></div>
 	        </div>
-            <div>
-                 @if (Session::has('message'))
-                    <div class="alert alert-success" >{{ Session::get('message') }}</div>
-                 @endif
-                 @if (Session::has('error'))
-                    <div class="alert alert-danger" >{{ Session::get('error') }}</div>
-                 @endif
-
-            </div>
-	        <div>
-	            <div class="x_content">
-                    {{ Form::open(['method' => 'put','route'=>'admin.categoryInsert','enctype'=>'multipart/form-data']) }}
-                    @if (isset($option) && !empty($option))
-                        @foreach ($option as $item)
-                            {{-- <div class="well" style="overflow: auto">
-                                <h4 style="border-bottom: 1px solid #dddd;padding-bottom: 5px;margin: 0 0 5px;">{{$item->name}}</h4>
-                                
-                                <div class="form-row mb-10">
-                                    <div class="col-md-8 col-sm-12 col-xs-12 mb-3">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">
-                                        @if($errors->has('name'))
-                                            <span class="invalid-feedback" role="alert" style="color:red">
-                                                <strong>{{ $errors->first('name') }}</strong>
-                                            </span>
-                                        @enderror                                
-                                    <label for="img">Image</label>
-                                    <input type="file" onchange="readURL(this)" class="form-control" name="img">
-                                    @if($errors->has('img'))
-                                            <span class="invalid-feedback" role="alert" style="color:red">
-                                                <strong>{{ $errors->first('img') }}</strong>
-                                            </span>
-                                        @enderror
-                                    <label for="name">Size</label>
-                                    <div class="option-size">
-                                        <h4>12 X 12</h4>
-                                        <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                                        @if($errors->has('p_code'))
-                                            <span class="invalid-feedback" role="alert" style="color:red">
-                                                <strong>{{ $errors->first('p_code') }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="option-size">
-                                        <h4>20 X 20</h4>
-                                        <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                                        @if($errors->has('p_code'))
-                                            <span class="invalid-feedback" role="alert" style="color:red">
-                                                <strong>{{ $errors->first('p_code') }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    </div>
-
-                                    <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
-                                    <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
-                                    <button type="button" style="margin-left: 50px;position: absolute;top: 13.3%;" class="btn btn-primary">Add More</button>
-                                    </div>                                                           
-                                </div>                                                    
-                            </div> --}}
-                        @endforeach
-                    @endif
-	            	    
-                    <div class="form-group">    	            	
-                        <button type="button" onclick="last()" class="btn btn-primary">Submit</button>
-                        <a href="{{route('admin.product_add_form')}}" class="btn btn-warning">Back</a>
-                    </div>
-	            	{{ Form::close() }}
-	            </div>
-	        </div>
 	    </div>
         <div class="x_panel">
           <div class="x_title">
@@ -96,396 +26,153 @@
 
             <div style="margin-top: 30px;" role="tabpanel" data-example-id="togglable-tabs">
               <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#tab_content1" role="tab" id="home-tab" data-toggle="tab" aria-expanded="true">Color</a>
-                </li>
-                <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Page</a>
-                </li>
-                <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Paper</a>
-                </li>
+                @if (isset($option) && !empty($option))
+                @php
+                    $active_count = 1;
+                @endphp
+                  @foreach ($option as $item)
+                        @if ($active_count == 1)
+                          <li role="presentation" class="active"><a href="#tab_content{{$item->id}}" role="tab" id="home-tab" data-toggle="tab" aria-expanded="true">{{$item->name}}</a></li>
+                        @else
+                          <li role="presentation" class=""><a href="#tab_content{{$item->id}}" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">{{$item->name}}</a></li>                            
+                        @endif
+                    @php
+                      $active_count++;
+                    @endphp
+                  @endforeach
+                @endif
               </ul>
+              {{-- /////////////////////////Tab Div Start Here ////////////////////////////--}}
               <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                  <div class="well" style="overflow: auto">
-                      <h4 style="border-bottom: 1px solid #dddd;padding-bottom: 5px;margin: 0 0 5px;">Edit</h4>
-                      
+                @if (isset($option) && !empty($option))
+                @php
+                    $count_tab_option = 1;
+                @endphp
+                  @foreach ($option as $item)
+                  
+                    @if ($count_tab_option == '1')
+                      <div role="tabpanel" class="tab-pane fade active in" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                    @else
+                      <div role="tabpanel" class="tab-pane fade" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                    @endif
+                    @php
+                      $count_tab_option++;
+                    @endphp                  
+                    {{--////////////////////////// New Option Item Add Div  ///////////////////////////--}}
+                    {{ Form::open(['method' => 'post','route'=>'admin.new_option_add','enctype'=>'multipart/form-data','id'=>'newOptionAddForm'.$item->id.'']) }}
+                    <div class="well" style="overflow: auto;display:none;" id="newOptionItem{{$item->id}}">                  <input type="hidden" value="{{$item->id}}" name="option_id"> 
                       <div class="form-row mb-10">
-                          <div class="col-md-8 col-sm-12 col-xs-12 mb-30">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">                             
-                            <label for="img">Image</label>
-                            <input type="file" onchange="readURL(this)" class="form-control" name="img">
-                            <label for="name">Size</label>
-                            <div class="option-size">
-                                <h4>12 X 12</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
+                        <div class="col-md-8 col-sm-12 col-xs-12 mb-30" id="errMsg{{$item->id}}">
+                        </div>
+                      </div>
+                        <div class="form-row mb-10">
+                            <div class="col-md-8 col-sm-12 col-xs-12 mb-30">
+                              <label for="name">Name</label>
+                              <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">                             
+                              <label for="img">Image</label>
+                              <input type="file" onchange="readURL(this)" class="form-control" name="img" id="img">
+                              <label for="name">Size</label>
+                              @if (isset($size) && !empty($size))
+                                  @foreach ($size as $sizes)
+                                    <div class="option-size">
+                                      <h4>{{$sizes->display_name}}</h4>
+                                      <input type="hidden" name="size_id[]" value="{{$sizes->id}}">
+                                      <input type="text" class="form-control" name="price[]"  placeholder="Enter Price" id="price">
+                                    </div>
+                                  @endforeach
+                              @endif
                             </div>
-                            <div class="option-size">
-                                <h4>20 X 20</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
-                            <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
-                          </div> 
-                          <div class="form-group col-sm-12">                    
-                              <button type="button" onclick="last()" class="btn btn-primary">Submit</button>
-                              <a href="{{route('admin.product_add_form')}}" class="btn btn-warning">Cancel</a>
-                          </div> 
-                      </div>                                                   
-                  </div>
-                  <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
-                    <h4 style="width: 70%;float: left;"><strong>Color List</strong></h4>
-                    <button class="btn btn-sm btn-info btn-add-option">+ Add More</button>
-                  </div>
-                  <div class="x_content">
+                            <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
+                              <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
+                            </div> 
+                            <div class="form-group col-sm-12">                    
+                                <button type="button" class="btn btn-primary" onclick="newOptionAdd({{$item->id}})">Submit</button>
+                                <button type="button" onclick="newOptionItemDivClose({{$item->id}})"  class="btn btn-warning">Cancel</button>
+                            </div> 
+                        </div>                                                   
+                    </div>                    
+	            	    {{ Form::close() }}
+                     {{--////////////////////////////// New Option Item Add Div End //////////////////////--}}
+                    <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
+                      <h4 style="width: 70%;float: left;"><strong>{{$item->name}} List</strong></h4>
+                      <button class="btn btn-sm btn-info btn-add-option" onclick="newOptionItemDivOpen({{$item->id}});">+ Add New</button>
+                    </div>
+                    <div class="x_content">
+  
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th class="wd-150">Name</th>
+                            <th class="option-size-price"><b>Size</b><b>Price</b></th>
+                            <th>Image</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
 
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th class="wd-150">Name</th>
-                          <th class="option-size-price"><b>Size</b><b>Price</b></th>
-                          <th>Image</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="wd-150">Mark</td>
-                          <td class="wd-200">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150"><input type="text" name="" value="Jacob" class="name-input"></td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ <input type="text" value="100"></b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ <input type="text" value="100"></b>
-                            </div>
-                          </td>
-                          <td>
-                            <img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon" style="float: left;">
-                            <input type="file" onchange="readURL(this)" class="form-control" name="img" style="width: 50%;float: left;margin-left: 20px">
-                          </td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Larry</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Jacob</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Mark</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                  <div class="well" style="overflow: auto">
-                      <h4 style="border-bottom: 1px solid #dddd;padding-bottom: 5px;margin: 0 0 5px;">Page Edit</h4>
-                      
-                      <div class="form-row mb-10">
-                          <div class="col-md-8 col-sm-12 col-xs-12 mb-30">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">                             
-                            <label for="img">Image</label>
-                            <input type="file" onchange="readURL(this)" class="form-control" name="img">
-                            <label for="name">Size</label>
-                            <div class="option-size">
-                                <h4>12 X 12</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                            </div>
-                            <div class="option-size">
-                                <h4>20 X 20</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
-                            <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
-                          </div> 
-                          <div class="form-group col-sm-12">                    
-                              <button type="button" onclick="last()" class="btn btn-primary">Submit</button>
-                              <a href="{{route('admin.product_add_form')}}" class="btn btn-warning">Cancel</a>
-                          </div> 
-                      </div>                                                   
-                  </div>
-                  <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
-                    <h4 style="width: 70%;float: left;"><strong>Page List</strong></h4>
-                    <button class="btn btn-sm btn-info btn-add-option">+ Add More</button>
-                  </div>
-                  <div class="x_content">
+                          @if (isset($item->option_details) && !empty($item->option_details))
+                          {{-- @php
+                              print_r($item->option_details);
+                          @endphp --}}
+                            @foreach ($item->option_details as $option_details)
+                            <tr>
+                              {{--/////////// Option Name Td ///////////////--}}
+                              <td class="wd-150">
+                                <b id="option_details_name_div{{$option_details->id}}">
+                                  {{$option_details->name}} 
+                                </b>
+                                <b id="option_details_name_input_div{{$option_details->id}}" style="display:none">
+                                  <input type="text" id="option_details_name{{$option_details->id}}" value="{{$option_details->name}}" class="name-input">
+                                  <input type="hidden" id="option_details_id{{$option_details->id}}" value="{{$option_details->id}}">
+                                </b>
+                              </td>
+                              {{--////////// Option Name Td End ///////////--}}
 
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th class="wd-150">Name</th>
-                          <th class="option-size-price"><b>Size</b><b>Price</b></th>
-                          <th>Image</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="wd-150">Mark</td>
-                          <td class="wd-200">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150"><input type="text" name="" value="Jacob" class="name-input"></td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ <input type="text" value="100"></b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ <input type="text" value="100"></b>
-                            </div>
-                          </td>
-                          <td>
-                            <img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon" style="float: left;">
-                            <input type="file" onchange="readURL(this)" class="form-control" name="img" style="width: 50%;float: left;margin-left: 20px">
-                          </td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Larry</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Jacob</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Mark</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                  <div class="well" style="overflow: auto">
-                      <h4 style="border-bottom: 1px solid #dddd;padding-bottom: 5px;margin: 0 0 5px;">Paper Edit</h4>
-                      
-                      <div class="form-row mb-10">
-                          <div class="col-md-8 col-sm-12 col-xs-12 mb-30">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name">                             
-                            <label for="img">Image</label>
-                            <input type="file" onchange="readURL(this)" class="form-control" name="img">
-                            <label for="name">Size</label>
-                            <div class="option-size">
-                                <h4>12 X 12</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                            </div>
-                            <div class="option-size">
-                                <h4>20 X 20</h4>
-                                <input type="text" class="form-control" name="p_code"  placeholder="Enter Price">
-                            </div>
-                          </div>
-                          <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
-                            <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
-                          </div> 
-                          <div class="form-group col-sm-12">                    
-                              <button type="button" onclick="last()" class="btn btn-primary">Submit</button>
-                              <a href="{{route('admin.product_add_form')}}" class="btn btn-warning">Cancel</a>
-                          </div> 
-                      </div>                                                   
-                  </div>
-                  <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
-                    <h4 style="width: 70%;float: left;"><strong>Paper List</strong></h4>
-                    <button class="btn btn-sm btn-info btn-add-option">+ Add More</button>
-                  </div>
-                  <div class="x_content">
+                              {{--/////////////// Option Details Price Td //////////--}}
+                              <td class="wd-200">
+                                @if (isset($option_details->option_details_price) && !empty($option_details->option_details_price))
+                                    @foreach ($option_details->option_details_price as $option_price)
 
-                    <table class="table table-hover">
-                      <thead>
-                        <tr>
-                          <th class="wd-150">Name</th>
-                          <th class="option-size-price"><b>Size</b><b>Price</b></th>
-                          <th>Image</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td class="wd-150">Mark</td>
-                          <td class="wd-200">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150"><input type="text" name="" value="Jacob" class="name-input"></td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ <input type="text" value="100"></b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ <input type="text" value="100"></b>
-                            </div>
-                          </td>
-                          <td>
-                            <img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon" style="float: left;">
-                            <input type="file" onchange="readURL(this)" class="form-control" name="img" style="width: 50%;float: left;margin-left: 20px">
-                          </td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Larry</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Jacob</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                        <tr>
-                          <td class="wd-150">Mark</td>
-                          <td class="wd-300">
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                            <div class="option-size-price">
-                              <b>12 x 12</b>
-                              <b>$ 100</b>
-                            </div>
-                          </td>
-                          <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                          <td><button type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button></td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+                                    <div class="option-size-price">
+                                      <b>
+                                        {{$option_price->size_name}}
+                                      </b>
+                                      <b class="option_size_price_div{{$option_details->id}}">$ {{$option_price->price}} 
+                                      </b>
+                                      <b class="option_size_input_div{{$option_details->id}}" style="display:none">
+                                      <input type="hidden" name="option_size_id_{{$option_details->id}}[]" value="{{$option_price->id}}">
+                                        <input type="text" name="option_size_input_{{$option_details->id}}[]" value="100">
+                                      </b>
+                                    </div>
+                                    @endforeach
+                                @endif
+                              </td>
+                              {{--/////////////// Option Details Price Td End //////////--}}
+
+                              <td>
+                                <b id="option_details_img_div{{$option_details->id}}">
+                                  <img src="{{asset('assets/option_image/thumb/'.$option_details->image.'')}}" class="option-img" alt="icon">
+                                </b>
+                                <b id="option_details_img_input_div{{$option_details->id}}" style="display:none">
+                                  <input type="file" class="form-control" name="img_option{{$option_details->id}}" style="width: 50%;float: left;margin-left: 20px">
+                                </b>
+                              </td>
+                              <td id="option_details_button_div{{$option_details->id}}">
+                                <button onclick="optionDetailsEdit({{$option_details->id}})" type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button>
+                              </td>
+                            </tr>
+                            @endforeach
+                          @endif
+                         
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>        
+                  @endforeach
+                @endif
               </div>
+              {{-- /////////////////////////Tab Div End Here ////////////////////////////--}}
+
             </div>
 
           </div>
@@ -504,16 +191,8 @@
 
  @endsection
  @section('script')
-
- <script src="{{ asset('admin/ckeditor4/ckeditor.js')}}"></script>
-<script>
-    CKEDITOR.replace( 'desc', {
-        height: 400,
-        filebrowserUploadUrl: "{{route('admin.ck_editor_image_upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-    } );
-</script>
-
+ <script src="{{ asset('admin/admin_product_option.js')}}"></script>
+ 
 <script type="text/javascript">
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -526,18 +205,6 @@ function readURL(input) {
   
         reader.readAsDataURL(input.files[0]);
     }
-}
-
-$(document).ready(function(){
-    $('#name').keyup(function(){
-        var str = $('#name').val();
-        var d = str.replace(/\s+/g, '-').toLowerCase();
-        $('#slug').val(d);
-    });
-});
-
-function last() {
-    alert('Sorry We Are Working On this Page');
 }
 </script>
  @endsection

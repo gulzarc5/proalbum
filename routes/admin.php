@@ -30,7 +30,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('list/ajax','ProductController@productListAjax')->name('admin.product_list_ajax');
             Route::get('add/form','ProductController@productAddForm')->name('admin.product_add_form');
             Route::post('add','ProductController@productAdd')->name('admin.product_add');
+
             Route::get('option/form/{p_id}','ProductController@productOptionForm')->name('admin.product_option_form');
+            Route::post('new/option','ProductController@productOptionAddd')->name('admin.new_option_add');
+            Route::post('option/edit','ProductController@productOptionEdit')->name('admin.new_option_Edit');
+
+
         });
 
         // Units Route

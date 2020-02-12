@@ -31,7 +31,7 @@ class CategoryController extends Controller
 
         if ($request->hasFile('img')) {
             $image = $request->file('img');
-            $file   = time().date().'.'.$image->getClientOriginalExtension();
+            $file   = time().date('Y-m-d').'.'.$image->getClientOriginalExtension();
 
             //Category Thumbnail
             $destinationPath = public_path('/assets/category/thumbnail');
