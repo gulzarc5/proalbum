@@ -79,34 +79,41 @@
                                             </div>
                                         </div>
                                         <div class="row my-option">
-                                            <div class="form-group col-sm-12"><h5><strong>Select Option</strong></h5></div>
-                                            <div class="form-group col-sm-4">
-                                                <label>Colour*</label>
-                                                <select class="form-control" id="myselection">
-                                                    <option>Select Option</option>
-                                                    <option value="One"/>Manager</option>
-                                                    <option value="Two"/>HR</option>
-                                                    <option value="Three"/>Developer</option>
-                                                </select>
+                                            <div class="form-group col-sm-12"><h5><strong>Option</strong></h5></div>
+                                            {{-- Option1 --}}
+                                            <div class="row ml-0 mr-0" >
+                                                <div class="form-group col-sm-4">
+                                                    <label>Colour*</label>
+                                                    <select class="form-control" id="myselection">
+                                                        <option>Select Option</option>
+                                                        <option value="One"/>Manager</option>
+                                                        <option value="Two"/>HR</option>
+                                                        <option value="Three"/>Developer</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group col-sm-2"></div>
+                                                <div class="form-group col-sm-6">
+                                                    <div id="showOne" class="myDiv">
+                                                        <img src="{{asset('web/upload/shop_02.jpg')}}" alt="Manager" class="img-responsive img-thumbnail"/>
+                                                    </div>
+                                                    <div id="showTwo" class="myDiv">
+                                                        <img src="{{asset('web/upload/shop_01.jpg')}}" alt="HR" class="img-responsive img-thumbnail"/>
+                                                    </div>
+                                                    <div id="showThree" class="myDiv">
+                                                        <img src="{{asset('web/upload/shop_03.jpg')}}" alt="Developer" class="img-responsive img-thumbnail"/>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group col-sm-4">
-                                                <div id="showOne" class="myDiv">
-                                                    <img src="{{asset('web/upload/shop_02.jpg')}}" alt="Manager" class="img-responsive img-thumbnail"/>
-                                                </div>
-                                                <div id="showTwo" class="myDiv">
-                                                    <img src="{{asset('web/upload/shop_01.jpg')}}" alt="HR" class="img-responsive img-thumbnail"/>
-                                                </div>
-                                                <div id="showThree" class="myDiv">
-                                                    <img src="{{asset('web/upload/shop_03.jpg')}}" alt="Developer" class="img-responsive img-thumbnail"/>
-                                                </div>
+                                            {{-- //Option1 --}}
+                                        </div>
+                                        <div class="row price-div">
+                                            <div class="col-sm-6">
+                                                <h5>Sub Total : R 100</h5>
                                             </div>
-                                        </div>
-                                        <div class="flex">
-                                            <a href="{{route('web.shipping_address_list')}}" class="btn btn-cancel" style="margin-right:10px">Cancel</a>
-                                            <button type="submit" class="btn btn-primary">Proceed to cart</button>                                
-                                        </div>
-                                        <div class="price-div">
-                                            <h5>Sub Total : R 100</h5>
+                                            <div class="col-sm-6 flex">
+                                                <a href="{{route('web.shipping_address_list')}}" class="btn btn-cancel" style="margin-right:10px">Cancel</a>
+                                                <button type="submit" class="btn btn-primary">Proceed to cart</button>                               
+                                            </div>
                                         </div>
                                     </div>   
                                 </div><!-- end desc -->
