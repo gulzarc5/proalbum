@@ -4284,10 +4284,11 @@ table thead .checkbox.radio { margin-top:-7px;margin-top:-21px; }
 .option-size-price b:first-child {
     padding-right: 50px;
 }
-.option-size-price b input, .name-input{
+.option-size-price b input, .name-input, .table-body .price-edit input{
     width: 50px;
     margin-bottom: 3px;
     height: 20px;
+    text-align:center;
 }
 .name-input{
     width: 100px
@@ -4311,3 +4312,20 @@ th.option-size-price b:first-child {
 .product-view-tag h5 {
     margin-bottom: 5px;
 }
+.table-head {
+    padding:0 10px;
+    border-bottom: 2px solid #ddd;
+  }
+.table-head h4 {
+    font-weight: 700;
+    font-size: 13px;;
+  }
+  .table-body {
+    padding:10px;
+    border-bottom: 1px solid #ddd;
+
+  }
+  .table-body p {
+    margin-bottom: 0;
+
+  }

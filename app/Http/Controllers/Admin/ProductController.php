@@ -28,7 +28,9 @@ class ProductController extends Controller
         return datatables()->of($query->get())
             ->addIndexColumn()
             ->addColumn('action', function($row){
-                $btn ='<a href="#" class="btn btn-warning btn-sm" >Edit</a><a href="'.route('admin.products.product_detail').'" class="btn btn-info btn-sm" >View</a>';
+                $btn ='<a href="#" class="btn btn-warning btn-sm" >Edit</a>
+                <a href="'.route('admin.product_option_form',['p_id'=>encrypt($row->id)]).'" class="btn btn-warning btn-sm">Edit Options</a>
+                <a href="'.route('admin.product_single_view',['p_id'=>encrypt($row->id)]).'" class="btn btn-info btn-sm" target="_blank">View</a>';
                 return $btn;
             })
             ->addColumn('status_tab', function($row){
@@ -42,6 +44,37 @@ class ProductController extends Controller
             })
             ->rawColumns(['action','status_tab'])
             ->make(true);
+    }
+
+    public function singleView($product_id)
+    {
+        try {
+            $product_id = decrypt($product_id);
+        }catch(DecryptException $e) {
+            abort(404);
+        }
+        $product = DB::table('products')
+            ->select('products.*','category.name as cat_name')
+            ->leftjoin('category','category.id','=','products.category_id')
+            ->where('products.id',$product_id)
+            ->first();
+        $option = DB::table('product_option')->where('p_id',$product_id)->get();
+        $size = DB::table('product_size')->where('p_id',$product_id)->get();
+
+        if ($option->count() > 0) {
+            foreach ($option as $key => $value) {
+                $option_details = DB::table('product_option_details')->where('option_id',$value->id)->get();
+                $value->option_details = $option_details;
+                foreach ($option_details as $key => $value1) {
+                    $option_details_price = DB::table('product_option_details_price')
+                        ->select('product_option_details_price.*','product_size.display_name as size_name')
+                        ->join('product_size','product_size.id','=','product_option_details_price.size_id')
+                        ->where('option_details_id',$value1->id)->get();
+                    $value1->option_details_price = $option_details_price;
+                }
+            }
+        }
+        return view('admin.products.product_detail',compact('option','size','product','tab'));
     }
 
     public function productAddForm()
@@ -192,7 +225,7 @@ class ProductController extends Controller
         
     }
 
-    public function productOptionForm($product_id)
+    public function productOptionForm($product_id,$tab = null)
     {
         try {
             $product_id = decrypt($product_id);
@@ -217,7 +250,7 @@ class ProductController extends Controller
             }
         }
         // dd($option);
-        return view('admin.products.add_product_option',compact('option','size','product'));
+        return view('admin.products.add_product_option',compact('option','size','product','tab'));
     }
 
     public function productOptionAddd(Request $request)
@@ -228,8 +261,13 @@ class ProductController extends Controller
             'size_id.*' => 'required',
             'price.*' => 'required',
             'option_id' => 'required',
+            'pro_id' => 'required',
+            'main_option_id' => 'required',
         ]);
         $file = null;
+        $product_id = $request->input('pro_id');
+        $main_option_id = $request->input('main_option_id');
+
         if ($request->hasFile('img')) {
             $image = $request->file('img');
             $file   = time().date('Y-m-d').'.'.$image->getClientOriginalExtension();
@@ -266,10 +304,10 @@ class ProductController extends Controller
                     'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                     'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                 ]);
-            }            
-            return '2';
+            }
+            return redirect()->route('admin.product_option_form',['p_id'=>encrypt($product_id),'tab'=>$main_option_id]);
         }else{
-            return "1";
+            return redirect()->route('admin.product_option_form',['p_id'=>encrypt($product_id),'tab'=>$main_option_id]);
         }
     }
 
@@ -277,12 +315,20 @@ class ProductController extends Controller
     {
         $request->validate([
             'option_detail_id' => 'required',
-            'optionDetailsName' => 'required',            
-            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'option_name' => 'required',   
+            'pro_id' => 'required',
+            'main_option_id' => 'required',         
         ]);
+        $product_id = $request->input('pro_id');
+        $main_option_id = $request->input('main_option_id');
 
+        $option_details_price_id = $request->input('option_size_id'); // Array of ids
+        $option_details_price = $request->input('option_size_price'); // array of prices
         $file = null;
         if ($request->hasFile('img')) {
+            $request->validate([           
+                'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            ]);
             $image = $request->file('img');
             $file   = time().date('Y-m-d').'.'.$image->getClientOriginalExtension();
             //Category Thumbnail
@@ -299,9 +345,36 @@ class ProductController extends Controller
 
             DB::table('product_option_details')
                 ->where('id',$request->input('option_detail_id'))
+                ->update([
+                    'image' => $file,
+                    'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+                ]);
         }
 
+        $option_update = DB::table('product_option_details')
+            ->where('id',$request->input('option_detail_id'))
+            ->update([
+                'name' => $request->input('option_name'),                
+                'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+            ]);
+        if ($option_update) {
+            if (isset($option_details_price_id) && !empty($option_details_price_id) && (count($option_details_price_id) > 0)) {
+                for ($i=0; $i < count($option_details_price_id); $i++) { 
+                    if (isset($option_details_price_id[$i]) && isset($option_details_price[$i]) && !empty($option_details_price_id[$i]) && !empty($option_details_price[$i])) {
+                        $option_detail_price = DB::table('product_option_details_price')
+                        ->where('id',$option_details_price_id[$i])
+                        ->update([
+                            'price' => $option_details_price[$i],
+                            'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+                        ]);
+                    }                   
+                }
+            }
 
+            return redirect()->route('admin.product_option_form',['p_id'=>encrypt($product_id),'tab'=>$main_option_id]);
+        } else {
+            return redirect()->route('admin.product_option_form',['p_id'=>encrypt($product_id),'tab'=>$main_option_id]);
+        }
     }
 
 

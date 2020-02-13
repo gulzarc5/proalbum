@@ -9,7 +9,7 @@
 	    <div class="x_panel">
 
 	        <div class="x_title">
-              <h5 style="margin: 0;">Add Option Detail</h5>
+              <h4 style="margin: 0;">Add Option Detail</h4>
               @if (isset($product))
                 <h2>{{$product->name}}</h2>
               @endif
@@ -18,10 +18,6 @@
 	        </div>
 	    </div>
         <div class="x_panel">
-          <div class="x_title">
-            <h2> Add Option Detail</h2>
-            <div class="clearfix"></div>
-          </div>
           <div class="x_content">
 
             <div style="margin-top: 30px;" role="tabpanel" data-example-id="togglable-tabs">
@@ -31,11 +27,19 @@
                     $active_count = 1;
                 @endphp
                   @foreach ($option as $item)
-                        @if ($active_count == 1)
-                          <li role="presentation" class="active"><a href="#tab_content{{$item->id}}" role="tab" id="home-tab" data-toggle="tab" aria-expanded="true">{{$item->name}}</a></li>
-                        @else
-                          <li role="presentation" class=""><a href="#tab_content{{$item->id}}" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">{{$item->name}}</a></li>                            
-                        @endif
+                    @if (isset($tab) && !empty($tab))
+                      @if ($tab == $item->id)
+                        <li role="presentation" class="active"><a href="#tab_content{{$item->id}}" role="tab" id="home-tab" data-toggle="tab" aria-expanded="true">{{$item->name}}</a></li>
+                      @else
+                        <li role="presentation" class=""><a href="#tab_content{{$item->id}}" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">{{$item->name}}</a></li>                            
+                      @endif
+                    @else
+                      @if ($active_count == 1)
+                        <li role="presentation" class="active"><a href="#tab_content{{$item->id}}" role="tab" id="home-tab" data-toggle="tab" aria-expanded="true">{{$item->name}}</a></li>
+                      @else
+                        <li role="presentation" class=""><a href="#tab_content{{$item->id}}" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">{{$item->name}}</a></li>                            
+                      @endif
+                    @endif
                     @php
                       $active_count++;
                     @endphp
@@ -49,18 +53,32 @@
                     $count_tab_option = 1;
                 @endphp
                   @foreach ($option as $item)
-                  
-                    @if ($count_tab_option == '1')
-                      <div role="tabpanel" class="tab-pane fade active in" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                    @if (isset($tab) && !empty($tab))
+                      @if ($tab == $item->id)
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                      @else
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                      @endif
+
                     @else
-                      <div role="tabpanel" class="tab-pane fade" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                      @if ($count_tab_option == '1')
+                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                      @else
+                        <div role="tabpanel" class="tab-pane fade" id="tab_content{{$item->id}}" aria-labelledby="home-tab">
+                      @endif
                     @endif
                     @php
                       $count_tab_option++;
                     @endphp                  
                     {{--////////////////////////// New Option Item Add Div  ///////////////////////////--}}
                     {{ Form::open(['method' => 'post','route'=>'admin.new_option_add','enctype'=>'multipart/form-data','id'=>'newOptionAddForm'.$item->id.'']) }}
-                    <div class="well" style="overflow: auto;display:none;" id="newOptionItem{{$item->id}}">                  <input type="hidden" value="{{$item->id}}" name="option_id"> 
+                      <div class="well" style="overflow: auto;display:none;" id="newOptionItem{{$item->id}}">          
+                      <input type="hidden" value="{{$item->id}}" name="option_id">
+                      @if (isset($product))
+                        <input type="hidden" name="pro_id" value="{{$product->id}}">
+                      @endif
+                      <input type="hidden" name="main_option_id" value="{{$item->id}}">
+
                       <div class="form-row mb-10">
                         <div class="col-md-8 col-sm-12 col-xs-12 mb-30" id="errMsg{{$item->id}}">
                         </div>
@@ -83,10 +101,10 @@
                               @endif
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
-                              <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px">
+                              {{-- <img class="" src="{{asset('web/images/photos/9.jpg')}}" style="width: 150px"> --}}
                             </div> 
                             <div class="form-group col-sm-12">                    
-                                <button type="button" class="btn btn-primary" onclick="newOptionAdd({{$item->id}})">Submit</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                                 <button type="button" onclick="newOptionItemDivClose({{$item->id}})"  class="btn btn-warning">Cancel</button>
                             </div> 
                         </div>                                                   
@@ -98,74 +116,92 @@
                       <button class="btn btn-sm btn-info btn-add-option" onclick="newOptionItemDivOpen({{$item->id}});">+ Add New</button>
                     </div>
                     <div class="x_content">
-  
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th class="wd-150">Name</th>
-                            <th class="option-size-price"><b>Size</b><b>Price</b></th>
-                            <th>Image</th>
-                            <th>Action</th>
-                          </tr>
-                        </thead>
-                        <tbody>
 
-                          @if (isset($item->option_details) && !empty($item->option_details))
-                          {{-- @php
-                              print_r($item->option_details);
-                          @endphp --}}
-                            @foreach ($item->option_details as $option_details)
-                            <tr>
-                              {{--/////////// Option Name Td ///////////////--}}
-                              <td class="wd-150">
-                                <b id="option_details_name_div{{$option_details->id}}">
-                                  {{$option_details->name}} 
-                                </b>
-                                <b id="option_details_name_input_div{{$option_details->id}}" style="display:none">
-                                  <input type="text" id="option_details_name{{$option_details->id}}" value="{{$option_details->name}}" class="name-input">
-                                  <input type="hidden" id="option_details_id{{$option_details->id}}" value="{{$option_details->id}}">
-                                </b>
-                              </td>
-                              {{--////////// Option Name Td End ///////////--}}
+                      <div class="row table-head" style="">
+                        <div class="col-md-3">
+                          <h4>Name</h4>
+                        </div>
+                        <div class="col-md-4">
+                          <div class="row">
+                            <div class="col-md-6">
+                              <h4>Size</h4>
+                            </div>
+                            <div class="col-md-6">
+                              <h4>Price</h4>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <h4>Image</h4>
+                        </div>
+                        <div class="col-md-1">
+                          <h4>Action</h4>
+                        </div>
+                      </div>
+                      {{--/////////// Option Detail Div Area //////////////--}}
+                      @if (isset($item->option_details) && !empty($item->option_details))
+                        @foreach ($item->option_details as $option_details)
 
-                              {{--/////////////// Option Details Price Td //////////--}}
-                              <td class="wd-200">
-                                @if (isset($option_details->option_details_price) && !empty($option_details->option_details_price))
+                        {{ Form::open(['method' => 'post','route'=>'admin.new_option_Edit','enctype'=>'multipart/form-data','id'=>'newOptionUpdateForm'.$option_details->id.'']) }}
+                        @if (isset($product))
+                          <input type="hidden" name="pro_id" value="{{$product->id}}">
+                        @endif
+                        <input type="hidden" name="main_option_id" value="{{$item->id}}">
+                          <input type="hidden" name="option_detail_id" value="{{$option_details->id}}">
+                          <div class="row table-body">
+
+                            {{--/////////// Option Detail Name Area ///////--}}
+                            <div class="col-md-3">
+                              <p id="option_details_name_div{{$option_details->id}}">{{$option_details->name}} </p>
+                              <p id="option_details_name_input_div{{$option_details->id}}" style="display:none">
+                                <input type="text" name="option_name" value="{{$option_details->name}}" class="form-control">
+                              </p>
+                            </div>
+                            {{--/////////// Option Detail Name Area ///////--}}
+
+                            {{--/////////// Option Detail Size Area ///////--}}
+                            <div class="col-md-4">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  @if (isset($option_details->option_details_price) && !empty($option_details->option_details_price))
                                     @foreach ($option_details->option_details_price as $option_price)
-
-                                    <div class="option-size-price">
-                                      <b>
-                                        {{$option_price->size_name}}
-                                      </b>
-                                      <b class="option_size_price_div{{$option_details->id}}">$ {{$option_price->price}} 
-                                      </b>
-                                      <b class="option_size_input_div{{$option_details->id}}" style="display:none">
-                                      <input type="hidden" name="option_size_id_{{$option_details->id}}[]" value="{{$option_price->id}}">
-                                        <input type="text" name="option_size_input_{{$option_details->id}}[]" value="100">
-                                      </b>
-                                    </div>
+                                      <p class="col-md-6">{{$option_price->size_name}}</p>
+                                      <p class="col-md-6 price-edit">R 
+                                        <span class="option_size_price_div{{$option_details->id}}">
+                                          {{$option_price->price}}
+                                        </span>
+                                        <span class="option_size_input_div{{$option_details->id}}" style="display:none">
+                                          <input type="hidden" name="option_size_id[]" value="{{$option_price->id}}">
+                                          <input type="text" name="option_size_price[]" value="{{$option_price->price}}" style="width:50px">
+                                        </span>                                        
+                                      </p>
                                     @endforeach
-                                @endif
-                              </td>
-                              {{--/////////////// Option Details Price Td End //////////--}}
+                                  @endif
+                                </div>
+                              </div>
+                            </div>
+                            {{--/////////// Option Detail Size Area End///////--}}
 
-                              <td>
-                                <b id="option_details_img_div{{$option_details->id}}">
-                                  <img src="{{asset('assets/option_image/thumb/'.$option_details->image.'')}}" class="option-img" alt="icon">
-                                </b>
-                                <b id="option_details_img_input_div{{$option_details->id}}" style="display:none">
-                                  <input type="file" class="form-control" name="img_option{{$option_details->id}}" style="width: 50%;float: left;margin-left: 20px">
-                                </b>
-                              </td>
-                              <td id="option_details_button_div{{$option_details->id}}">
-                                <button onclick="optionDetailsEdit({{$option_details->id}})" type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button>
-                              </td>
-                            </tr>
-                            @endforeach
-                          @endif
-                         
-                        </tbody>
-                      </table>
+                            {{--/////////// Option Detail Image Area ///////--}}
+                            <div class="col-md-4">
+                              <div id="option_details_img_div{{$option_details->id}}">                              
+                                <img src="{{asset('assets/option_image/thumb/'.$option_details->image.'')}}" style="max-width:100px">
+                              </div>
+                              <div id="option_details_img_input_div{{$option_details->id}}" style="display:none">                              
+                                <input type="file" class="form-control" name="img" style="width: 90%;">
+                              </div>
+                            </div>
+                            {{--/////////// Option Detail Image Area End ///////--}}
+                            
+                            <div class="col-md-1" id="option_details_button_div{{$option_details->id}}">
+                              <button onclick="optionDetailsEdit({{$option_details->id}})" type="button" class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button>
+                            </div>
+                          </div>
+                                                                      
+	            	        {{ Form::close() }}
+                        @endforeach
+                      @endif
+                       {{--/////////// Option Detail Div Area ///////////////--}}
                     </div>
                   </div>        
                   @endforeach
