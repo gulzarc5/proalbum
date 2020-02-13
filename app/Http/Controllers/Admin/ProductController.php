@@ -90,7 +90,7 @@ class ProductController extends Controller
             'name' => 'required',
             'p_prefix' => 'required',
             'p_code' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'img.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
             'category' => 'required',
             'unit' => 'required',
             'dpi' => 'required',
@@ -143,31 +143,12 @@ class ProductController extends Controller
         }
         $image_name = null;
 
-        ///////////Image
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');  
-            $image_name   = time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
-
-            //Category Thumbnail
-            $destinationPath = public_path('/assets/product/thumb');
-            $img = Image::make($image->getRealPath());
-            $img->resize(600, 600, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath.'/'.$image_name);
-         
-            //Category Original Image
-            $destinationPath = public_path('/assets/product');
-            $img = Image::make($image->getRealPath());
-            $img->save($destinationPath.'/'.$image_name);
-        }
-
         ////////////Product
         $product = DB::table('products')->insertGetId([
             'name' => $name,
             'slug' => $slug,
             'product_code' => $product_code,
             'category_id' => $category,
-            'image' => $image_name,
             'unit' => $unit,
             'dpi' => $dpi,
             'sheet_type' => $sheet_type,
@@ -180,7 +161,46 @@ class ProductController extends Controller
             'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
             'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
         ]);
+
         if ($product) {
+
+            /** Images Upload **/
+            if ($request->hasFile('img')) {
+                
+                for ($i=0; $i < count($request->file('img')); $i++) { 
+                    
+                    $image = $request->file('img')[$i];  
+                    $image_name = $i.time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+                    if ($i == 0)
+                        $banner = $image_name;
+
+                    //Category Thumbnail
+                    $destinationPath = public_path('/assets/product/thumb');
+                    $img = Image::make($image->getRealPath());
+                    $img->resize(600, 600, function ($constraint) {
+                        $constraint->aspectRatio();
+                    })->save($destinationPath.'/'.$image_name);
+                 
+                    //Category Original Image
+                    $destinationPath = public_path('/assets/product');
+                    $img = Image::make($image->getRealPath());
+                    $img->save($destinationPath.'/'.$image_name);
+
+                    DB::table('product_images')
+                        ->insert([
+                            'product_id' => $product,
+                            'images' => $image_name
+                        ]);
+                }
+
+                DB::table('products')
+                    ->where('id', $product)
+                    ->update([
+                        'image' => $banner
+                    ]);
+            }
+
             //////////////Size Insert//////////
             if (isset($swidth) && !empty($swidth)) {
                 $sort_size = 1;
@@ -200,6 +220,7 @@ class ProductController extends Controller
                    }
                 }
             }
+
             ////////////Product Options///////////
             if (isset($option) && !empty($option)) {
                 $sort_option = 1;
@@ -344,11 +365,15 @@ class ProductController extends Controller
             $img->save($destinationPath.'/'.$file);
 
             DB::table('product_option_details')
+<<<<<<< HEAD
                 ->where('id',$request->input('option_detail_id'))
                 ->update([
                     'image' => $file,
                     'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                 ]);
+=======
+                ->where('id',$request->input('option_detail_id'));
+>>>>>>> e1538d86b8c282b82c3f4dcb5d1a455e5825f580
         }
 
         $option_update = DB::table('product_option_details')

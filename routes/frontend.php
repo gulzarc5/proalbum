@@ -14,6 +14,11 @@ Route::group(['namespace'=>'Web'],function(){
 	/** User Logout **/
 	Route::get('logout', 'LoginController@logout')->name('web.logout');
 
+    /** Product List **/
+    Route::get('product-list', 'ProductController@productList')->name('web.product_list');
+    /** Product Details **/
+    Route::get('product-detail/{slug}/{product_id}', 'ProductController@productDetail')->name('web.product_detail');
+
     Route::group(['middleware'=>'auth:users'],function(){
 
         /** My Profile **/
@@ -38,16 +43,6 @@ Route::group(['namespace'=>'Web'],function(){
 });
 
 /** Frontend Route **/
-Route::get('/Shop-list', function () {
-    return view('web.shop-list');
-})->name('web.shop-list');
-
-/** Frontend Route **/
-Route::get('/Shop-single', function () {
-    return view('web.shop-single');
-})->name('web.shop-single');
-
-
 Route::get('/Forgot-password', function () {
     return view('web.forgot-password');
 })->name('web.forgot-password');

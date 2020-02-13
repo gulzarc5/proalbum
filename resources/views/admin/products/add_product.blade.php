@@ -18,7 +18,6 @@
                  @if (Session::has('error'))
                     <div class="alert alert-danger" >{{ Session::get('error') }}</div>
                  @endif
-
             </div>
 	        <div>
 	            <div class="x_content">
@@ -28,7 +27,7 @@
                             <div class="form-row mb-10">
                                 <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                   <label for="img">Image</label>
-                                  <input type="file" onchange="readURL(this)" class="form-control" name="img"></input>
+                                  <input type="file" onchange="readURL(this)" class="form-control" name="img[]" multiple></input>
                                    @if($errors->has('img'))
                                         <span class="invalid-feedback" role="alert" style="color:red">
                                             <strong>{{ $errors->first('img') }}</strong>

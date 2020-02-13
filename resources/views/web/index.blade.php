@@ -271,7 +271,7 @@
 
             <div id="da-thumbs" class="da-thumbs">
                 <div class="pentry item-w1 item-h1 cat1">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
@@ -281,7 +281,7 @@
                     </a>
                 </div>
                 <div class="pentry item-w1 item-h1 cat2 cat1">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/4.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
@@ -292,7 +292,7 @@
                 </div>
 
                 <div class="pentry item-w1 item-h1 cat2 cat3">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/5.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
@@ -303,7 +303,7 @@
                 </div>
 
                 <div class="pentry item-w1 item-h1 cat1 cat3">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
@@ -314,7 +314,7 @@
                 </div>
 
                 <div class="pentry item-w1 item-h1 cat2">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
@@ -325,7 +325,7 @@
                 </div>
 
                 <div class="pentry item-w1 item-h1 cat3 cat2">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
@@ -336,7 +336,7 @@
                 </div>
 
                 <div class="pentry item-w1 item-h1 cat3">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
@@ -347,7 +347,7 @@
                 </div>
 
                 <div class="pentry item-w1 item-h1 cat1">
-                    <a href="{{route('web.shop-single')}}" title="">
+                    <a href="#" title="">
                         <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
