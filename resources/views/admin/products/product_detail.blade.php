@@ -73,6 +73,7 @@
                       @endif
                     </ul>
                     <div id="myTabContent" class="tab-content">
+                      
                       <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
                         <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
                           <h4 style="width: 70%;float: left;"><strong>Color List</strong></h4>
@@ -120,6 +121,8 @@
                           </table>
                         </div>
                       </div>
+
+
                       <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
                         <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
                           <h4 style="width: 70%;float: left;"><strong>Page List</strong></h4>
@@ -206,10 +209,12 @@
                   </div>
                   
                 </div>
-
+                {{-- @if (isset() && !empty())
+                    
+                @endif --}}
                 <div class="col-md-4 col-sm-7 col-xs-12">
                   <div class="product-image">
-                    <img src="{{asset('web/images/photo/1.jpg')}}" alt="..." />
+                    <img src="{{asset('assets/product/thumb/'.$product->image.'')}}" alt="..." />
                   </div>
                   <div class="product_gallery">
                     <a>
