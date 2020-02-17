@@ -58,6 +58,9 @@ class ProductController extends Controller
             ->leftjoin('category','category.id','=','products.category_id')
             ->where('products.id',$product_id)
             ->first();
+        $product_images = DB::table('product_images')
+            ->where('product_id',$product_id)
+            ->get();
         $option = DB::table('product_option')->where('p_id',$product_id)->get();
         $size = DB::table('product_size')->where('p_id',$product_id)->get();
 
@@ -74,7 +77,7 @@ class ProductController extends Controller
                 }
             }
         }
-        return view('admin.products.product_detail',compact('option','size','product','tab'));
+        return view('admin.products.product_detail',compact('option','size','product','tab','product_images'));
     }
 
     public function productAddForm()

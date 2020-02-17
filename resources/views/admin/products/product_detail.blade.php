@@ -209,10 +209,12 @@
                   </div>
                   
                 </div>
-
+                {{-- @if (isset() && !empty())
+                    
+                @endif --}}
                 <div class="col-md-4 col-sm-7 col-xs-12">
                   <div class="product-image">
-                    <img src="{{asset('web/images/photo/1.jpg')}}" alt="..." />
+                    <img src="{{asset('assets/product/thumb/'.$product->image.'')}}" alt="..." />
                   </div>
                   <div class="product_gallery">
                     <a>
