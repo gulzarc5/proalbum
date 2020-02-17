@@ -434,14 +434,9 @@ html:not(.touch) .gallery-image:hover:after {
   bottom: 3px;
   left: 33px;
   background: yellow;
-<<<<<<< HEAD
-  border-radius: 0 0 10px 0;
-}
-=======
   border-radius: 0 0 10px 10px;
 }
 .shop-desc #product-select .price-div .btn {
   margin-top: 0;
   margin-bottom: 0;
 }
->>>>>>> e1538d86b8c282b82c3f4dcb5d1a455e5825f580
