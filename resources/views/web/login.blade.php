@@ -17,7 +17,7 @@
                         <div class="login-head">
                             <h4>login in</h4>
                             @if (session()->has('login_error'))
-                                <p>{{ session()->get('login_error') }}</p>
+                                <p style="color: #ff0000eb;">{{ session()->get('login_error') }}</p>
                             @else
                                 <p>Welcome Back! enter username and password</p>
                             @endif

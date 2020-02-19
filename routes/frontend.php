@@ -55,6 +55,14 @@ Route::get('/Cart', function () {
     return view('web.shop-cart');
 })->name('web.shop-cart');
 
+Route::get('/Checkout', function () {
+    return view('web.shop-checkout');
+})->name('web.shop-checkout');
+
+Route::get('/Thank', function () {
+    return view('web.shop-thank');
+})->name('web.shop-thank');
+
 //-----------------------------------------
 
 // Route::get('/Account/Profile', function () {

@@ -2320,13 +2320,14 @@ li.vimeo:hover i {
 }
 
 .continueshop h4,
-.emtrycart h4 {
-    font-size: 18px;
+.emtrycart h2 {
+    font-size: 23px;
     font-weight: 400;
     letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-.emtrycart h4 i {
+.emtrycart h2 i {
     -webkit-border-radius: 60px;
     -moz-border-radius: 60px;
     border-radius: 60px;
@@ -2460,14 +2461,14 @@ li.vimeo:hover i {
 }
 
 .orderbottom {
-    padding: 30px;
+    padding: 15px 30px;
     border-right: 1px solid #f0efef;
     border-left: 1px solid #f0efef;
     border-bottom: 1px solid #f0efef;
 }
 
 .orderbody {
-    padding: 30px 30px 90px;
+    padding: 30px;
     border: 1px solid #f0efef;
 }
 
@@ -2611,13 +2612,13 @@ ul.nav-wizard li {
     position: relative;
     background-color: #f7f7f7;
     float: left;
-    height: 46px;
+    height: 36px;
     display: inline-block;
     text-align: middle;
     padding: 0 20px 0;
     margin: 0 10px 0 0;
     font-size: 14px;
-    line-height: 46px;
+    line-height: 2.6;
 }
 
 ul.nav-wizard li a span {

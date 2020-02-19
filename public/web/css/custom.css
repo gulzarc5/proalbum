@@ -28,11 +28,10 @@
 mark,
 #sidebar-fix,
 #vertical .navbar-default,
-ul.nav-wizard li,
 .notfound h2,
 .ordertotal header,
 .hero,
-.emtrycart h4 i,
+.emtrycart h2 i,
 .pagination > li > a,
 .pagination > li > span,
 .shopcart .table > thead > tr > th,
@@ -52,7 +51,24 @@ ul.nav-wizard li,
     border-color: #89bbc4 !important;
     background-color: #89bbc4 !important;
 }
-
+ul.nav-wizard li.active {
+    border-color: #89bbc4 !important;
+    background-color: #89bbc4 !important;
+}
+ul.nav-wizard li.active a{
+    color: #fff!important;
+}
+ul.nav-wizard li {
+    border-color: #ddd;
+    background-color: #fff;
+    border:1px solid;
+}
+ul.nav-wizard li:hover {
+    border-color: #89bbc4!important;
+}
+ul.nav-wizard li a{
+    color: #333!important;
+}
 .header {
     
 }
@@ -440,3 +456,197 @@ html:not(.touch) .gallery-image:hover:after {
   margin-top: 0;
   margin-bottom: 0;
 }
+.shop-thumbnail img.img-responsive {
+  width: auto!important;
+  height: 200px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*------- CART ------*/
+.singleorder {
+  border: 1px solid #e3e3e3;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+.singleorder .singleorderid {
+  padding: 0; 
+  background: #ccc;
+  border-bottom: 1px solid #e3e3e3;
+}
+.singleorder .singleorderid h5{
+  margin-bottom: 0
+}
+.singleorder .singleorderid h5, .singleorder .singleorderid p {
+  padding-left: 20px
+}
+.singleorder .singleorderimg {
+  padding: 20px 20px 5px;
+}
+.singleorder .singleorderimg img{
+  width: 100%;
+}
+.singleorder .singleordercontent {
+  padding: 20px 10px 0;
+}
+.singleorder .singleordercontent .sub-tag {
+  font-weight: 500;
+  opacity: .8
+}
+.singleorder .quantity{
+  margin-bottom: 0;
+}
+.singleorder .singleordercontent .editproduct{
+  font-size: 15px;
+  color: #ffffff;
+  padding: 1px 8px;
+  background: #676464;
+}
+.singleorder .singleordercontent .editproduct:hover{
+  background: #565454;
+  box-shadow: 2px 4px 2px 1px #bbb4b4;
+}
+.singleorder .singleordercontent a {
+  font-size: 18px;
+}
+.singleorder .action{
+  padding-top: 5px;
+}
+.singleorder .cart-price span{
+  font-size: 14px;
+}
+.singleordercontent .sub-tag.spl:before {
+  content: "|";
+  padding: 0 10px;
+  color: #333;
+  font-size: 15px;
+}
+.singleorder .row{
+  margin: 0;
+  border-bottom: 1px dotted #ccc;
+}
+.singleorder .row:last-child {
+  border-bottom: 0px dotted #ccc;
+}
+.totalordercontent {
+  display: flex;
+  justify-content: flex-end;
+  background: #eee;
+  border-top: 1px dotted #ccc;  
+  padding: 15px;
+}
+/*------- CHECKOUT --------*/
+.addressselect input[type="radio"] {
+  width: 10%;
+  float: left;
+}
+.addressselect .AddressCard {
+  width: 90%;
+  border: 1px solid #e3e3e3;
+  padding: 10px 10px 10px 10%;
+  background: #f5f3f3d4;
+  border-radius: 5px;
+}
+.addressselect .AddressCard p {
+  color: #666;
+}
+.checkout-tab .widget-title {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;  
+}
+.checkout-tab .widget-title h4 {
+  width: 66%;
+  float: left;
+}
+.checkout-tab .widget .accordion-toggle-2 .panel-heading a {
+  padding-left: 10%
+}
+.Filewidget + div {
+  margin-bottom: 35px;
+  border-bottom: 1px solid #ddd;
+}
+.Filewidget h4 {
+  margin-bottom: 0;
+  width: 100%!important;
+}
+.checkout-tab .widget-title .btn{
+  background-color: #fff!important;
+  color: #333!important;
+  border-color: #89bbc4!important;
+  border: 1px solid;
+  transition: .1s ease-in-out;
+}
+.checkout-tab .widget-title .btn:hover{
+  box-shadow: 4px 1px 5px 2px #ddd;
+}
+/*---------- Custom Radio Button -----------*/
+/* The container */
+.radio-container {
+  display: block;
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 25px;
+  left: 9px;
+  height: 20px;
+  width: 20px;
+  background-color: #e2e0e0;
+  border-radius: 50%;
+  border: 1px solid #cac3c3;
+}
+.widget .checkmark{
+  top: -2px;
+  left: 0;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-container:hover input ~ .checkmark {
+  background-color: #acd8e0;
+  border: 1px solid #acd8e0;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-container input:checked ~ .checkmark {
+  background-color: #89bbc4;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-container .checkmark:after {
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+/*---------- //Custom Radio Button -----------*/
