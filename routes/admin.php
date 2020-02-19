@@ -33,8 +33,25 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('single/view/{p_id}','ProductController@singleView')->name('admin.product_single_view');
 
             Route::get('option/form/{p_id}/{tab?}','ProductController@productOptionForm')->name('admin.product_option_form');
-            Route::post('new/option','ProductController@productOptionAddd')->name('admin.new_option_add');
+            Route::post('new/option/detail','ProductController@productOptionDetailAdd')->name('admin.new_option_add');
             Route::post('option/edit','ProductController@productOptionEdit')->name('admin.new_option_Edit');
+
+            Route::get('option/edit/form/{p_id}/{tab?}','ProductController@productOptionEditForm')->name('admin.product_option_edit_form');
+            Route::post('new/option/Add','ProductController@productOptionAdd')->name('admin.new_option_edit_add');
+
+            Route::get('size/edit/{p_id}','ProductController@productSizeEditForm')->name('admin.product_size_edit_form');
+            Route::post('new/size/Add','ProductController@productNewSize')->name('admin.new_product_size_add');
+            Route::post('size/update','ProductController@productSizeUpdate')->name('admin.new_product_size_update');
+
+
+            Route::get('edit/ifo/{id}','ProductController@productEdit')->name('admin.product_edit_form');
+            Route::post('update','ProductController@productUpdate')->name('admin.new_product_update');
+
+            Route::get('edit/image/{id}','ProductController@productImageEdit')->name('admin.product_image_edit');
+            Route::get('image/set/cover/{p_id}/{image_id}','ProductController@productImageCoverSet')->name('admin.product_image_set_cover');
+
+            Route::post('add/more/image','ProductController@productMoreImageAdd')->name('admin.product_more_image_add');
+
         });
 
         // Units Route
@@ -68,6 +85,13 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             /** Delete Units **/
             // Route::get('delete-units/{units_id}','UnitsController@deleteUnits')->name('admin.delete_units');
         });
+
+        Route::group(['prefix'=>'user'],function(){
+            Route::get('list','CustomerController@customerList')->name('admin.customer_list');
+            Route::get('list/ajax','CustomerController@customerListAjax')->name('admin.customer_list_ajax');
+            Route::get('details/{id}','CustomerController@customerDetails')->name('admin.customer_details');
+
+        });
     });
 });
 
@@ -78,3 +102,7 @@ Route::get('admin/add/option/details', function () {
 Route::get('admin/product/details', function () {
     return view('admin.products.product_detail');
 })->name('admin.products.product_detail');
+
+Route::get('admin/product/Images', function () {
+    return view('admin.products.product_image');
+})->name('admin.products.product_image');

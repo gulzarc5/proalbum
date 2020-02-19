@@ -18,42 +18,62 @@
             <div class="x_content">
               @if (isset($product) && !empty($product))
                 <div class="col-md-8 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
-                  <h3 class="prod_title">{{$product->name}}</h3>
+                <h3 class="prod_title">{{$product->name}} <a href="{{route('admin.product_edit_form',['id'=>encrypt($product->id)])}}" class="btn btn-warning" style="float:right;margin-top: -8px;">Edit Product</a></h3>
                   <p>{{$product->p_short_desc}}</p>
                   <div class="row product-view-tag">
                       <h5 class="col-md-6 col-sm-6 col-xs-12"><strong>Product Code:</strong> {{$product->product_code}}</h5>
                       <h5 class="col-md-6 col-sm-6 col-xs-12"><strong>Catagory:</strong> {{$product->cat_name}}</h5>
                       <h5 class="col-md-6 col-sm-6 col-xs-12"><strong>Unit:</strong> {{$product->unit}}</h5>
                       <h5 class="col-md-6 col-sm-6 col-xs-12"><strong>Dpi:</strong> {{$product->dpi}}</h5>
-                      <h5 class="col-md-6 col-sm-6 col-xs-12"><strong>Size:</strong> 12 x 12</h5>
-                      <h5 class="col-md-6 col-sm-6 col-xs-12"><strong>Extra Page Price:</strong> $ 100</h5>
                       <h5 class="col-md-4 col-sm-4 col-xs-12"><strong>Product Type Name:</strong> {{$product->sheet_name}}</h5>
                       <h5 class="col-md-4 col-sm-4 col-xs-12"><strong>Min {{$product->sheet_name}}:</strong> {{$product->sheet_value}}</h5>
                       <h5 class="col-md-4 col-sm-4 col-xs-12"><strong>Price:</strong> R {{$product->sheet_price}}</h5>
-                    <div>
-                      <h3>Product Size List</h3>
-                      <table class="table table-hover">
-                        <thead>
-                          <tr>
-                            <th>Size</th>
-                            <th><b>SizePrice</b></th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          @if (isset($size) && !empty($size))
-                              @foreach ($size as $sizes)
-                              <tr>
-                                <td>{{$sizes->display_name}}</td>
-                                <td>{{$sizes->extra_page_price}}</td>
-                              </tr>
-                              @endforeach
-                          @endif
-                          
-                        </tbody>
-                      </table>
-                    </div>
+                      <div class="col-md-12">
+                        <hr>
+                        <h3>Product Size List <a class="btn btn-warning" style="float:right" href="{{route('admin.product_size_edit_form',['p_id'=>encrypt($product->id)])}}">Edit Sizes</a></h3>
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th>Size</th>
+                              <th><b>SizePrice</b></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @if (isset($size) && !empty($size))
+                                @foreach ($size as $sizes)
+                                <tr>
+                                  <td>{{$sizes->display_name}}</td>
+                                  <td>{{$sizes->extra_page_price}}</td>
+                                </tr>
+                                @endforeach
+                            @endif
+                            
+                          </tbody>
+                        </table>
+                      </div>
                   </div>
                   <br />
+                </div>
+                <div class="col-md-4 col-sm-7 col-xs-12">
+                  <h3 class="prod_title">Images <a href="{{route('admin.product_image_edit',['id'=>encrypt($product->id)])}}" class="btn btn-warning" style="float:right;margin-top: -8px;"><i class="fa fa-edit"></i></a></h3>
+                  <div class="product-image">
+                    <img src="{{asset('assets/product/thumb/'.$product->image.'')}}" alt="..." />
+                  </div>
+                  @if (isset($product_images) && !empty($product_images))
+                  <div class="product_gallery">
+                      @foreach ($product_images as $item)
+                          @if ($product->image != $item->images)
+                          <a>
+                            <img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="..." />
+                          </a>
+                          @endif
+                      @endforeach
+                  @endif                  
+                </div>
+                </div>
+
+                <div class="col-md-12">
+                  {{-- Option Tab Start --}}
                   <div style="margin-top: 30px;" role="tabpanel" data-example-id="togglable-tabs">
                     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                       @if (isset($option) && !empty($option))
@@ -62,186 +82,86 @@
                         @endphp
                         @foreach ($option as $options)
                           @if ($option_chk)
-                            <li role="presentation" class="active"><a href="#tab_content1" role="tab" id="home-tab" data-toggle="tab" aria-expanded="true">{{$options->name}}</a></li>
+                            <li role="presentation" class="active"><a href="#tab_content{{$options->id}}" role="tab" id="home-tab" data-toggle="tab" aria-expanded="true">{{$options->name}}</a></li>
                           @else
-                            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">{{$options->name}}</a></li>
+                            <li role="presentation" class=""><a href="#tab_content{{$options->id}}" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">{{$options->name}}</a></li>
                           @endif
                           @php
                               $option_chk = false;
                           @endphp
                         @endforeach
                       @endif
+                    <li class="" style="float: right;"><a class="btn btn-warning" style="background-color: #f0ad4e;border-color: #f0ad4e;" href="{{route('admin.product_option_edit_form',['p_id'=>encrypt($product->id)])}}">Edit Options</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
-                      
-                      <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                        <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
-                          <h4 style="width: 70%;float: left;"><strong>Color List</strong></h4>
-                        </div>
-                        <div class="x_content">
-
-                          <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th class="wd-150">Name</th>
-                                <th class="option-size-price"><b>Size</b><b>Price</b></th>
-                                <th>Image</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="wd-150">Mark</td>
-                                <td class="wd-200">
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                </td>
-                                <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                              </tr>
-                              <tr>
-                                <td class="wd-150">Mark</td>
-                                <td class="wd-300">
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                </td>
-                                <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-
-
-                      <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                        <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
-                          <h4 style="width: 70%;float: left;"><strong>Page List</strong></h4>
-                        </div>
-                        <div class="x_content">
-
-                          <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th class="wd-150">Name</th>
-                                <th class="option-size-price"><b>Size</b><b>Price</b></th>
-                                <th>Image</th>
-                                <th>Action</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="wd-150">Jacob</td>
-                                <td class="wd-300">
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                </td>
-                                <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                              </tr>
-                              <tr>
-                                <td class="wd-150">Mark</td>
-                                <td class="wd-300">
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                </td>
-                                <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                      <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                        <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
-                          <h4 style="width: 70%;float: left;"><strong>Paper List</strong></h4>
-                        </div>
-                        <div class="x_content">
-
-                          <table class="table table-hover">
-                            <thead>
-                              <tr>
-                                <th class="wd-150">Name</th>
-                                <th class="option-size-price"><b>Size</b><b>Price</b></th>
-                                <th>Image</th>
-                                <th>Action</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <td class="wd-150">Mark</td>
-                                <td class="wd-300">
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                  <div class="option-size-price">
-                                    <b>12 x 12</b>
-                                    <b>$ 100</b>
-                                  </div>
-                                </td>
-                                <td><img src="{{asset('web/images/photo/3.jpg')}}" class="option-img" alt="icon"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
+                      @if (isset($option) && !empty($option))
+                        @php
+                          $option_chk = true;
+                        @endphp
+                        @foreach ($option as $options)
+                          @if ($option_chk)
+                            <div role="tabpanel" class="tab-pane fade active in" id="tab_content{{$options->id}}" aria-labelledby="home-tab">
+                          @else
+                            <div role="tabpanel" class="tab-pane fade" id="tab_content{{$options->id}}" aria-labelledby="home-tab">
+                          @endif
+                              <div class="x_title" style="margin-bottom: 0;border-bottom: 0px solid #E6E9ED;">
+                                <h4 style="width: 70%;float: left;"><strong>{{$options->name}} List</strong></h4>
+                              </div>
+                              @if (isset($options->option_details) && !empty($options->option_details))
+                                <div class="x_content">   
+                                  <table class="table table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th class="wd-150">Name</th>
+                                        <th class="option-size-price"><b>Size</b><b>Price</b></th>
+                                        <th>Image</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody> 
+                                      @foreach ($options->option_details as $option_details)
+                                        <tr>
+                                          <td class="wd-150">{{$option_details->name}}</td>
+                                          <td class="wd-200">
+                                            
+                                            @if (isset($option_details->option_details_price) && !empty($option_details->option_details_price))
+                                              @foreach ($option_details->option_details_price as $option_details_price)
+                                              <div class="option-size-price">
+                                                <b>{{$option_details_price->size_name}}</b>
+                                                <b>R {{$option_details_price->price}}</b>
+                                              </div>
+                                              @endforeach                                        
+                                            @endif 
+                                          </td>
+                                          <td><img src="{{asset('assets/option_image/thumb/'.$option_details->image.'')}}" class="option-img" alt="icon"></td>
+                                        </tr>
+                                      @endforeach
+                                    </tbody>
+                                  </table>
+                                </div>
+                              @endif                                
+                            </div>
+                          @php
+                            $option_chk = false;
+                          @endphp
+                        @endforeach
+                      @endif
                     </div>
                   </div>
-                  
+                    {{-- Option Tab End --}}
                 </div>
-                {{-- @if (isset() && !empty())
-                    
-                @endif --}}
-                <div class="col-md-4 col-sm-7 col-xs-12">
-                  <div class="product-image">
-                    <img src="{{asset('assets/product/thumb/'.$product->image.'')}}" alt="..." />
-                  </div>
-                  <div class="product_gallery">
-                    <a>
-                      <img src="{{asset('web/images/photo/2.jpg')}}" alt="..." />
-                    </a>
-                    <a>
-                      <img src="{{asset('web/images/photo/3.jpg')}}" alt="..." />
-                    </a>
-                    <a>
-                      <img src="{{asset('web/images/photo/4.jpg')}}" alt="..." />
-                    </a>
-                    <a>
-                      <img src="{{asset('web/images/photo/5.jpg')}}" alt="..." />
-                    </a>
-                  </div>
-                </div>
-
                 <div class="col-md-12">
-
                   <div class="product_price">
                     <h3 style="margin: 0">Product Description</h3><hr style="margin: 10px 0;border-top: 1px solid #ddd;">
-                    <h5 style="margin-bottom: 5px"><strong>Description Tittle:</strong> This is how you describe a product</h5>
-                    <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                    <h5 style="margin-bottom: 5px"><strong>Description Tittle:</strong> {{$product->p_long_description_title}}</h5>
+                    <p>{!!$product->p_long_description!!}</p>
                   </div>
 
                 </div>
+                
               @endif
+              <div class="col-md-12">
+                <button class="btn btn-danger" onclick="window.close();">Close Window</button>
+              </div>
             </div>
           </div>
         </div>

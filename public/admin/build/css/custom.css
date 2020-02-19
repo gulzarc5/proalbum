@@ -4329,3 +4329,38 @@ th.option-size-price b:first-child {
     margin-bottom: 0;
 
   }
+.removeitem {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    background: #fff;
+    padding: 5px 9px;
+    z-index: 99;
+}
+.removeitem:hover i {
+    font-size: 21px;
+}
+.removeitem i {
+    font-size: 17px;
+    color: #ff000096;
+}
+  .imgview  a img{
+    width: 100%;
+}
+.imgview .imgaction{
+    position: absolute;
+    top: 50%;
+    left: 23%;
+    background-color: #333;
+    border: 0;
+    display: none;
+}
+.imgview .actualimg:hover .imgaction {
+    display: block;
+}
+.imgview .actualimg:hover a img {
+    opacity: .7;
+}
+.actualimg {
+    margin-bottom: 20px;
+}
