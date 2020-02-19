@@ -15,7 +15,7 @@ Route::group(['namespace'=>'Web'],function(){
 	Route::get('logout', 'LoginController@logout')->name('web.logout');
 
     /** Product List **/
-    Route::get('product-list', 'ProductController@productList')->name('web.product_list');
+    Route::get('product-list/{slug}/{id}', 'ProductController@productList')->name('web.product_list');
     /** Product Details **/
     Route::get('product-detail/{slug}/{product_id}', 'ProductController@productDetail')->name('web.product_detail');
 
@@ -65,12 +65,5 @@ Route::get('/Thank', function () {
 
 //-----------------------------------------
 
-// Route::get('/Account/Profile', function () {
-//     return view('web.account.profile');
-// })->name('web.account.profile'); 
-
-// Route::get('/Account/Profile/Edit', function () {
-//     return view('web.account.profile-edit');
-// })->name('web.account.profile-edit'); 
 
 

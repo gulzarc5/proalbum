@@ -51,6 +51,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('image/set/cover/{p_id}/{image_id}','ProductController@productImageCoverSet')->name('admin.product_image_set_cover');
 
             Route::post('add/more/image','ProductController@productMoreImageAdd')->name('admin.product_more_image_add');
+            Route::get('delete/image/{id}','ProductController@productImageDelete')->name('admin.product_image_delete');
 
         });
 

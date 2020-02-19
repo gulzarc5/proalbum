@@ -6,29 +6,29 @@
     <!-- top tiles -->
     <div class="row tile_count">
       <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+        <span class="count_top"><i class="fa fa-user"></i> Total Products</span>
         <div class="count green">10</div>
       </div>
       <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-clock-o"></i> Total Users</span>
+        <span class="count_top"><i class="fa fa-clock-o"></i> Total Customers</span>
         <div class="count green">10</div>
       </div>
       <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-          <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+          <span class="count_top"><i class="fa fa-user"></i> Total New Orders </span>
           <div class="count green">10</div>
       </div>
-      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+      <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Total Dispatched Orders </span>
         <div class="count green">10</div>
       </div>
-      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-        <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+      <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+        <span class="count_top"><i class="fa fa-user"></i> Total Delivered Orders </span>
         <div class="count green">10</div>
       </div>
-      <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+      {{-- <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
         <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
         <div class="count green">10</div>
-      </div>
+      </div> --}}
       
     </div>
     <!-- /top tiles -->
@@ -39,7 +39,7 @@
               <div class="x_content">
                  {{--//////////// Last Ten Sellers //////////////--}}
                  <div class="table-responsive">
-                    <h2>Last Ten User</h2>
+                    <h2>Last Ten Orders</h2>
                     <table class="table table-striped jambo_table bulk_action">
                         <thead>
                             <tr class="headings">                

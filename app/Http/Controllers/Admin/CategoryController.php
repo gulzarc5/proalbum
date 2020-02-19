@@ -24,9 +24,6 @@ class CategoryController extends Controller
             'slug' => 'required',
             'desc' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'page_title' => 'required',
-            'meta_desc' => 'required',
-            'meta_tag' => 'required'
         ]);
 
         if ($request->hasFile('img')) {
@@ -51,9 +48,6 @@ class CategoryController extends Controller
                     'url_slug' => strtolower(Str::slug($request->input('slug'), '-')),
                     'image' => $file, 
                     'description' => $request->desc,
-                    'seo_page_title' => $request->input('page_title'), 
-                    'seo_meta_desc' => $request->input('meta_desc'), 
-                    'seo_meta_keward' => $request->input('meta_tag'), 
                     'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                     'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                 ]);

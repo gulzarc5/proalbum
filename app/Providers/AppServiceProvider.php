@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer('web.include.header', function ($view) {
 
             $categories = DB::table('category')
+                ->where('status',1)
                 ->orderBy('sort', 'ASC')
                 ->get();
 
