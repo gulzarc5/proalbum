@@ -65,12 +65,5 @@ Route::get('/Thank', function () {
 
 //-----------------------------------------
 
-// Route::get('/Account/Profile', function () {
-//     return view('web.account.profile');
-// })->name('web.account.profile'); 
-
-// Route::get('/Account/Profile/Edit', function () {
-//     return view('web.account.profile-edit');
-// })->name('web.account.profile-edit'); 
 
 

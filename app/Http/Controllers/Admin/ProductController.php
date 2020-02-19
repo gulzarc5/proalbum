@@ -640,4 +640,67 @@ class ProductController extends Controller
         }
         return redirect()->back();
     }
+
+    public function productMoreImageAdd(Request $request)
+    {
+        $request->validate([
+            'p_id' => 'required',
+            'img.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+        ]);
+
+        /** Images Upload **/
+        if ($request->hasFile('img')) {    
+            for ($i=0; $i < count($request->file('img')); $i++) { 
+                
+                $image = $request->file('img')[$i];  
+                $image_name = $i.time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+                if ($i == 0)
+                    $banner = $image_name;
+
+                //Category Thumbnail
+                $destinationPath = public_path('/assets/product/thumb');
+                $img = Image::make($image->getRealPath());
+                $img->resize(600, 600, function ($constraint) {
+                    $constraint->aspectRatio();
+                })->save($destinationPath.'/'.$image_name);
+                
+                //Category Original Image
+                $destinationPath = public_path('/assets/product');
+                $img = Image::make($image->getRealPath());
+                $img->save($destinationPath.'/'.$image_name);
+
+                DB::table('product_images')
+                    ->insert([
+                        'product_id' => $request->input('p_id'),
+                        'images' => $image_name
+                    ]);
+            }
+        }
+        return redirect()->back();
+    }
+
+    public function productImageDelete($id)
+    {
+        try {
+            $id = decrypt($id);
+        }catch(DecryptException $e) {
+            abort(404);
+        }
+
+        $image_fetch = DB::table('product_images')->where('id',$id)->first();
+        if ($image_fetch) {
+            DB::table('product_images')->where('id',$id)->delete();
+            $path = public_path('assets\product\thumb\\'.$image_fetch->images);
+            if (File::exists($path)){
+                File::delete($path);
+            }
+
+            $path = public_path('assets\product\\'.$image_fetch->images);
+            if (File::exists($path)){
+                File::delete($path);
+            }
+        }
+        return redirect()->back();
+    }
 }

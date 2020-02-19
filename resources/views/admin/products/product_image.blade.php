@@ -17,6 +17,9 @@
               <div class="x_content">
                 <div class="row">                
                   {{ Form::open(['method' => 'post','route'=>'admin.product_more_image_add','enctype'=>'multipart/form-data']) }}
+                    @if (isset($main_image) && !empty($main_image))
+                      <input type="hidden" name="p_id" value="{{$main_image->id}}">
+                    @endif
                     <div class="well" style="overflow: auto;">
                             <div class="form-row mb-10">
                                 <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
@@ -59,7 +62,7 @@
                             
                         @else
                         <div class="col-md-4 col-sm-4 col-xs-12 actualimg">   
-                          <a class="removeitem"><i class="fa fa-trash"></i></a>                   
+                        <a class="removeitem" href="{{route('admin.product_image_delete',['id'=>encrypt($item->id)])}}"><i class="fa fa-trash"></i></a>                   
                             <a>
                               <img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="..." />
                             </a>
