@@ -15,7 +15,7 @@ Route::group(['namespace'=>'Web'],function(){
 	Route::get('logout', 'LoginController@logout')->name('web.logout');
 
     /** Product List **/
-    Route::get('product-list', 'ProductController@productList')->name('web.product_list');
+    Route::get('product-list/{slug}/{id}', 'ProductController@productList')->name('web.product_list');
     /** Product Details **/
     Route::get('product-detail/{slug}/{product_id}', 'ProductController@productDetail')->name('web.product_detail');
 

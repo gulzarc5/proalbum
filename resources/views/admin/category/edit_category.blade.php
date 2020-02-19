@@ -83,7 +83,7 @@
                         </div>
                     </div>
 
-                    <div class="well" style="overflow: auto">
+                    {{-- <div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="page_title">Page Title</label>
@@ -116,7 +116,7 @@
                                 @enderror
                             </div>                                                                                 
                         </div>
-                    </div>
+                    </div> --}}
 
                     
                     <div class="form-group">    	            	

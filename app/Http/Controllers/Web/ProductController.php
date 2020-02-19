@@ -8,12 +8,12 @@ use DB;
 
 class ProductController extends Controller
 {
-    public function productList()
+    public function productList($slug,$id)
     {
-    	$products = DB::table('products')
+        $products = DB::table('products')
+            ->where('category_id',$id)
     		->where('status', 1)
     		->get();
-
     	return view('web.product.shop-list', ['products' => $products]);
     }
 

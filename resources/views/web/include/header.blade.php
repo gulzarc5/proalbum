@@ -30,7 +30,7 @@
                                         @if(count($header_data['categories']) > 0)
                                             @foreach($header_data['categories'] as $item)
                                             <li>
-                                                <a href="{{route('web.product_list')}}">
+                                                <a href="{{route('web.product_list',['slug'=>$item->url_slug,'id'=>$item->id])}}">
                                                     {{ $item->name }}
                                                 </a>
                                             </li>
