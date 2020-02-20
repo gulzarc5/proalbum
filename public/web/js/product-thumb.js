@@ -3,7 +3,7 @@ var thumbnailSliderOptions =
     sliderId: "thumbnail-slider",
     orientation: "vertical",
     thumbWidth: "100px",
-    thumbHeight: "100px",
+    thumbHeight: "auto",
     showMode: 2,
     autoplay: false,
     autoAdvance: true,
