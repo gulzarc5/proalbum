@@ -27,17 +27,20 @@
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="product-images">
+                                <div id="thumbnail-slider">
+                                    <div class="inner">
                                     <ul class="thumbnail">
                                         @if (isset($product_images) && !empty($product_images))
                                             @foreach ($product_images as $item)
-                                                <li> <a data-rel="prettyPhoto[gallery]" href="{{asset('assets/product/'.$item->images.'')}}" title=""><img class="img-responsive" src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="" /></a></li>
+                                                <li> <a  class="thumb img-responsive" data-rel="prettyPhoto[gallery]" href="{{asset('assets/product/'.$item->images.'')}}" title=""><img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="" /></a></li>
                                             @endforeach
                                         @endif
                                         
                                     </ul>
+                                    </div>
+                                </div>
                                      <a data-rel="prettyPhoto" href="{{asset('assets/product/'.$product_detail->image.'')}}" class="product-images-main" title="">
-                                        <img class="img-responsive" src="{{asset('assets/product/'.$product_detail->image.'')}}" alt="" />
-                                     </a>
+                                        <img class="img-responsive" src="{{asset('assets/product/'.$product_detail->image.'')}}" alt="" /></a>
                                 </div>
                             </div><!-- end col -->
                             <div class="col-md-6 col-sm-6 col-xs-12">
@@ -227,6 +230,7 @@
         <!-- prettyPhoto STYLES -->
         <script src="{{asset('web/js/jquery.prettyPhoto.js')}}"></script>
         <script src="{{asset('web/js/product_detail.js')}}"></script>
+        <script src="{{asset('web/js/product-thumb.js')}}"></script>
         <script type="text/javascript">
             (function($) {
             "use strict";
