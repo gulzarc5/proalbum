@@ -19,7 +19,7 @@ Route::group(['namespace'=>'Web'],function(){
     /** Product Details **/
     Route::get('product-detail/{slug}/{product_id}', 'ProductController@productDetail')->name('web.product_detail');
 
-    Route::get('product/detail/price/fetch', 'ProductController@productDetailPriceFetch')->name('web.product_detail_price_fetch');
+    Route::post('product/detail/price/fetch', 'ProductController@productDetailPriceFetch')->name('web.product_detail_price_fetch');
 
     Route::group(['middleware'=>'auth:users'],function(){
 

@@ -84,13 +84,13 @@
                                     </div>
                                     <div id="product-select" style="display: none;">
                                         {{ Form::open(['method' => 'post','route'=>'admin.new_option_Edit', 'id'=>'product_selection_form']) }}
-                                        <input type="text" id="fetch_price_action" value="{{route('web.product_detail_price_fetch')}}">
+                                        <input type="hidden" id="fetch_price_action" value="{{route('web.product_detail_price_fetch')}}">
                                         <input type="hidden" name="product_id" value="{{ $product_detail->sheet_name }}">
                                         <h4 style="margin-bottom: 0">Product Selection</h4><hr>
                                         <div class="row">
                                             <div class="form-group col-sm-4">
                                                 <label>Size*</label>
-                                                <select class="form-control" name="size_id">
+                                                <select class="form-control" name="size_id" onchange="priceGetValue()">
                                                     @if(!empty($product_sizes) && (count($product_sizes) > 0))
                                                         @foreach($product_sizes as $key => $item)
                                                         <option value="{{ $item->id }}">{{ $item->display_name }}</option>
@@ -101,7 +101,7 @@
                                             <div class="form-group col-sm-4">
                                                 <label>Number of {{ $product_detail->sheet_name }}
                                                 *</label>
-                                                <input type="number" value="{{ $product_detail->sheet_value }}" class="form-control" placeholder="" name="size_value">
+                                                <input type="number" name="size_value" value="{{ $product_detail->sheet_value }}" class="form-control" placeholder="" name="size_value">
                                             </div>
                                         </div>
                                         <div class="row my-option">
@@ -112,8 +112,8 @@
                                                     <div class="row ml-0 mr-0" >
                                                         <div class="form-group col-sm-4">
                                                             <label>{{ $item['option_name'] }}*</label>
-                                                        <input type="text" name="option_id[]" value="{{$item['option_id']}}">
-                                                            <select class="form-control" onchange="option_change_function({{ $item['option_id'] }});" id="option_detail{{ $item['option_id'] }}" name="option_detail_id[]">
+                                                            {{-- <input type="text" name="option_id[]" value="{{$item['option_id']}}"> --}}
+                                                            <select class="form-control" onchange="option_change_function({{ $item['option_id'] }});" id="option_detail{{ $item['option_id'] }}" name="option_detail_id[{{$item['option_id']}}][]">
                                                                 <option value="">Choose {{ $item['option_name'] }}</option>
                                                                 @if(!empty($item['option_details']) && (count($item['option_details']) > 0))
                                                                     @foreach($item['option_details'] as $key_1 => $item_1)

@@ -31,9 +31,11 @@ function optionImage(option_id){
     }
 }
 
-function fetch_price() {
+function priceGetValue() {
     var myform = document.getElementById("product_selection_form");
     var fd = new FormData(myform);
+    var action = $("#fetch_price_action").val();
+    alert(action);
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -41,24 +43,17 @@ function fetch_price() {
     });
     $.ajax({
         type:'POST',
-        url: $("#fetch_price_action").val(),
+        url: action,
         data:fd,
         cache:false,
         contentType: false,
         processData: false,
         success:function(data){
-            $("#newOptionItem"+id).css("display", "none");
+            console.log(data);
         },
         error:function (error) {
-            var err = $.parseJSON(error.responseText)
-            var errHtml = '<p class="alert alert-danger">';
-            $.each(err.errors, function (key, val) {
-                console.log(key);
-                    errHtml +="<strong>"+val[0]+"</strong><br>";
-            });
-            errHtml +="</p>";
-            $("#errMsg"+id).html(errHtml);
-            },
+            
+        },
     });
 }
 

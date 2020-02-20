@@ -58,4 +58,22 @@ class ProductController extends Controller
         // dd($option);
     	return view('web.product.shop-single', ['product_detail' => $product_detail, 'related_product' => $related_product, 'product_sizes' => $product_sizes, 'option' => $option,'product_images'=>$product_images]);
     }
+
+    public function productDetailPriceFetch(Request $request)
+    {
+        $this->validate($request, [
+            'product_id'   => 'required',
+            'size_id' => 'required',
+            'size_value' => 'required',
+        ]);
+
+        $p_id = $request->input('product_id');
+        $size_id = $request->input('size_id');
+        $size_value = $request->input('size_value');
+
+        $option_id = $request->input('option_id');
+        $option_detail_id = $request->input('option_detail_id');
+        return $option_detail_id;
+
+    }
 }
