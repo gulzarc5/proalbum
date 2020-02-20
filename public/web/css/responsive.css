@@ -175,6 +175,22 @@
 }
 
 @media (max-width: 468px) {
+    #thumbnail-slider {
+        height: 232px!important;
+    }
+    #thumbnail-slider ul li a.thumb {
+        background: none;
+    }
+    #thumbnail-slider ul li {
+        width: 50px!important;
+        height: 50px!important; 
+    }
+    .product-images img {
+        width: 75%;
+    }
+    .single-white-shop #home img {
+        max-width: 100%
+    }
     .col-sm-15 {
         width: 100%;
         float: none;
