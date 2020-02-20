@@ -256,19 +256,6 @@
                 <hr>
             </div><!-- end title -->
 
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="portfolio-filter text-center">
-                        <ul class="list-inline">
-                            <li><a class="button button--aylen btn" data-filter="*">All</a></li>
-                            <li><a class="button button--aylen btn" data-filter=".cat2">Pillows</a></li>
-                            <li><a class="button button--aylen btn" data-filter=".cat1">Furniture Sets</a></li> 
-                            <li><a class="button button--aylen btn" data-filter=".cat3">Combinations</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-
             <div id="da-thumbs" class="da-thumbs">
                 <div class="pentry item-w1 item-h1 cat1">
                     <a href="#" title="">
