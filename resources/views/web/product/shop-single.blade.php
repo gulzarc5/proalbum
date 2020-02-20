@@ -28,37 +28,69 @@
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="product-images">
                                     <ul class="thumbnail">
-                                        <li> <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_02.jpg')}}" title=""><img class="img-responsive" src="{{asset('web/upload/shop_02.jpg')}}" alt="" /></a></li>
-                                        <li> <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_01.jpg')}}" title=""><img class="img-responsive" src="{{asset('web/upload/shop_01.jpg')}}" alt="" /></a></li>
-                                        <li> <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_03.jpg')}}" title=""><img class="img-responsive"  src="{{asset('web/upload/shop_03.jpg')}}" alt="" /></a></li>
-                                        <li> <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_04.jpg')}}" title=""><img class="img-responsive"  src="{{asset('web/upload/shop_04.jpg')}}" alt="" /></a></li>
+                                        @if (isset($product_images) && !empty($product_images))
+                                            @foreach ($product_images as $item)
+                                                <li> <a data-rel="prettyPhoto[gallery]" href="{{asset('assets/product/'.$item->images.'')}}" title=""><img class="img-responsive" src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="" /></a></li>
+                                            @endforeach
+                                        @endif
+                                        
                                     </ul>
-                                     <a data-rel="prettyPhoto" href="{{asset('web/upload/shop_02.jpg')}}" class="product-images-main" title="">
-                                        <img class="img-responsive" src="{{asset('assets/product/thumb/'.$product_detail->image.'')}}" alt="" />
+                                     <a data-rel="prettyPhoto" href="{{asset('assets/product/'.$product_detail->image.'')}}" class="product-images-main" title="">
+                                        <img class="img-responsive" src="{{asset('assets/product/'.$product_detail->image.'')}}" alt="" />
                                      </a>
                                 </div>
                             </div><!-- end col -->
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="shop-desc bgw">
                                     <h3 id="product_name">{{ $product_detail->name }} </h3>
-                                    <div>
+                                    <div style="width:100%">
                                         <p id="product_desc">{{ $product_detail->p_short_desc }}</p>
 
-                                        <a class="button button--aylen btn" id="product_selection_btn">Product Selection</a>
-{{-- 
-                                        <div class="addwish">
-                                            <a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> Add to Wishlist</a>
-                                        </div> --}}
+                                        <a class="button button--aylen btn" id="product_selection_btn">Product Selection</a>                                        
+                                    </div>
+                                    <hr>
+                                    <div style="width:100%" id="feature_details"> 
                                         <div class="shopmeta">
-                                            <span><strong>Category:</strong> <a href="#">{{ $product_detail->category_name }}</a></span>
-                                        </div><!-- end shopmeta -->
+                                            <span><strong>Category:</strong> <a>{{ $product_detail->category_name }}</a></span>
+                                        </div>
+                                        <div class="shopmeta">
+                                            <span><strong>Product Code:</strong> <a>{{ $product_detail->product_code }}</a></span>
+                                        </div>
+                                        <div class="shopmeta">
+                                            <span><strong>Unit:</strong> <a>{{ $product_detail->unit }}</a></span>
+                                        </div>
+                                        <div class="shopmeta">
+                                            <span><strong>Dpi:</strong> <a>{{ $product_detail->dpi }}</a></span>
+                                        </div>
+                                        <div class="shopmeta">
+                                            <span><strong>Min Order {{$product_detail->sheet_name}} :</strong> <a>{{ $product_detail->sheet_value }}</a></span>
+                                        </div>
+                                        <div class="shopmeta">
+                                            <span><strong>Price :</strong> <a>R {{ $product_detail->sheet_price }}</a></span>
+                                        </div>
+                                        @if (isset($option) && !empty($option) && (count($option) > 0))
+                                            @foreach ($option as $option_item)
+                                                @if (count($option_item['option_details']) > 0)
+                                                <div class="shopmeta">
+                                                    <span><strong>{{$option_item['option_name']}} :</strong> 
+                                                    @foreach ($option_item['option_details'] as $item)
+                                                        <a>{{ $item->name }}</a> ,
+                                                    @endforeach
+                                                    </span>
+                                                </div>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </div>
                                     <div id="product-select" style="display: none;">
+                                        {{ Form::open(['method' => 'post','route'=>'admin.new_option_Edit', 'id'=>'product_selection_form']) }}
+                                        <input type="text" id="fetch_price_action" value="{{route('web.product_detail_price_fetch')}}">
+                                        <input type="hidden" name="product_id" value="{{ $product_detail->sheet_name }}">
                                         <h4 style="margin-bottom: 0">Product Selection</h4><hr>
                                         <div class="row">
                                             <div class="form-group col-sm-4">
                                                 <label>Size*</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="size_id">
                                                     @if(!empty($product_sizes) && (count($product_sizes) > 0))
                                                         @foreach($product_sizes as $key => $item)
                                                         <option value="{{ $item->id }}">{{ $item->display_name }}</option>
@@ -69,41 +101,41 @@
                                             <div class="form-group col-sm-4">
                                                 <label>Number of {{ $product_detail->sheet_name }}
                                                 *</label>
-                                                <input type="text" value="{{ $product_detail->sheet_value }}" class="form-control" placeholder="">
+                                                <input type="number" value="{{ $product_detail->sheet_value }}" class="form-control" placeholder="" name="size_value">
                                             </div>
-                                {{--             <div class="form-group col-sm-4">
-                                                <label>Product Type*</label>
-                                                <select class="form-control">
-                                                    <option value="1">Paper</option>
-                                                    <option value="2">Spread</option>
-                                                    <option value="3">Quantity</option>  
-                                                </select>
-                                            </div> --}}
                                         </div>
                                         <div class="row my-option">
                                             <div class="form-group col-sm-12"><h5><strong>Option</strong></h5></div>
                                             {{-- Option1 --}}
                                             @if(!empty($option) && (count($option) > 0))
                                                 @foreach($option as $key => $item)
-                                            <div class="row ml-0 mr-0" >
-                                                <div class="form-group col-sm-4">
-                                                    <label>{{ $item['option_name'] }}*</label>
-                                                    <select class="form-control" onchange="option_change_function({{ $item['option_id'] }});" id="option_detail{{ $item['option_id'] }}">
-                                                        <option>Choose {{ $item['option_name'] }}</option>
-                                                        @if(!empty($item['option_details']) && (count($item['option_details']) > 0))
-                                                            @foreach($item['option_details'] as $key_1 => $item_1)
-                                                                <option value="{{ $item_1->id }}">{{ $item_1->name }}</option>
-                                                            @endforeach
-                                                        @endif
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-sm-2"></div>
-                                                <div class="form-group col-sm-6">
-                                                    <div id="showOne">
-                                                        <img src="#" alt="{{ $item['option_name'] }}" class="img-responsive img-thumbnail" id="option_detail_img{{ $item['option_id'] }}" style="display: none;" />
+                                                    <div class="row ml-0 mr-0" >
+                                                        <div class="form-group col-sm-4">
+                                                            <label>{{ $item['option_name'] }}*</label>
+                                                        <input type="text" name="option_id[]" value="{{$item['option_id']}}">
+                                                            <select class="form-control" onchange="option_change_function({{ $item['option_id'] }});" id="option_detail{{ $item['option_id'] }}" name="option_detail_id[]">
+                                                                <option value="">Choose {{ $item['option_name'] }}</option>
+                                                                @if(!empty($item['option_details']) && (count($item['option_details']) > 0))
+                                                                    @foreach($item['option_details'] as $key_1 => $item_1)
+                                                                        <option value="{{ $item_1->id }}">{{ $item_1->name }}</option>
+                                                                    @endforeach
+                                                                @endif
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group col-sm-2"></div>
+                                                        <div class="form-group col-sm-6">
+                                                            <div id="DisplayOptionImage{{ $item['option_id'] }}">
+                                                                
+                                                            </div>
+                                                            @if(!empty($item['option_details']) && (count($item['option_details']) > 0))
+                                                                @foreach($item['option_details'] as $key_1 => $item_1)
+                                                                    <div id="optionDetailImage{{$item_1->id}}" style="display:none">
+                                                                        <img src="{{asset('assets/option_image/'.$item_1->image.'')}}" alt="{{ $item_1->name }}" class="img-responsive img-thumbnail" style="max-height: 117px;">
+                                                                    </div>
+                                                                @endforeach
+                                                            @endif
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
                                                 @endforeach
                                             @endif
                                             {{-- //Option1 --}}
@@ -117,6 +149,7 @@
                                                 <button type="submit" class="btn btn-primary">Proceed to cart</button>                               
                                             </div>
                                         </div>
+                                        {{Form::close()}}
                                     </div>   
                                 </div><!-- end desc -->
                             </div><!-- end col -->
@@ -134,7 +167,7 @@
 
                                         <div class="tab-content">
                                             <div id="home" class="tab-pane fade in active">
-                                                <p><img src="{{asset('assets/product/thumb/'.$product_detail->image.'')}}" class="alignleft" alt=""> 
+                                                <p>
                                                     {!! $product_detail->p_long_description !!}
                                                 </p>
                                             </div>
@@ -167,7 +200,7 @@
                         <div class="col-md-3 col-sm-6 col-xs-6">
                             <div class="shop-item text-center">
                                 <div class="shop-thumbnail">
-                                    <a href=""><img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive"></a>
+                                    <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}"><img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive"></a>
                                 </div><!-- end shop-thumbnail -->
                                 <div class="shop-desc">
                                     <h3><a href="shop-single.html" title="">{{ $item->name }}</a></h3>{{-- 
@@ -177,7 +210,6 @@
                                 <div class="shop-meta clearfix">
                                     <ul class="">
                                         <li><a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
-                                        <li><a href="shop-wishlist.html"><i class="fa fa-heart-o"></i> <span class="hidden-xs">Wishlist</span></a></li>
                                     </ul><!-- end list -->
                                 </div><!-- end shop-meta --> 
                             </div><!-- end shop-item -->

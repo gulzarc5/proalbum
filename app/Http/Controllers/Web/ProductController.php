@@ -13,7 +13,7 @@ class ProductController extends Controller
         $products = DB::table('products')
             ->where('category_id',$id)
     		->where('status', 1)
-    		->get();
+            ->get();
     	return view('web.product.shop-list', ['products' => $products]);
     }
 
@@ -26,7 +26,8 @@ class ProductController extends Controller
     		->first();
 
     	$related_product = DB::table('products')
-    		->where('category_id', $product_detail->category_id)
+            ->where('category_id', $product_detail->category_id)
+            ->limit(4)
     		->get();
 
         $product_sizes = DB::table('product_size')
@@ -36,7 +37,8 @@ class ProductController extends Controller
         $product_options = DB::table('product_option')
             ->where('p_id', $product_id)
             ->get();
-
+        $product_images = DB::table('product_images')->where('product_id',$product_id)->get();
+        
         $option = [];
 
         foreach ($product_options as $key => $item) {
@@ -52,8 +54,8 @@ class ProductController extends Controller
             ];
         }
 
+        
         // dd($option);
-
-    	return view('web.product.shop-single', ['product_detail' => $product_detail, 'related_product' => $related_product, 'product_sizes' => $product_sizes, 'option' => $option]);
+    	return view('web.product.shop-single', ['product_detail' => $product_detail, 'related_product' => $related_product, 'product_sizes' => $product_sizes, 'option' => $option,'product_images'=>$product_images]);
     }
 }

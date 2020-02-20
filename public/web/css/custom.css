@@ -649,4 +649,15 @@ html:not(.touch) .gallery-image:hover:after {
   border-radius: 50%;
   background: white;
 }
+
+.shopmeta{
+  width: 50%;
+  float: left;
+}
+
+.single-blog .product-images .product-images-main {
+  width: 80%;
+  padding: 18px;
+}
+
 /*---------- //Custom Radio Button -----------*/

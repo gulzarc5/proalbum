@@ -4363,4 +4363,5 @@ th.option-size-price b:first-child {
 }
 .actualimg {
     margin-bottom: 20px;
+    min-height: 161px;
 }
