@@ -45,10 +45,10 @@
                                 <li class="dropdown hasmenu">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="fa fa-angle-down"></span></a>
                                     <ul class="dropdown-menu">
+                                        <li><a href="{{ route('web.view_cart') }}">cart</a></li> 
                                     @auth('users')
                                         <li><a href="{{ route('web.my_profile') }}">Profile</a></li>
                                         <li><a href="#">orders</a></li>
-                                        <li><a href="{{ route('web.shop-cart') }}">cart</a></li> 
                                         <li><a href="{{route('web.shipping_address_list')}}">shipping address</a></li>
                                         <li><a href="{{route('web.change_password_form')}}">change password</a></li>
                                         <li><a href="{{route('web.logout')}}">Logout</a></li>

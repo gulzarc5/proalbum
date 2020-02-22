@@ -71,9 +71,39 @@ class ProductController extends Controller
         $size_id = $request->input('size_id');
         $size_value = $request->input('size_value');
 
-        $option_id = $request->input('option_id');
+        
         $option_detail_id = $request->input('option_detail_id');
-        return $option_detail_id;
+        $price = 0;
+        
+        $product = DB::table('products')
+            ->select('id','sheet_value','sheet_price')
+            ->where('id',$p_id)
+            ->first();
+        if ($product) {
+            $price = $product->sheet_price;
+            if ($size_value >= $product->sheet_value) {
+                $size = DB::table('product_size')->select('extra_page_price')->where('id',$size_id)->first();
+                if ($size) {
+                    $extra_sheet = ($size_value - $product->sheet_value);
+                    $extra_shheet_price = ($extra_sheet * $size->extra_page_price);
+                    $price +=$extra_shheet_price;
+                }
+            }
 
+            foreach ($option_detail_id as $key => $value) {
+                if (isset($value[0]) && !empty($value[0])) {
+                    // print "option id  ".$key." Option value id ".$value[0]."<br>";
+                    $option_price = DB::table('product_option_details_price')
+                        ->select('price')
+                        ->where('option_details_id',$value[0])
+                        ->where('size_id',$size_id)
+                        ->first();
+                    if ($option_price) {
+                        $price +=$option_price->price;
+                    }
+                }
+            }           
+        }
+        return $price;       
     }
 }

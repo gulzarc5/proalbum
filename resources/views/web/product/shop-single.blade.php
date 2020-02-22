@@ -86,9 +86,9 @@
                                         @endif
                                     </div>
                                     <div id="product-select" style="display: none;">
-                                        {{ Form::open(['method' => 'post','route'=>'admin.new_option_Edit', 'id'=>'product_selection_form']) }}
+                                        {{ Form::open(['method' => 'post','route'=>'web.add_to_cart', 'id'=>'product_selection_form']) }}
                                         <input type="hidden" id="fetch_price_action" value="{{route('web.product_detail_price_fetch')}}">
-                                        <input type="hidden" name="product_id" value="{{ $product_detail->sheet_name }}">
+                                        <input type="hidden" name="product_id" value="{{ $product_detail->id }}">
                                         <h4 style="margin-bottom: 0">Product Selection</h4><hr>
                                         <div class="row">
                                             <div class="form-group col-sm-4">
@@ -104,7 +104,7 @@
                                             <div class="form-group col-sm-4">
                                                 <label>Number of {{ $product_detail->sheet_name }}
                                                 *</label>
-                                                <input type="number" name="size_value" value="{{ $product_detail->sheet_value }}" class="form-control" placeholder="" name="size_value">
+                                                <input type="number" name="size_value" value="{{ $product_detail->sheet_value }}" class="form-control" placeholder="" name="size_value" onchange="priceGetValue()">
                                             </div>
                                         </div>
                                         <div class="row my-option">
@@ -112,20 +112,19 @@
                                             {{-- Option1 --}}
                                             @if(!empty($option) && (count($option) > 0))
                                                 @foreach($option as $key => $item)
+                                                    @if(!empty($item['option_details']) && (count($item['option_details']) > 0))
                                                     <div class="row ml-0 mr-0" >
-                                                        <div class="form-group col-sm-4">
+                                                        <div class="form-group col-sm-5">
                                                             <label>{{ $item['option_name'] }}*</label>
                                                             {{-- <input type="text" name="option_id[]" value="{{$item['option_id']}}"> --}}
                                                             <select class="form-control" onchange="option_change_function({{ $item['option_id'] }});" id="option_detail{{ $item['option_id'] }}" name="option_detail_id[{{$item['option_id']}}][]">
-                                                                <option value="">Choose {{ $item['option_name'] }}</option>
-                                                                @if(!empty($item['option_details']) && (count($item['option_details']) > 0))
+                                                                <option value="">Choose {{ $item['option_name'] }}</option>          
                                                                     @foreach($item['option_details'] as $key_1 => $item_1)
                                                                         <option value="{{ $item_1->id }}">{{ $item_1->name }}</option>
                                                                     @endforeach
-                                                                @endif
                                                             </select>
                                                         </div>
-                                                        <div class="form-group col-sm-2"></div>
+                                                        <div class="form-group col-sm-1"></div>
                                                         <div class="form-group col-sm-6">
                                                             <div id="DisplayOptionImage{{ $item['option_id'] }}">
                                                                 
@@ -139,13 +138,14 @@
                                                             @endif
                                                         </div>
                                                     </div>
+                                                    @endif
                                                 @endforeach
                                             @endif
                                             {{-- //Option1 --}}
                                         </div>
                                         <div class="row price-div">
                                             <div class="col-sm-6">
-                                                <h5>Sub Total : R {{ $product_detail->sheet_price }}</h5>
+                                                <h5 style="font-size: 20px;font-weight: 500;color: #fff;">Sub Total : R <b id="showPriceProduct">{{ $product_detail->sheet_price }}</b></h5>
                                             </div>
                                             <div class="col-sm-6 flex">
                                                 <a class="btn btn-cancel" id="cancel_btn" style="margin-right:10px">Cancel</a>
@@ -153,6 +153,10 @@
                                             </div>
                                         </div>
                                         {{Form::close()}}
+                                        {{-- Ajax Loader HTML --}}
+                                        <div class="box" id="price_loader" style="display: none;">
+                                            <div class="loader1"></div>
+                                        </div>
                                     </div>   
                                 </div><!-- end desc -->
                             </div><!-- end col -->

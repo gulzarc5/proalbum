@@ -21,6 +21,10 @@ Route::group(['namespace'=>'Web'],function(){
 
     Route::post('product/detail/price/fetch', 'ProductController@productDetailPriceFetch')->name('web.product_detail_price_fetch');
 
+    Route::post('product/add/cart', 'CartController@addToCart')->name('web.add_to_cart');
+    Route::get('view/cart', 'CartController@viewCart')->name('web.view_cart');    
+    Route::get('remove/cart/{cart_id}', 'CartController@removeCart')->name('web.remove_cart');
+
     Route::group(['middleware'=>'auth:users'],function(){
 
         /** My Profile **/
@@ -30,6 +34,7 @@ Route::group(['namespace'=>'Web'],function(){
         /** Update My Profile **/
         Route::post('update-my-profile', 'UserController@updateMyProfile')->name('web.update_my_profile');
 
+        Route::post('add/shipping/address', 'ShippingController@addShippingAddress')->name('web.add_shipping_address');
         /** Shipping Address List **/
         Route::get('shipping-address-list', 'ShippingController@shippingAddressList')->name('web.shipping_address_list'); 
          /** Edit Shipping Address **/
@@ -41,6 +46,9 @@ Route::group(['namespace'=>'Web'],function(){
         Route::get('change-password-form', 'PasswordController@showChangePasswordForm')->name('web.change_password_form'); 
         /** Update Password **/
         Route::post('update-password', 'PasswordController@updatePassword'); 
+
+        Route::get('checkout','CheckoutController@checkout')->name('web.checkout');
+
     });
 });
 
@@ -53,9 +61,9 @@ Route::get('/New-password', function () {
     return view('web.new-password');
 })->name('web.new-password');
 
-Route::get('/Cart', function () {
-    return view('web.shop-cart');
-})->name('web.shop-cart');
+// Route::get('/Cart', function () {
+//     return view('web.shop-cart');
+// })->name('web.shop-cart');
 
 Route::get('/Checkout', function () {
     return view('web.shop-checkout');

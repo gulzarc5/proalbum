@@ -50,18 +50,45 @@
                                 </div>
                                 <!-- end widget-title -->
                                 <div class="row addressselect changeadd">
-                                    <div class="col-md-6">                                            
-                                            <label class="radio-container">
-                                                <input type="radio" checked name="address" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <div class="AddressCard">
-                                                <p>Vishal Nag</p>
-                                                <p class="AddressCard__addresses___2rzGd">House No. 16,  Sewali Path,  hengrabari, </p>
-                                                <p>imvishalnag@gmail.com, 8436590120 </p>
-                                                <p>Guwahati, Assam - 781034</p>
+                                    @if (isset($shipping_address) && !empty($shipping_address))
+                                    @php
+                                        $ship_count = true;
+                                    @endphp
+                                        @foreach ($shipping_address as $shipping)
+                                        @if ($ship_count)
+                                        @php
+                                            $ship_count = false;
+                                        @endphp
+                                            <div class="col-md-6">                                            
+                                                <label class="radio-container">
+                                                    <input type="radio" checked name="address_id" value="{{$shipping->id}}">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <div class="AddressCard">
+                                                    <p>{{$shipping->name}}</p>
+                                                    <p class="AddressCard__addresses___2rzGd">{{$shipping->address}}</p>
+                                                    <p>{{$shipping->email}}, {{$shipping->contact_no}} </p>
+                                                    <p>{{$shipping->city}},{{$shipping->state}} - {{$shipping->zip_code}}</p>
+                                                </div>
                                             </div>
-                                    </div>
+                                        @else  
+                                            <div class="col-md-6">                                            
+                                                <label class="radio-container">
+                                                    <input type="radio" name="address_id" value="{{$shipping->id}}">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <div class="AddressCard">
+                                                    <p>{{$shipping->name}}</p>
+                                                    <p class="AddressCard__addresses___2rzGd">{{$shipping->address}}</p>
+                                                    <p>{{$shipping->email}}, {{$shipping->contact_no}} </p>
+                                                    <p>{{$shipping->city}},{{$shipping->state}} - {{$shipping->zip_code}}</p>
+                                                </div>
+                                            </div>  
+                                        @endif
+                                            
+                                        @endforeach
+                                    @endif
+                                   
                                     <div class="col-md-6">                                           
                                             <label class="radio-container">
                                                 <input type="radio" name="address" value="">
@@ -77,42 +104,42 @@
                                 </div>
 
                                 <div class="changeadd" style="display: none;">
-                                    <form>
+                                    {{ Form::open(['method' => 'post','route'=>'web.add_shipping_address']) }}
                                         <div class="row">
                                             <div class="form-group col-sm-6">
-                                                <label>First Name*</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <label>Name*</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label>Email*</label>
-                                                <input type="email" class="form-control" placeholder="">
+                                                <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <label>Address*</label>
-                                                <textarea class="form-control" placeholder=""></textarea>
+                                                <textarea class="form-control" name="address" placeholder="Type Address..." required></textarea>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label>Town / City*</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" name="city" class="form-control" placeholder="Enter Town/City Name" required>
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label>State*</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input name="state" type="text" class="form-control" placeholder="Enter State Name" required>
                                             </div>
                                             <div class="form-group col-sm-6">
-                                                <label>Contry</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <label>Contact No</label>
+                                                <input name="mobile" type="text" class="form-control" placeholder="Enter Contact Number" required>
                                             </div>
                                             <div class="form-group col-sm-6">
-                                                <label>Conyacy Number*</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <label>Zip Code</label>
+                                                <input name="pin" type="text" class="form-control" placeholder="Enter Zip Code" required>
                                             </div>
                                             <div class="form-group col-sm-12">
                                                 <button type="submit" class="button button--aylen btn">Save & Continue</button>
                                             </div>
                                         </div>
                                         <!-- end row -->
-                                    </form>
+                                    {{Form::close()}}
                                 </div>
                             </div>
                             <!-- end col -->
@@ -176,7 +203,13 @@
                                         <div class="orderbottom">
                                             <ul>
                                                 <li>
-                                                    <h4>Cart Subtotal <span>$55.00</span></h4>
+                                                    <h4>Cart Subtotal 
+                                                        <span>R 
+                                                            @if (isset($product_price) && !empty($product_price))
+                                                                {{$product_price}}
+                                                            @endif
+                                                        </span>
+                                                    </h4>
                                                 </li>
                                                 <li>
                                                     <h4>Shipping and Handling <span>Free Shipping</span></h4>
@@ -186,7 +219,14 @@
                                         <div class="orderbottom">
                                             <ul>
                                                 <li>
-                                                    <h4><strong>GRAND TOTAL <span>$55.00</span></strong></h4>
+                                                    <h4>
+                                                        <strong>GRAND TOTAL <span>R 
+                                                            @if (isset($product_price) && !empty($product_price))
+                                                                {{$product_price}}
+                                                            @endif
+                                                        </span>
+                                                        </strong>
+                                                    </h4>
                                                 </li>
                                             </ul>
                                         </div>

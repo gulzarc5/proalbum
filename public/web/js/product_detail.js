@@ -19,6 +19,7 @@ $(document).ready(function(){
 
 function option_change_function(option_id) {
     optionImage(option_id);
+    priceGetValue();
 }
 
 function optionImage(option_id){
@@ -35,7 +36,6 @@ function priceGetValue() {
     var myform = document.getElementById("product_selection_form");
     var fd = new FormData(myform);
     var action = $("#fetch_price_action").val();
-    alert(action);
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -48,8 +48,12 @@ function priceGetValue() {
         cache:false,
         contentType: false,
         processData: false,
+        beforeSend: function() {
+            $("#price_loader").show();
+        },
         success:function(data){
-            console.log(data);
+            $("#price_loader").hide();
+            $("#showPriceProduct").html(data);
         },
         error:function (error) {
             

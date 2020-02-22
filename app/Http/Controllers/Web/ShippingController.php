@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use Auth;
+use Carbon\Carbon;
 
 class ShippingController extends Controller
 {
@@ -47,5 +48,35 @@ class ShippingController extends Controller
     		]);
 
         return redirect()->route('web.shipping_address_list');
-    }
+	}
+	
+	public function addShippingAddress(Request $request)
+	{
+		$this->validate($request, [
+            'name'   => 'required',
+            'email' => 'required',
+            'address' => 'required',
+            'city' => 'required',
+            'state' => 'required',
+            'mobile' => 'required',
+            'pin' => 'required',
+		]);
+		
+		DB::table('shipping_address')
+			->insert([
+				'user_id' => $user_id = Auth::guard('users')->user()->id,
+				'name'=> $request->input('name'),
+				'email'=> $request->input('email'),
+				'address'=> $request->input('address'),
+				'city'=> $request->input('city'),
+				'state'=> $request->input('state'),
+				'contact_no'=> $request->input('mobile'),
+				'zip_code'=> $request->input('pin'),
+				'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+				'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
+			]);
+		return redirect()->back();
+	}
+
+	
 }
