@@ -77,6 +77,10 @@ Route::get('/Thank', function () {
 Route::get('/Add-shipping-address', function () {
     return view('web.account.shipping-add');
 })->name('web.account.shipping-add');
+
+Route::get('/Orders', function () {
+    return view('web.shop-order');
+})->name('web.shop-order');
 //-----------------------------------------
 
 
