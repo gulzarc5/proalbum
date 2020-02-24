@@ -24,7 +24,7 @@
                         <div class="row" style="margin-bottom: 30px">
                             <div class="emtrycart col-md-12">
                                 <h2 class=" text-center"><i class="fa fa-check"></i> Thanks your order has been placed</h2>
-                                <div class="row">
+                                {{-- <div class="row">
                                     <div class="col-md-2"></div>
                                     <div class="col-md-8">
                                         <div class="row singleorder">
@@ -85,10 +85,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
                                 <div class="col-md-12" style="text-align: center;">
-                                    <a href="/" class="button button--aylen btn">Continue Shopping</a>
+                                    <a href="/" class="button button--aylen btn">Click Here To View Order History</a>
                                 </div>
                             </div>
                             <!-- end emtrycart -->

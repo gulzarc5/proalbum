@@ -21,6 +21,8 @@
                     </ul>
 
                     <div class="" id="step2">
+
+                        {{ Form::open(['method' => 'post','route'=>'web.order_place']) }}
                         <div class="row">
                             <div class="col-md-8">
                                 <div class="widget-title Filewidget">
@@ -29,20 +31,23 @@
                                 </div>
 
                                 <div class="">
-                                    <form>
+                                    @if (isset($products) && !empty($products))
+                                        @foreach ($products as $item)   
+                                        <h4>{{$item->name}}</h4>
                                         <div class="row">
                                             <div class="form-group col-sm-6">
                                                 <label>Enter Link*</label>
-                                                <input type="text" class="form-control" placeholder="Enter Link">
+                                                <input type="text" class="form-control" name="file_link[{{$item->id}}]" placeholder="Enter Link">
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label>Password</label>
-                                                <input type="text" class="form-control" placeholder="Enter Password">
+                                                <input type="text" class="form-control" name="file_password[{{$item->id}}]" placeholder="Enter Password">
                                                 <small>if you have a lock on your file / folder</small>
                                             </div>
                                         </div>
-                                        <!-- end row -->
-                                    </form>
+                                        @endforeach
+                                    @endif
+                                    
                                 </div>
                                 <div class="widget-title">
                                     <h4>SHIPPING DETAILS</h4>
@@ -88,58 +93,10 @@
                                             
                                         @endforeach
                                     @endif
-                                   
-                                    <div class="col-md-6">                                           
-                                            <label class="radio-container">
-                                                <input type="radio" name="address" value="">
-                                                <span class="checkmark"></span>
-                                            </label>
-                                            <div class="AddressCard">
-                                                <p>Vishal Nag</p>
-                                                <p class="AddressCard__addresses___2rzGd">House No. 16,  Sewali Path,  hengrabari, </p>
-                                                <p>imvishalnag@gmail.com, 8436590120 </p>
-                                                <p>Guwahati, Assam - 781034</p>
-                                            </div>
-                                    </div>
                                 </div>
 
-                                <div class="changeadd" style="display: none;">
-                                    {{ Form::open(['method' => 'post','route'=>'web.add_shipping_address']) }}
-                                        <div class="row">
-                                            <div class="form-group col-sm-6">
-                                                <label>Name*</label>
-                                                <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Email*</label>
-                                                <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
-                                            </div>
-                                            <div class="form-group col-sm-12">
-                                                <label>Address*</label>
-                                                <textarea class="form-control" name="address" placeholder="Type Address..." required></textarea>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Town / City*</label>
-                                                <input type="text" name="city" class="form-control" placeholder="Enter Town/City Name" required>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>State*</label>
-                                                <input name="state" type="text" class="form-control" placeholder="Enter State Name" required>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Contact No</label>
-                                                <input name="mobile" type="text" class="form-control" placeholder="Enter Contact Number" required>
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label>Zip Code</label>
-                                                <input name="pin" type="text" class="form-control" placeholder="Enter Zip Code" required>
-                                            </div>
-                                            <div class="form-group col-sm-12">
-                                                <button type="submit" class="button button--aylen btn">Save & Continue</button>
-                                            </div>
-                                        </div>
-                                        <!-- end row -->
-                                    {{Form::close()}}
+                                <div class="changeadd" id="add_add_form" style="display: none;">
+                                    
                                 </div>
                             </div>
                             <!-- end col -->
@@ -163,7 +120,7 @@
                                                             <div class="panel-heading">
                                                                 <div class="panel-title">
                                                                     <label class="radio-container">
-                                                                        <input type="radio" checked name="payment" value="">
+                                                                        <input type="radio" checked name="payment" value="1">
                                                                         <span class="checkmark"></span>
                                                                     </label>
                                                                     <a class="accordion-toggle"> Pay COD </a>
@@ -174,7 +131,7 @@
                                                             <div class="panel-heading">
                                                                 <div class="panel-title">
                                                                     <label class="radio-container">
-                                                                        <input type="radio" name="payment" value="">
+                                                                        <input type="radio" name="payment" value="2">
                                                                         <span class="checkmark"></span>
                                                                     </label>
                                                                     <a class="accordion-toggle"> Pay Online</a>
@@ -235,7 +192,7 @@
                                         <hr class="invis">
 
                                         <div class="form-group">
-                                            <a type="submit" class="button button--aylen btn" href="{{route('web.shop-thank')}}">Place Order</a>
+                                            <button type="submit" class="button button--aylen btn" href="{{route('web.shop-thank')}}">Place Order</button>
                                         </div>
                                     </div>
                                     <!-- end ordertotal -->
@@ -244,10 +201,50 @@
                             </div>
                             <!-- end col -->
                         </div>
+                        {{Form::close()}}
                         <!-- end row -->
                     </div>
                 </div>
                 <!-- end checkout-tab -->
+            </div>
+
+            <div id="shipping-address-add-form" style="display:none">
+                {{ Form::open(['method' => 'post','route'=>'web.add_shipping_address']) }}
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label>Name*</label>
+                            <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Email*</label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <label>Address*</label>
+                            <textarea class="form-control" name="address" placeholder="Type Address..." required></textarea>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Town / City*</label>
+                            <input type="text" name="city" class="form-control" placeholder="Enter Town/City Name" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>State*</label>
+                            <input name="state" type="text" class="form-control" placeholder="Enter State Name" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Contact No</label>
+                            <input name="mobile" type="text" class="form-control" placeholder="Enter Contact Number" required>
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label>Zip Code</label>
+                            <input name="pin" type="text" class="form-control" placeholder="Enter Zip Code" required>
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <button type="submit" class="button button--aylen btn">Save & Continue</button>
+                        </div>
+                    </div>
+                    <!-- end row -->
+                {{Form::close()}}
             </div>
             <!-- end container -->
         </section>
@@ -256,6 +253,7 @@
     @section('script')
         <script>
             $( "#actionbtn" ).click(function() {
+                $("#add_add_form").html($("#shipping-address-add-form").html());
               $( ".changeadd" ).toggle();
             });
             $('#actionbtn').click(function(){
