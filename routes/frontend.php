@@ -48,6 +48,7 @@ Route::group(['namespace'=>'Web'],function(){
         Route::post('update-password', 'PasswordController@updatePassword'); 
 
         Route::get('checkout','CheckoutController@checkout')->name('web.checkout');
+        Route::get('order/place','OrderController@orderPlace')->name('web.order_place');
 
     });
 });
