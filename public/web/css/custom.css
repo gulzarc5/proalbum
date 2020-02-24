@@ -381,6 +381,14 @@ html:not(.touch) .gallery-image:hover:after {
   color: #777;
   font-style: italic;
 }
+.shipping-content .row .col-md-6:nth-child(odd) {
+  padding-right: 7.5px;
+  margin-bottom: 15px;
+}
+.shipping-content .row .col-md-6:nth-child(even) {
+  padding-left: 7.5px;
+  margin-bottom: 15px;
+}
 .shipping-content .add {
     border: 1px solid #ddd;
     padding: 10px;
@@ -388,6 +396,13 @@ html:not(.touch) .gallery-image:hover:after {
 }
 .shipping-content .add p {
     margin-bottom: 0;
+}
+.shipping-content .add a {
+    color: #89bbc4;
+}
+.shipping-content .add a:hover {
+    text-decoration: underline!important;
+    padding-left: 3px;
 }
 .new-add {
     position: absolute;

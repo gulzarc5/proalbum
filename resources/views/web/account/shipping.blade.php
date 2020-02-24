@@ -17,7 +17,7 @@
                         <div class="login-head">
                             <h4>Shipping Address</h4>
                             <p>Save your shipping address for hassel free checkout</p>
-                            <a href="{{route('web.edit_shipping_address')}}" class="new-add btn btn-primary" title="">+ ADD NEW ADDRESS</a>
+                            <a href="{{route('web.account.shipping-add')}}" class="new-add btn btn-primary" title="">+ ADD NEW ADDRESS</a>
                         </div>
                         @if(!empty($shipping_address) && (count($shipping_address) > 0))
                         <div class="shipping-content">
@@ -29,6 +29,7 @@
                                         <p>{{ $item->address }}</p>
                                         <p>{{ $item->city }}, {{ $item->state }}, {{ $item->zip_code }}</p>
                                         <p>Ph- {{ $item->contact_no }}</p>
+                                        <a href="{{route('web.edit_shipping_address')}}" title="edit"> Edit address</a>
                                     </div>
                                 </div>
                                 @endforeach

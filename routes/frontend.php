@@ -73,6 +73,9 @@ Route::get('/Thank', function () {
     return view('web.shop-thank');
 })->name('web.shop-thank');
 
+Route::get('/Add-shipping-address', function () {
+    return view('web.account.shipping-add');
+})->name('web.account.shipping-add');
 //-----------------------------------------
 
 
