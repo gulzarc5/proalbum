@@ -77,19 +77,38 @@ class OrderController extends Controller
                                         'order_details_id' => $order_details,
                                         'option_id' => $value1->option_id,
                                         'option_details_id' => $value1->option_detail_id,
-                                        'option_price' => $value1->option_detail_id,
+                                        'option_price' => $value1->option_detail_price,
                                         'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                                         'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                                     ]);
                             }
                             
                         }
-                        DB::table('order_detail')->where('id',$order_details)->update(['product_total_price' => $product_price]);
+                        $detail_sub_total = $product_price;
+                        $detail_vat = (($product_price*15)/100);
+                        $detail_total = ($product_price+$detail_vat);
+
+                        DB::table('order_detail')->where('id',$order_details)
+                            ->update([
+                                'sub_total' => $product_price,
+                                'vat' => $detail_vat,
+                                'product_total_price' => $detail_total,
+                            ]);
                         
                     }
                     $total_order_price+=$product_price;
                 }
-                DB::table('orders')->where('id',$orders)->update(['total_price'=>$total_order_price,'total_quantity'=>$cart->count()]);
+                $subtotal = $total_order_price;
+                $vat = (($total_order_price*15)/100);
+                $total_order_price = ($total_order_price+$vat);
+
+                DB::table('orders')->where('id',$orders)
+                    ->update([
+                        'sub_total'=>$subtotal,
+                        'vat' => $vat,
+                        'total_quantity'=>$cart->count(),
+                        'total_price' => $total_order_price,
+                    ]);
                 return redirect()->route('web.order_success');
             }else{
                 return redirect()->back()->with('error','Something Went Wrong Please Try Again');

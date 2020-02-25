@@ -107,7 +107,9 @@
                                     </div> --}}
                                     <div class="row">
                                         <div class="col-md-12 totalordercontent"> 
-                                            <h5><strong>Total Order Amount: R {{$cart_total}}</strong></h5>   
+                                            <h5><strong>Sub Total : R {{$cart_total}}</strong></h5> 
+                                            <h5><strong>VAT 15% : R {{floatval(($cart_total*15)/100)}}</strong></h5> 
+                                            <h5><strong>Total Order Amount: R {{$cart_total+floatval(($cart_total*15)/100)}}</strong></h5>   
                                         </div>
                                     </div>
                                 </div>

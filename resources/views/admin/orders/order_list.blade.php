@@ -18,7 +18,9 @@
                               <th>Sl</th>
                               <th>User Name</th>
                               <th>User Email</th>
-                              <th>Order Quantity</th>
+                              <th>Total Item</th>                              
+                              <th>Sub Total</th>                              
+                              <th>VAT @ 15%</th>
                               <th>Total Amount</th>
                               <th>Status</th>
                               <th>Action</th>
@@ -51,7 +53,9 @@
                     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
                     {data: 'user_name', name: 'user_name',searchable: true},
                     {data: 'user_email', name: 'user_email' ,searchable: true}, 
-                    {data: 'total_quantity', name: 'total_quantity',searchable: true},           
+                    {data: 'total_quantity', name: 'total_quantity',searchable: true},  
+                    {data: 'sub_total', name: 'sub_total',searchable: true},  
+                    {data: 'vat', name: 'vat',searchable: true},           
                     {data: 'total_price', name: 'total_price',searchable: true},           
                     {data: 'status_tab', name: 'status_tab',orderable: false, searchable: false},                    
                     {data: 'action', name: 'action', orderable: false, searchable: false},
