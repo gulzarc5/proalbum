@@ -22,7 +22,7 @@
                                 <p>Welcome Back! enter username and password</p>
                             @endif
                         </div>
-                        <form action="{{ url('login') }}" autocomplete="off" method="POST">
+                        <form action="{{ url('login') }}"  method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>

@@ -12,26 +12,27 @@ class PasswordController extends Controller
 {
     public function showChangePasswordForm()
     {
-        $user = DB::table('users')
-            ->where('id', Auth()->user()->id)
-            ->first();
-        
-        return view('web.account.change-password', ['user' => $user]);
+        return view('web.account.change-password');
     }
 
     
     public function updatePassword(Request $request) {
-
-    	$validatedData = $request->validate([
-            'new_password' => ['required', 'string', 'same:confirm_password'],
+        $validatedData = $request->validate([
+            'current_password' => ['required', 'string', 'min:8'],
+            'new_password' => ['required', 'string', 'min:8', 'same:confirm_password'],
         ]);
+        $current_password = Auth::guard('users')->user()->password;   
 
-        DB::table('users')
-            ->where('id', Auth()->user()->id)
-            ->update([
-                'password' => Hash::make($request['new_password'])
-            ]);
-
-        return redirect()->back()->with('msg', 'Password has been changed');
+        if(Hash::check($request->input('current_password'), $current_password)){ 
+            DB::table('users')
+                ->where('id', Auth()->user()->id)
+                ->update([
+                    'password' => Hash::make($request['new_password'])
+                ]); 
+            
+            return redirect()->back()->with('message', 'Password Changed Successfully');
+        }else{            
+            return redirect()->back()->with('error', 'Please Enter Correct Current Password');
+        }
     }
 }

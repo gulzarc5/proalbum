@@ -21,15 +21,22 @@ class ShippingController extends Controller
         return view('web.account.shipping', ['shipping_address' => $shipping_address]);
     }
 
-    public function editShippingAddress()
+    public function editShippingAddress($address_id)
     {
-        return view('web.account.shipping-edit');
+		try {
+            $address_id = decrypt($address_id);
+        }catch(DecryptException $e) {
+            return redirect()->back();
+		}
+		$address = DB::table('shipping_address')->where('id',$address_id)->first();
+        return view('web.account.shipping-edit',compact('address'));
     }
 
     public function updateShippingAddress(Request $request) {
 
     	$validatedData = $request->validate([
-	        'address' => ['required', 'string', 'max:255'],
+	        'name' => 'required',
+			'email' => 'required',
 	        'contact_no' => 'required',
 	        'address' => ['required', 'string', 'max:255'],
 	        'city' => ['required', 'string', 'max:255'],
@@ -37,9 +44,11 @@ class ShippingController extends Controller
 	        'zip_code' => ['required', 'string', 'max:255'],
 	    ]);
 
-    	DB::table('shipping_address')
-    		->insert([
-    			'user_id' => Auth()->user()->id,
+		DB::table('shipping_address')
+			->where('id',$request->input('address_id'))
+    		->update([
+				'name' => $request->input('name'),
+				'email' => $request->input('email'),
 	            'address' => $request->input('address'),
 	            'contact_no' => $request->input('contact_no'),
 	            'city' => $request->input('city'),
@@ -50,6 +59,10 @@ class ShippingController extends Controller
         return redirect()->route('web.shipping_address_list');
 	}
 	
+	public function addShippingAddressForm()
+	{
+		return view('web.account.shipping-add');
+	}
 	public function addShippingAddress(Request $request)
 	{
 		$this->validate($request, [
@@ -75,7 +88,7 @@ class ShippingController extends Controller
 				'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
 				'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
 			]);
-		return redirect()->back();
+		return redirect()->back()->with('msg','Shipping Address Added Successfully');
 	}
 
 	

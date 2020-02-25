@@ -88,7 +88,7 @@
                                 </div> --}}
 
                                 <div class="col-md-12" style="text-align: center;">
-                                    <a href="/" class="button button--aylen btn">Click Here To View Order History</a>
+                                    <a href="{{route('web.order_history')}}" class="button button--aylen btn">Click Here To View Order History</a>
                                 </div>
                             </div>
                             <!-- end emtrycart -->

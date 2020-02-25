@@ -34,11 +34,12 @@ Route::group(['namespace'=>'Web'],function(){
         /** Update My Profile **/
         Route::post('update-my-profile', 'UserController@updateMyProfile')->name('web.update_my_profile');
 
+        Route::get('/Add-shipping-address/form','ShippingController@addShippingAddressForm')->name('web.add_shipping_address_form');
         Route::post('add/shipping/address', 'ShippingController@addShippingAddress')->name('web.add_shipping_address');
         /** Shipping Address List **/
         Route::get('shipping-address-list', 'ShippingController@shippingAddressList')->name('web.shipping_address_list'); 
          /** Edit Shipping Address **/
-        Route::get('edit-shipping-address', 'ShippingController@editShippingAddress')->name('web.edit_shipping_address');
+        Route::get('edit/shipping/address/{address_id}', 'ShippingController@editShippingAddress')->name('web.edit_shipping_address');
          /** Update Shipping Address **/
         Route::post('update-shipping-address', 'ShippingController@updateShippingAddress')->name('web.update_shipping_address');
 
@@ -48,8 +49,11 @@ Route::group(['namespace'=>'Web'],function(){
         Route::post('update-password', 'PasswordController@updatePassword'); 
 
         Route::get('checkout','CheckoutController@checkout')->name('web.checkout');
-        Route::post('order/place','OrderController@orderPlace')->name('web.order_place');        
+        Route::post('order/place','OrderController@orderPlace')->name('web.order_place');
         Route::get('order/success','OrderController@orderSuccess')->name('web.order_success');
+        Route::get('order/history','OrderController@orderHistory')->name('web.order_history');
+        Route::get('order/cancel/{id}','OrderController@orderCancel')->name('web.order_cancel');        
+        Route::get('order/detail/cancel/{order_id}/{order_details_id}','OrderController@orderDetailsCancel')->name('web.order_details_cancel');
 
     });
 });
@@ -75,9 +79,7 @@ Route::get('/Thank', function () {
     return view('web.shop-thank');
 })->name('web.shop-thank');
 
-Route::get('/Add-shipping-address', function () {
-    return view('web.account.shipping-add');
-})->name('web.account.shipping-add');
+
 
 Route::get('/Orders', function () {
     return view('web.shop-order');
