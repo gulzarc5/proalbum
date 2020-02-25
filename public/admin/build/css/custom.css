@@ -4365,3 +4365,25 @@ th.option-size-price b:first-child {
     margin-bottom: 20px;
     min-height: 161px;
 }
+.order-detail table.table .pointer a img {
+    max-width: 100px;
+}
+.order-detail .table>tbody>tr>td, .order-detail .table>thead>tr>th {
+    vertical-align: middle;
+    text-align: center;
+}
+.order-detail .table>tbody>tr>td:nth-child(2), .order-detail .table>thead>tr>th:nth-child(2) {
+    text-align: left;
+}
+.order-detail .table>tfoot>tr>td {
+    border: 1px solid #ddd;
+    border-top: 0px;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 1px;
+    text-align: right;
+    padding: 4px 8px;    
+}
+.order-detail .table>tfoot>tr:first-child>td,.order-detail .table>tfoot>tr:last-child>td {
+    border-top:  1px solid #ddd;
+}
