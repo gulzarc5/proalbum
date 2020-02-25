@@ -16,30 +16,40 @@
                     <div id="content" class="col-md-6 col-sm-6 col-md-offset-3 login">
                         <div class="login-head">
                             <h4>Change Password</h4>
-                            @if (session()->has('msg'))
-                                <p>{{ session()->get('msg') }}</p>
-                            @else
-                                <p>Change your old password with new password</p>
+                            @if (Session::has('message'))
+                               <div class="alert alert-success" >{{ Session::get('message') }}</div>
+                            @endif
+                            @if (Session::has('error'))
+                               <div class="alert alert-danger" >{{ Session::get('error') }}</div>
                             @endif
                         </div>
                         <form action="{{ url('update-password') }}" method="POST" autocomplete="off">
                             @csrf
                             <div class="form-group">
-                                <label for="inputState">Old Password</label>
-                            <input type="password" class="form-control" id="inputState" value="{{ $user->password }}" name="old_password" placeholder="Enter Old Password">
+                                <label for="inputState">Current Password</label>
+                                <input type="password" class="form-control" id="inputState" name="current_password" placeholder="Enter Old Password">
+                                @if($errors->has('current_password'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('current_password') }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputCity">New Password</label>
                                 <input type="password" class="form-control" id="inputCity" name="new_password" placeholder="Enter New Password">
-                                @error('new_password')
-                                    {{ $message }}
+                                @if($errors->has('new_password'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('new_password') }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputState">Confirm New Password</label>
                                 <input type="text" class="form-control" id="inputState" name="confirm_password" placeholder="Enter Confirm New Password">
-                                @error('confirm_password')
-                                    {{ $message }}
+                                @if($errors->has('confirm_password'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('confirm_password') }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                             <div class="flex form-group pl-0 col-md-6">

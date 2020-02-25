@@ -16,11 +16,14 @@ class CheckoutController extends Controller
         $product_price = 0;
         // To Check Cart Has Data Or Not
         $cart = DB::table('cart')->where('user_id',$user_id)->get();
+        $cart_count = $cart->count();
+        $products = [];
         if ($cart->count() > 0) {
             foreach ($cart as $key => $carts) {
                 $product_details = DB::table('products')
                         ->where('id',$carts->product_id)
                         ->first();
+                $products[] = $product_details;
                 $product_price += $product_details->sheet_price;
                 $size = DB::table('product_size')->where('id', $carts->size_id)->first();
                 if ($carts->size_value > $product_details->sheet_value ) {
@@ -44,9 +47,8 @@ class CheckoutController extends Controller
         }else{
             return redirect()->back();
         }
-
         $shipping_address = DB::table('shipping_address')->where('user_id',$user_id)->get();
 
-        return view('web.shop-checkout',compact('shipping_address','product_price'));
+        return view('web.shop-checkout',compact('shipping_address','product_price','products'));
     }
 }

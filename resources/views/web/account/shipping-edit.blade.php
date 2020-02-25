@@ -18,11 +18,21 @@
                             <h4>Shipping Address Edit</h4>
                             <p>Add your shipping address for hassel free checkout</p>
                         </div>
-                        <form method="POST" autocomplete="off" action="{{ route('web.update_shipping_address') }}">
+                        @if (isset($address) && !empty($address))
+                        <form method="POST" action="{{ route('web.update_shipping_address') }}">
                             @csrf
+                            <input type="hidden" name="address_id" value="{{$address->id}}">
+                            <div class="form-group">
+                                <label for="inputState">Name</label>
+                                <input type="text" class="form-control" id="inputName" placeholder="Enter Email" name="name" required value="{{$address->name}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputState">Email</label>
+                                <input type="email" class="form-control" id="inputName" placeholder="Enter Name" name="email" value="{{$address->email}}" required>
+                            </div>
                             <div class="form-group">
                                 <label for="inputAddress2">Address</label>
-                                <textarea type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="address"></textarea>
+                                <textarea type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" name="address">{{$address->address}}</textarea>
                                 @if($errors->has('address'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('address') }}</strong>
@@ -31,7 +41,7 @@
                             </div>
                             <div class="form-group pl-0 col-md-6">
                                 <label for="inputState">Phone</label>
-                                <input type="text" class="form-control" id="inputState" placeholder="Enter Phone" name="contact_no">
+                                <input type="text" class="form-control" id="inputState" placeholder="Enter Phone" name="contact_no" value="{{$address->contact_no}}">
                                 @if($errors->has('contact_no'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('contact_no') }}</strong>
@@ -40,7 +50,7 @@
                             </div>
                             <div class="form-group pr-0 col-md-6">
                                 <label for="inputCity">City</label>
-                                <input type="text" class="form-control" id="inputCity" placeholder="Enter City" name="city">
+                                <input type="text" class="form-control" id="inputCity" placeholder="Enter City" name="city" value="{{$address->city}}">
                                 @if($errors->has('city'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('city') }}</strong>
@@ -49,7 +59,7 @@
                             </div>
                             <div class="form-group pl-0 col-md-6">
                                 <label for="inputState">State</label>
-                                <input type="text" class="form-control" id="inputState" placeholder="Enter State" name="state">
+                                <input type="text" class="form-control" id="inputState" placeholder="Enter State" name="state" value="{{$address->state}}">
                                 @if($errors->has('state'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('state') }}</strong>
@@ -58,7 +68,7 @@
                             </div>
                             <div class="form-group pr-0 col-md-6">
                                 <label for="inputZip">Zip</label>
-                                <input type="text" class="form-control" id="inputZip" placeholder="Enter Zip" name="zip_code">
+                                <input type="text" class="form-control" id="inputZip" placeholder="Enter Zip" name="zip_code" value="{{$address->zip_code}}">
                                 @if($errors->has('zip_code'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('zip_code') }}</strong>
@@ -70,6 +80,8 @@
                                 <button type="submit" class="btn btn-primary">Submit</button>                                
                             </div>
                         </form>
+                        @endif
+                       
                     </div><!-- end content -->
                 </div><!-- end row -->
             </div><!-- end container -->

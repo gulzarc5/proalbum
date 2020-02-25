@@ -87,6 +87,8 @@
                   <li><a href="{{ route('admin.product_list')}}"><i class="fa fa-folder-o" aria-hidden="true"></i> Products </span></a></li>
 
                   <li><a href="{{route('admin.customer_list')}}"><i class="fa fa-folder-o" aria-hidden="true"></i> Customer List </span></a></li>
+
+                  <li><a href="{{route('admin.order_list')}}"><i class="fa fa-folder-o" aria-hidden="true"></i> Orders </span></a></li>
                   
                   <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Master <span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu">

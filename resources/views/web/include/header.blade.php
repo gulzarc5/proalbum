@@ -48,7 +48,7 @@
                                         <li><a href="{{ route('web.view_cart') }}">cart</a></li> 
                                     @auth('users')
                                         <li><a href="{{ route('web.my_profile') }}">Profile</a></li>
-                                        <li><a href="#">orders</a></li>
+                                        <li><a href="{{route('web.order_history')}}">orders</a></li>
                                         <li><a href="{{route('web.shipping_address_list')}}">shipping address</a></li>
                                         <li><a href="{{route('web.change_password_form')}}">change password</a></li>
                                         <li><a href="{{route('web.logout')}}">Logout</a></li>
