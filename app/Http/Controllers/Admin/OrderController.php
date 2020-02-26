@@ -26,8 +26,8 @@ class OrderController extends Controller
         return datatables()->of($oder->get())
         ->addIndexColumn()
         ->addColumn('action', function($row){
-            $btn ='<a href="'.route('admin.order_details',['order_id'=>encrypt($row->id)]).'" class="btn btn-info btn-sm" target="_blank">View</a>
-            <a href="#" class="btn btn-danger btn-sm" target="_blank">Cancel</a>';
+            $btn ='<a href="'.route('admin.order_details',['order_id'=>encrypt($row->id)]).'" class="btn btn-primary btn-sm" target="_blank">View</a>
+            <a href="#" class="btn btn-danger btn-sm" target="_blank">Cancel</a> <a href="'.route('admin.orders.order_invoice').'" class="btn btn-info btn-sm" target="_blank">View Invoice</a';
             return $btn;
         })
         ->addColumn('status_tab', function($row){

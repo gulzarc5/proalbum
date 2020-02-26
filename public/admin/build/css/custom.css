@@ -4387,3 +4387,6 @@ th.option-size-price b:first-child {
 .order-detail .table>tfoot>tr:first-child>td,.order-detail .table>tfoot>tr:last-child>td {
     border-top:  1px solid #ddd;
 }
+.invoice-header p {
+    margin-bottom: 0
+}

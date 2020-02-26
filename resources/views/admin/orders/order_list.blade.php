@@ -15,15 +15,15 @@
                         <table id="size_list" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                           <thead>
                             <tr>
-                              <th>Sl</th>
-                              <th>User Name</th>
-                              <th>User Email</th>
-                              <th>Total Item</th>                              
-                              <th>Sub Total</th>                              
-                              <th>VAT @ 15%</th>
-                              <th>Total Amount</th>
-                              <th>Status</th>
-                              <th>Action</th>
+                              <th style="text-align: center;">Sl</th>
+                              <th style="text-align: center;">User Name</th>
+                              <th style="text-align: center;">User Email</th>
+                              <th style="text-align: center;">Total Item</th>                              
+                              <th style="text-align: center;">Sub Total</th>                              
+                              <th style="text-align: center;">VAT @ 15%</th>
+                              <th style="text-align: center;">Total Amount</th>
+                              <th style="text-align: center;">Status</th>
+                              <th style="text-align: center;">Action</th>
                             </tr>
                           </thead>
                           <tbody>                       

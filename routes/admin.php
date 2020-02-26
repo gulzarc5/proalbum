@@ -116,3 +116,7 @@ Route::get('admin/product/details', function () {
 Route::get('admin/product/Images', function () {
     return view('admin.products.product_image');
 })->name('admin.products.product_image');
+
+Route::get('admin/orders/Invoice', function () {
+    return view('admin.orders.order_invoice');
+})->name('admin.orders.order_invoice');
