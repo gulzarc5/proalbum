@@ -24,6 +24,7 @@ Route::group(['namespace'=>'Web'],function(){
     Route::post('product/add/cart', 'CartController@addToCart')->name('web.add_to_cart');
     Route::get('view/cart', 'CartController@viewCart')->name('web.view_cart');    
     Route::get('remove/cart/{cart_id}', 'CartController@removeCart')->name('web.remove_cart');
+    Route::get('product/cart/update/{cart_id}/{qtty}', 'CartController@cartUpdate');
 
     Route::group(['middleware'=>'auth:users'],function(){
 

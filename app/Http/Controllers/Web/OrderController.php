@@ -46,17 +46,16 @@ class OrderController extends Controller
                         $extra_sheet_price = ($extra_sheet * $size->extra_page_price);
                         $product_price +=$extra_sheet_price;
                     }
-
                     $order_details = DB::table('order_detail')
                     ->insertGetId([
                         'order_id' => $orders,
                         'product_id' => $carts->product_id,
                         'sheet_name' => $product_details->sheet_name,
                         'sheet_value' => $product_details->sheet_value,
+                        'quantity' => $carts->quantity,
                         'file_link' =>$file_link[$carts->product_id],
                         'file_password' =>$file_password[$carts->product_id],
                         'size_id' => $carts->size_id,
-                        'product_price' => $product_price,
                         'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                         'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                     ]);
@@ -84,23 +83,24 @@ class OrderController extends Controller
                             }
                             
                         }
-                        $detail_sub_total = $product_price;
-                        $detail_vat = (($product_price*15)/100);
-                        $detail_total = ($product_price+$detail_vat);
+                        $subtotal = $product_price*$carts->quantity;
+                        $vat = floatval(($subtotal*15)/100);
+                        $total = $subtotal+$vat;
 
                         DB::table('order_detail')->where('id',$order_details)
                             ->update([
-                                'sub_total' => $product_price,
-                                'vat' => $detail_vat,
-                                'product_total_price' => $detail_total,
+                                'product_price' => $product_price,
+                                'sub_total' => $subtotal,
+                                'vat' => $vat,
+                                'product_total_price' => $total,
                             ]);
                         
                     }
-                    $total_order_price+=$product_price;
+                    $total_order_price+=$subtotal;
                 }
                 $subtotal = $total_order_price;
-                $vat = (($total_order_price*15)/100);
-                $total_order_price = ($total_order_price+$vat);
+                $vat = (($subtotal*15)/100);
+                $total_order_price = ($subtotal+$vat);
 
                 DB::table('orders')->where('id',$orders)
                     ->update([

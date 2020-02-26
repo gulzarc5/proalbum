@@ -100,6 +100,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('list','OrderController@orderList')->name('admin.order_list');
             Route::get('list/ajax','OrderController@orderListAjax')->name('admin.order_list_ajax');
             Route::get('details/{order_id}','OrderController@orderDetails')->name('admin.order_details');
+            Route::get('status/update/{order_details_id}/{status}','OrderController@orderStatusUpdate');
         });
     });
 });
