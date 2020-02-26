@@ -171,6 +171,7 @@ class CartController extends Controller
                         }
                         
                     }
+                    $product_price =($product_price * $carts->quantity);
                     $cartData[]=[
                         'cart_id' => $carts->id,
                         'product_id' => $carts->product_id,
@@ -180,6 +181,7 @@ class CartController extends Controller
                         'sheet_name' => $product_details->sheet_name,
                         'sheet_value' => $carts->size_value,
                         'size_name' => $size->display_name,
+                        'quantity' => $carts->quantity,
                         'price' => $product_price,
                         'options' => $option_details_data,
                     ];
@@ -233,6 +235,7 @@ class CartController extends Controller
                             'sheet_value' => $value1['size_value'],
                             'size_name' => $size->display_name,
                             'price' => $product_price,
+                            'quantity' => 1,
                             'options' => $option_details_data,
                         ];
                     }
@@ -252,6 +255,16 @@ class CartController extends Controller
         }else{
             Session::forget('cart.'.$cart_id);
         }
+        return redirect()->back();
+    }
+
+    public function cartUpdate($cart_id,$quantity)
+    {
+        $cart = DB::table('cart')
+            ->where('id',$cart_id)
+            ->update([
+                'quantity' => $quantity,
+            ]);
         return redirect()->back();
     }
 

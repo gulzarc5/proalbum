@@ -46,17 +46,16 @@ class OrderController extends Controller
                         $extra_sheet_price = ($extra_sheet * $size->extra_page_price);
                         $product_price +=$extra_sheet_price;
                     }
-
                     $order_details = DB::table('order_detail')
                     ->insertGetId([
                         'order_id' => $orders,
                         'product_id' => $carts->product_id,
                         'sheet_name' => $product_details->sheet_name,
                         'sheet_value' => $product_details->sheet_value,
+                        'quantity' => $carts->quantity,
                         'file_link' =>$file_link[$carts->product_id],
                         'file_password' =>$file_password[$carts->product_id],
                         'size_id' => $carts->size_id,
-                        'product_price' => $product_price,
                         'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                         'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                     ]);
@@ -77,19 +76,39 @@ class OrderController extends Controller
                                         'order_details_id' => $order_details,
                                         'option_id' => $value1->option_id,
                                         'option_details_id' => $value1->option_detail_id,
-                                        'option_price' => $value1->option_detail_id,
+                                        'option_price' => $value1->option_detail_price,
                                         'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                                         'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                                     ]);
                             }
                             
                         }
-                        DB::table('order_detail')->where('id',$order_details)->update(['product_total_price' => $product_price]);
+                        $subtotal = $product_price*$carts->quantity;
+                        $vat = floatval(($subtotal*15)/100);
+                        $total = $subtotal+$vat;
+
+                        DB::table('order_detail')->where('id',$order_details)
+                            ->update([
+                                'product_price' => $product_price,
+                                'sub_total' => $subtotal,
+                                'vat' => $vat,
+                                'product_total_price' => $total,
+                            ]);
                         
                     }
-                    $total_order_price+=$product_price;
+                    $total_order_price+=$subtotal;
                 }
-                DB::table('orders')->where('id',$orders)->update(['total_price'=>$total_order_price,'total_quantity'=>$cart->count()]);
+                $subtotal = $total_order_price;
+                $vat = (($subtotal*15)/100);
+                $total_order_price = ($subtotal+$vat);
+
+                DB::table('orders')->where('id',$orders)
+                    ->update([
+                        'sub_total'=>$subtotal,
+                        'vat' => $vat,
+                        'total_quantity'=>$cart->count(),
+                        'total_price' => $total_order_price,
+                    ]);
                 return redirect()->route('web.order_success');
             }else{
                 return redirect()->back()->with('error','Something Went Wrong Please Try Again');

@@ -162,11 +162,14 @@
                                                 <li>
                                                     <h4>Cart Subtotal 
                                                         <span>R 
-                                                            @if (isset($product_price) && !empty($product_price))
-                                                                {{$product_price}}
+                                                            @if (isset($product_total) && !empty($product_total))
+                                                                {{$product_total}}
                                                             @endif
                                                         </span>
                                                     </h4>
+                                                </li>
+                                                <li>
+                                                    <h4>VAT @ 15% <span>{{floatval(($product_total*15)/100)}}</span></h4>
                                                 </li>
                                                 <li>
                                                     <h4>Shipping and Handling <span>Free Shipping</span></h4>
@@ -178,8 +181,8 @@
                                                 <li>
                                                     <h4>
                                                         <strong>GRAND TOTAL <span>R 
-                                                            @if (isset($product_price) && !empty($product_price))
-                                                                {{$product_price}}
+                                                            @if (isset($product_total) && !empty($product_total))
+                                                                {{floatval($product_total+($product_total*15)/100)}}
                                                             @endif
                                                         </span>
                                                         </strong>

@@ -14,12 +14,15 @@ class CheckoutController extends Controller
     {
         $user_id = Auth::guard('users')->user()->id;
         $product_price = 0;
+        $product_total = 0;
         // To Check Cart Has Data Or Not
         $cart = DB::table('cart')->where('user_id',$user_id)->get();
         $cart_count = $cart->count();
         $products = [];
         if ($cart->count() > 0) {
+            
             foreach ($cart as $key => $carts) {
+                $product_price = 0;
                 $product_details = DB::table('products')
                         ->where('id',$carts->product_id)
                         ->first();
@@ -43,12 +46,13 @@ class CheckoutController extends Controller
                     }
                     
                 }
+                $product_total += ($product_price * $carts->quantity);
             }
         }else{
             return redirect()->back();
         }
         $shipping_address = DB::table('shipping_address')->where('user_id',$user_id)->get();
 
-        return view('web.shop-checkout',compact('shipping_address','product_price','products'));
+        return view('web.shop-checkout',compact('shipping_address','product_price','products','product_total'));
     }
 }

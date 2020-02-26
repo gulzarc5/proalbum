@@ -91,6 +91,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('list','CustomerController@customerList')->name('admin.customer_list');
             Route::get('list/ajax','CustomerController@customerListAjax')->name('admin.customer_list_ajax');
             Route::get('details/{id}','CustomerController@customerDetails')->name('admin.customer_details');
+            Route::get('change/password/form','LoginController@changePasswordForm')->name('admin.change_password_form');
+            Route::post('change/password','LoginController@changePassword')->name('admin.change_password');
 
         });
 
@@ -98,6 +100,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('list','OrderController@orderList')->name('admin.order_list');
             Route::get('list/ajax','OrderController@orderListAjax')->name('admin.order_list_ajax');
             Route::get('details/{order_id}','OrderController@orderDetails')->name('admin.order_details');
+            Route::get('status/update/{order_details_id}/{status}','OrderController@orderStatusUpdate');
         });
     });
 });

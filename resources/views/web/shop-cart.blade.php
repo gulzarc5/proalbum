@@ -42,14 +42,18 @@
                                                 <div class="col-md-10 singleordercontent">
                                                     <a href="#">{{$cart['product_name']}}</a><br>
                                                     <b class="sub-tag">Product Type : {{$cart['sheet_name']}}</b>
-                                                    <b class="sub-tag spl">Number of {{$cart['sheet_name']}} : {{$cart['sheet_value']}}</b>
+                                                    <b class="sub-tag spl">Number of  {{$cart['sheet_name']}} : {{$cart['sheet_value']}}</b>
                                                     <b class="sub-tag spl">Size : {{$cart['size_name']}}</b> 
                                                     <div class="cart-price" style="text-align: left;">                                             
-                                                        {{-- <p class="quantity" style="padding-right: 20px;width: 20%;float: left;">Quantity: 2</p> --}}
+                                                        <p style="width: 100%;float: left;margin-bottom: 0">
+                                                        Quantity : <input type="number" id="qtty{{$cart['cart_id']}}" value="{{$cart['quantity']}}" onchange="updateCart({{$cart['cart_id']}})">
+                                                        </p>
                                                         <p style="width: 100%;float: left;margin-bottom: 0">
                                                             Amount: R {{$cart['price']}}
                                                         </p>
+                                                       
                                                     </div>
+
                                                     <a href="{{route('web.product_detail',['slug'=>$cart['product_slug'],'id'=>$cart['product_id']])}}" class="editproduct">Change Selection</a>
                                                     
                                                     <a href="{{route('web.remove_cart',['cart_id'=>$cart['cart_id']])}}" class="editproduct oth">Remove</a>
@@ -107,7 +111,9 @@
                                     </div> --}}
                                     <div class="row">
                                         <div class="col-md-12 totalordercontent"> 
-                                            <h5><strong>Total Order Amount: R {{$cart_total}}</strong></h5>   
+                                            <h5><strong>Sub Total : R {{$cart_total}}</strong></h5> 
+                                            <h5><strong>VAT 15% : R {{floatval(($cart_total*15)/100)}}</strong></h5> 
+                                            <h5><strong>Total Order Amount: R {{$cart_total+floatval(($cart_total*15)/100)}}</strong></h5>   
                                         </div>
                                     </div>
                                 </div>
@@ -128,3 +134,12 @@
         </section>
 
     @endsection   
+
+    @section('script')
+        <script>
+            function updateCart(id) {
+                var quantity = $("#qtty"+id).val();
+                window.location.href = "{{url('product/cart/update/')}}/"+id+"/"+quantity+"";
+            }
+        </script>
+    @endsection

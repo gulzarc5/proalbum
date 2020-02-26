@@ -45,7 +45,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="inputState">Confirm New Password</label>
-                                <input type="text" class="form-control" id="inputState" name="confirm_password" placeholder="Enter Confirm New Password">
+                                <input type="password" class="form-control" id="inputState" name="confirm_password" placeholder="Enter Confirm New Password">
                                 @if($errors->has('confirm_password'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('confirm_password') }}</strong>
