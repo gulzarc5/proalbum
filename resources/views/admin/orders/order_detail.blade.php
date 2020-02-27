@@ -107,6 +107,16 @@
                                 @endforeach
                               @endif
                             </small>
+                            @if (isset($order_details->file_link) && !empty($order_details->file_link))
+                            <br>
+                            <strong><small style="text-decoration: underline;">Files</small></strong><br>
+                            <small>                             
+                                <b>File URL : </b>{{ $order_details->file_link}}<br>                           
+                              @if (isset($order_details->file_password) && !empty($order_details->file_password))
+                                <b>File Password : </b>{{ $order_details->file_password}}
+                              @endif
+                            </small>
+                            @endif
                           </td>
                           <td class=" ">R {{$order_details->product_price}}</td>
                           <td class=" ">{{$order_details->quantity}}</td>
