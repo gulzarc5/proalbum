@@ -92,4 +92,11 @@ Route::get('/Orders', function () {
 //-----------------------------------------
 
 
+Route::get('/About', function () {
+    return view('web.about');
+})->name('web.about');
+
+Route::get('/Gallery', function () {
+    return view('web.gallery');
+})->name('web.gallery');
 
