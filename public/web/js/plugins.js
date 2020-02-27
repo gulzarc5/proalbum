@@ -90,14 +90,27 @@
     /* ==============================================
     AFFIX -->
     =============================================== */
-    $('.header').affix({
-        offset: {
-            top: 100,
-            bottom: function() {
-                return (this.bottom = $('.footer').outerHeight(true))
-            }
+    // $('.header').affix({
+    //     offset: {
+    //         top: 0,
+    //         bottom: function() {
+    //             return (this.bottom = $('.footer').outerHeight(true))
+    //         }
+    //     }
+    // })
+
+    $(window).scroll(function() {    
+        var scroll = $(window).scrollTop();
+
+         //>=, not <=
+        if (scroll >= 200) {
+            //clearHeader, not clearheader - caps H
+            $(".header").addClass("affix");
+        }else{
+            $(".header").removeClass("affix");
         }
-    })
+    });
+
 })(jQuery);
 
 /************************************************

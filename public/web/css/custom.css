@@ -557,7 +557,7 @@ html:not(.touch) .gallery-image:hover:after {
 }
 .totalordercontent {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-around;
   background: #eee;
   border-top: 1px dotted #ccc;  
   padding: 15px;
