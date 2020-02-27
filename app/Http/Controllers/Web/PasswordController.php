@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 use DB;
 use Auth;
 use Hash;
+// use App\User;
+// use Sentinal;
+// use Reminder;
+// use Mail;
+
 
 class PasswordController extends Controller
 {
@@ -35,4 +40,31 @@ class PasswordController extends Controller
             return redirect()->back()->with('error', 'Please Enter Correct Current Password');
         }
     }
+
+    // public function passwordResetEmail(Request $request)
+    // {
+    //     // dd($request->all());
+    //     $user = User::where('email',$request->email)->first();
+    //     if ($user == null) {
+    //         return redirect()->back()->with('error','Email Id Does Not Exist');
+    //     }
+
+    //     $user = Sentinal::findById($user->id);
+    //     $reminder = Reminder::exists($user) ? : Reminder::create($user);
+    //     $this->sendEmail($user,$reminder->code);
+
+    //     return redirect()->back()->with('success','Reset Link Send SuccessFully To Your Email');
+    // }
+    
+    // public function sendEmail($user,$code)
+    // {
+    //     Mail::send(
+    //         'email.send_email',
+    //         ['user' => $user, 'code' => $code],
+    //         function($message) use ($user){
+    //             $message->to($user->email);
+    //             $message->subject("Hello $user->name, Reset Your Password ");
+    //         }
+    //     );
+    // }
 }

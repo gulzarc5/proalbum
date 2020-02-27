@@ -65,6 +65,7 @@ class ShippingController extends Controller
 	}
 	public function addShippingAddress(Request $request)
 	{
+		
 		$this->validate($request, [
             'name'   => 'required',
             'email' => 'required',

@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="widget-title">
                                     <h4>SHIPPING DETAILS</h4>
-                                    <button type="submit" class="button btn" id="actionbtn">+ ADD SHIPPING ADDRESS</button>
+                                    <button type="button" class="button btn" id="actionbtn">+ ADD SHIPPING ADDRESS</button>
                                 </div>
                                 <!-- end widget-title -->
                                 <div class="row addressselect changeadd">
@@ -93,10 +93,6 @@
                                             
                                         @endforeach
                                     @endif
-                                </div>
-
-                                <div class="changeadd" id="add_add_form" style="display: none;">
-                                    
                                 </div>
                             </div>
                             <!-- end col -->
@@ -206,58 +202,63 @@
                         </div>
                         {{Form::close()}}
                         <!-- end row -->
+                        <div class="row">
+                            <div class="col-md-8">                            
+                                <div id="shipping-address-add-form" style="display:none">
+                                    {{ Form::open(['method' => 'post','route'=>'web.add_shipping_address','id'=>'new_address']) }}
+                                        <div class="row">
+                                            <div class="form-group col-sm-6">
+                                                <label>Name*</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Email*</label>
+                                                <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
+                                            </div>
+                                            <div class="form-group col-sm-12">
+                                                <label>Address*</label>
+                                                <textarea class="form-control" name="address" placeholder="Type Address..." required></textarea>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Town / City*</label>
+                                                <input type="text" name="city" class="form-control" placeholder="Enter Town/City Name" required>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>State*</label>
+                                                <input name="state" type="text" class="form-control" placeholder="Enter State Name" required>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Contact No</label>
+                                                <input name="mobile" type="text" class="form-control" placeholder="Enter Contact Number" required>
+                                            </div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Zip Code</label>
+                                                <input name="pin" type="text" class="form-control" placeholder="Enter Zip Code" required>
+                                            </div>
+                                            <div class="form-group col-sm-12">
+                                                <button type="submit" class="button button--aylen btn" >Save & Continue</button>
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                    {{Form::close()}}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- end checkout-tab -->
             </div>
 
-            <div id="shipping-address-add-form" style="display:none">
-                {{ Form::open(['method' => 'post','route'=>'web.add_shipping_address']) }}
-                    <div class="row">
-                        <div class="form-group col-sm-6">
-                            <label>Name*</label>
-                            <input type="text" name="name" class="form-control" placeholder="Enter Name" required>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label>Email*</label>
-                            <input type="email" name="email" class="form-control" placeholder="Enter Email" required>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <label>Address*</label>
-                            <textarea class="form-control" name="address" placeholder="Type Address..." required></textarea>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label>Town / City*</label>
-                            <input type="text" name="city" class="form-control" placeholder="Enter Town/City Name" required>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label>State*</label>
-                            <input name="state" type="text" class="form-control" placeholder="Enter State Name" required>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label>Contact No</label>
-                            <input name="mobile" type="text" class="form-control" placeholder="Enter Contact Number" required>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label>Zip Code</label>
-                            <input name="pin" type="text" class="form-control" placeholder="Enter Zip Code" required>
-                        </div>
-                        <div class="form-group col-sm-12">
-                            <button type="submit" class="button button--aylen btn">Save & Continue</button>
-                        </div>
-                    </div>
-                    <!-- end row -->
-                {{Form::close()}}
-            </div>
+            
             <!-- end container -->
         </section>
 
     @endsection 
     @section('script')
         <script>
-            $( "#actionbtn" ).click(function() {
-                $("#add_add_form").html($("#shipping-address-add-form").html());
-              $( ".changeadd" ).toggle();
+            $( "#actionbtn" ).click(function() {               
+                $(".changeadd" ).toggle();
+                $("#shipping-address-add-form").toggle();
             });
             $('#actionbtn').click(function(){
                 var btntxt = $(this).text();
@@ -267,5 +268,9 @@
                     $(this).text('+ ADD SHIPPING ADDRESS');   
                 }
             });
+
+            function submitAddressForm() {
+                $("#new_address").submit();
+            }
         </script>
     @endsection     

@@ -18,10 +18,17 @@
                             <h4>Forgot Password</h4>
                             <p>Forgot your old password, create a new one</p>
                         </div>
-                        <form>
+                        @if (Session::has('message'))
+                            <div class="alert alert-success" >{{ Session::get('message') }}</div>
+                        @endif
+                        @if (Session::has('error'))
+                            <div class="alert alert-danger" >{{ Session::get('error') }}</div>
+                        @endif
+                        <form action="{{route('web.password_email')}}" method="post">
+                            @csrf
                             <div class="form-group">
                                  <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
                             </div>
                             <div class="flex form-group pl-0 col-md-6">
                                 <a href="{{route('web.login')}}" class="btn btn-cancel" title="">Cancel</a>

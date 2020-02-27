@@ -9,7 +9,9 @@ Route::group(['namespace'=>'Web'],function(){
 
     /** User Login Routes */
 	Route::get('login', 'LoginController@showLoginForm')->name('web.login');
-	Route::post('login', 'LoginController@userLogin');
+    Route::post('login', 'LoginController@userLogin');
+    
+    Route::post('forgot/password/email','PasswordController@passwordResetEmail')->name('web.password_email');
 
 	/** User Logout **/
 	Route::get('logout', 'LoginController@logout')->name('web.logout');
@@ -63,6 +65,8 @@ Route::group(['namespace'=>'Web'],function(){
 Route::get('/Forgot-password', function () {
     return view('web.forgot-password');
 })->name('web.forgot-password');
+
+
 
 Route::get('/New-password', function () {
     return view('web.new-password');
