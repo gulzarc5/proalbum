@@ -94,7 +94,7 @@
                      <ul class="nav child_menu">
                       <li class="sub_menu"><a href="{{route('admin.category_list')}}">Category</a></li>
                       {{-- <li class="sub_menu"><a href="{{ route('admin.units_list') }}">Units</a></li> --}}
-                      <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li>
+                      {{-- <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li> --}}
                     </ul>
                   </li>
 

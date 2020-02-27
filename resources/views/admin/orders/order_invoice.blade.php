@@ -8,8 +8,8 @@
 
       <div class="clearfix"></div>
 
-      <div class="row">
-        <div class="col-md-12">
+      <div class="row" id="print_area">
+        <div class="col-md-12 col-xs-12 col-sm-12">
           <div class="x_panel">
             <div class="x_title" style="text-align: center;border: 0;margin: 0;padding: 0;">
               <img src="{{asset('web/images/logo1.png')}}" alt="">
@@ -20,7 +20,8 @@
               <section class="content invoice">
                 <!-- title row -->
                 <div class="row">
-                  <div class="col-md-6 col-xs-12 invoice-header">
+                  <div class="col-xs-12 col-sm-12 invoice-header">
+                  <div class="col-xs-6 col-sm-6 invoice-header">
                     <h1>
                       Premium Photobook
                     </h1>
@@ -30,38 +31,46 @@
                     <p>VAT No.: 4520267529 </p>
                     <p> 0732877622</p>
                   </div>
-                  <div class="col-md-6 col-xs-12 invoice-header" style="text-align: right;">
+                  <div class="col-sm-6 col-xs-6 invoice-header" style="text-align: right;">
                     <h1>
                        Invoice
                     </h1>
-                    <p>Invoice #007612</p>
-                    <p>Order ID: 4F3S8J</p>
-                    <p>Date: 2/22/2014</p>
+                    {{-- <p>Invoice #007612</p> --}}
+                    @if (isset($order) && !empty($order))
+                      <p>Order ID: {{$order->id}}</p>
+                      <p>Date: {{$order->created_at}}</p>
+                    @endif
+
+                  </div>
                   </div>
                   <div class="col-xs-12 invoice-header"><hr></div>
                   <!-- /.col -->
                 </div>
                 <!-- info row -->
                 <div class="row invoice-info">
-                  <div class="col-sm-6 invoice-col">
+                  <div class="col-sm-6 col-xs-6  invoice-col">
                     Bill To
                     <address>
-                      <strong>Iron Admin, Inc.</strong>
-                      <br>795 Freedom Ave, Suite 600
-                      <br>New York, CA 94107
-                      <br>Phone: 1 (804) 123-9876
-                      <br>Email: ironadmin.com
+                      @if (isset($user) && !empty($user))
+                        <strong>{{$user->name}}</strong>
+                        <br>{{$user->address}}
+                        <br>{{$user->state}},{{$user->city}} - {{$user->zip_code}}
+                        <br>Phone: 1 (804) 123-9876
+                        <br>Email: {{$user->email}}
+                      @endif
                     </address>
                   </div>
                   <!-- /.col -->
-                  <div class="col-sm-6 invoice-col">
+                  <div class="col-sm-6 col-xs-6 invoice-col">
                     Ship To
                     <address>
-                      <strong>John Doe</strong>
-                      <br>795 Freedom Ave, Suite 600
-                      <br>New York, CA 94107
-                      <br>Phone: 1 (804) 123-9876
-                      <br>Email: jon@ironadmin.com
+                      @if (isset($shipping) && !empty($shipping))
+                      <strong>{{$shipping->name}}</strong>
+                      <br>{{$shipping->address}}
+                      <br>{{$shipping->state}}, {{$shipping->city}} - {{$shipping->zip_code}}
+                      <br>Phone: {{$shipping->contact_no}}
+                      <br>Email: {{$shipping->zip_code}}
+                      @endif
                     </address>
                   </div>
                   <!-- /.col -->
@@ -77,40 +86,43 @@
                           <th style="width: 59%">Description</th>
                           <th>Qty</th>
                           <th>Rate</th>
-                          <th>VAT</th>
+                          <th>VAT @ 15%</th>
                           <th>Subtotal</th>
                         </tr>
                       </thead>
                       <tbody>
+                        @php
+                            $cancel_amount = 0;
+                        @endphp
+                        @if (isset($ord_detail) && !empty($ord_detail))
+                        @foreach ($ord_detail as $order_details)
+                        
                         <tr>
-                          <td>El snort testosterone trophy driving gloves handsome gerry Richardson helvetica tousled street art master testosterone trophy driving gloves handsome gerry Richardson
+                          <td>
+                            <b>{{ $order_details->p_name}}</b><br>
+                            <small>Product Type : {{$order_details->sheet_name}} | Number of {{$order_details->sheet_name}} : {{$order_details->sheet_value}} | Size : {{$order_details->size_name}}</small><br>                        
+                            <strong><small style="text-decoration: underline;">Option</small></strong><br>
+                            <small>
+                              @if (isset($order_details->options) && !empty($order_details->options))
+                                @foreach ($order_details->options as $option)
+                                    {{$option->option_name}} : {{$option->option_details_name}} |
+                                @endforeach
+                              @endif
+                            </small>
+                            @if ($order_details->order_status == '5')
+                            @php
+                                $cancel_amount += $order_details->sub_total + $order_details->vat;
+                            @endphp
+                              <img src="{{asset('admin/build/images/cancelled.png')}}" alt="" style="width: 13%;float: right;margin-top: -42px;">
+                            @endif
                           </td>
-                          <td>1</td>
-                          <td>R 1200 </td>
-                          <td>15 %</td>
-                          <td>R 1200 </td>
+                          <td>{{$order_details->quantity}}</td>
+                          <td>R {{$order_details->product_price}} </td>
+                          <td>R {{$order_details->vat}}</td>
+                          <td>R {{$order_details->sub_total + $order_details->vat}} </td>
                         </tr>
-                        <tr>
-                          <td>Wes Anderson umami biodiesel</td>
-                          <td>1</td>
-                          <td>R 1200 </td>
-                          <td>15 %</td>
-                          <td>R 1800 </td>
-                        </tr>
-                        <tr>
-                          <td>Terry Richardson helvetica tousled street art master, El snort testosterone trophy driving gloves handsome letterpress erry Richardson helvetica tousled</td>
-                          <td>1</td>
-                          <td>R 1200 </td>
-                          <td>15 %</td>
-                          <td>R 1565 </td>
-                        </tr>
-                        <tr>
-                          <td>Tousled lomo letterpress erry Richardson helvetica tousled street art master helvetica tousled street art master, El snort testosterone</td>
-                          <td>1</td>
-                          <td>R 1200 </td>
-                          <td>15 %</td>
-                          <td>R 2012 </td>
-                        </tr>
+                        @endforeach
+                        @endif
                       </tbody>
                     </table>
                   </div>
@@ -137,22 +149,27 @@
                     <div class="table-responsive">
                       <table class="table">
                         <tbody>
+                          @if (isset($order) && !empty($order))
                           <tr>
                             <th style="width:50%">Subtotal:</th>
-                            <td>R 5530</td>
+                            <td>R {{$order->sub_total}}</td>
                           </tr>
                           <tr>
-                            <th>Tax (9.3%)</th>
-                            <td>R 1034</td>
+                            <th>VAT @ 15 %</th>
+                            <td>R {{$order->vat}}</td>
                           </tr>
-                          <tr>
-                            <th>Shipping:</th>
-                            <td>R 580</td>
-                          </tr>
+                          @if (isset($cancel_amount) && ($cancel_amount > 0))
+                            <tr>
+                              <th>Cancelled:</th>
+                              <td>R {{$cancel_amount}}</td>
+                            </tr>
+                          @endif
+                          
                           <tr>
                             <th><strong>Grand Total:</strong></th>
-                            <td><strong>R 8654</strong></td>
+                            <td><strong>R {{(($order->total_price) - $cancel_amount)}}</strong></td>
                           </tr>
+                          @endif
                         </tbody>
                       </table>
                     </div>
@@ -164,9 +181,8 @@
                 <!-- this row will not appear when printing -->
                 <div class="row no-print">
                   <div class="col-xs-12">
-                    <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
-                    <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment</button>
-                    <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i> Generate PDF</button>
+                    <button class="btn btn-default" onclick="printInfo()"><i class="fa fa-print"></i> Print</button>
+                    {{-- <button class="btn btn-primary pull-right" style="margin-right: 5px;" onclick="generatePDF()"><i class="fa fa-download"></i> Generate PDF</button> --}}
                   </div>
                 </div>
               </section>
@@ -178,4 +194,14 @@
   </div>
   <!-- /page content -->
 
+@endsection
+
+@section('script')
+    <script>
+      function printInfo() {
+        $(".top_nav").hide();
+        window.print();
+        $(".top_nav").show();
+      }
+    </script>
 @endsection

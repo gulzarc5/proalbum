@@ -101,6 +101,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('list/ajax','OrderController@orderListAjax')->name('admin.order_list_ajax');
             Route::get('details/{order_id}','OrderController@orderDetails')->name('admin.order_details');
             Route::get('status/update/{order_details_id}/{status}','OrderController@orderStatusUpdate');
+            Route::get('invoice/{order_id}','OrderController@orderInvoice')->name('admin.order_invoice');
         });
     });
 });
@@ -116,7 +117,3 @@ Route::get('admin/product/details', function () {
 Route::get('admin/product/Images', function () {
     return view('admin.products.product_image');
 })->name('admin.products.product_image');
-
-Route::get('admin/orders/Invoice', function () {
-    return view('admin.orders.order_invoice');
-})->name('admin.orders.order_invoice');

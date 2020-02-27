@@ -39,7 +39,8 @@
                                     {{ $message }}
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>                            
+                            <button type="submit" class="btn btn-primary">Submit</button>      
+                            <a href="{{route('web.forgot-password')}}">Forget Password</a>                      
                             <div class="form-group form-check mt-20">
                                 <a href="{{ route('web.registration_page') }}" class="form-check-label" for="exampleCheck1">New to our website? Resister </a>
                             </div>

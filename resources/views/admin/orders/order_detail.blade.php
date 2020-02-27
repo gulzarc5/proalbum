@@ -121,9 +121,9 @@
                             @elseif($order_details->order_status == '3')
                               Dispatched
                             @elseif($order_details->order_status == '4')
-                              Delivered
-                            @elseif($order_details->order_status == '2')
-                              Cancelled
+                            <b style="color:green">Delivered</b>
+                            @elseif($order_details->order_status == '5')
+                              <b style="color:red">Cancelled</b>
                             @endif
                           </td>
                           <td class=" ">
@@ -188,8 +188,8 @@
  @section('script')
   <script>
     function updateOrderDetail(id) {
-      alert(id);
-      // window.location.href = "{{url('')}}";
+      var status = $("#order_status"+id).val();
+      window.location.href = "{{url('/admin/order/status/update/')}}/"+id+"/"+status+"";
     }
   </script>
  @endsection
