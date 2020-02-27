@@ -44,10 +44,13 @@
                                                     <b class="sub-tag">Product Type : {{$cart['sheet_name']}}</b>
                                                     <b class="sub-tag spl">Number of  {{$cart['sheet_name']}} : {{$cart['sheet_value']}}</b>
                                                     <b class="sub-tag spl">Size : {{$cart['size_name']}}</b> 
-                                                    <div class="cart-price" style="text-align: left;">                                             
-                                                        <p style="width: 100%;float: left;margin-bottom: 0">
-                                                        Quantity : <input type="number" id="qtty{{$cart['cart_id']}}" value="{{$cart['quantity']}}" onchange="updateCart({{$cart['cart_id']}})">
-                                                        </p>
+                                                    <div class="cart-price" style="text-align: left;">   
+                                                        @auth('users')
+                                                            <p style="width: 100%;float: left;margin-bottom: 0">
+                                                            Quantity : <input type="number" id="qtty{{$cart['cart_id']}}" value="{{$cart['quantity']}}" onchange="updateCart({{$cart['cart_id']}})">
+                                                            </p>
+                                                        @endauth                                          
+                                                        
                                                         <p style="width: 100%;float: left;margin-bottom: 0">
                                                             Amount: R {{$cart['price']}}
                                                         </p>
