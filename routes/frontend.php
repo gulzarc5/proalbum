@@ -100,3 +100,7 @@ Route::get('/Gallery', function () {
     return view('web.gallery');
 })->name('web.gallery');
 
+Route::get('/Contact', function () {
+    return view('web.contact');
+})->name('web.contact');
+

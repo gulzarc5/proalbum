@@ -875,3 +875,28 @@ html:not(.touch) .gallery-image:hover:after {
     0%{transform:rotate(0deg);}
     100%{transform:rotate(360deg);}
 }
+.gallery-container img {
+  width: auto;
+  max-height: 250px;
+  margin: auto;
+  display: table;
+}
+.singlephoto {
+  margin-bottom: 20px;
+}
+.singlephoto i {
+  position: absolute;
+  top: 43%;
+  left: 49%;
+  font-size: 30px;
+  color: #333;
+  opacity: 0;
+}
+.singlephoto a:hover img {
+  box-shadow: 2px 3px 8px 1px #aba7a7;
+  filter: blur(1.5px);
+  opacity: .7;
+}
+.singlephoto a:hover i {  
+  opacity: 1;
+}

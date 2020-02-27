@@ -8,73 +8,119 @@
       <meta name="keywords" content="">
     @endsection
       <!-- end header -->
+       {{-- EXTRA STYLESHEET --}}
+    @section('stylesheet')
+        <link rel="stylesheet" type="text/css" href="{{asset('web/css/prettyPhoto.css')}}">
+    @endsection
+      <!-- end header -->
 
     @section('content')
 
-    <section class="catagory-section" style="background-color: #c1bebe36;">
+    <section class="catagory-section gallery-container" style="background-color: #c1bebe36;">
         <div class="container">
             <div class="section-title text-center clearfix">
                 <h4>Gallery</h4>
                 <hr>
             </div><!-- end title -->
 
-            <article class="gallery">
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1600" src="http://localhost/proalbum/public/web/images/photos/1.jpg">
-                      <a class="gallery-link" data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_02.jpg')}}"><figcaption>Photo caption</figcaption></a>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1600" src="http://localhost/proalbum/public/web/images/photos/2.jpg">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1600" src="http://localhost/proalbum/public/web/images/photos/3.jpg">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1200" src="http://localhost/proalbum/public/web/images/photos/9.jpg" width="1200">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1200" src="http://localhost/proalbum/public/web/images/photos/8.jpg" width="1200">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1400" src="http://localhost/proalbum/public/web/images/photos/7.jpg">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1400" src="http://localhost/proalbum/public/web/images/photos/4.jpg">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1000" src="http://localhost/proalbum/public/web/images/photos/5.jpg">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class="gallery-link">
-                  <figure class="gallery-image">
-                      <img class="zoom" height="1200" src="http://localhost/proalbum/public/web/images/photos/6.jpg">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>              
-            </article>
-
+            <div class="row">
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_01.jpg')}}">
+                    <img src="{{asset('web/upload/shop_01.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_02.jpg')}}">
+                    <img src="{{asset('web/upload/shop_02.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_03.jpg')}}">
+                    <img src="{{asset('web/upload/shop_03.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_04.jpg')}}">
+                    <img src="{{asset('web/upload/shop_04.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_05.jpg')}}">
+                    <img src="{{asset('web/upload/shop_05.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_06.jpg')}}">
+                    <img src="{{asset('web/upload/shop_06.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_07.jpg')}}">
+                    <img src="{{asset('web/upload/shop_07.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_08.jpg')}}">
+                    <img src="{{asset('web/upload/shop_08.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_09.jpg')}}">
+                    <img src="{{asset('web/upload/shop_09.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_10.jpg')}}">
+                    <img src="{{asset('web/upload/shop_10.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_11.jpg')}}">
+                    <img src="{{asset('web/upload/shop_11.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="singlephoto">
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_12.jpg')}}">
+                    <img src="{{asset('web/upload/shop_12.jpg')}}">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
         </div><!-- end container -->
       </section>
 

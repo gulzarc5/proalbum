@@ -38,9 +38,9 @@
                                         @endif
                                     </ul>
                                 </li>
-                                <li><a href="#">Albums</a></li>
-                                <li><a href="#">Service</a></li>
-                                <li><a href="">About</a></li>
+                                <li><a href="{{route('web.gallery')}}">Gallery</a></li>
+                                {{-- <li><a href="#">Service</a></li> --}}
+                                <li><a href="{{route('web.about')}}">About</a></li>
                                 <li><a href="">Contact</a></li>
                                 <li class="dropdown hasmenu">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="fa fa-angle-down"></span></a>
