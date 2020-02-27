@@ -100,7 +100,7 @@
                                     @endif
                                   </td>
                                   <td>
-                                    <a href="#" class="btn btn-info">View</a>
+                                    <a target="_blank" href="{{route('admin.order_details',['order_id'=>encrypt($item->id)])}}" class="btn btn-info">View</a>
                                   </td>
                                 </tr>
                             @endforeach
