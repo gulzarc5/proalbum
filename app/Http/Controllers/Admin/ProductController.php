@@ -82,8 +82,7 @@ class ProductController extends Controller
     public function productAddForm()
     {
         $category = DB::table('category')->where('status',1)->get();
-        $unit = DB::table('units')->get();
-        return view('admin.products.add_product',compact('category','unit'));
+        return view('admin.products.add_product',compact('category'));
     }
 
     public function productAdd(Request $request)
@@ -597,6 +596,7 @@ class ProductController extends Controller
                 'slug' => $slug,
                 'unit' => $unit,
                 'dpi' => $dpi,
+                'category_id' => $category,
                 'p_short_desc' => $shot_desc,
                 'p_long_description' => $long_desc,
                 'p_long_description_title' => $desc_title,
