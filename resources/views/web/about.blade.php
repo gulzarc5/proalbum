@@ -11,15 +11,12 @@
 
     @section('content')
 
-        <section class="section" style="border-top: 1px solid #e3e3e3;">
+        <section class="section" style="border-top: 1px solid #e3e3e3;padding-top: 0;">
             <div class="container">
                 <div class="row">
                     <div id="content" class="col-md-12 col-sm-12 single-blog">
                         <div class="row">
                             <div class="blog-wrapper col-md-12">
-                                <div class="">
-                                    <img style="width: 80%;margin: auto;" src="{{asset('web/upload/about-top.png')}}" alt="" class="img-responsive">
-                                </div><!-- end media -->
 
                                 <div class="blog-desc">
                                     <h2 style="margin-bottom: 0">About Premiun Photobook</h2>
@@ -36,7 +33,11 @@
                                     <p>Our team has procedures in place that ensure efficient and quick service from once the order is placed to final delivery to your doorstep.</p> 
 
                                     <p>All of this will give you, the professional photographer, more time to focus on your clients and most importantly your photography.</p>
-
+                                    
+                                    <div class="">
+                                        <img style="width: 80%;margin: auto;" src="{{asset('web/upload/about-top.png')}}" alt="" class="img-responsive">
+                                    </div><!-- end media -->
+                                    
                                     <blockquote>
                                         <h4 style="margin-bottom: 15px;text-decoration: underline;"><strong>Group Of Company</strong></h4>
                                         <footer style="margin-bottom: 10px;"><cite>PREMIUM PHOTOBOOKS</cite></footer>
