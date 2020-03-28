@@ -27,7 +27,7 @@
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
                                         <h3><a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">{{ $item->name }}</a></h3>
-                                        <p class="regular">{{ $item->p_short_desc }}</p>
+                                        <p class="regular">Starting from <span>R 125</span></p>   
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">

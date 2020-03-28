@@ -210,8 +210,8 @@
                                     <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}"><img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive"></a>
                                 </div><!-- end shop-thumbnail -->
                                 <div class="shop-desc">
-                                    <h3><a href="shop-single.html" title="">{{ $item->name }}</a></h3>{{-- 
-                                    <small class="regular">${{ $item->price }}</small> --}}
+                                    <h3><a href="shop-single.html" title="">{{ $item->name }}</a></h3>
+                                    <p class="regular">Starting from <span>R 125</span></p>   
                                 </div><!-- end shop-desc -->
 
                                 <div class="shop-meta clearfix">

@@ -262,7 +262,7 @@
                         <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</span></p>
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -272,7 +272,7 @@
                         <img src="{{asset('web/images/photo/4.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</span></p>
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -283,7 +283,7 @@
                         <img src="{{asset('web/images/photo/5.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</span></p>
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -294,7 +294,7 @@
                         <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</p>
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -305,7 +305,7 @@
                         <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</span></p>                          
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -316,7 +316,7 @@
                         <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</span></p>                          
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -327,7 +327,7 @@
                         <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</span></p>                          
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -338,7 +338,7 @@
                         <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
                         <figcaption>
                           <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Lorem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet orem iam nonummy nibh euismod tincidunt ut laoreet dolore Lorem ipsum dolor sit amet.</p>
+                          <p class="regular">Starting from <span>R 125</span></p>                          
                           <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                         </figcaption>
                     </a>
@@ -346,11 +346,56 @@
 
             </div><!-- end div -->
 
-            <hr class="invis">
         </div><!-- end container-fluid -->
       </section><!-- end section -->
 
-      <section class="catagory-section" style="background-color: #c1bebe36;">
+      <section class="section">
+        <div class="container">   
+            <div class="section-title text-center clearfix">
+                <h4>ORDER</h4>
+                <p>Choose your Ordering mode to upload Orders at your comfort.</p>
+                <hr>
+            </div><!-- end title -->         
+            <div class="row">
+              <div class="col-sm-4 col-xs-12">
+                  <div class="cat-boxes">
+                      <a href="#" title="">
+                          <h4>
+                            <img src="{{asset('web/images/icon/icon_01.png')}}" alt="" class="img-responsive">
+                            Ecommerce Order
+                          </h4>
+                          <p>Choose Available Options in Order Form by knowing prices, Pay Instantly, Select & Upload Files or Share link of uploaded files on google drive, dropbox, etc.</p>
+                      </a>
+                  </div><!-- end cat-boxes -->
+              </div><!-- end col -->
+              <div class="col-sm-4 col-xs-12">
+                  <div class="cat-boxes">
+                      <a href="#" title="">
+                          <h4>
+                            <img src="{{asset('web/images/icon/icon_02.png')}}" alt="" class="img-responsive">
+                            PC Order
+                          </h4>
+                          <p>&nbsp;Upload Multiple Album Orders from PC/Mac "Uploader" Software <br><a style="text-decoration: underline;color: #89bbc4;" target="_blank" href="https://drive.google.com/open?id=1XCIK3h5gKtBdAfToDtcJsodLGoE-98ls">Download Now</a>.</p>
+                      </a>
+                  </div><!-- end cat-boxes -->
+              </div><!-- end col -->
+              <div class="col-sm-4 col-xs-12">
+                  <div class="cat-boxes">
+                      <a href="#" title="">
+                          <h4>
+                            <img src="{{asset('web/images/icon/icon_03.png')}}" alt="" class="img-responsive">
+                            Album Designer
+                          </h4>
+                          <p>Design &amp; Upload Multiple Album Orders from PC/ Mac "Designer" Software <br><a style="text-decoration: underline;color: #89bbc4;" target="_blank" href="https://drive.google.com/open?id=1_rQjM-hDukr7bYlsifpA762HP13UHHU7">Download Now</a>.</p>
+                      </a>
+                  </div><!-- end cat-boxes -->
+              </div><!-- end col -->
+            </div>
+          
+        </div>
+      </section>
+
+      <section class="catagory-section" style="background-color: #f4f4f1;">
         <div class="container">
             <div class="section-title text-center clearfix">
                 <h4>Top Categories</h4>
@@ -358,89 +403,77 @@
                 <hr>
             </div><!-- end title -->
 
-            <article class='gallery'>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1600' src="{{asset('web/images/photos/1.jpg')}}">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1600' src="{{asset('web/images/photos/2.jpg')}}">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1600' src="{{asset('web/images/photos/3.jpg')}}">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1200' src="{{asset('web/images/photos/9.jpg')}}" width='1200'>
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1200' src="{{asset('web/images/photos/8.jpg')}}" width='1200'>
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1400' src="{{asset('web/images/photos/7.jpg')}}">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1400' src="{{asset('web/images/photos/4.jpg')}}">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1000' src="{{asset('web/images/photos/5.jpg')}}">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>
-              <a class='gallery-link'>
-                  <figure class='gallery-image'>
-                      <img class="zoom" height='1200' src="{{asset('web/images/photos/6.jpg')}}">
-                      <figcaption>Photo caption</figcaption>
-                  </figure>
-              </a>              
-            </article>
+            <div class="cat-section">
+              <div class="row">
+                <div class="col-md-4">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/3.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/1.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/6.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/2.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-6">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/7.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+              </div>
+            </div>
 
         </div><!-- end container -->
       </section><!-- end section -->
 
       <section class="testimonial-section paralbackground parallax content-light" style="background-image:url('{{asset('web/upload/ss.jpg')}}');" data-img class="zoom"-width="2000" data-img-height="2000" data-diff="10">
-          <div class="container">
-              <div class="section-title text-center clearfix">
-                  <h4>Happy Clients</h4>
-                  <p>Let's see What Others Say About HomeStyle!</p>
-                  <hr>
-              </div><!-- end title -->
+          <div class="">
+            <div class="row">
+              <div class="col-md-6">
+                <video width="100%" controls style="outline: none">
+                    <source src="{{asset('web/images/video/Black-Friday.mp4')}}" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                  </video>
+              </div>
+              <div class="col-md-6 p-30" style="padding-right: 17px">
+                <div class="section-title text-center clearfix">
+                    <h4>Happy Clients</h4>
+                    <p>Let's see What Others Say About HomeStyle!</p>
+                    <hr>
+                </div><!-- end title -->
 
-              <div id="owl-testimonial" class="text-center">
-                  <div class="testi-item">
-                      <img src="{{asset('web/upload/avatar_01.jpg')}}" alt="" class="img-circle">
-                      <h4>Jenny DEO</h4>
-                      <small>Envato.com</small>
-                      <p class="lead">It was popularised in the with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ...</p>
-                  </div><!-- end item -->
+                <div id="owl-testimonial" class="text-center">
+                    <div class="testi-item">
+                        <img src="{{asset('web/upload/avatar_01.jpg')}}" alt="" class="img-circle">
+                        <h4>Jenny DEO</h4>
+                        <small>Envato.com</small>
+                        <p class="lead">It was popularised in the with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ...</p>
+                    </div><!-- end item -->
 
-                  <div class="testi-item">
-                      <img src="{{asset('web/upload/avatar_03.png')}}" alt="" class="img-circle">
-                      <h4>Mark DEO</h4>
-                      <small>Envato.com</small>
-                      <p class="lead">It was popularised in the with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ...</p>
-                  </div><!-- end item --> 
-              </div><!-- end relative -->
+                    <div class="testi-item">
+                        <img src="{{asset('web/upload/avatar_03.png')}}" alt="" class="img-circle">
+                        <h4>Mark DEO</h4>
+                        <small>Envato.com</small>
+                        <p class="lead">It was popularised in the with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ...</p>
+                    </div><!-- end item --> 
+                </div><!-- end relative -->
+              </div>
+            </div>
 
           </div><!-- end container -->
       </section><!-- end section -->
