@@ -6,6 +6,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <meta name="keywords" content="">
+      <style>.header:not(.affix){ box-shadow: -2px -3px 7px 2px #cccccc;z-index: 99;}</style>
     @endsection
       <!-- end header -->
 
@@ -43,6 +44,12 @@
                                                 <label>Password</label>
                                                 <input type="text" class="form-control" name="file_password[{{$item->id}}]" placeholder="Enter Password">
                                                 <small>if you have a lock on your file / folder</small>
+                                            </div>                                            
+                                            <div class="form-group col-sm-12 text-center">
+                                                <button type="button" class="button button--aylen btn" id="upload-tab">Upload image from local drive</button>
+                                                <br>                                           
+                                                <label style="float: left;">Choose Image*</label>
+                                                <input type="file" class="form-control" name="file_link[{{$item->id}}]">
                                             </div>
                                         </div>
                                         @endforeach

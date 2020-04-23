@@ -26,23 +26,22 @@
 
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="product-images">
-                                <div id="thumbnail-slider">
-                                    <div class="inner">
-                                    <ul class="thumbnail">
+                                    <div style="margin:0 auto;" class="html5gallery" data-skin="verticallight" data-width="400" data-height="225" data-resizemode="fill">
+    
+                                        <!-- Add images to Gallery -->
+
                                         @if (isset($product_images) && !empty($product_images))
                                             @foreach ($product_images as $item)
-                                                <li> <a  class="thumb img-responsive" data-rel="prettyPhoto[gallery]" href="{{asset('assets/product/'.$item->images.'')}}" title=""><img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="" /></a></li>
+                                                <a href="{{asset('assets/product/'.$item->images.'')}}"><img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="product images"></a>
                                             @endforeach
-                                        @endif
+                                        @endif                                        
                                         
-                                    </ul>
-                                    </div>
-                                </div>
-                                     <a data-rel="prettyPhoto" href="{{asset('assets/product/'.$product_detail->image.'')}}" class="product-images-main" title="">
-                                        <img class="img-responsive" src="{{asset('assets/product/'.$product_detail->image.'')}}" alt="" /></a>
-                                </div>
+                                        <!-- Add videos to Gallery -->
+                                        <a href="{{asset('web/images/video/Black-Friday.mp4')}}" data-webm="{{asset('web/images/video/Black-Friday.mp4')}}"><img src="{{asset('assets/product/thumb/315821156672020-Feb-19.jpg')}}" alt="Big Buck Bunny, Copyright Blender Foundation"></a>
+                                    
+                                    </div>                                
                             </div><!-- end col -->
+
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="shop-desc bgw">
                                     <h3 id="product_name">{{ $product_detail->name }} </h3>
@@ -232,15 +231,8 @@
 
     @section('script')
         <!-- prettyPhoto STYLES -->
-        <script src="{{asset('web/js/jquery.prettyPhoto.js')}}"></script>
+        
         <script src="{{asset('web/js/product_detail.js')}}"></script>
-        <script src="{{asset('web/js/product-thumb.js')}}"></script>
-        <script type="text/javascript">
-            (function($) {
-            "use strict";
-            jQuery('a[data-gal]').each(function() {
-            jQuery(this).attr('rel', jQuery(this).data('gal')); });     
-            jQuery("a[data-rel^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',theme:'light_square',slideshow:true,overlay_gallery: true,social_tools:false,deeplinking:false});
-            })(jQuery);
-        </script>
+
+        <script type="text/javascript" src="{{asset('web/js/html5gallery.js')}}"></script>
     @endsection     

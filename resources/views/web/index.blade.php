@@ -256,6 +256,19 @@
                 <hr>
             </div><!-- end title -->
 
+            <div class="row">
+              <div class="col-md-12">
+                  <nav class="portfolio-filter text-center">
+                      <ul class="list-inline">
+                          <li><a class="button button--aylen btn" href="#" data-filter="*">Bestseller</a></li>
+                          <li><a class="button button--aylen btn" href="#" data-filter=".cat1">New Arrival</a></li> 
+                          <li><a class="button button--aylen btn" href="#" data-filter=".cat2">Feature Product</a></li>
+                          <li><a class="button button--aylen btn" href="#" data-filter=".cat3">Wedding</a></li>
+                      </ul>
+                  </nav>
+              </div>
+            </div>
+
             <div id="da-thumbs" class="da-thumbs">
                 <div class="pentry item-w1 item-h1 cat1">
                     <a href="#" title="">
@@ -349,6 +362,67 @@
         </div><!-- end container-fluid -->
       </section><!-- end section -->
 
+      <section class="catagory-section" style="background-color: #f4f4f1;">
+        <div class="container">
+            <div class="section-title text-center clearfix">
+                <h4>Top Categories</h4>
+                <p>Listed below our top categories, campaings, promotions and offers for you!</p>
+                <hr>
+            </div><!-- end title -->
+
+            <div class="cat-section">
+              <div class="row">
+                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/3.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/1.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/6.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/6.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/1.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
+                  <a href="" title="">                    
+                    <img src="{{asset('web/images/photos/3.jpg')}}" alt="">
+                    <h6>Album (Leyflat)</h6>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+        </div><!-- end container -->
+      </section><!-- end section -->
+
+      <section class="video-block" style="background: #f9f9f9;">
+          <div class="container">
+            <video controls style="outline: none">
+                <source src="{{asset('web/images/video/Black-Friday.mp4')}}" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+          </div>
+      </section>
+
       <section class="section">
         <div class="container">   
             <div class="section-title text-center clearfix">
@@ -395,62 +469,10 @@
         </div>
       </section>
 
-      <section class="catagory-section" style="background-color: #f4f4f1;">
-        <div class="container">
-            <div class="section-title text-center clearfix">
-                <h4>Top Categories</h4>
-                <p>Listed below our top categories, campaings, promotions and offers for you!</p>
-                <hr>
-            </div><!-- end title -->
-
-            <div class="cat-section">
-              <div class="row">
-                <div class="col-md-4">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/3.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/1.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-4">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/6.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-6">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/2.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-6">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/7.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-        </div><!-- end container -->
-      </section><!-- end section -->
-
       <section class="testimonial-section paralbackground parallax content-light" style="background-image:url('{{asset('web/upload/ss.jpg')}}');" data-img class="zoom"-width="2000" data-img-height="2000" data-diff="10">
           <div class="">
             <div class="row">
-              <div class="col-md-6">
-                <video width="100%" controls style="outline: none">
-                    <source src="{{asset('web/images/video/Black-Friday.mp4')}}" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                  </video>
-              </div>
-              <div class="col-md-6 p-30" style="padding-right: 17px">
+              <div class="col-md-12 p-30" style="padding-right: 17px">
                 <div class="section-title text-center clearfix">
                     <h4>Happy Clients</h4>
                     <p>Let's see What Others Say About HomeStyle!</p>
@@ -593,7 +615,7 @@
                         },
                         responsiveLevels: [1240, 1024, 778, 480],
                         gridwidth: [1240, 1024, 778, 480],
-                        gridheight: [500, 700, 500, 400],
+                        gridheight: [500, 700, 500, 160],
                         lazyType: "none",
                         parallax: {
                             type: "mouse",

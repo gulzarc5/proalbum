@@ -71,6 +71,9 @@
     .product-images .thumbnail {
         width: 20%;
     }
+    .desktop-fix-menu {
+        margin-left: 30px;
+    }
 }
 
 @media (max-width: 1200px) {
@@ -206,5 +209,8 @@
     }
     .shop-list .col-xs-6 {
         margin-bottom: 10px;
+    }
+    .video-block video {
+      width: 100%!important;
     }
 }

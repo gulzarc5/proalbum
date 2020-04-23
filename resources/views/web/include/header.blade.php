@@ -23,29 +23,24 @@
 
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="{{ route('web.index') }}">Home</a></li>
+                                <li><a href="#" style="color: #d43f3f">Special</a></li>                               
+                                @if(count($header_data['categories']) > 0)
+                                    @foreach($header_data['categories'] as $item)
+                                    <li>
+                                        <a href="{{route('web.product_list',['slug'=>$item->url_slug,'id'=>$item->id])}}">
+                                            {{ $item->name }}
+                                        </a>
+                                    </li>
+                                    @endforeach
+                                @endif                                
+                                <li><a href="#">Frames</a></li>
+                                <li><a href="#">Prints</a></li>
+                                <li><a href="#">Card</a></li>
+                                <li><a href="#">Gifts</a></li>
+                                <li class="desktop-fix-menu"><a href="{{ route('web.view_cart') }}"><span class="fa fa-shopping-cart"></span> Cart</a></li> 
                                 <li class="dropdown hasmenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="fa fa-angle-down"></span></a>
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="fa fa-align-right"></span></a>
                                     <ul class="dropdown-menu">
-                                        @if(count($header_data['categories']) > 0)
-                                            @foreach($header_data['categories'] as $item)
-                                            <li>
-                                                <a href="{{route('web.product_list',['slug'=>$item->url_slug,'id'=>$item->id])}}">
-                                                    {{ $item->name }}
-                                                </a>
-                                            </li>
-                                            @endforeach
-                                        @endif
-                                    </ul>
-                                </li>
-                                <li><a href="{{route('web.gallery')}}">Gallery</a></li>
-                                {{-- <li><a href="#">Service</a></li> --}}
-                                <li><a href="{{route('web.about')}}">About</a></li>
-                                <li><a href="">Contact</a></li>
-                                <li class="dropdown hasmenu">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="fa fa-angle-down"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="{{ route('web.view_cart') }}">cart</a></li> 
                                     @auth('users')
                                         <li><a href="{{ route('web.my_profile') }}">Profile</a></li>
                                         <li><a href="{{route('web.order_history')}}">orders</a></li>
@@ -59,7 +54,6 @@
                                        
                                     </ul>
                                 </li>                             
-                                <li class="active"><a href="">DOWNLOAD FREE SOFTWARE </a></li>
                             </ul>
                         </div><!--/.nav-collapse -->
                     </div><!--/.container-fluid -->

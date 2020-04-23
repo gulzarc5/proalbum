@@ -27,7 +27,7 @@
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
                                         <h3><a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">{{ $item->name }}</a></h3>
-                                        <p class="regular">Starting from <span>R 125</span></p>   
+                                        <p class="regular">Starting from <span>R 10000025</span></p>   
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
@@ -39,27 +39,17 @@
                             </div><!-- end col -->
                             @endforeach
                         </div><!-- end row -->
-
-                      {{--   <div class="row">
-                            <div class="col-md-12">
-                                <nav class="text-center">
-                                    <ul class="pagination">
-                                        <li><a class="active" href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">...</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                          <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                          </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div> --}}
                     </div><!-- end content -->
                 </div><!-- end row -->
             </div><!-- end container -->
         </section><!-- end section -->
+
+        <section class="video-block" style="background-color: #fff">        
+          <div class="container">
+            <video width="80%" controls style="outline: none;margin-top: -200px">
+                <source src="{{asset('web/images/video/Black-Friday.mp4')}}" type="video/mp4">
+                Your browser does not support HTML5 video.
+              </video>
+          </div>
+      </section>
     @endsection   

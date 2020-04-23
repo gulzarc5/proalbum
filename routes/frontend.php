@@ -97,6 +97,10 @@ Route::get('/About', function () {
 })->name('web.about');
 
 Route::get('/Gallery', function () {
+    return view('web.gallery-cat');
+})->name('web.gallery-cat');
+
+Route::get('/Gallery/Catagory', function () {
     return view('web.gallery');
 })->name('web.gallery');
 
