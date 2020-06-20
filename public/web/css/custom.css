@@ -25,6 +25,10 @@
 .flex {
   display: flex;
 }
+.f-w-6 {
+  font-weight: 600;
+  color: #333;
+}
 mark,
 #sidebar-fix,
 #vertical .navbar-default,
@@ -223,6 +227,9 @@ fieldset[disabled] .btn-primary.focus,
 }   
 .home-gallery{
     padding-top: 30px;
+}   
+.home-gallery .col-md-3 {
+    padding: 0px;
 }
 .home-gallery .item-w1 {
     padding: 0 20px 40px;
@@ -233,6 +240,38 @@ fieldset[disabled] .btn-primary.focus,
     box-shadow: 0 0px 17px 0 #c3c1c1;
 }
 .home-gallery .item-w1 figcaption a:first-child{
+    box-shadow: none;
+}
+.home-gallery .nav.nav-tabs {
+    display: inline-block;
+    margin: auto;
+    border-bottom: none;
+}
+.home-gallery .nav.nav-tabs .tab-btn{
+    color: #333;
+    border:none;
+    border-bottom: 2px solid #fff;
+    font-size: 18px;
+    font-weight: 600;
+    opacity: .5;
+}
+.home-gallery .nav.nav-tabs .tab-btn:hover {
+    background-color: transparent;
+}
+.home-gallery .nav.nav-tabs li.active .tab-btn{
+  border-color: #89bbc4;
+  opacity: 1;
+}
+.home-gallery .tab-block {
+    padding: 0 20px 40px;
+}
+.home-gallery .tab-block a{
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 0px 17px 0 #c3c1c1;
+    display: table;
+}
+.home-gallery .tab-block figcaption a:first-child{
     box-shadow: none;
 }
 .frame {
@@ -430,7 +469,7 @@ html:not(.touch) .gallery-image:hover:after {
     right: 4%;
     top: 10%;
 }    
-.shop-desc .regular, .pentry .regular {
+.shop-desc .regular, .home-gallery .tab-pane .regular {
     padding: 0 15px 0;
     font-family: 'Raleway', sans-serif;
     font-style: normal;

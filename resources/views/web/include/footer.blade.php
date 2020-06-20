@@ -78,7 +78,7 @@
                     </div><!-- end col -->
 
                     <div class="col-md-8 col-sm-8 col-xs-12 text-center payments">
-                        <h4>Copyright 2020 Premier PhotoBook | Develped By<a target="_blank" href="https://www.webinfotech.net.in/">Webinfotech</a></h4>
+                        <h4>Copyright 2020 Premier PhotoBook </h4>
                     </div><!-- end col -->
 
                     <div class="col-md-2">

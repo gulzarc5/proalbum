@@ -213,4 +213,16 @@
     .video-block video {
       width: 100%!important;
     }
+    .home-gallery .tab-block {
+        padding: 0 4px 10px!important;
+    }
+    .home-gallery  .nav-tabs > li {
+        width: 44vw;
+        float: left;
+        margin-bottom: 0;
+        padding: 5px;
+    }
+    .home-gallery .nav.nav-tabs .tab-btn {
+        font-size: 15px!important;
+    }
 }

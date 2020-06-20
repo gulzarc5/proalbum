@@ -14,239 +14,32 @@
               <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
               <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
                   <ul>
-                      <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide2.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="">
+                      <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide2.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" onclick="location.href='pic_bulbon.php'">
                          <!-- MAIN IMAGE -->
-                         <img src="{{asset('web/upload/slide2.jpg')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                         <!-- LAYERS -->
-                         <!-- LAYER NR. BG -->
-                         <!-- <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
-                            id="slide-270-layer-101" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                            data-width="full"
-                            data-height="full"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
-                            data-transform_out="s:300;s:300;" 
-                            data-start="750" 
-                            data-basealign="slide" 
-                            data-responsive_offset="on" 
-                            data-responsive="off"
-                            style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div> -->
-                         <!-- LAYER NR. 1 -->
-                         <!-- <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-91" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
-                            data-width="500"
-                            data-height="140"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:0px;" 
-                            data-mask_out="x:inherit;y:inherit;" 
-                            data-start="2000" 
-                            data-responsive_offset="on" 
-                            style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div> -->
-                         <!-- LAYER NR. 2 -->
-                         <!-- <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-11" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                            data-fontsize="['70','70','70','35']"
-                            data-lineheight="['70','70','70','50']"
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-                            data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                            data-start="1000" 
-                            data-splitin="chars" 
-                            data-splitout="none" 
-                            data-responsive_offset="on" 
-                            data-elementdelay="0.05" 
-                            style="z-index: 6; white-space: nowrap;">SALAMANDER </div> -->
-                         <!-- LAYER NR. 3 -->
-                         <!-- <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-41" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['52','51','51','31']" 
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-                            data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                            data-start="1500" 
-                            data-splitin="none" 
-                            data-splitout="none" 
-                            data-responsive_offset="on" 
-                            style="z-index: 7; white-space: nowrap;">GERMAN UPVC WINDOWS & DOOR SYSTEMS</div> -->
+                          <img src="{{asset('web/upload/slide2.jpg')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
                       </li>
-                      <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide3.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Premium Photobook" data-description="">
+                      <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide3.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Premium Photobook" data-description="" onclick="location.href='pic_bulbon1.php'">
                          <!-- MAIN IMAGE -->
                           <img src="{{asset('web/upload/slide3.jpg')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                          <!-- LAYERS -->
-                          <!-- LAYER NR. BG -->
-                          <!-- <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
-                            id="slide-270-layer-10" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                            data-width="full"
-                            data-height="full"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
-                            data-transform_out="s:300;s:300;" 
-                            data-start="750" 
-                            data-basealign="slide" 
-                            data-responsive_offset="on" 
-                            data-responsive="off"
-                            style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div> -->
-                          <!-- LAYER NR. 1 -->
-                          <!-- <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-9" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
-                            data-width="500"
-                            data-height="140"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:0px;" 
-                            data-mask_out="x:inherit;y:inherit;" 
-                            data-start="2000" 
-                            data-responsive_offset="on" 
-                            style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div> -->
-                          <!-- LAYER NR. 2 -->
-                          <!-- <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-1" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                            data-fontsize="['70','70','70','35']"
-                            data-lineheight="['70','70','70','50']"
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-                            data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                            data-start="1000" 
-                            data-splitin="chars" 
-                            data-splitout="none" 
-                            data-responsive_offset="on" 
-                            data-elementdelay="0.05" 
-                            style="z-index: 6; white-space: nowrap;">SALAMANDER</div> -->
-                          <!-- LAYER NR. 3 -->
-                          <!-- <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-4" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['52','51','51','31']" 
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-                            data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                            data-start="1500" 
-                            data-splitin="none" 
-                            data-splitout="none" 
-                            data-responsive_offset="on" 
-                            style="z-index: 7; white-space: nowrap;">GERMAN UPVC WINDOWS & DOOR SYSTEMS</div> -->
                       </li>
-                      <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide1.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Capture The Moment" data-description="">
+                      <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide1.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Capture The Moment" data-description="" onclick="location.href='pic_bulbon2.php'">
                          <!-- MAIN IMAGE -->
                          <img src="{{asset('web/upload/slide1.jpg')}}"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                         <!-- LAYERS -->
-                         <!-- LAYER NR. BG -->
-                         <!-- <div class="tp-caption tp-shape tp-shapewrapper   rs-parallaxlevel-0" 
-                            id="slide-270-layer-1012" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                            data-width="full"
-                            data-height="full"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
-                            data-transform_out="s:300;s:300;" 
-                            data-start="750" 
-                            data-basealign="slide" 
-                            data-responsive_offset="on" 
-                            data-responsive="off"
-                            style="z-index: 5;background-color:rgba(0, 0, 0, 0.25);border-color:rgba(0, 0, 0, 0.50);"> </div> -->
-                         <!--  LAYER NR. 1 -->
-                          <!-- <div class="tp-caption tp-shape tp-shapewrapper   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-912" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['15','15','15','15']" 
-                            data-width="500"
-                            data-height="140"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:0px;" 
-                            data-mask_out="x:inherit;y:inherit;" 
-                            data-start="2000" 
-                            data-responsive_offset="on" 
-                            style="z-index: 5;background-color:rgba(29, 29, 29, 0.85);border-color:rgba(0, 0, 0, 0.50);"> </div> -->
-                         <!--  LAYER NR. 2 -->
-                          <!-- <div class="tp-caption NotGeneric-Title   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-112" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
-                            data-fontsize="['70','70','70','35']"
-                            data-lineheight="['70','70','70','50']"
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" 
-                            data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                            data-start="1000" 
-                            data-splitin="chars" 
-                            data-splitout="none" 
-                            data-responsive_offset="on" 
-                            data-elementdelay="0.05" 
-                            style="z-index: 6; white-space: nowrap;">SALAMANDER</div> -->
-                         <!--  LAYER NR. 3 -->
-                         <!-- <div class="tp-caption NotGeneric-SubTitle   tp-resizeme rs-parallaxlevel-0" 
-                            id="slide-18-layer-412" 
-                            data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
-                            data-y="['middle','middle','middle','middle']" data-voffset="['52','51','51','31']" 
-                            data-width="none"
-                            data-height="none"
-                            data-whitespace="nowrap"
-                            data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;" 
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" 
-                            data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;" 
-                            data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
-                            data-start="1500" 
-                            data-splitin="none" 
-                            data-splitout="none" 
-                            data-responsive_offset="on" 
-                            style="z-index: 7; white-space: nowrap;">GERMAN UPVC WINDOWS & DOOR SYSTEMS </div> -->
                       </li>
                   </ul>
                   <div class="tp-static-layers"></div>
               </div>
           </div>
       </div><!-- end first slider -->
+
+      <section style="padding:0">
+        <div class="container">
+            <div class="mt-20">
+                <img src="{{asset('web/images/hom-pic1.png')}}" alt="" class="img-responsive">
+            </div><!-- end title -->
+
+        </div><!-- end container -->
+      </section><!-- end section -->
 
       <section class="home-gallery">
         <div class="container-fluid">
@@ -257,104 +50,233 @@
             </div><!-- end title -->
 
             <div class="row">
-              <div class="col-md-12">
-                  <nav class="portfolio-filter text-center">
-                      <ul class="list-inline">
-                          <li><a class="button button--aylen btn" href="#" data-filter="*">Bestseller</a></li>
-                          <li><a class="button button--aylen btn" href="#" data-filter=".cat1">New Arrival</a></li> 
-                          <li><a class="button button--aylen btn" href="#" data-filter=".cat2">Feature Product</a></li>
-                          <li><a class="button button--aylen btn" href="#" data-filter=".cat3">Wedding</a></li>
-                      </ul>
-                  </nav>
-              </div>
+                <div class="col-md-12">
+                    <nav class="text-center">
+                        <ul class="nav nav-tabs" style="display:inline-block;margin:auto">
+                            <li class="active"><a class="tab-btn" href="#1" data-toggle="tab">Bestseller</a></li>
+                            <li><a class="tab-btn" href="#2" data-toggle="tab">New Arrival</a></li> 
+                            <li><a class="tab-btn" href="#3" data-toggle="tab">Feature Product</a></li>
+                            <li><a class="tab-btn" href="#4" data-toggle="tab">Wedding</a></li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
-            <div id="da-thumbs" class="da-thumbs">
-                <div class="pentry item-w1 item-h1 cat1">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</span></p>
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
-                </div>
-                <div class="pentry item-w1 item-h1 cat2 cat1">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/4.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</span></p>
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
-                </div>
-
-                <div class="pentry item-w1 item-h1 cat2 cat3">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/5.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</span></p>
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
-                </div>
-
-                <div class="pentry item-w1 item-h1 cat1 cat3">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</p>
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
-                </div>
-
-                <div class="pentry item-w1 item-h1 cat2">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</span></p>                          
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
-                </div>
-
-                <div class="pentry item-w1 item-h1 cat3 cat2">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</span></p>                          
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
+            <div class="tab-content">
+                <!-- Tab 1 -->
+                <div class="tab-pane fade in active" id="1">
+                  <div class=row>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="pentry item-w1 item-h1 cat3">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</span></p>                          
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
+                <!-- Tab 2 -->
+                <div class="tab-pane" id="2">
+                  <div class=row>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="pentry item-w1 item-h1 cat1">
-                    <a href="#" title="">
-                        <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
-                        <figcaption>
-                          <h5>Hardcover Photo Book</h5>
-                          <p class="regular">Starting from <span>R 125</span></p>                          
-                          <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                        </figcaption>
-                    </a>
+                <!-- Tab 3 -->
+                <div class="tab-pane" id="3">
+                  <div class=row>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/5.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab 2 -->
+                <div class="tab-pane" id="4">
+                  <div class=row>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="tab-block">
+                          <a href="#" title="">
+                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                            <figcaption>
+                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                            </figcaption>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
             </div><!-- end div -->
@@ -431,38 +353,20 @@
                 <hr>
             </div><!-- end title -->         
             <div class="row">
-              <div class="col-sm-4 col-xs-12">
-                  <div class="cat-boxes">
-                      <a href="#" title="">
-                          <h4>
-                            <img src="{{asset('web/images/icon/icon_01.png')}}" alt="" class="img-responsive">
-                            Ecommerce Order
-                          </h4>
-                          <p>Choose Available Options in Order Form by knowing prices, Pay Instantly, Select & Upload Files or Share link of uploaded files on google drive, dropbox, etc.</p>
-                      </a>
-                  </div><!-- end cat-boxes -->
+              <div class="col-sm-3 col-xs-12">
               </div><!-- end col -->
-              <div class="col-sm-4 col-xs-12">
+              <div class="col-sm-6 col-xs-12">
                   <div class="cat-boxes">
                       <a href="#" title="">
-                          <h4>
-                            <img src="{{asset('web/images/icon/icon_02.png')}}" alt="" class="img-responsive">
-                            PC Order
-                          </h4>
-                          <p>&nbsp;Upload Multiple Album Orders from PC/Mac "Uploader" Software <br><a style="text-decoration: underline;color: #89bbc4;" target="_blank" href="https://drive.google.com/open?id=1XCIK3h5gKtBdAfToDtcJsodLGoE-98ls">Download Now</a>.</p>
-                      </a>
-                  </div><!-- end cat-boxes -->
-              </div><!-- end col -->
-              <div class="col-sm-4 col-xs-12">
-                  <div class="cat-boxes">
-                      <a href="#" title="">
-                          <h4>
-                            <img src="{{asset('web/images/icon/icon_03.png')}}" alt="" class="img-responsive">
+                          <h4 style="font-size: 24px;text-align: right;">
+                            <img src="{{asset('web/images/icon/icon_03.png')}}" alt="" style="width:26%" class="img-responsive">
                             Album Designer
                           </h4>
-                          <p>Design &amp; Upload Multiple Album Orders from PC/ Mac "Designer" Software <br><a style="text-decoration: underline;color: #89bbc4;" target="_blank" href="https://drive.google.com/open?id=1_rQjM-hDukr7bYlsifpA762HP13UHHU7">Download Now</a>.</p>
+                          <p>Design &amp; Upload Multiple Album Orders from PC/ Mac<br> "Designer" Software <br><a style="text-decoration: underline;color: #89bbc4;font-size: 22px" target="_blank" href="https://drive.google.com/open?id=1_rQjM-hDukr7bYlsifpA762HP13UHHU7">Download Now</a>.</p>
                       </a>
                   </div><!-- end cat-boxes -->
+              </div><!-- end col -->
+              <div class="col-sm-3 col-xs-12">
               </div><!-- end col -->
             </div>
           
@@ -524,7 +428,6 @@
 
           </div><!-- end container -->
       </section><!-- end section -->
-
       <!-- footer -->
     @endsection
 
@@ -643,7 +546,6 @@
                     });
                 }
             });
-
             /**===== End slider =====**/
         </script>
     @endsection     
