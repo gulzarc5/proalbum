@@ -83,7 +83,6 @@
                       <th class="column-title" style="width: 5%;">Amount </th>                    
                       <th class="column-title" style="width: 5%;">Status </th>                      
                       <th class="column-title" style="width: 17%;">Action </th>
-                      </th>
                     </tr>
                   </thead>
 
