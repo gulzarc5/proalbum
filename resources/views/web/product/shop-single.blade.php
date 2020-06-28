@@ -2,10 +2,12 @@
 
     {{-- META --}}
     @section('meta')
-      <title>Premium Photobooks | Making Albums For South Africa</title>
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <meta name="keywords" content="">
+        <title>Premium Photobooks | Making Albums For South Africa</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <meta name="keywords" content="">
+        <link rel="stylesheet" type="text/css" href="{{asset('web/sliderengine/amazingslider-1.css')}}">
+        <style>.amazingslider-text-box-1{display:none!important}</style>
     @endsection
 
     {{-- EXTRA STYLESHEET --}}
@@ -26,19 +28,31 @@
 
                         <div class="row">
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <div style="margin:0 auto;" class="html5gallery" data-skin="verticallight" data-width="400" data-height="225" data-resizemode="fill">
-    
-                                        <!-- Add images to Gallery -->
-
-                                        @if (isset($product_images) && !empty($product_images))
-                                            @foreach ($product_images as $item)
-                                                <a href="{{asset('assets/product/'.$item->images.'')}}"><img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="product images"></a>
-                                            @endforeach
-                                        @endif                                        
-                                        
-                                        <!-- Add videos to Gallery -->
-                                        <a href="{{asset('web/images/video/Black-Friday.mp4')}}" data-webm="{{asset('web/images/video/Black-Friday.mp4')}}"><img src="{{asset('assets/product/thumb/315821156672020-Feb-19.jpg')}}" alt="Big Buck Bunny, Copyright Blender Foundation"></a>
                                     
+                                    <div class="amazingslider-wrapper" id="amazingslider-wrapper-1" style="display:block;position:relative;max-width:500px;margin:0px auto 108px;">
+                                        <div class="amazingslider" id="amazingslider-1" style="display:block;position:relative;margin:0 auto;">
+                                            <ul class="amazingslider-slides" style="display:none;">
+                                                @if (isset($product_images) && !empty($product_images))
+                                                    @foreach ($product_images as $item)
+                                                    <li><img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="1"  title="1" />
+                                                    </li>
+                                                    @endforeach
+                                                @endif 
+                                                
+                                                <li><img src="{{asset('web/images/photo/2.jpg')}}" alt="Black-Friday"  title="Black-Friday" />
+                                                <video preload="none" src="{{asset('web/images/video/Black-Friday.mp4')}}" ></video>
+                                                </li>
+                                            </ul>
+                                            <ul class="amazingslider-thumbnails" style="display:none;">
+                                                @if (isset($product_images) && !empty($product_images))
+                                                    @foreach ($product_images as $item)
+                                                    <li><img src="{{asset('assets/product/thumb/'.$item->images.'')}}" alt="1"  title="1" />
+                                                    </li>
+                                                    @endforeach
+                                                @endif  
+                                                <li><img src="{{asset('web/images/photo/1.jpg')}}" alt="Black-Friday" title="Black-Friday" /></li>
+                                            </ul>
+                                        </div>
                                     </div>                                
                             </div><!-- end col -->
 
@@ -232,6 +246,9 @@
     @section('script')
         <!-- prettyPhoto STYLES -->
         
+        <script src="{{asset('web/sliderengine/jquery.js')}}"></script>
+        <script src="{{asset('web/sliderengine/amazingslider.js')}}"></script>
+        <script src="{{asset('web/sliderengine/initslider-1.js')}}"></script>
         <script src="{{asset('web/js/product_detail.js')}}"></script>
 
         <script type="text/javascript" src="{{asset('web/js/html5gallery.js')}}"></script>

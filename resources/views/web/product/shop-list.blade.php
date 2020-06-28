@@ -26,7 +26,7 @@
                                         <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}"><img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive" height="200px"></a>
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
-                                        <h3><a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">{{ $item->name }}</a></h3>
+                                        <h5 class="f-w-6"><a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">{{ $item->name }}</a></h5>
                                         <p class="regular">Starting from <span>R 10000025</span></p>   
                                     </div><!-- end shop-desc -->
 
