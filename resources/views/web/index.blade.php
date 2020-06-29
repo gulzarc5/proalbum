@@ -18,9 +18,9 @@
                     @if (isset($slider) && !empty($slider))
                         @foreach ($slider as $item)
                         @if (isset($item->url) && !empty($item->url))
-                        <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('assets/banner/thumb/'.$item->slider.'')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" onclick="location.href='{{$item->url}}'">
+                        <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('assets/banner/thumb/'.$item->slider.'')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" onclick="location.href='{{$item->url}}'" style="cursor:pointer">
                         @else  
-                        <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('assets/banner/thumb/'.$item->slider.'')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" > 
+                        <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('assets/banner/thumb/'.$item->slider.'')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" style="cursor:pointer" > 
                         @endif
                           <!-- MAIN IMAGE -->
                            <img src="{{asset('assets/banner/'.$item->slider.'')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
