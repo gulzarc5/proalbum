@@ -29,7 +29,11 @@
                                 @if(count($header_data['categories']) > 0)
                                     @foreach($header_data['categories'] as $item)
                                     <li>
-                                        <a href="{{route('web.product_list',['slug'=>$item->url_slug,'id'=>$item->id])}}">
+                                        @if (isset($item->color) && !empty($item->color))                                        
+                                        <a href="{{route('web.product_list',['slug'=>$item->url_slug,'id'=>$item->id])}}" style="color:{{$item->color}}">
+                                        @else   
+                                            <a href="{{route('web.product_list',['slug'=>$item->url_slug,'id'=>$item->id])}}">
+                                        @endif
                                             {{ $item->name }}
                                         </a>
                                     </li>

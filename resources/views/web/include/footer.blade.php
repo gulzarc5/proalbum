@@ -31,7 +31,7 @@
                                 <ul class="check">
                                     <li><a href="#">Cart</a></li>
                                     @auth('users')
-                                        <li><a href="{{ route('web.my_profile') }}">Profile</a></li>
+                                        <li><a href="{{ route('web.my_profile')}}">Profile</a></li>
                                         <li><a href="{{route('web.logout')}}">Logout</a></li>
                                     @else
                                         <li><a href="{{ route('web.login') }}">Login</a></li>
@@ -51,9 +51,9 @@
 
                             <div class="link-widget">
                                 <ul class="check">
-                                    <li><a href="#">Terms of Condition</a></li>
-                                    <li><a href="#">Return Policy</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="{{route('web.tc')}}">Terms of Condition</a></li>
+                                    <li><a href="{{route('web.ret_policy')}}">Return Policy</a></li>
+                                    <li><a href="{{route('web.privacy_policy')}}">Privacy Policy</a></li>
                                 </ul>
                             </div><!-- end link -->
                         </div><!-- end widget -->

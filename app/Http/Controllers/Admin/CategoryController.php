@@ -161,6 +161,7 @@ class CategoryController extends Controller
                 'seo_meta_desc' => $request->input('meta_desc'), 
                 'seo_meta_keward' => $request->input('meta_tag'), 
                 'sort' => $request->input('sort'), 
+                'color' => $request->input('color'), 
                 'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
             ]);
 

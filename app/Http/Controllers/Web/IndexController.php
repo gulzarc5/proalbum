@@ -8,6 +8,7 @@ use DB;
 use App\HomePage;
 use App\Slider;
 use App\HappyClient;
+use App\PageData;
 
 class IndexController extends Controller
 {
@@ -22,5 +23,33 @@ class IndexController extends Controller
         $top_cat = DB::table('category')->where('top_cat_status',2)->get();
         $HappyClient = HappyClient::orderBy('id','desc')->get();
         return view('web.index',compact('home_page','slider','first_cat','second_cat','third_cat','fourth_cat','top_cat','HappyClient'));
+    }
+
+    public function about()
+    {
+        $page_data = PageData::find(1);
+        $data = $page_data->about_us;
+        return view('web.about',compact('data'));
+    }
+
+    public function termsCondition()
+    {
+        $page_data = PageData::find(1);
+        $data = $page_data->t_c;
+        return view('web.about',compact('data'));
+    }
+
+    public function returnPolicy()
+    {
+        $page_data = PageData::find(1);
+        $data = $page_data->return_policy;
+        return view('web.about',compact('data'));
+    }
+
+    public function privacyPolicy()
+    {
+        $page_data = PageData::find(1);
+        $data = $page_data->privacy_policy;
+        return view('web.about',compact('data'));
     }
 }

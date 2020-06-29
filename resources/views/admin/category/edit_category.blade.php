@@ -58,7 +58,7 @@
                             <div class="col-md-3 col-sm-12 col-xs-12 mb-3">
                                 <label for="sort">Colour</label>
                                 <div class="input-group demo2">
-                                    <input type="text" value="#e01ab5" class="form-control" />
+                                    <input type="text" name="color" value="{{$category_record->color}}" class="form-control" />
                                     <span class="input-group-addon"><i></i></span>
                                 </div>
                                 @if($errors->has('slug'))

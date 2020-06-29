@@ -98,10 +98,10 @@
                       <li class="sub_menu"><a href="{{ route('admin.home_edit') }}">Home Page</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.Happy_client_add_form') }}">Happy Client</a></li>
-                      <li class="sub_menu"><a href="{{ route('admin.Happy_client_add_form') }}">About Us</a></li>
-                      <li class="sub_menu"><a href="{{ route('admin.Happy_client_add_form') }}">Terms & Condition</a></li>
-                      <li class="sub_menu"><a href="{{ route('admin.Happy_client_add_form') }}">Return Policy</a></li>
-                      <li class="sub_menu"><a href="{{ route('admin.Happy_client_add_form') }}">Privacy Policy</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.about_us') }}">About Us</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.terms_condition') }}">Terms & Condition</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.return_policy') }}">Return Policy</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.privacy_policy') }}">Privacy Policy</a></li>
                     </ul>
                   </li>
 

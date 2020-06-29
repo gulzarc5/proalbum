@@ -6,7 +6,7 @@
     <div class="row">
 	<div class="col-md-12">
 	    <div class="x_panel">
-	        
+	       
             <div>
                  @if (Session::has('message'))
                     <div class="alert alert-success" >{{ Session::get('message') }}</div>
@@ -17,18 +17,18 @@
             </div>
 	        <div>
 	            <div class="x_content">
-	            	{{ Form::open(['method' => 'post','route'=>'admin.about_us_add']) }}
+	            	{{ Form::open(['method' => 'post','route'=>'admin.terms_condition_add']) }}
 
 
                     <div class="well" style="overflow: auto">
-                        <h1 style="text-align: center">About Us Page</h1>
+                        <h1 style="text-align: center">Terms & Conditions Page</h1>
                         <div class="form-row mb-10">
                             <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                              <label for="about">Long Description</label>
-                            <textarea type="text" class="form-control" name="about" id="desc">{{$about->about_us}}</textarea>
-                               @if($errors->has('about'))
+                              <label for="t_c">Long Description</label>
+                            <textarea type="text" class="form-control" name="t_c" id="desc">{{$t_c->t_c}}</textarea>
+                               @if($errors->has('t_c'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('about') }}</strong>
+                                        <strong>{{ $errors->first('t_c') }}</strong>
                                     </span>
                                 @enderror
                             </div>                                                                                 
@@ -67,31 +67,5 @@
 </script>
 
 <script type="text/javascript">
-function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();  
-        reader.onload = function (e) {
-            $('#preview')
-                .attr('src', e.target.result)
-                .height(120);
-        };
-  
-        reader.readAsDataURL(input.files[0]);
-    }
-}
 
-$(document).ready(function(){
-    $('#name').keyup(function(){
-        var str = $('#name').val();
-        var d = str.replace(/\s+/g, '-').toLowerCase();
-        $('#slug').val(d);
-    });
-
-    $('#sheet_type_radio_btn').click(function(){
-        alert('gjyug');
-    });
-});
-</script>
-
-<script src="{{ asset('admin/admin_product.js')}}"></script>
  @endsection

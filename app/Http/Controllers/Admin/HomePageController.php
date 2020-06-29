@@ -253,5 +253,81 @@ class HomePageController extends Controller
         return redirect()->back();
     }
 
+    public function aboutUs()
+    {
+        $about = PageData::find(1);
+        return view('admin.page_data.about',compact('about'));
+    }
 
+    public function aboutUsAdd(Request $request)
+    {
+        $request->validate([
+            'about' => 'required',
+        ]);
+
+        $about = PageData::find(1);
+        $about->about_us = $request->input('about');
+        $about->save();
+
+        return redirect()->back()->with('message','Data Updated Successfully');
+    }
+
+    public function termsCondition()
+    {
+        $t_c = PageData::find(1);
+        return view('admin.page_data.terms_condition',compact('t_c'));
+    }
+
+    public function termsConditionAdd(Request $request)
+    {
+        $request->validate([
+            't_c' => 'required',
+        ]);
+
+        $t_c = PageData::find(1);
+        $t_c->t_c = $request->input('t_c');
+        $t_c->save();
+
+        return redirect()->back()->with('message','Data Updated Successfully');
+    }
+
+
+    public function returnPolicy()
+    {
+        $ret_policy = PageData::find(1);
+        return view('admin.page_data.return_policy',compact('ret_policy'));
+    }
+
+    public function returnPolicyAdd(Request $request)
+    {
+        $request->validate([
+            'ret_policy' => 'required',
+        ]);
+
+        $ret_policy = PageData::find(1);
+        $ret_policy->return_policy = $request->input('ret_policy');
+        $ret_policy->save();
+
+        return redirect()->back()->with('message','Data Updated Successfully');
+    }
+
+
+    public function privacyPolicy()
+    {
+        $privacy_policy = PageData::find(1);
+        return view('admin.page_data.privacy_policy',compact('privacy_policy'));
+    }
+
+    public function privacyPolicyAdd(Request $request)
+    {
+        $request->validate([
+            'privacy_policy' => 'required',
+        ]);
+
+        $privacy_policy = PageData::find(1);
+        $privacy_policy->privacy_policy = $request->input('privacy_policy');
+        $privacy_policy->save();
+
+        return redirect()->back()->with('message','Data Updated Successfully');
+    }
 }

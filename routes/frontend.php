@@ -1,7 +1,12 @@
 <?php
 Route::group(['namespace'=>'Web'],function(){
 	/** Index Router **/
-	Route::get('/', 'IndexController@index')->name('web.index');
+    Route::get('/', 'IndexController@index')->name('web.index');
+    
+    Route::get('/About', 'IndexController@about')->name('web.about');
+    Route::get('/terms-conditon', 'IndexController@termsCondition')->name('web.tc');
+    Route::get('/return-poicy', 'IndexController@returnPolicy')->name('web.ret_policy');
+    Route::get('/privacy-policy', 'IndexController@privacyPolicy')->name('web.privacy_policy');
 
     /** User Registration Routes **/
     Route::get('registration-page', 'RegisterController@showRegistrationForm')->name('web.registration_page');
@@ -92,9 +97,6 @@ Route::get('/Orders', function () {
 //-----------------------------------------
 
 
-Route::get('/About', function () {
-    return view('web.about');
-})->name('web.about');
 
 Route::get('/Gallery', function () {
     return view('web.gallery-cat');
