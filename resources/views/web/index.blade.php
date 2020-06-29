@@ -6,6 +6,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <meta name="keywords" content="">
+      <style>#ytplayer {display: table;margin: auto;}</style>
     @endsection
 
     @section('content')
@@ -190,10 +191,7 @@
 
       <section class="video-block" style="background: #f9f9f9;">
           <div class="container">
-            <video controls style="outline: none">
-                <source src="{{asset('web/images/video/Black-Friday.mp4')}}" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
+          <iframe id="ytplayer" type="text/html" width="90%" height="450" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"  frameborder="0"></iframe>
           </div>
       </section>
 

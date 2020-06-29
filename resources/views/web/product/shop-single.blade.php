@@ -40,7 +40,7 @@
                                                 @endif 
                                                 
                                                 <li><img src="{{asset('web/images/photo/2.jpg')}}" alt="Black-Friday"  title="Black-Friday" />
-                                                <video preload="none" src="{{asset('web/images/video/Black-Friday.mp4')}}" ></video>
+                                                <video preload="none" src="https://www.youtube.com/embed/hFGG7T3Mq3w?v=hFGG7T3Mq3w&list=RDhFGG7T3Mq3w&start_radio=1" ></video>
                                                 </li>
                                             </ul>
                                             <ul class="amazingslider-thumbnails" style="display:none;">
