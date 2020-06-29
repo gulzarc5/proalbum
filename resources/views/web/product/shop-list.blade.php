@@ -6,6 +6,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <meta name="keywords" content="">
+      <style>#ytplayer {display: table;margin: auto;}</style>
     @endsection
       <!-- end header -->
 
@@ -45,11 +46,8 @@
         </section><!-- end section -->
 
         <section class="video-block" style="background-color: #fff">        
-          <div class="container">
-            <video width="80%" controls style="outline: none;margin-top: -200px">
-                <source src="{{asset('web/images/video/Black-Friday.mp4')}}" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
-          </div>
+            <div class="container">
+                <iframe id="ytplayer" type="text/html" width="90%" height="450" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"  frameborder="0"></iframe>
+            </div>
       </section>
     @endsection   
