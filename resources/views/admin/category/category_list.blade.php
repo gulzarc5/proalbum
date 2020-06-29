@@ -18,6 +18,7 @@
                         <tr>
                             <th>Category</th>
                             <th>Status</th>
+                            <th>Top Category Show</th>
                             <th>Option</th>
                             <th>Sort</th>
                         </tr>
@@ -34,6 +35,13 @@
                                             <a href="{{ route('admin.update_category_status', ['category_id' => encrypt($item->id), 'status' => encrypt(2)]) }}" style="width: 65px;" class="btn btn-xs btn-success">Active</a>
                                         @else
                                             <a href="{{ route('admin.update_category_status', ['category_id' => encrypt($item->id), 'status' => encrypt(1)]) }}" style="width: 65px;" class="btn btn-xs btn-warning">Inactive</a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($item->top_cat_status == 1)
+                                            <a href="{{ route('admin.update_top_status', ['category_id' => encrypt($item->id), 'status' => encrypt(2)]) }}" style="width: 65px;" class="btn btn-xs btn-warning">No</a>
+                                        @else
+                                            <a href="{{ route('admin.update_top_status', ['category_id' => encrypt($item->id), 'status' => encrypt(1)]) }}" style="width: 65px;" class="btn btn-xs btn-success">Yes</a>
                                         @endif
                                     </td>
                                     <td>
@@ -58,13 +66,13 @@
  @endsection
  @section('script')
 
-<script type="text/javascript">
-$('#datatable').dataTable( {
-  "pageLength": 50
-} );
+    <script type="text/javascript">
+    $('#datatable').dataTable( {
+    "pageLength": 50
+    } );
 
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();   
+    });
+    </script>
  @endsection

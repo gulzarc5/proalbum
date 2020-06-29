@@ -47,7 +47,7 @@
                             </div> 
                             <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
                                 <label for="sort">Sort</label>
-                                <input type="number" min="1" class="form-control" id="sort" name="sort" placeholder="Enter Sort">
+                                <input type="number" min="1" class="form-control" id="sort" name="sort" placeholder="Enter Sort" value="{{$category_record->sort}}">
                                 @if($errors->has('slug'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('sort') }}</strong>
@@ -70,7 +70,7 @@
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                               <label for="img">Image</label>
-                              <input type="file" onchange="readURL(this)" class="form-control" name="img"></input>
+                              <input type="file"  class="form-control" name="img"></input>
                                @if($errors->has('img'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('img') }}</strong>
@@ -79,6 +79,21 @@
                             </div>       
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <img src="{{ asset('assets/category/thumbnail/'.$category_record->image) }}" class="img-responsive" height="300px" id="preview" style="padding: 12px;">
+                            </div>                                                                                 
+                        </div>
+
+                        <div class="form-row mb-10">
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                              <label for="img">Page Banner</label>
+                              <input type="file"  class="form-control" name="page_banner"></input>
+                               @if($errors->has('img'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('img') }}</strong>
+                                    </span>
+                                @enderror
+                            </div>       
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <img src="{{ asset('assets/category/thumbnail/'.$category_record->page_banner) }}" class="img-responsive" height="300px" id="preview" style="padding: 12px;">
                             </div>                                                                                 
                         </div>
                     </div>

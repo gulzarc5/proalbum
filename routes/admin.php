@@ -21,6 +21,10 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             /** Changing Category Status **/
             Route::get('update-category-status/{category_id}/{status}','CategoryController@updateCategoryStatus')->name('admin.update_category_status');
 
+             /** Changing Category Status **/
+             Route::get('update-top-status/{category_id}/{status}','CategoryController@updateTopStatus')->name('admin.update_top_status');
+
+
             /** Category CK Editor Image Upload **/
             Route::post('ck-editor-image-upload','CategoryController@ckEditorImageUpload')->name('admin.ck_editor_image_upload');
         });
@@ -53,6 +57,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::post('add/more/image','ProductController@productMoreImageAdd')->name('admin.product_more_image_add');
             Route::get('delete/image/{id}','ProductController@productImageDelete')->name('admin.product_image_delete');
 
+            Route::get('update/homepage/cat/{id}/{status}/{type}','ProductController@updateHomePageCat')->name('admin.product_home_page_cat_update');
+
         });
 
         // Units Route
@@ -76,15 +82,11 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
 
             /** Banner Addition Section **/
             Route::get('banner-add-form','BannerController@showBannerAddForm')->name('admin.banner_add_form');
-            Route::put('add-banner','BannerController@addBanner')->name('admin.add_banner');
-            /** Units List **/
-            // Route::get('units-list','UnitsController@showUnitsList')->name('admin.units_list');
-            /** Edit Units **/
-            // Route::get('edit-units/{units_id}','UnitsController@showUnitsEditForm')->name('admin.edit_units');
-            /** Update Units **/
-            // Route::post('update-units','UnitsController@updateUnits')->name('admin.update_units');
-            /** Delete Units **/
-            // Route::get('delete-units/{units_id}','UnitsController@deleteUnits')->name('admin.delete_units');
+            Route::post('add-banner','BannerController@addBanner')->name('admin.add_banner');
+            Route::get('edit/{banner_id}','BannerController@editBanner')->name('admin.edit_banner');
+            Route::put('update/{banner_id}','BannerController@updateBanner')->name('admin.update_banner');
+            Route::get('status/{banner_id}/{status}','BannerController@updateStatus')->name('admin.update_banner_status');
+            Route::get('delete/{banner_id}','BannerController@deleteBanner')->name('admin.delete_banner');
         });
 
         Route::group(['prefix'=>'user'],function(){
@@ -102,6 +104,19 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('details/{order_id}','OrderController@orderDetails')->name('admin.order_details');
             Route::get('status/update/{order_details_id}/{status}','OrderController@orderStatusUpdate');
             Route::get('invoice/{order_id}','OrderController@orderInvoice')->name('admin.order_invoice');
+        });
+
+        // Category Route
+        Route::group(['prefix'=>'home'],function(){
+            /** Category Addition Section **/
+            Route::get('/edit','HomePageController@homeEdit')->name('admin.home_edit');
+            Route::put('/update','HomePageController@homeUpdate')->name('admin.home_update');
+
+            
+            Route::get('/firstcat','HomePageController@firstCategory')->name('admin.home_first_cat');
+            Route::get('/secondcat','HomePageController@secondCategory')->name('admin.home_second_cat');
+            Route::get('/thirdcat','HomePageController@thirdCategory')->name('admin.home_third_cat');
+            Route::get('/fourthcat','HomePageController@fourthCategory')->name('admin.home_fourth_cat');
         });
     });
 });

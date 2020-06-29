@@ -14,18 +14,19 @@
               <!-- START REVOLUTION SLIDER 5.0.7 auto mode -->
               <div id="rev_slider_4_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.0.7">
                   <ul>
-                      <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide2.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" onclick="location.href='pic_bulbon.php'">
-                         <!-- MAIN IMAGE -->
-                          <img src="{{asset('web/upload/slide2.jpg')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                      </li>
-                      <li data-index="rs-18" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide3.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Premium Photobook" data-description="" onclick="location.href='pic_bulbon1.php'">
-                         <!-- MAIN IMAGE -->
-                          <img src="{{asset('web/upload/slide3.jpg')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                      </li>
-                      <li data-index="rs-1812" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('web/upload/slide1.jpg')}}"  data-rotate="0"  data-saveperformance="off"  data-title="Capture The Moment" data-description="" onclick="location.href='pic_bulbon2.php'">
-                         <!-- MAIN IMAGE -->
-                         <img src="{{asset('web/upload/slide1.jpg')}}"  alt="#"  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
-                      </li>
+                    @if (isset($slider) && !empty($slider))
+                        @foreach ($slider as $item)
+                        @if (isset($item->url) && !empty($item->url))
+                        <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('assets/banner/thumb/'.$item->slider.'')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" onclick="location.href='{{$item->url}}'">
+                        @else  
+                        <li data-index="rs-181" data-transition="zoomin" data-slotamount="7"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="2000"  data-thumb="{{asset('assets/banner/thumb/'.$item->slider.'')}}"  data-rotate="0"  data-saveperformance="off"  data-title="For The Book Lovers" data-description="" > 
+                        @endif
+                          <!-- MAIN IMAGE -->
+                           <img src="{{asset('assets/banner/'.$item->slider.'')}}"  alt=""  data-bgposition="center center" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+                       </li>
+                        @endforeach
+                    @endif
+                    
                   </ul>
                   <div class="tp-static-layers"></div>
               </div>
@@ -33,19 +34,21 @@
       </div><!-- end first slider -->
 
       <section style="padding:0">
-        <div class="container">
-            <div class="mt-20">
-                <img src="{{asset('web/images/hom-pic1.png')}}" alt="" class="img-responsive">
-            </div><!-- end title -->
+        @if (isset($home_page->banner) && !empty($home_page->banner))
+          <div class="container">
+              <div class="mt-20">
+                  <img src="{{asset('assets/home_page/'.$home_page->banner.'')}}" alt="" class="img-responsive">
+              </div><!-- end title -->
 
-        </div><!-- end container -->
+          </div><!-- end container -->
+        @endif
       </section><!-- end section -->
 
       <section class="home-gallery">
         <div class="container-fluid">
             <div class="section-title text-center clearfix">
-                <h4>Our Products</h4>
-                <p>Listed below our awesome products with a stylish portfolio section!</p>
+                <h4>{{$home_page->pro_cat_heading}}</h4>
+                <p>{{$home_page->pro_cat_tag}}</p>
                 <hr>
             </div><!-- end title -->
 
@@ -53,10 +56,10 @@
                 <div class="col-md-12">
                     <nav class="text-center">
                         <ul class="nav nav-tabs" style="display:inline-block;margin:auto">
-                            <li class="active"><a class="tab-btn" href="#1" data-toggle="tab">Bestseller</a></li>
-                            <li><a class="tab-btn" href="#2" data-toggle="tab">New Arrival</a></li> 
-                            <li><a class="tab-btn" href="#3" data-toggle="tab">Feature Product</a></li>
-                            <li><a class="tab-btn" href="#4" data-toggle="tab">Wedding</a></li>
+                            <li class="active"><a class="tab-btn" href="#1" data-toggle="tab">{{$home_page->pro_cat_1}}</a></li>
+                            <li><a class="tab-btn" href="#2" data-toggle="tab">{{$home_page->pro_cat_2}}</a></li> 
+                            <li><a class="tab-btn" href="#3" data-toggle="tab">{{$home_page->pro_cat_3}}</a></li>
+                            <li><a class="tab-btn" href="#4" data-toggle="tab">{{$home_page->pro_cat_4}}</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -66,216 +69,90 @@
                 <!-- Tab 1 -->
                 <div class="tab-pane fade in active" id="1">
                   <div class=row>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/3.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
+                    @if (isset($first_cat) && !empty($first_cat))
+                        @foreach ($first_cat as $item)
+                        <div class="col-md-3 col-xs-6">
+                          <div class="tab-block">
+                              <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">
+                                <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
+                                <figcaption>
+                                  <h5 class="f-w-6">{{ $item->name }}</h5>
+                                  <p class="regular">Starting from <span>R 125</span></p>
+                                  <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                                </figcaption>
+                              </a>
+                          </div>
+                        </div>
+                        @endforeach
+                    @endif
                   </div>
                 </div>
 
                 <!-- Tab 2 -->
                 <div class="tab-pane" id="2">
                   <div class=row>
+                    @if (isset($second_cat) && !empty($second_cat))
+                    @foreach ($second_cat as $item)
                     <div class="col-md-3 col-xs-6">
                       <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                          <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">
+                            <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
                             <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <h5 class="f-w-6">{{ $item->name }}</h5>
                               <p class="regular">Starting from <span>R 125</span></p>
                               <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                             </figcaption>
                           </a>
                       </div>
                     </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
+                    @endforeach
+                   @endif
                   </div>
                 </div>
 
                 <!-- Tab 3 -->
                 <div class="tab-pane" id="3">
                   <div class=row>
+                    @if (isset($third_cat) && !empty($third_cat))
+                    @foreach ($third_cat as $item)
                     <div class="col-md-3 col-xs-6">
                       <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
+                          <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">
+                            <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
                             <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <h5 class="f-w-6">{{ $item->name }}</h5>
                               <p class="regular">Starting from <span>R 125</span></p>
                               <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                             </figcaption>
                           </a>
                       </div>
                     </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/5.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
+                    @endforeach
+                   @endif
+                  
                   </div>
                 </div>
 
                 <!-- Tab 2 -->
                 <div class="tab-pane" id="4">
                   <div class=row>
+                    @if (isset($fourth_cat) && !empty($fourth_cat))
+                    @foreach ($fourth_cat as $item)
                     <div class="col-md-3 col-xs-6">
                       <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
+                          <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">
+                            <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
                             <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
+                              <h5 class="f-w-6">{{ $item->name }}</h5>
                               <p class="regular">Starting from <span>R 125</span></p>
                               <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                             </figcaption>
                           </a>
                       </div>
                     </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/6.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/1.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                      <div class="tab-block">
-                          <a href="#" title="">
-                            <img src="{{asset('web/images/photo/2.jpg')}}" alt="" class="img-responsive">
-                            <figcaption>
-                              <h5 class="f-w-6">Hardcover Photo Book</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
-                              <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
-                            </figcaption>
-                          </a>
-                      </div>
-                    </div>
+                    @endforeach
+                   @endif
+
                   </div>
                 </div>
 
@@ -287,49 +164,24 @@
       <section class="catagory-section" style="background-color: #f4f4f1;">
         <div class="container">
             <div class="section-title text-center clearfix">
-                <h4>Top Categories</h4>
-                <p>Listed below our top categories, campaings, promotions and offers for you!</p>
+                <h4>{{$home_page->top_cat_heading}}</h4>
+                <p>{{$home_page->top_cat_tag}}</p>
                 <hr>
             </div><!-- end title -->
 
             <div class="cat-section">
               <div class="row">
-                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/3.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/1.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/6.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/6.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/1.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
-                <div class="col-md-4 col-xs-6" style="max-height: 510px;">
-                  <a href="" title="">                    
-                    <img src="{{asset('web/images/photos/3.jpg')}}" alt="">
-                    <h6>Album (Leyflat)</h6>
-                  </a>
-                </div>
+                @if (isset($top_cat) && !empty($top_cat))
+                    @foreach ($top_cat as $item)
+                    <div class="col-md-4 col-xs-6" style="max-height: 510px;">
+                      <a href="{{route('web.product_list',['slug'=>$item->url_slug,'id'=>$item->id])}}" title="">                    
+                        <img src="{{asset('assets/category/'.$item->image.'')}}" alt="">
+                        <h6>{{ $item->name }}</h6>
+                      </a>
+                    </div>
+                    @endforeach
+                @endif
+
               </div>
             </div>
 
@@ -348,8 +200,8 @@
       <section class="section">
         <div class="container">   
             <div class="section-title text-center clearfix">
-                <h4>ORDER</h4>
-                <p>Choose your Ordering mode to upload Orders at your comfort.</p>
+                <h4>{{$home_page->order_heading}}</h4>
+                <p>{{$home_page->order_tag}}</p>
                 <hr>
             </div><!-- end title -->         
             <div class="row">

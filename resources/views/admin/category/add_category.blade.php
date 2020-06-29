@@ -58,17 +58,24 @@
                         </div>
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                              <label for="img">Image</label>
+                              <label for="img">Category Banner</label>
                               <input type="file" onchange="readURL(this)" class="form-control" name="img"></input>
                                @if($errors->has('img'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('img') }}</strong>
                                     </span>
                                 @enderror
-                            </div>       
+                            </div>   
+                            
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <img src="" height="300px" id="preview" style="padding: 12px;">
-                            </div>                                                                                 
+                                <label for="page_banner">Category Page Banner</label>
+                                <input type="file" onchange="readURL(this)" class="form-control" name="page_banner"></input>
+                                 @if($errors->has('page_banner'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('page_banner') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>   
                         </div>
                     </div>
 

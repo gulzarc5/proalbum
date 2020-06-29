@@ -93,10 +93,20 @@
                   <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Master <span class="fa fa-chevron-down"></span></a>
                      <ul class="nav child_menu">
                       <li class="sub_menu"><a href="{{route('admin.category_list')}}">Category</a></li>
-                      {{-- <li class="sub_menu"><a href="{{ route('admin.units_list') }}">Units</a></li> --}}
-                      {{-- <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li> --}}
+                      <li class="sub_menu"><a href="{{ route('admin.home_edit') }}">Home Page</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li>
                     </ul>
                   </li>
+
+                  <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Our Products <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <li class="sub_menu"><a href="{{route('admin.home_first_cat')}}">First Category</a></li>
+                     <li class="sub_menu"><a href="{{ route('admin.home_second_cat') }}">Second Category</a></li>
+                     <li class="sub_menu"><a href="{{ route('admin.home_third_cat') }}">Third Category</a></li>
+                     <li class="sub_menu"><a href="{{ route('admin.home_fourth_cat') }}">Fourth Category</a></li>
+                   </ul>
+                 </li>
+
 
                   <li><a href="{{route('admin.change_password_form')}}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
 

@@ -8,27 +8,29 @@ use DB;
 use Image;
 use Str;
 use File;
+use App\Slider;
 
 class BannerController extends Controller
 {
      public function showBannerAddForm()
     {
-        return view('admin.banner.add_banner');
+        $slider = Slider::get();
+        return view('admin.banner.add_banner',compact('slider'));
     }
 
     public function addBanner(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required',
             'banner' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'url' => 'required',
         ]);
 
-        if ($request->hasFile('img')) {
+        if ($request->hasFile('banner')) {
             $image = $request->file('banner');
             $file   = time().'.'.$image->getClientOriginalExtension();
 
             //Banner Thumbnail
-            $destinationPath = public_path('/assets/banner/thumbnail');
+            $destinationPath = public_path('/assets/banner/thumb');
             $img = Image::make($image->getRealPath());
             $img->resize(150, 150, function ($constraint) {
                 $constraint->aspectRatio();
@@ -39,158 +41,65 @@ class BannerController extends Controller
             $img = Image::make($image->getRealPath());
             $img->save($destinationPath.'/'.$file);
 
-            DB::table('category')
-                ->insert([ 
-                    'name' => $request->input('name'), 
-                    'banner' => $file, 
-                    'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
-                    'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
-                ]);
-
+            $slider = new Slider();
+            $slider->slider = $file;
+            $slider->url = $request->input('url');
+            $slider->save();
             return redirect()->back()->with('message', 'Banner has been added successfully');
 
         } else 
             return redirect()->back()->with('message', 'Please ! select a image');
     }
 
-    public function ckEditorImageUpload(Request $request)
+    public function editBanner($id) 
     {
-        if($request->hasFile('upload')) {
-            //get filename with extension
-            $filenamewithextension = $request->file('upload')->getClientOriginalName();
-       
-            //get filename without extension
-            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
-       
-            //get file extension
-            $extension = $request->file('upload')->getClientOriginalExtension();
-       
-            //filename to store
-            $filenametostore = $filename.'_'.time().'.'.$extension;
-       
-            //Upload File
-            // $request->file('upload')->storeAs('assets/category/ckeditor/', $filenametostore);
+        $slider = Slider::find($id);
 
-            $request->file('upload')->move(public_path('assets/category/ckeditor'), $filenametostore);
-     
-            $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-            $url = asset('assets/category/ckeditor/'.$filenametostore); 
-            $msg = 'Image successfully uploaded'; 
-            $re = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum, '$url', '$msg')</script>";
-              
-            // Render HTML output 
-            @header('Content-type: text/html; charset=utf-8'); 
-            echo $re;
-        }
+        return view('admin.banner.edit_banner',compact('slider'));
     }
 
-    public function showCategoryList(Request $request)
+    public function updateBanner(Request $request,$id) 
     {
-        $categories = DB::table('category')->get();
+       $slider = Slider::find(1);
 
-        return view('admin.category.category_list', ['categories' => $categories]);
-    }
-
-    public function showCategoryEditForm($category_id) 
-    {
-        try {
-            $category_id = decrypt($category_id);
-        }catch(DecryptException $e) {
-            return redirect()->back();
-        }
-
-        $category_record = DB::table('category')
-            ->where('id', $category_id)
-            ->first();
-
-        return view('admin.category.edit_category', ['category_record' => $category_record]);
-    }
-
-    public function updateCategory(Request $request) 
-    {
-        try {
-            $category_id = decrypt($request->input('category_id'));
-        }catch(DecryptException $e) {
-            return redirect()->back();
-        }
-
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'desc' => 'required',
-            'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
-            'page_title' => 'required',
-            'meta_desc' => 'required',
-            'meta_tag' => 'required'
-        ]);
-
-        $category_record = DB::table('category')
-            ->where('id', $category_id)
-            ->first();
-
-        DB::table('category')
-            ->where('id', $category_id)
-            ->update([ 
-                'name' => $request->input('name'), 
-                'url_slug' => strtolower(Str::slug($request->input('slug'), '-')),
-                'description' => $request->desc,
-                'seo_page_title' => $request->input('page_title'), 
-                'seo_meta_desc' => $request->input('meta_desc'), 
-                'seo_meta_keward' => $request->input('meta_tag'), 
-                'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
-            ]);
-
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');
+       if ($request->hasFile('banner')) {
+            $image = $request->file('banner');
             $file   = time().'.'.$image->getClientOriginalExtension();
 
-            //Deleting old file
-            File::delete(public_path('/assets/category/thumbnail/'.$category_record->image));
-            File::delete(public_path('/assets/category/'.$category_record->image));
-
-            //Category Thumbnail
-            $destinationPath = public_path('/assets/category/thumbnail');
+            //Banner Thumbnail
+            $destinationPath = public_path('/assets/banner/thumb');
             $img = Image::make($image->getRealPath());
             $img->resize(150, 150, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$file);
-         
-            //Category Original Image
-            $destinationPath = public_path('/assets/category');
+        
+            //Banner Original Image
+            $destinationPath = public_path('/assets/banner');
             $img = Image::make($image->getRealPath());
             $img->save($destinationPath.'/'.$file);
 
-            DB::table('category')
-                ->where('id', $category_id)
-                ->update([ 
-                    'image' => $file
-                ]);
+            $slider->slider = $file;
 
-            return redirect()->back()->with('message', 'Category has been added successfully');
         }
-
-        return redirect()->back()->with('message', 'Category has been updated successfully');
+        
+        $slider->url = $request->input('url');
+        $slider->save();
+        
+       return redirect()->back()->with('message', 'Category has been added successfully');
     }
 
-    public function updateCategoryStatus($category_id, $status) 
+    public function updateStatus($id, $status) 
     {
-        try {
-            $category_id = decrypt($category_id);
-        }catch(DecryptException $e) {
-            return redirect()->back();
-        }
+        Slider::where('id',$id)->update([
+            'status'=>$status,
+        ]);
 
-        try {
-            $status = decrypt($status);
-        }catch(DecryptException $e) {
-            return redirect()->back();
-        }
+        return redirect()->back();
+    }
 
-        DB::table('category')
-            ->where('id', $category_id)
-            ->update([ 
-                'status' => $status
-            ]);
+    public function deleteBanner($id) 
+    {
+        Slider::where('id',$id)->delete();
 
         return redirect()->back();
     }

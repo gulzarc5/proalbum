@@ -29,6 +29,19 @@ class ProductController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function($row){
                 $btn ='<a href="'.route('admin.product_single_view',['p_id'=>encrypt($row->id)]).'" class="btn btn-info btn-sm" target="_blank">View</a>';
+                
+                if ($row->best_seller == '1') {
+                    $btn .='<a href="'.route('admin.product_home_page_cat_update',['p_id'=>$row->id,'status'=>'2','type'=>'1']).'" class="btn btn-warning btn-sm" >First Category</a>';
+                }
+                if ($row->new_arrival == '1') {
+                    $btn .='<a href="'.route('admin.product_home_page_cat_update',['p_id'=>$row->id,'status'=>'2','type'=>'2']).'" class="btn btn-primary btn-sm" >Second Category</a>';
+                }
+                if ($row->feature_product == '1') {
+                    $btn .='<a href="'.route('admin.product_home_page_cat_update',['p_id'=>$row->id,'status'=>'2','type'=>'3']).'" class="btn btn-success btn-sm" >Third Category</a>';
+                }
+                if ($row->weeding == '1') {
+                    $btn .='<a href="'.route('admin.product_home_page_cat_update',['p_id'=>$row->id,'status'=>'2','type'=>'4']).'" class="btn btn-info btn-sm" >Fourth Category</a>';
+                }
                 return $btn;
             })
             ->addColumn('status_tab', function($row){
@@ -607,6 +620,31 @@ class ProductController extends Controller
             ]);
         return redirect()->route('admin.product_single_view',['p_id'=>encrypt($request->input('p_id'))]);
 
+    }
+
+    public function updateHomePageCat($pro_id,$status,$type)
+    {
+        $product = DB::table('products')
+            ->where('id',$pro_id);
+        //Type 1 = Best Seller,2 =New Arrival ,3 =Feature Product ,4 =Wedding
+        if ($type == '1') {
+            $product = $product->update([
+                'best_seller'=>$status,
+            ]);
+        }elseif($type == '2'){
+            $product = $product->update([
+                'new_arrival'=>$status,
+            ]);
+        }elseif($type == '3'){
+            $product = $product->update([
+                'feature_product'=>$status,
+            ]);
+        }elseif($type == '4'){
+            $product = $product->update([
+                'weeding'=>$status,
+            ]);
+        }
+        return redirect()->back();
     }
 
     public function productImageEdit($product_id)

@@ -18,12 +18,14 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="{{ route('web.index') }}"><img src="{{asset('web/images/logo1.png')}}" alt=""></a>
+                            @if(isset($header_data['header_home']->header_logo) && !empty($header_data['header_home']->header_logo))
+                            <a class="navbar-brand" href="{{ route('web.index') }}"><img src="{{asset('assets/home_page/'.$header_data['header_home']->header_logo.'')}}" alt=""></a>
+                            @endif
                         </div>
 
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#" style="color: #d43f3f">Special</a></li>                               
+                                {{-- <li><a href="#" style="color: #d43f3f">Special</a></li>                                --}}
                                 @if(count($header_data['categories']) > 0)
                                     @foreach($header_data['categories'] as $item)
                                     <li>
@@ -33,10 +35,10 @@
                                     </li>
                                     @endforeach
                                 @endif                                
-                                <li><a href="#">Frames</a></li>
+                                {{-- <li><a href="#">Frames</a></li>
                                 <li><a href="#">Prints</a></li>
                                 <li><a href="#">Card</a></li>
-                                <li><a href="#">Gifts</a></li>
+                                <li><a href="#">Gifts</a></li> --}}
                                 <li class="desktop-fix-menu"><a href="{{ route('web.view_cart') }}"><span class="fa fa-shopping-cart"></span> Cart</a></li> 
                                 <li class="dropdown hasmenu">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Account <span class="fa fa-align-right"></span></a>

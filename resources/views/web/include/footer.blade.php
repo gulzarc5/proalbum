@@ -61,8 +61,14 @@
 
                     <div class="col-md-3 col-sm-12">
                         <div class="footer-logo">
-                            <a class="navbar-brand" href="index-2.html" style="width: 100%;padding-left: 0;"><img src="{{asset('web/images/logo.png')}}" alt=""></a>
-                            <p style="color: #fff">Centurian, South Africa</br>Phone: +011 254867</br>Email: demo@mail.com</p>
+                            @if (isset($footer_home) && !empty($footer_home))
+                                <a class="navbar-brand" href="index-2.html" style="width: 100%;padding-left: 0;"><img src="{{asset('assets/home_page/'.$footer_home->footer_logo.'')}}" alt=""></a>
+                                <p style="color: #fff">
+                                    {{$footer_home->footer_address}}</br>
+                                    {{$footer_home->footer_phone}}</br>
+                                    {{$footer_home->footer_email}}
+                                </p>
+                            @endif
                         </div>
                     </div><!-- end col -->
 
