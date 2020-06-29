@@ -95,6 +95,7 @@
                       <li class="sub_menu"><a href="{{route('admin.category_list')}}">Category</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.home_edit') }}">Home Page</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.Happy_client_add_form') }}">Happy Client</a></li>
                     </ul>
                   </li>
 

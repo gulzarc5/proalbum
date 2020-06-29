@@ -8,6 +8,7 @@ use App\HomePage;
 use Image;
 use File;
 use DB;
+use App\HappyClient;
 
 use Illuminate\Support\Str;
 
@@ -72,6 +73,71 @@ class HomePageController extends Controller
             $home_page->banner = $image_name;
         }
 
+
+        if ($request->hasFile('quality1')) {   
+
+            $request->validate([
+                'quality1.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            ]); 
+                
+            $image = $request->file('quality1');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();                
+            //Category Original Image
+            $destinationPath = public_path('/assets/home_page');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);     
+
+            $home_page->quality1 = $image_name;
+        }
+
+        if ($request->hasFile('quality2')) {   
+
+            $request->validate([
+                'quality2.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            ]); 
+                
+            $image = $request->file('quality2');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();                
+            //Category Original Image
+            $destinationPath = public_path('/assets/home_page');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);     
+
+            $home_page->quality2 = $image_name;
+        }
+
+        if ($request->hasFile('quality3')) {   
+
+            $request->validate([
+                'quality3.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            ]); 
+                
+            $image = $request->file('quality3');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();                
+            //Category Original Image
+            $destinationPath = public_path('/assets/home_page');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);     
+
+            $home_page->quality3 = $image_name;
+        }
+
+        if ($request->hasFile('quality4')) {   
+
+            $request->validate([
+                'quality4.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            ]); 
+                
+            $image = $request->file('quality4');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();                
+            //Category Original Image
+            $destinationPath = public_path('/assets/home_page');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);     
+
+            $home_page->quality4 = $image_name;
+        }
+
         $home_page->pro_cat_heading = $request->input('pro_heading');
         $home_page->pro_cat_tag = $request->input('pro_tag');
         $home_page->pro_cat_1 = $request->input('pro_cat_1');
@@ -86,6 +152,9 @@ class HomePageController extends Controller
 
         $home_page->order_heading = $request->input('order_heading');
         $home_page->order_tag = $request->input('order_tag');
+
+        $home_page->happy_heading = $request->input('happy_heading');
+        $home_page->happy_tag = $request->input('happy_tag');
 
         $home_page->footer_address = $request->input('address');
         $home_page->footer_phone = $request->input('phone');
@@ -122,5 +191,64 @@ class HomePageController extends Controller
         $home_page = HomePage::where('id',1)->first();
         $fourth_cat = DB::table('products')->where('weeding',2)->get();
         return view('admin.home_page.fourth_cat',compact('home_page','fourth_cat'));
+    }
+
+    public function happyAddForm()
+    {
+        return view('admin.home_page.happy_client_add_form');
+    }
+
+    public function happyAdd(Request $request)
+    {
+        $request->validate([
+            'happy_image.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+        ]);
+       
+        $name = $request->input('happy_name');
+        $happy_image = $request->input('happy_image');
+        $happy_designation = $request->input('happy_designation');
+        $happy_comment = $request->input('happy_comment');
+
+
+        if ($request->hasFile('happy_image')) {
+        
+            for ($i=0; $i < count($request->file('happy_image')); $i++) { 
+                
+                $image = $request->file('happy_image')[$i];  
+                $image_name = $i.time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+                
+                //Category Original Image
+                $destinationPath = public_path('/assets/home_page');
+                $img = Image::make($image->getRealPath());
+                $img->save($destinationPath.'/'.$image_name);
+
+                $happy_client = new HappyClient();
+                $happy_client->name = $name[$i];
+                $happy_client->image = $image_name;
+                $happy_client->designation = $happy_designation[$i];
+                $happy_client->comment = $happy_comment[$i];
+                $happy_client->save();
+               
+            }
+        }
+
+        return redirect()->back()->with('message',"Happy Client Data Added Successfully");
+
+    }
+
+    public function happyList()
+    {
+        $happy = HappyClient::orderBy('id','desc')->get();
+        $home_page = HomePage::where('id',1)->first();
+
+        return view('admin.home_page.happy_client_list',compact('happy','home_page'));
+    }
+
+    public function happyDelete($id)
+    {
+        $home_page = HappyClient::where('id',$id)->delete();
+
+        return redirect()->back();
     }
 }

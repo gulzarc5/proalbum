@@ -30,16 +30,19 @@
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                               <label for="header_logo">Header Logo</label>
                               <input type="file"  class="form-control" name="header_logo"></input>
+                              <span>Image Size Should Be 190 X 71 Pixels</span>
                             </div>     
                             
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="footer_logo">Footer Logo</label>
-                                <input type="file"  class="form-control" name="footer_logo"></input>                              
+                                <input type="file"  class="form-control" name="footer_logo"></input>  
+                                <span>Image Size Should Be 190 X 71 Pixels</span>                            
                             </div> 
 
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="banner">Banner</label>
-                                <input type="file"  class="form-control" name="banner"></input>                              
+                                <input type="file"  class="form-control" name="banner"></input> 
+                                <span>Image Size Should Be 1000 X 200 Pixels</span>                                        
                             </div>
 
                         </div>
@@ -149,6 +152,57 @@
                         </div>
                         
                     </div>
+
+                    <div class="well" style="overflow: auto">
+                        <h3 style="text-align: center">Happy Client Section</h3>
+
+                        <div class="form-row mb-10">
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="happy_heading">Heading</label>
+                                <input type="text" class="form-control" name="happy_heading"  placeholder="Enter Heading" value="{{$home_page->happy_heading}}">
+                            </div>
+
+                            
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="happy_tag">Tag Line</label>
+                                <input type="text" class="form-control" name="happy_tag"  placeholder="Enter Tag Line" value="{{$home_page->happy_tag}}">
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                    <div class="well" style="overflow: auto">
+                        <h3 style="text-align: center">Bottom Quality Heighlight Section</h3>
+
+                        <div class="form-row mb-10">
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="quality1">Image 1</label>
+                                <input type="file" class="form-control" name="quality1" >
+                            </div>
+
+                            
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="quality2">Image 2</label>
+                                <input type="file" class="form-control" name="quality2" >
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="quality3">Image 3</label>
+                                <input type="file" class="form-control" name="quality3" >
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="quality4">Image 4</label>
+                                <input type="file" class="form-control" name="quality4" >
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
 
                     <div class="well" style="overflow: auto">
                         <h3 style="text-align: center">Footer Section</h3>

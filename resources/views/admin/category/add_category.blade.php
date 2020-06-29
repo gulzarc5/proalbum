@@ -60,6 +60,7 @@
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                               <label for="img">Category Banner</label>
                               <input type="file" onchange="readURL(this)" class="form-control" name="img"></input>
+                              <span>Image Size Should Be 500 X 600 Pixels</span>
                                @if($errors->has('img'))
                                     <span class="invalid-feedback" role="alert" style="color:red">
                                         <strong>{{ $errors->first('img') }}</strong>
@@ -70,6 +71,7 @@
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="page_banner">Category Page Banner</label>
                                 <input type="file" onchange="readURL(this)" class="form-control" name="page_banner"></input>
+                                <span>Image Size Should Be 2000 X 400 Pixels</span>
                                  @if($errors->has('page_banner'))
                                       <span class="invalid-feedback" role="alert" style="color:red">
                                           <strong>{{ $errors->first('page_banner') }}</strong>

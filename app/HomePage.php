@@ -26,6 +26,11 @@ class HomePage extends Model
         'footer_phone',
         'footer_email',
         'home_video',
-        'home_video',
+        'happy_heading',
+        'happy_tag',
+        'quality1',
+        'quality2',
+        'quality3',
+        'quality4',
     ];
 }

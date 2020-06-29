@@ -117,6 +117,11 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('/secondcat','HomePageController@secondCategory')->name('admin.home_second_cat');
             Route::get('/thirdcat','HomePageController@thirdCategory')->name('admin.home_third_cat');
             Route::get('/fourthcat','HomePageController@fourthCategory')->name('admin.home_fourth_cat');
+            
+            Route::get('/happy/add/form','HomePageController@happyAddForm')->name('admin.Happy_client_add_form'); 
+            Route::post('/happy/add/','HomePageController@happyAdd')->name('admin.Happy_client_add');
+            Route::get('/happy/list/','HomePageController@happyList')->name('admin.Happy_client_list');
+            Route::get('/happy/delete/{id}','HomePageController@happyDelete')->name('admin.Happy_delete');
         });
     });
 });
