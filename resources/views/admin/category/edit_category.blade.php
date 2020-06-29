@@ -45,7 +45,7 @@
                                     </span>
                                 @enderror
                             </div> 
-                            <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
+                            <div class="col-md-1 col-sm-12 col-xs-12 mb-3">
                                 <label for="sort">Sort</label>
                                 <input type="number" min="1" class="form-control" id="sort" name="sort" placeholder="Enter Sort" value="{{$category_record->sort}}">
                                 @if($errors->has('slug'))
@@ -54,7 +54,19 @@
                                     </span>
                                 @enderror
                             </div>  
-                                                        
+                            
+                            <div class="col-md-3 col-sm-12 col-xs-12 mb-3">
+                                <label for="sort">Colour</label>
+                                <div class="input-group demo2">
+                                    <input type="text" value="#e01ab5" class="form-control" />
+                                    <span class="input-group-addon"><i></i></span>
+                                </div>
+                                @if($errors->has('slug'))
+                                    <span class="invalid-feedback" role="alert" style="color:red">
+                                        <strong>{{ $errors->first('sort') }}</strong>
+                                    </span>
+                                @enderror
+                            </div>                             
                         </div>
                         <div class="form-row mb-10">
                             <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
@@ -159,6 +171,10 @@
  @endsection
  @section('script')
  <script src="{{ asset('admin/ckeditor4/ckeditor.js')}}"></script>
+    <!-- Bootstrap Colorpicker -->
+    <script src="{{ asset('admin/vendors/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
+    <!-- jquery.inputmask -->
+    <script src="{{ asset('admin/vendors/jquery.inputmask/dist/min/jquery.inputmask.bundle.min.js')}}"></script>
 <script>
     CKEDITOR.replace( 'desc', {
         height: 400,
