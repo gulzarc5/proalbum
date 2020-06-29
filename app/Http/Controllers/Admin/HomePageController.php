@@ -9,6 +9,7 @@ use Image;
 use File;
 use DB;
 use App\HappyClient;
+use App\PageData;
 
 use Illuminate\Support\Str;
 
@@ -251,4 +252,6 @@ class HomePageController extends Controller
 
         return redirect()->back();
     }
+
+
 }

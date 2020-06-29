@@ -122,6 +122,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::post('/happy/add/','HomePageController@happyAdd')->name('admin.Happy_client_add');
             Route::get('/happy/list/','HomePageController@happyList')->name('admin.Happy_client_list');
             Route::get('/happy/delete/{id}','HomePageController@happyDelete')->name('admin.Happy_delete');
+
+            Route::get('/about/us/','HomePageController@aboutUs')->name('admin.about_us');
+            Route::get('/terms/condition','HomePageController@termsCondition')->name('admin.terms_condition');
+            Route::get('/return/policy','HomePageController@returnPolicy')->name('admin.return_policy');
+            Route::get('/privacy/policy','HomePageController@privacyPolicy')->name('admin.privacy_policy');
+
         });
     });
 });

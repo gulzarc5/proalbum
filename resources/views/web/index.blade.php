@@ -189,11 +189,13 @@
         </div><!-- end container -->
       </section><!-- end section -->
 
+      @if (isset($home_page->home_video) && !empty($home_page->home_video))
       <section class="video-block" style="background: #f9f9f9;">
           <div class="container">
-          <iframe id="ytplayer" type="text/html" width="90%" height="450" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"  frameborder="0"></iframe>
+          <iframe id="ytplayer" type="text/html" width="90%" height="450" src="https://www.youtube.com/embed/{{$home_page->home_video}}?autoplay=1&origin=http://example.com"  frameborder="0"></iframe>
           </div>
       </section>
+      @endif
 
       <section class="section">
         <div class="container">   
@@ -228,25 +230,22 @@
             <div class="row">
               <div class="col-md-12 p-30" style="padding-right: 17px">
                 <div class="section-title text-center clearfix">
-                    <h4>Happy Clients</h4>
-                    <p>Let's see What Others Say About HomeStyle!</p>
+                    <h4>{{$home_page->happy_heading}}</h4>
+                    <p>{{$home_page->happy_tag}}</p>
                     <hr>
                 </div><!-- end title -->
 
                 <div id="owl-testimonial" class="text-center">
-                    <div class="testi-item">
-                        <img src="{{asset('web/upload/avatar_01.jpg')}}" alt="" class="img-circle">
-                        <h4>Jenny DEO</h4>
-                        <small>Envato.com</small>
-                        <p class="lead">It was popularised in the with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ...</p>
-                    </div><!-- end item -->
-
-                    <div class="testi-item">
-                        <img src="{{asset('web/upload/avatar_03.png')}}" alt="" class="img-circle">
-                        <h4>Mark DEO</h4>
-                        <small>Envato.com</small>
-                        <p class="lead">It was popularised in the with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop ...</p>
-                    </div><!-- end item --> 
+                  @if (isset($HappyClient) && !empty($HappyClient))
+                      @foreach ($HappyClient as $item)
+                      <div class="testi-item">
+                          <img src="{{asset('assets/home_page/'.$item->image.'')}}" alt="" class="img-circle">
+                          <h4>{{$item->name}}</h4>
+                          <small>{{$item->designation}}</small>
+                          <p class="lead">{{$item->comment}}</p>
+                      </div>
+                      @endforeach
+                  @endif
                 </div><!-- end relative -->
               </div>
             </div>
@@ -258,21 +257,29 @@
           <div class="container">
 
               <div id="owl-client" class="clients">
-                  <div class="client-logo GrayScale">
-                      <a href="#"><img src="{{asset('web/upload/client_01.png')}}" alt="" class="img-responsive"></a>
-                  </div><!-- end logo -->
+                @if (isset($home_page->quality1) && !empty($home_page->quality1))
+                <div class="client-logo GrayScale">
+                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality1.'')}}" alt="" class="img-responsive"></a>
+                </div>
+                @endif
 
-                  <div class="client-logo GrayScale">
-                      <a href="#"><img src="{{asset('web/upload/client_02.png')}}" alt="" class="img-responsive"></a>
-                  </div><!-- end logo -->
+                @if (isset($home_page->quality2) && !empty($home_page->quality2))
+                <div class="client-logo GrayScale">
+                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality2.'')}}" alt="" class="img-responsive"></a>
+                </div>
+                @endif
 
-                  <div class="client-logo GrayScale">
-                      <a href="#"><img src="{{asset('web/upload/client_03.png')}}" alt="" class="img-responsive"></a>
-                  </div><!-- end logo -->
+                @if (isset($home_page->quality3) && !empty($home_page->quality3))
+                <div class="client-logo GrayScale">
+                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality3.'')}}" alt="" class="img-responsive"></a>
+                </div>
+                @endif
 
-                  <div class="client-logo GrayScale">
-                      <a href="#"><img src="{{asset('web/upload/client_04.png')}}" alt="" class="img-responsive"></a>
-                  </div><!-- end logo -->
+                @if (isset($home_page->quality4) && !empty($home_page->quality4))
+                <div class="client-logo GrayScale">
+                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality4.'')}}" alt="" class="img-responsive"></a>
+                </div>
+                @endif
 
               </div><!-- end row -->
 
