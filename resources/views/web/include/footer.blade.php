@@ -12,7 +12,7 @@
                                 <ul class="check">
                                     {{-- <li><a href="#">Home</a></li> --}}
                                     <li><a href="{{route('web.about')}}">About us</a></li>
-                                    <li><a href="{{route('web.gallery-cat')}}">Gallery</a></li>
+                                    <li><a href="{{route('web.gallery')}}">Gallery</a></li>
                                     <li><a href="{{route('web.contact')}}">Contact us</a></li>
                                 </ul>
                             </div><!-- end link -->

@@ -9,6 +9,8 @@ use App\HomePage;
 use App\Slider;
 use App\HappyClient;
 use App\PageData;
+use App\GalleryAlbum;
+use App\Gallery;
 
 class IndexController extends Controller
 {
@@ -51,5 +53,23 @@ class IndexController extends Controller
         $page_data = PageData::find(1);
         $data = $page_data->privacy_policy;
         return view('web.about',compact('data'));
+    }
+
+    public function showAlbums()
+    {
+        
+        $album = GalleryAlbum::orderBy('id','desc')->get();
+        return view('web.gallery-cat',compact('album'));
+    }
+
+    public function showGalery($album_id)
+    {
+        try {
+            $album_id = decrypt($album_id);
+        }catch(DecryptException $e) {
+            return redirect()->back();
+        }
+        $images = Gallery::where('album_id',$album_id)->orderBy('id','desc')->get();
+        return view('web.gallery',compact('images'));
     }
 }

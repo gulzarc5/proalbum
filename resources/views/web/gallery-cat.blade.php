@@ -25,114 +25,19 @@
             </div><!-- end title -->
 
             <div class="row">
+              @if (isset($album) && !empty($album))
+              @foreach ($album as $item)
               <div class="col-md-4">
                 <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_01.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
+                  <a href="{{route('web.gallery_images',['id'=>encrypt($item->id)])}}">
+                    <img src="{{asset('assets/gallery/thumb/'.$item->image.'')}}">
+                    <h4 class="img-tittle text-center">{{$item->name}} </h4>
                     <i class="fa fa-link" aria-hidden="true"></i>
                   </a>
                 </div>
               </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_02.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_03.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_04.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_05.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_06.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_07.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_08.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_09.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_10.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_11.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="singlephoto">
-                  <a href="{{route('web.gallery')}}">
-                    <img src="{{asset('web/upload/shop_12.jpg')}}">
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-link" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
+              @endforeach
+              @endif
             </div>
         </div><!-- end container -->
       </section>

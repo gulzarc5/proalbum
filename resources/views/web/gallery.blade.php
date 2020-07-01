@@ -24,42 +24,19 @@
             </div><!-- end title -->
 
             <div class="row">
+              @if (isset($images) && !empty($images))
+              @foreach ($images as $item)
               <div class="col-md-3">
                 <div class="singlephoto">
-                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_01.jpg')}}">
-                    <img src="{{asset('web/upload/shop_01.jpg')}}">                    
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
+                  <a data-rel="prettyPhoto[gallery]" href="{{asset('assets/gallery/'.$item->image.'')}}">
+                    <img src="{{asset('assets/gallery/thumb/'.$item->image.'')}}">                    
+                    <h4 class="img-tittle text-center">{{$item->caption}} </h4>
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </a>
                 </div>
-              </div>
-              <div class="col-md-3">
-                <div class="singlephoto">
-                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_02.jpg')}}">
-                    <img src="{{asset('web/upload/shop_02.jpg')}}">                    
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="singlephoto">
-                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_03.jpg')}}">
-                    <img src="{{asset('web/upload/shop_03.jpg')}}">                    
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="col-md-3">
-                <div class="singlephoto">
-                  <a data-rel="prettyPhoto[gallery]" href="{{asset('web/upload/shop_04.jpg')}}">
-                    <img src="{{asset('web/upload/shop_04.jpg')}}">                    
-                    <h4 class="img-tittle text-center">Tittle 01 </h4>
-                    <i class="fa fa-plus" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>              
+              </div> 
+              @endforeach 
+              @endif         
             </div>
         </div><!-- end container -->
       </section>

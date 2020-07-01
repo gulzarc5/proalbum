@@ -8,6 +8,9 @@ Route::group(['namespace'=>'Web'],function(){
     Route::get('/return-poicy', 'IndexController@returnPolicy')->name('web.ret_policy');
     Route::get('/privacy-policy', 'IndexController@privacyPolicy')->name('web.privacy_policy');
 
+    /**Gallery  **/
+    Route::get('/gallery','IndexController@showAlbums')->name('web.gallery');
+    Route::get('/gallery/image/{id}','IndexController@showGalery')->name('web.gallery_images');
     /** User Registration Routes **/
     Route::get('registration-page', 'RegisterController@showRegistrationForm')->name('web.registration_page');
     Route::get('registration', 'RegisterController@registration');
@@ -98,13 +101,13 @@ Route::get('/Orders', function () {
 
 
 
-Route::get('/Gallery', function () {
-    return view('web.gallery-cat');
-})->name('web.gallery-cat');
+// Route::get('/Gallery', function () {
+//     return view('web.gallery-cat');
+// })->name('web.gallery-cat');
 
-Route::get('/Gallery/Catagory', function () {
-    return view('web.gallery');
-})->name('web.gallery');
+// Route::get('/Gallery/Catagory', function () {
+//     return view('web.gallery');
+// })->name('web.gallery');
 
 Route::get('/Contact', function () {
     return view('web.contact');

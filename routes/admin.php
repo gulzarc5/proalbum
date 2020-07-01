@@ -149,6 +149,20 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('view/{id}','BlogController@viewBlog')->name('admin.view_blog');
             Route::get('delete/{id}','BlogController@deleteBlog')->name('admin.delete_blog');
         });
+
+        // Banner Route
+        Route::group(['prefix'=>'gallery'],function(){
+
+            /** Banner Addition Section **/
+            Route::get('album-add-form','HomePageController@albumAddForm')->name('admin.album_add_form');
+            Route::post('add-album','HomePageController@addAlbum')->name('admin.add_album');
+            Route::get('album-delete/{id}','HomePageController@deleteAlbum')->name('admin.delete_album');
+
+            
+            Route::get('add-image-form/{album_id}','HomePageController@addImageForm')->name('admin.add_image_form');
+            Route::post('add-image','HomePageController@addImage')->name('admin.add_image');
+            Route::get('image-delete/{id}','HomePageController@deleteImage')->name('admin.delete_image');
+        });
     });
 });
 

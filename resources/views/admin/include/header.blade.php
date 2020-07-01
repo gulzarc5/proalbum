@@ -113,12 +113,18 @@
                      <li class="sub_menu"><a href="{{ route('admin.home_fourth_cat') }}">Fourth Category</a></li>
                    </ul>
 
-                   <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Blog <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Blog <span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                      <li class="sub_menu"><a href="{{route('admin.blog_add_form')}}">Add Blog</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.blog_list') }}">Blog List</a></li>
+                    </ul>
+                  </li>
+
+                  <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Gallery <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                     <li class="sub_menu"><a href="{{route('admin.blog_add_form')}}">Add Blog</a></li>
-                     <li class="sub_menu"><a href="{{ route('admin.blog_list') }}">Blog List</a></li>
-                   </ul>
-                 </li>
+                      <li class="sub_menu"><a href="{{route('admin.album_add_form')}}">Album List</a></li>
+                    </ul>
+                  </li>
 
 
                   <li><a href="{{route('admin.change_password_form')}}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>

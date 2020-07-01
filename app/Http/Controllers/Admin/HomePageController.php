@@ -10,6 +10,9 @@ use File;
 use DB;
 use App\HappyClient;
 use App\PageData;
+use App\GalleryAlbum;
+use App\Gallery;
+
 
 use Illuminate\Support\Str;
 
@@ -329,5 +332,99 @@ class HomePageController extends Controller
         $privacy_policy->save();
 
         return redirect()->back()->with('message','Data Updated Successfully');
+    }
+
+    public function albumAddForm()
+    {
+        $album = GalleryAlbum::orderBy('id','desc')->get();
+        return view('admin.gallery.gallery_album',compact('album'));
+    }
+
+    public function addAlbum(Request $request)
+    {
+        $request->validate([
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'name' => 'required',
+        ]); 
+
+        $album = new GalleryAlbum();
+
+        if ($request->hasFile('img')) {
+                    
+            $image = $request->file('img');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+            //Category Original Image
+            $destinationPath = public_path('/assets/gallery');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);
+
+            //Category Thumbnail
+            $destinationPath = public_path('/assets/gallery/thumb');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$image_name);
+
+            $album->image = $image_name;
+        }
+
+        $album->name = $request->input('name');
+        $album->save();
+        return redirect()->back();
+    }
+
+    public function deleteAlbum($id)
+    {
+        GalleryAlbum::where('id',$id)->delete();
+        Gallery::where('album_id',$id)->delete();
+        return redirect()->back();
+    }
+
+    public function addImageForm($album_id)
+    {
+        $images = Gallery::where('album_id',$album_id)->orderBy('id','desc')->get();
+        return view('admin.gallery.gallery',compact('images','album_id'));
+    }
+
+    public function addImage(Request $request)
+    {
+        $request->validate([
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'name' => 'required',
+        ]); 
+
+        $album = new Gallery();
+
+        if ($request->hasFile('img')) {
+                    
+            $image = $request->file('img');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+            //Category Original Image
+            $destinationPath = public_path('/assets/gallery');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);
+
+            //Category Thumbnail
+            $destinationPath = public_path('/assets/gallery/thumb');
+            $img = Image::make($image->getRealPath());
+            $img->resize(600, 600, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$image_name);
+
+            $album->image = $image_name;
+        }
+
+        $album->caption = $request->input('name');
+        $album->album_id = $request->input('album_id');
+        $album->save();
+        return redirect()->back();
+    }
+
+    public function deleteImage($id)
+    {
+        Gallery::where('id',$id)->delete();
+        return redirect()->back();
     }
 }
