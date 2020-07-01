@@ -89,14 +89,10 @@ Route::get('/Thank', function () {
     return view('web.shop-thank');
 })->name('web.shop-thank');
 
-
-
 Route::get('/Orders', function () {
     return view('web.shop-order');
 })->name('web.shop-order');
 //-----------------------------------------
-
-
 
 Route::get('/Gallery', function () {
     return view('web.gallery-cat');
@@ -109,4 +105,12 @@ Route::get('/Gallery/Catagory', function () {
 Route::get('/Contact', function () {
     return view('web.contact');
 })->name('web.contact');
+
+Route::get('/Blog', function () {
+    return view('web.blog');
+})->name('web.blog');
+
+Route::get('/Single-Blog', function () {
+    return view('web.single-blog');
+})->name('web.single-blog');
 

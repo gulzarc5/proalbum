@@ -63,6 +63,13 @@
                         <div class="footer-logo">
                             @if (isset($footer_home) && !empty($footer_home))
                                 <a class="navbar-brand" href="index-2.html" style="width: 100%;padding-left: 0;"><img src="{{asset('assets/home_page/'.$footer_home->footer_logo.'')}}" alt=""></a>
+                                <div class="social-icons">
+                                    <ul class="list-inline">
+                                    <li class="facebook"><a data-tooltip="tooltip" data-placement="top" title="" href="#" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="google"><a data-tooltip="tooltip" data-placement="top" title="" href="#" data-original-title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                                    <li class="twitter"><a data-tooltip="tooltip" data-placement="top" title="" href="#" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    </ul>
+                                </div>
                                 <p style="color: #fff">
                                     {{$footer_home->footer_address}}</br>
                                     {{$footer_home->footer_phone}}</br>
