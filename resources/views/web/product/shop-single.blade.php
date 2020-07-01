@@ -163,7 +163,9 @@
                                         </div>
                                         <div class="row price-div">
                                             <div class="col-sm-6">
-                                                <h5 style="font-size: 20px;font-weight: 500;color: #fff;">Sub Total : R <b id="showPriceProduct">{{ $product_detail->sheet_price }}</b></h5>
+                                                <h5>Total : 100</h5>
+                                                <h5>Vat@15% : 15</h5>
+                                                <h5>Sub Total : R <b id="showPriceProduct">{{ $product_detail->sheet_price }}</b></h5>
                                             </div>
                                             <div class="col-sm-6 flex">
                                                 <a class="btn btn-cancel" id="cancel_btn" style="margin-right:10px">Cancel</a>

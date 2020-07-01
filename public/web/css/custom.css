@@ -487,7 +487,7 @@ html:not(.touch) .gallery-image:hover:after {
   box-shadow: 0 0 10px 0 #89bbc4;
   border-radius: 10px;
   padding: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 130px;
 }
 #product-select h4{
   text-transform: uppercase;
@@ -519,7 +519,6 @@ html:not(.touch) .gallery-image:hover:after {
 }
 #product-select .price-div {
   width: 94%;
-  height: 50px;
   padding: 7px;
   position: absolute;
   bottom: 3px;
@@ -621,6 +620,19 @@ html:not(.touch) .gallery-image:hover:after {
   background: #eee;
   border-top: 1px dotted #ccc;  
   padding: 15px;
+}
+.price-div h5 {
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+  margin: 6px 0;
+}
+.price-div h5:last-child {
+  border-top: 1px solid #ddd;
+  padding-top: 5px;
+}
+.price-div .flex {
+  padding-top: 25px;
 }
 /*------- CHECKOUT --------*/
 .addressselect input[type="radio"] {
@@ -1003,8 +1015,8 @@ html:not(.touch) .gallery-image:hover:after {
 .html5gallery-tn-image {
   width: 100px;
 }
-footer.footer .social-icons li a {
-  color: #fff;
+footer.footer .social-icons li a i {
+  color: #fff!important;
 }
 footer.footer .social-icons li {
   font-size: 18px;
@@ -1016,4 +1028,56 @@ footer.footer .social-icons li {
 }
 footer.footer .social-icons li.facebook {
   background: #3b5998;
+}
+footer.footer .social-icons li.google {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #feda75);
+}
+footer.footer .social-icons li.twitter {
+  background: #00acee;
+}
+/* SHARE */
+#share {
+	width: 100%;
+}
+
+/* buttons */
+
+#share a {
+	width: 50px;
+  height: 50px;
+  display: inline-block;
+  margin: 8px;
+  border-radius: 50%;
+  font-size: 24px;
+  color: #fff;
+	opacity: 0.75;
+  transition: opacity 0.15s linear;
+  text-align: center;
+  line-height: 1.1;
+}
+
+#share a:hover {
+	opacity: 1;
+}
+
+/* icons */
+
+#share i {
+  	position: relative;
+  	top: 50%;
+  	transform: translateY(-50%);
+}
+
+/* colors */
+
+.facebook {
+ 	background: #3b5998;
+}
+
+.twitter {
+  	background: #55acee;
+}
+
+.whatsapp {
+  	background: #4AC959;
 }
