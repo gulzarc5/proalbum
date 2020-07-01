@@ -1003,6 +1003,17 @@ html:not(.touch) .gallery-image:hover:after {
 .html5gallery-tn-image {
   width: 100px;
 }
-.{
-
+footer.footer .social-icons li a {
+  color: #fff;
+}
+footer.footer .social-icons li {
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  line-height: 31px;
+  text-align: center;
+  margin-right: 10px!important;
+}
+footer.footer .social-icons li.facebook {
+  background: #3b5998;
 }
