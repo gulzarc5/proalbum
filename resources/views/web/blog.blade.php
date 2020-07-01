@@ -32,7 +32,7 @@
                         <span class="post-date">May 13, 2016</span>
                         <h3><a href="{{route('web.single-blog')}}" title="">Green Corner</a></h3><br>
 
-                        <p>Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</p>
+                        <p class="line-clamp-3">Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</p>
                     </div><!-- end desc -->
 
                     <div class="blog-bottom clearfix">
@@ -49,7 +49,7 @@
                         <span class="post-date">May 13, 2016</span>
                         <h3><a href="{{route('web.single-blog')}}" title="">Green Corner</a></h3><br>
 
-                        <p>Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</p>
+                        <p class="line-clamp-3">Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</p>
                     </div><!-- end desc -->
 
                     <div class="blog-bottom clearfix">
@@ -66,7 +66,7 @@
                         <span class="post-date">May 13, 2016</span>
                         <h3><a href="{{route('web.single-blog')}}" title="">Green Corner</a></h3><br>
 
-                        <p>Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</p>
+                        <p class="line-clamp-3">Feel alive! So if you’re looking for, here is a list of some of the most popular and fiestas the Mardin has to offer thisfiestas the Mardin has to offer!</p>
                     </div><!-- end desc -->
 
                     <div class="blog-bottom clearfix">
