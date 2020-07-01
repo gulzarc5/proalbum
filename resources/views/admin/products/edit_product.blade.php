@@ -21,11 +21,11 @@
 	        <div>
                 @if (isset($product) && !empty($product))
 	            <div class="x_content">
-                    {{ Form::open(['method' => 'post','route'=>'admin.new_product_update']) }}
+                    {{ Form::open(['method' => 'post','route'=>'admin.new_product_update','enctype'=>'multipart/form-data']) }}
                     <input type="hidden" name="p_id" value="{{$product->id}}">
                     <div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                            <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name" value="{{$product->name}}">
                                   @if($errors->has('name'))
@@ -35,7 +35,7 @@
                                   @enderror
                               </div>    
                               
-                              <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                              <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
                                 <label for="p_code">Product Code</label><br>
                                 <input type="text" class="form-control" name="p_code"  placeholder="Enter Prefix" value="{{$product->product_code}}">
                                 @if($errors->has('p_code'))
@@ -45,6 +45,16 @@
                                 @enderror
                                   
                               </div>
+
+                              <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
+                                <label for="p_starting">Price Starting From</label>
+                                <input type="text" class="form-control" name="p_starting"  placeholder="Enter Price Starting From" id="p_starting"  value="{{$product->price}}" required>
+                                  @if($errors->has('p_starting'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('p_starting') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>   
                         </div>
 
                         <div class="form-row mb-10">                            
@@ -68,8 +78,51 @@
                                         <strong>{{ $errors->first('category') }}</strong>
                                     </span>
                                 @enderror
-                            </div>                                                          
-                        </div>             
+                            </div>   
+                            
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="video">Video  </label>
+                                <input type="text"  class="form-control" name="video" value="{{$product->video}}"></input>
+                                 @if($errors->has('video'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('video') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>  
+
+                        </div>   
+                        
+                        <div class="form-row mb-10">
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="banner">Banner  
+                                  <span>(  Size Should Be 2000 X 400 Pixels )</span></label>
+                                <input type="file"  class="form-control" name="banner" ></input>
+                                 @if($errors->has('banner'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('banner') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <img src="{{ asset('assets/product/'.$product->banner) }}" class="img-responsive" height="300px" id="preview" style="padding: 12px;">
+                            </div> 
+                            
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="video_thumb">Video Thumbnail  
+                                  <span>(  Size Should Be 100 X 130 Pixels )</span></label>
+                                <input type="file"  class="form-control" name="video_thumb" ></input>
+                                 @if($errors->has('video_thumb'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('video_thumb') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <img src="{{ asset('assets/product/'.$product->video_thumb) }}" class="img-responsive" height="300px" id="preview" style="padding: 12px;">
+                            </div> 
+                        </div>
                     </div>
 
                     <div class="well" style="overflow: auto">

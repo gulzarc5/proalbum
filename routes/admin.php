@@ -136,6 +136,19 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::post('/privacy/policy/add','HomePageController@privacyPolicyAdd')->name('admin.privacy_policy_add');
 
         });
+
+        // Banner Route
+        Route::group(['prefix'=>'blog'],function(){
+
+            /** Banner Addition Section **/
+            Route::get('blog-add-form','BlogController@showBlogAddForm')->name('admin.blog_add_form');
+            Route::post('add-blog','BlogController@addBlog')->name('admin.add_blog');
+            Route::get('blog-list','BlogController@BlogList')->name('admin.blog_list');
+            Route::get('edit/{id}','BlogController@editBlog')->name('admin.edit_blog');
+            Route::put('update/{id}','BlogController@updateBlog')->name('admin.update_blog');
+            Route::get('view/{id}','BlogController@viewBlog')->name('admin.view_blog');
+            Route::get('delete/{id}','BlogController@deleteBlog')->name('admin.delete_blog');
+        });
     });
 });
 

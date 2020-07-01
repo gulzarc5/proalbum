@@ -78,6 +78,16 @@
                                       </span>
                                   @enderror
                             </div>   
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="video_id">Video Id</label>
+                                <input type="text" class="form-control" name="video_id" placeholder="Enter Youtube Video Id"></input>
+                                 @if($errors->has('video_id'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('video_id') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>   
                         </div>
                     </div>
 

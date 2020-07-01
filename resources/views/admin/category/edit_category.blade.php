@@ -70,6 +70,17 @@
                         </div>
                         <div class="form-row mb-10">
                             <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
+                                <label for="video_id">Video Id</label>
+                                <input type="text" class="form-control" name="video_id" placeholder="Enter Youtube Video Id" value="{{$category_record->video}}"></input>
+                                 @if($errors->has('video_id'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('video_id') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>
+                        </div>
+                        <div class="form-row mb-10">
+                            <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
                               <label for="desc">Category Description</label>
                               <textarea type="text" class="form-control" name="desc" id="desc">{{ $category_record->description }}</textarea>
                                @if($errors->has('desc'))
@@ -79,6 +90,8 @@
                                 @enderror
                             </div>                                                                                 
                         </div>
+
+                        
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                               <label for="img">Image</label>
@@ -110,42 +123,8 @@
                                 <img src="{{ asset('assets/category/thumbnail/'.$category_record->page_banner) }}" class="img-responsive" height="300px" id="preview" style="padding: 12px;">
                             </div>                                                                                 
                         </div>
-                    </div>
 
-                    {{-- <div class="well" style="overflow: auto">
-                        <div class="form-row mb-10">
-                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="page_title">Page Title</label>
-                                <input type="text" class="form-control" value="{{ $category_record->seo_page_title }}" name="page_title"  placeholder="Enter Product Title" >
-                                  @if($errors->has('page_title'))
-                                      <span class="invalid-feedback" role="alert" style="color:red">
-                                          <strong>{{ $errors->first('page_title') }}</strong>
-                                      </span>
-                                  @enderror
-                              </div>
-                              <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="meta_desc">Meta Description</label>
-                                <input type="text" class="form-control" value="{{ $category_record->seo_meta_desc }}" name="meta_desc"  placeholder="Enter Tag Name" >
-                                @if($errors->has('meta_desc'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('meta_desc') }}</strong>
-                                    </span>
-                                @enderror
-                            </div>  
-                                                        
-                        </div>
-                        <div class="form-row mb-10">
-                            <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                              <label for="meta_tag">Meta Tag</label>
-                              <textarea type="text" class="form-control" name="meta_tag" id="desc">{{ $category_record->seo_meta_keward }}</textarea>
-                              @if($errors->has('meta_tag'))
-                                    <span class="invalid-feedback" role="alert" style="color:red">
-                                        <strong>{{ $errors->first('meta_tag') }}</strong>
-                                    </span>
-                                @enderror
-                            </div>                                                                                 
-                        </div>
-                    </div> --}}
+                    </div>
 
                     
                     <div class="form-group">    	            	

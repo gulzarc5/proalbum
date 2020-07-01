@@ -112,6 +112,12 @@
                      <li class="sub_menu"><a href="{{ route('admin.home_third_cat') }}">Third Category</a></li>
                      <li class="sub_menu"><a href="{{ route('admin.home_fourth_cat') }}">Fourth Category</a></li>
                    </ul>
+
+                   <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Blog <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                     <li class="sub_menu"><a href="{{route('admin.blog_add_form')}}">Add Blog</a></li>
+                     <li class="sub_menu"><a href="{{ route('admin.blog_list') }}">Blog List</a></li>
+                   </ul>
                  </li>
 
 

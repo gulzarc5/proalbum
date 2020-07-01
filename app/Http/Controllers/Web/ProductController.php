@@ -10,11 +10,14 @@ class ProductController extends Controller
 {
     public function productList($slug,$id)
     {
+        $category = DB::table('category')
+            ->where('id',$id)
+            ->first();
         $products = DB::table('products')
             ->where('category_id',$id)
     		->where('status', 1)
             ->get();
-    	return view('web.product.shop-list', ['products' => $products]);
+    	return view('web.product.shop-list',compact('category','products'));
     }
 
     public function productDetail($slug, $product_id) {

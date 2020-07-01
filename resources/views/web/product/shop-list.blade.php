@@ -11,8 +11,10 @@
       <!-- end header -->
 
     @section('content')
-        <section class="section paralbackground page-banner hidden-xs" style="background-image:url('{{asset('web/upload/page_banner_shop.jpg')}}');" data-img-width="2000" data-img-height="400" data-diff="100">
+        @if (isset($category->page_banner) && !empty($category->page_banner))
+        <section class="section paralbackground page-banner hidden-xs" style="background-image:url('{{asset('/assets/category/'.$category->page_banner.'')}}');" data-img-width="2000" data-img-height="400" data-diff="100">
         </section>
+        @endif
         <!-- end section -->
 
         <section class="section lb">
@@ -28,7 +30,7 @@
                                     </div><!-- end shop-thumbnail -->
                                     <div class="shop-desc">
                                         <h5 class="f-w-6"><a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}" title="">{{ $item->name }}</a></h5>
-                                        <p class="regular">Starting from <span>R 10000025</span></p>   
+                                        <p class="regular">Starting from <span>R {{$item->price}}</span></p>   
                                     </div><!-- end shop-desc -->
 
                                     <div class="shop-meta clearfix">
@@ -45,9 +47,12 @@
             </div><!-- end container -->
         </section><!-- end section -->
 
+        
+        @if (isset($category->video) && !empty($category->video))
         <section class="video-block" style="background-color: #fff">        
             <div class="container">
-                <iframe id="ytplayer" type="text/html" width="90%" height="450" src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"  frameborder="0"></iframe>
+                <iframe id="ytplayer" type="text/html" width="90%" height="450" src="https://www.youtube.com/embed/{{$category->video}}?autoplay=1&origin=http://example.com"  frameborder="0"></iframe>
             </div>
-      </section>
+        </section>
+        @endif
     @endsection   

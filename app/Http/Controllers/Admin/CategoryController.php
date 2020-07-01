@@ -66,6 +66,7 @@ class CategoryController extends Controller
                     'image' => $file, 
                     'description' => $request->desc,
                     'page_banner' => $banner_file,
+                    'video' => $request->input('video_id'),
                     'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                     'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
                 ]);
@@ -162,6 +163,7 @@ class CategoryController extends Controller
                 'seo_meta_keward' => $request->input('meta_tag'), 
                 'sort' => $request->input('sort'), 
                 'color' => $request->input('color'), 
+                'video' => $request->input('video_id'), 
                 'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
             ]);
 

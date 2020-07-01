@@ -17,8 +17,10 @@
       <!-- end header -->
 
     @section('content')
-        <section class="section paralbackground page-banner hidden-xs" style="background-image:url('{{asset('web/upload/page_banner_shop.jpg')}}');" data-img-width="2000" data-img-height="400" data-diff="100">
+        @if (isset($product_detail->banner) && !empty($product_detail->banner))
+        <section class="section paralbackground page-banner hidden-xs" style="background-image:url('{{asset('assets/product/'.$product_detail->banner.'')}}');" data-img-width="2000" data-img-height="400" data-diff="100">
         </section>
+        @endif
         <!-- end section -->
 
         <section class="section single-white-shop">
@@ -38,10 +40,11 @@
                                                     </li>
                                                     @endforeach
                                                 @endif 
-                                                
-                                                <li><img src="{{asset('web/images/photo/2.jpg')}}" alt="Black-Friday"  title="Black-Friday" />
-                                                <video preload="none" src="https://www.youtube.com/embed/hFGG7T3Mq3w?v=hFGG7T3Mq3w&list=RDhFGG7T3Mq3w&start_radio=1" ></video>
+                                                @if (isset($product_detail->video) && !empty($product_detail->video) && !empty($product_detail->video_thumb))
+                                                <li><img src="{{asset('assets/product/'.$product_detail->video_thumb.'')}}" alt="Black-Friday"  title="Black-Friday" />
+                                                <video preload="none" src="https://www.youtube.com/embed/{{$product_detail->video}}?v=hFGG7T3Mq3w&list=RDhFGG7T3Mq3w&start_radio=1" ></video>
                                                 </li>
+                                                @endif
                                             </ul>
                                             <ul class="amazingslider-thumbnails" style="display:none;">
                                                 @if (isset($product_images) && !empty($product_images))
@@ -50,7 +53,9 @@
                                                     </li>
                                                     @endforeach
                                                 @endif  
-                                                <li><img src="{{asset('web/images/photo/1.jpg')}}" alt="Black-Friday" title="Black-Friday" /></li>
+                                                @if (isset($product_detail->video) && !empty($product_detail->video) && !empty($product_detail->video_thumb))
+                                                <li><img src="{{asset('assets/product/'.$product_detail->video_thumb.'')}}" alt="Black-Friday" title="Black-Friday" /></li>
+                                                @endif
                                             </ul>
                                         </div>
                                     </div>                                
@@ -224,7 +229,7 @@
                                 </div><!-- end shop-thumbnail -->
                                 <div class="shop-desc">
                                     <h3><a href="shop-single.html" title="">{{ $item->name }}</a></h3>
-                                    <p class="regular">Starting from <span>R 125</span></p>   
+                                    <p class="regular">Starting from <span>R {{$item->price}}</span></p>   
                                 </div><!-- end shop-desc -->
 
                                 <div class="shop-meta clearfix">

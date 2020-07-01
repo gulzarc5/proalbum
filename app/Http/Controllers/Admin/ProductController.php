@@ -115,6 +115,8 @@ class ProductController extends Controller
             'sheet_type' => 'required',
             'option' => 'required',
             'shot_desc' => 'required',
+            'banner' => 'required',
+            'p_starting' => 'required',
         ]);
 
         $name = $request->input('name');
@@ -172,6 +174,8 @@ class ProductController extends Controller
             'p_short_desc' => $shot_desc,
             'p_long_description_title' => $desc_title,
             'p_long_description' => $long_desc,
+            'video' => $request->input('video'),
+            'price' => $request->input('p_starting'),
             'created_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
             'updated_at' => Carbon::now()->setTimezone('Asia/Kolkata')->toDateTimeString(),
         ]);
@@ -212,6 +216,43 @@ class ProductController extends Controller
                     ->where('id', $product)
                     ->update([
                         'image' => $banner
+                    ]);
+            }
+
+            /** Images Upload **/
+            if ($request->hasFile('banner')) {
+                    
+                    $image = $request->file('banner');  
+                    $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+                    //Category Original Image
+                    $destinationPath = public_path('/assets/product');
+                    $img = Image::make($image->getRealPath());
+                    $img->save($destinationPath.'/'.$image_name);
+                
+
+                DB::table('products')
+                    ->where('id', $product)
+                    ->update([
+                        'banner' => $image_name,
+                    ]);
+            }
+
+            if ($request->hasFile('video_thumb')) {
+                    
+                $image = $request->file('video_thumb');  
+                $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+    
+                //Category Original Image
+                $destinationPath = public_path('/assets/product');
+                $img = Image::make($image->getRealPath());
+                $img->save($destinationPath.'/'.$image_name);
+            
+    
+                DB::table('products')
+                    ->where('id', $request->input('p_id'))
+                    ->update([
+                        'video_thumb' =>  $product,
                     ]);
             }
 
@@ -569,6 +610,7 @@ class ProductController extends Controller
             'category' => 'required',
             'unit' => 'required',
             'sheet_type' => 'required',
+            'p_starting' => 'required',
         ]);
         
         $name = $request->input('name');
@@ -602,6 +644,44 @@ class ProductController extends Controller
             }            
         }
 
+
+        if ($request->hasFile('banner')) {
+                    
+            $image = $request->file('banner');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+            //Category Original Image
+            $destinationPath = public_path('/assets/product');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);
+        
+
+            DB::table('products')
+                ->where('id', $request->input('p_id'))
+                ->update([
+                    'banner' => $image_name,
+                ]);
+        }
+
+        if ($request->hasFile('video_thumb')) {
+                    
+            $image = $request->file('video_thumb');  
+            $image_name = uniqid().time().date('Y-M-d').'.'.$image->getClientOriginalExtension();
+
+            //Category Original Image
+            $destinationPath = public_path('/assets/product');
+            $img = Image::make($image->getRealPath());
+            $img->save($destinationPath.'/'.$image_name);
+        
+
+            DB::table('products')
+                ->where('id', $request->input('p_id'))
+                ->update([
+                    'video_thumb' => $image_name,
+                ]);
+        }
+
+
         $product = DB::table('products')
             ->where('id',$request->input('p_id'))
             ->update([
@@ -617,6 +697,8 @@ class ProductController extends Controller
                 'sheet_name' => $sheet_type_name,
                 'sheet_value' => $sheet_type_value,
                 'sheet_price' => $sheet_type_price,
+                'video' => $request->input('video'),
+                'price' => $request->input('p_starting'),
             ]);
         return redirect()->route('admin.product_single_view',['p_id'=>encrypt($request->input('p_id'))]);
 

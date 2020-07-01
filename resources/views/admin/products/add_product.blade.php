@@ -25,7 +25,7 @@
                     <div class="well" style="overflow: auto">
                         <div class="form-row mb-10">
                             <div class="form-row mb-10">
-                                <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
                                   <label for="img">Image  
                                     <span>( Size Should Be 500 X 600 Pixels )</span></label>
                                   <input type="file" onchange="readURL(this)" class="form-control" name="img[]" multiple></input>
@@ -34,14 +34,44 @@
                                             <strong>{{ $errors->first('img') }}</strong>
                                         </span>
                                     @enderror
-                                </div>       
-                                <div class="col-md-6 col-sm-12 col-xs-12 mb-3" style="min-height: 60px;">
-                                    <img src="" height="300px" id="preview" style="padding: 12px;">
+                                </div>  
+
+                                <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
+                                  <label for="banner">Banner  
+                                    <span>(  Size Should Be 2000 X 400 Pixels )</span></label>
+                                  <input type="file"  class="form-control" name="banner" required></input>
+                                   @if($errors->has('banner'))
+                                        <span class="invalid-feedback" role="alert" style="color:red">
+                                            <strong>{{ $errors->first('banner') }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>                                                                                 
+                            
+
+                                <div class="col-md-4 col-sm-12 col-xs-12 mb-3">
+                                  <label for="video">Video  </label>
+                                  <input type="text"  class="form-control" name="video" ></input>
+                                   @if($errors->has('video'))
+                                        <span class="invalid-feedback" role="alert" style="color:red">
+                                            <strong>{{ $errors->first('video') }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>                                                                                  
                             </div>  
                         </div>
 
                         <div class="form-row mb-10">
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="video_thumb">Video Thumbnail 
+                                    <span>(  Size Should Be 100 X 130 Pixels )</span> </label>
+                                <input type="file"  class="form-control" name="video_thumb" ></input>
+                                 @if($errors->has('video_thumb'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('video_thumb') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div> 
+
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="name">Name</label>
                                 <input type="text" class="form-control" name="name"  placeholder="Enter Product name" id="name" value="{{old('name')}}">
@@ -50,9 +80,9 @@
                                           <strong>{{ $errors->first('name') }}</strong>
                                       </span>
                                   @enderror
-                              </div>    
+                            </div>    
                               
-                              <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="p_code">Product Code</label><br>
                                 <input type="text" class="form-control" name="p_prefix"  placeholder="Enter Prefix" value="{{old('p_prefix', "PRO")}}" style="width:49.5%;float:left">
                                 <input type="text" class="form-control" name="p_code"  placeholder="Enter Product Code" value="{{old('p_code')}}" style="width:49%;margin-left:5px;float:left">
@@ -67,7 +97,17 @@
                                     </span>
                                 @enderror
                                   
-                              </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
+                                <label for="p_starting">Price Starting From</label>
+                                <input type="text" class="form-control" name="p_starting"  placeholder="Enter Price Starting From" id="p_starting" value="{{old('p_starting')}}" required>
+                                  @if($errors->has('p_starting'))
+                                      <span class="invalid-feedback" role="alert" style="color:red">
+                                          <strong>{{ $errors->first('p_starting') }}</strong>
+                                      </span>
+                                  @enderror
+                            </div>   
                         </div>
 
                         <div class="form-row mb-10">                            

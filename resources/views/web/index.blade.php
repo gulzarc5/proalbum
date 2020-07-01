@@ -78,7 +78,7 @@
                                 <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
                                 <figcaption>
                                   <h5 class="f-w-6">{{ $item->name }}</h5>
-                                  <p class="regular">Starting from <span>R 125</span></p>
+                                  <p class="regular">Starting from <span>R {{$item->price}}</span></p>
                                   <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                                 </figcaption>
                               </a>
@@ -100,7 +100,7 @@
                             <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
                             <figcaption>
                               <h5 class="f-w-6">{{ $item->name }}</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="regular">Starting from <span>R {{$item->price}}</span></p>
                               <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                             </figcaption>
                           </a>
@@ -122,7 +122,7 @@
                             <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
                             <figcaption>
                               <h5 class="f-w-6">{{ $item->name }}</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="regular">Starting from <span>R {{$item->price}}</span></p>
                               <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                             </figcaption>
                           </a>
@@ -145,7 +145,7 @@
                             <img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
                             <figcaption>
                               <h5 class="f-w-6">{{ $item->name }}</h5>
-                              <p class="regular">Starting from <span>R 125</span></p>
+                              <p class="regular">Starting from <span>R {{$item->price}}</span></p>
                               <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
                             </figcaption>
                           </a>
