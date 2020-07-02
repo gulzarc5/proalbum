@@ -1,4 +1,4 @@
-        <footer class="section footer" style="padding: 50px 0">
+        <footer class="section footer" style="padding: 30px 0 10px">
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-12">
@@ -69,6 +69,7 @@
                                     <li class="facebook"><a data-tooltip="tooltip" data-placement="top" title="" href="#" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
                                     <li class="google"><a data-tooltip="tooltip" data-placement="top" title="" href="#" data-original-title="Instagram"><i class="fa fa-instagram"></i></a></li>
                                     <li class="twitter"><a data-tooltip="tooltip" data-placement="top" title="" href="#" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="whatsapp"><a data-tooltip="tooltip" data-placement="top" title="" href="#" data-original-title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
                                     </ul>
                                 </div>
                                 <p style="color: #fff">

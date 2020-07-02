@@ -1025,6 +1025,7 @@ footer.footer .social-icons li {
   line-height: 31px;
   text-align: center;
   margin-right: 10px!important;
+  margin-bottom: 10px!important;
 }
 footer.footer .social-icons li.facebook {
   background: #3b5998;
@@ -1034,6 +1035,9 @@ footer.footer .social-icons li.google {
 }
 footer.footer .social-icons li.twitter {
   background: #00acee;
+}
+footer.footer .social-icons li..whatsapp{
+  background: #4AC959;
 }
 /* SHARE */
 #share {
@@ -1080,4 +1084,10 @@ footer.footer .social-icons li.twitter {
 
 .whatsapp {
   	background: #4AC959;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
