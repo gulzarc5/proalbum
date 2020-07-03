@@ -103,7 +103,7 @@ ul.nav-wizard li a{
 
 .header.affix {
     background-color: #f7f7f7;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 }
 
 .da-thumbs .pentry a div {
@@ -1090,4 +1090,10 @@ footer.footer .social-icons li..whatsapp{
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  
   overflow: hidden;
+}
+.header.affix .navbar-inverse {
+  padding: 0 20px;
+}
+.header.affix .navbar-brand img {
+  width: 90%;
 }
