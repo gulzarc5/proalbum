@@ -5866,6 +5866,10 @@ button.close {
 .modal-open {
   overflow: hidden;
 }
+.modal-dialog-centered {
+  min-height: calc(100% - (3.75rem * 2));
+  padding-top: 120px;
+}
 .modal {
   position: fixed;
   top: 0;
@@ -5941,6 +5945,7 @@ button.close {
 .modal-title {
   margin: 0;
   line-height: 1.42857143;
+  display: inline-block;
 }
 .modal-body {
   position: relative;

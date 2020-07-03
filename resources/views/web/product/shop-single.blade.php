@@ -169,7 +169,7 @@
                                             </div>
                                             <div class="col-sm-6 flex">
                                                 <a class="btn btn-cancel" id="cancel_btn" style="margin-right:10px">Cancel</a>
-                                                <button type="submit" class="btn btn-primary">Proceed to cart</button>                               
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Proceed to cart</button>                               
                                             </div>
                                         </div>
                                         {{Form::close()}}
@@ -246,7 +246,33 @@
                 </div><!-- end row -->
             </div><!-- end container -->
         </section><!-- end section -->
+
         
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLongTitle">Enter Basic Detail</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" style="font-size: 30px;color: #2f2f2f;">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="contact_form">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Name"> 
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Email"> 
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone"> 
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- footer -->
     @endsection 
 
