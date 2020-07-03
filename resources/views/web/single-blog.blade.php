@@ -43,11 +43,11 @@
                                 <div id="share">
                                   <h4>Share it on :</h4>
                                   <!-- facebook -->
-                                  <a class="facebook" href="" target="blank"><i class="fa fa-facebook"></i></a>
+                                  <a class="facebook" href="https://www.facebook.com/share.php?u={{route('web.single-blog',['slug'=>$blog->slug,'b_id'=>$blog->id])}}&title={{$blog->title}}" target="blank"><i class="fa fa-facebook"></i></a> 
                                   <!-- twitter -->
-                                  <a class="twitter" href="" target="blank"><i class="fa fa-twitter"></i></a>
+                                   <a class="twitter" href="https://twitter.com/intent/tweet?status={{$blog->title}}+{{route('web.single-blog',['slug'=>$blog->slug,'b_id'=>$blog->id])}}" target="blank"><i class="fa fa-twitter"></i></a> 
                                   <!-- google plus -->
-                                  <a class="whatsapp" href="" target="blank"><i class="fa fa-whatsapp"></i></a>
+                                  <a class="whatsapp" rel="noopener noreferrer" target="_blank" title="share on whatsapp" href="https://web.whatsapp.com:/send?text={{route('web.single-blog',['slug'=>$blog->slug,'b_id'=>$blog->id])}}&" data-text="{{$blog->title}}" data-href="{{route('web.single-blog',['slug'=>$blog->slug,'b_id'=>$blog->id])}}&"><i class="fa fa-whatsapp"></i></a>
                                   
                                 </div>
                             </div><!-- end desc -->
@@ -66,7 +66,11 @@
     @section('script')
 
     @endsection 
-    {{-- <a class="facebook" href="https://www.facebook.com/share.php?u={{url}}&title={{title}}" target="blank"><i class="fa fa-facebook"></i></a>
+    {{-- 
+      
+                                  <!-- -->
+      
+      <a class="facebook" href="https://www.facebook.com/share.php?u={{url}}&title={{title}}" target="blank"><i class="fa fa-facebook"></i></a>
 
   <!-- twitter -->
   <a class="twitter" href="https://twitter.com/intent/tweet?status={{title}}+{{url}}" target="blank"><i class="fa fa-twitter"></i></a>

@@ -1085,7 +1085,10 @@ footer.footer .social-icons li..whatsapp{
 .whatsapp {
   	background: #4AC959;
 }
-.line-clamp-3 {
+.blog-body p, .blog-body h1, .blog-body h2, .blog-body h3, .blog-body h4, .blog-body h5, .blog-body h6, .blog-body div {
+  display: none;
+}
+.blog-body p:first-child {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;  

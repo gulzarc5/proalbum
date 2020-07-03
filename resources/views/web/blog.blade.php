@@ -27,14 +27,14 @@
                 @foreach ($blog as $item)
                     <div class="blog-wrapper col-md-4 col-sm-6">
                         <div class="blog-media">
-                            <img src="{{asset('assets/blog/'.$item->image.'')}}" alt="" class="img-responsive">
+                            <a href="{{route('web.single-blog',['slug'=>$item->slug,'b_id'=>$item->id])}}"><img src="{{asset('assets/blog/'.$item->image.'')}}" alt="" class="img-responsive"></a>
                         </div><!-- end media -->
     
                         <div class="blog-desc">
                             <span class="post-date">{{$item->created_at}}</span>
-                            <h3><a href="{{route('web.single-blog')}}" title="">{{$item->title}}</a></h3><br>
+                            <h3><a href="{{route('web.single-blog',['slug'=>$item->slug,'b_id'=>$item->id])}}" title="">{{$item->title}}</a></h3><br>
     
-                            <p class="line-clamp-3">{!!$item->body!!}</p>
+                            <div class="blog-body">{!!$item->body!!}</div>
                         </div><!-- end desc -->
     
                         <div class="blog-bottom clearfix">
