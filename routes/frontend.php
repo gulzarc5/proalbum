@@ -11,9 +11,21 @@ Route::group(['namespace'=>'Web'],function(){
     /**Gallery  **/
     Route::get('/gallery','IndexController@showAlbums')->name('web.gallery');
     Route::get('/gallery/image/{id}','IndexController@showGalery')->name('web.gallery_images');
+
+    Route::get('/Blogs','IndexController@showBlog')->name('web.blog');
+    Route::get('/Blog/detail/{slug?}/{b_id?}','IndexController@singleBlog')->name('web.single-blog');
+
+    
+    Route::post('contact/form/submit', 'IndexController@contactSubmit')->name('web.contact_submit');
+
+    
+    Route::post('order/contact/submit', 'IndexController@orderContactSubmit')->name('web.order_contact_submit');
+
     /** User Registration Routes **/
     Route::get('registration-page', 'RegisterController@showRegistrationForm')->name('web.registration_page');
     Route::get('registration', 'RegisterController@registration');
+
+
 
     /** User Login Routes */
 	Route::get('login', 'LoginController@showLoginForm')->name('web.login');
@@ -111,11 +123,7 @@ Route::get('/Contact', function () {
     return view('web.contact');
 })->name('web.contact');
 
-Route::get('/Blog', function () {
-    return view('web.blog');
-})->name('web.blog');
 
-Route::get('/Single-Blog', function () {
-    return view('web.single-blog');
-})->name('web.single-blog');
+
+
 

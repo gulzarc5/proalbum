@@ -252,6 +252,8 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
+                <form action="{{route('web.order_contact_submit')}}" method="post">
+                @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title" id="exampleModalLongTitle">Enter Basic Detail</h3>
@@ -261,16 +263,17 @@
                     </div>
                     <div class="modal-body">
                         <form class="contact_form">
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Name"> 
-                            <input type="text" name="email" id="email" class="form-control" placeholder="Email"> 
-                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone"> 
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Name" required> 
+                            <input type="text" name="email" id="email" class="form-control" placeholder="Email" required> 
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone" required> 
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
                     </div>
                 </div>
+            </form>
             </div>
         </div>
         <!-- footer -->

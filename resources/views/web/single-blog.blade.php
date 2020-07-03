@@ -1,14 +1,16 @@
   @extends('web.templet.master')
 
+  @if (isset($blog) && !empty($blog))
+     
     {{-- META --}}
     @section('meta')
       <title>Premium Photobooks | Making Albums For South Africa</title>
       <!-- Open Graph data -->
-      <meta property="og:title" content="Green Corner" />
+      <meta property="og:title" content="{{$blog->title}}" />
       <meta property="og:type" content="article" />
-      <meta property="og:url" content="http://www.example.com/" />
-      <meta property="og:image" content="{{asset('web/upload/page_banner_blog.jpg')}}" />
-      <meta property="og:description" content="Morbi congue leo et est sodales consequat a quis est. Nunc aliquam ut massa et accumsan. Donec cursus pretium porta. Maecenas vehicula pellentesque eros, non consectetur massa finibus quis. Ut ut rpat. Praesent lorem nisi vehicula fringilla rutrum facilisis, tempus sed ipsum. Mauris commodo mattis ante, at consequat lectus blandit nec. Nulla facilisut magna fringilla vulputate quis non ante. Integer bibendum velit dui. Sed consequat nisi id convallis eleifend. Proin rhoncus dapibus vulputate. Phasellus eget fringilla justo. Aliquam erat volutpat. Praesent lorem nisi vehicula fringilla ruhoncus purus. Donec varius ultricies dapibus. Aliquam facilisis lacus purus, sit amet maximus lectus auctor et. Nam vehicula eget leo sed gravida." />
+      <meta property="og:url" content="{{route('web.single-blog',['slug'=>$blog->slug,'b_id'=>$blog->id])}}" />
+      <meta property="og:image" content="{{asset('assets/blog/'.$blog->image.'')}}" />
+      <meta property="og:description" content="{!!$blog->title!!}" />
     @endsection
       <!-- end header -->
        {{-- EXTRA STYLESHEET --}}
@@ -27,25 +29,14 @@
                     <div class="row">
                         <div class="blog-wrapper col-md-12">
                             <div class="blog-media">
-                                <img src="{{asset('web/upload/page_banner_blog.jpg')}}" alt="" class="img-responsive">
+                                <img src="{{asset('assets/blog/'.$blog->image.'')}}" alt="" class="img-responsive">
                             </div><!-- end media -->
 
                             <div class="blog-desc">
-                                <span class="post-date">May 13, 2016</span>
-                                <h3 style="margin-bottom: 20px"><a title="">Green Corner</a></h3>
+                                <span class="post-date">{{$blog->created_at}}</span>
+                                <h3 style="margin-bottom: 20px"><a title="">{{$blog->title}}</a></h3>
                                 <div>                                  
-                                  <p>Morbi congue leo et est sodales consequat a quis est. Nunc aliquam ut massa et accumsan. Donec cursus pretium porta. Maecenas vehicula pellentesque eros, non consectetur massa finibus quis. Ut ut rpat. Praesent lorem nisi vehicula fringilla rutrum facilisis, tempus sed ipsum. Mauris commodo mattis ante, at consequat lectus blandit nec. Nulla facilisut magna fringilla vulputate quis non ante. Integer bibendum velit dui. Sed consequat nisi id convallis eleifend. Proin rhoncus dapibus vulputate. Phasellus eget fringilla justo. Aliquam erat volutpat. Praesent lorem nisi vehicula fringilla ruhoncus purus. Donec varius ultricies dapibus. Aliquam facilisis lacus purus, sit amet maximus lectus auctor et. Nam vehicula eget leo sed gravida.</p>
-
-                                  <p><img src="upload/alignleft.png" alt="" class="alignleft">Phasellus eget fringilla justo. Aliquam erat volutpat. <a href="#">Praesent lorem nisi</a> vehicula fringilla rutrum facilisis, tempus sed ipsum. Mauris commodo mattis ante, at consequat lectus blandit nec. Nulla facilisi. Phasellus aliquet est ac faucibus iaculis. <strong>Sed non lorem in quam placerat</strong> facilisis necut magna fringilla vulputate quis non ante. Integer bibendum velit dui. Sed consequat nisi id convallis eleifend. Proin rhoncus dapibus vulputate. Phasellus eget fringilla justo. Aliquam erat volutt ante. Integer bibendum velit dui. Sed consequat nisi id convallis eleifend. Proin rhoncus dapibus vulputate. Phasellus eget fringilla justo. Aliquam erat volutpat. Praesent lorem nisi vehicula fringilla rutrum facilisis, tempus sed ipsum. Mauris commodo mattis ante, at consequat lectus blandit nec. Nulla facilisut magna fringilla vulputate quis non ante. Integer bibendum velit dui. Sed consequat nisi id convallis eleifend. Proin rhoncus dapibus vulputate. Phasellus eget fringilla justo. Aliquam erat volutpat. Praesent lorem nisi vehicula fringilla rutrum facilisis, tempus sed ipsum. Mauris commodo mattis ante, at consequat lectus blandit nec. Nulla facilis eu quam. Etirum facilisis, tempus sed ipsum. Mauris commodo mattis ante, at consequat lectus blandit nec. Nulla facilis eu quam. Etiam at tincidunt felis, et posuere eros. Nulla dictum id enim vitae fermentum. </p>
-
-                                  <blockquote>
-                                      <p>Love can travel a thousand miles. Life has no limit. Go where you want to go. Reach the height you want to reach. It is all in your heart and in your hands.</p>
-                                      <footer><cite title="Source Title">Steave Jobs</cite></footer>
-                                  </blockquote>
-
-                                  <p><img src="upload/alignright.png" alt="" class="alignright">Suspendisse quis dignissim diam, id faucibus sapien. Integer et egestas elit. Suspendisse pretium neque congue auctor consequat. Nulla tincidunt justo tortor, volutpat placerat nisl pharetra vitae. Cras rhoncus ante et leo commodo fermentum. In consequat elit tristique orci scelerisque pretium. Pellentesque placerat at tortor et vehicula. Praesent egestas efficitur auctor. Suspendisse vel finibus lectus. Maecenas ligula leo, aliquam non odio et, tincidunt congue nulla. Maecenas aliquam interdum erat ac convallis. In consequat elit tristique orci scelerisque pretium. Pellentesque placerat at tortor et vehicula. Praesent egestas efficitur auctor. Suspendisse vel finibus lectus. Maecenas ligula leo, aliquam non odio et, tincidunt congue nulla. Maecenas aliquam interdum erat ac convallis.In consequat elit tristique orci scntesque placerat at tortor et vehicula. Praesent egestas efficitur auctor. Suspendisse vel finibus lectus. Maecenas ligula leo, aliquam non odio et, tincidunt congue nulla. Maecenas aliquam interdum erat ac convallis. </p>
-
-                                  <p> In dignissim feugiat gravida. <em>Proin feugiat quam sed gravida fringilla.</em> Proin quis mauris ut magna fringilla vulputate quis non ante. Integer bibendum velit dui. Sed co <mark>et posuere eros</mark> rhoncus dapibus vulputate. Phasellus eget fringilla justo. Aliquam erat volutpat. Praesent lorem nisi, vehicula fringilla rutrum facilisis, tempus sed ipsum. Mauris commodo mattis ante, at consequat lectus blandit nec. Nulla facilisi. Phasellus <small>aliquet est ac faucibus iaculis.</small> Sed non lorem in quam placerat facilisis nec eu quam. Etiam at tincidunt felis,. Nulla dictum id enim vitae fermentum. </p>
+                                  {!!$blog->body!!}
                                 
                                 </div>
                                 
@@ -68,6 +59,10 @@
     </section>
 
     @endsection
+     
+  @endif
+
+
     @section('script')
 
     @endsection 

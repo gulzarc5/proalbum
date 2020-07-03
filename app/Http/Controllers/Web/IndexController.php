@@ -11,6 +11,8 @@ use App\HappyClient;
 use App\PageData;
 use App\GalleryAlbum;
 use App\Gallery;
+use App\Blog;
+use App\ContactUs;
 
 class IndexController extends Controller
 {
@@ -71,5 +73,46 @@ class IndexController extends Controller
         }
         $images = Gallery::where('album_id',$album_id)->orderBy('id','desc')->get();
         return view('web.gallery',compact('images'));
+    }
+
+    public function showBlog()
+    {
+        $blog = Blog::orderBy('id','desc')->paginate(12);
+        return view('web.blog',compact('blog'));
+    }
+
+    public function singleBlog($slug,$id)
+    {
+        $blog = Blog::find($id);
+        return view('web.single-blog',compact('blog'));
+    }
+
+    public function contactSubmit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+        $contact_us = new ContactUs();
+        $contact_us->name = $request->input('name');
+        $contact_us->email = $request->input('email');
+        $contact_us->mobile = $request->input('mobile');
+        $contact_us->subject = $request->input('subject');
+        $contact_us->message = $request->input('message');
+
+        $contact_us->save();
+        return redirect()->back()->with('message','Thanks For Contacting With Us . We will get back to you soon !!');
+    }
+
+    public function orderContactSubmit(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+        ]);
     }
 }

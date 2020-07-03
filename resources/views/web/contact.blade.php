@@ -56,14 +56,22 @@
                     </div>   
                     <div class="col-md-7">
                         <div class="contact_form">
-                            <div id="message"></div>
-                            <form id="contactform" class="row" action="https://trendingtemplates.com/demos/homestyle/contact.php" name="contactform" method="post">
+                            <div>
+                                @if (Session::has('message'))
+                                    <div class="alert alert-success" >{{ Session::get('message') }}</div>
+                                @endif
+                                @if (Session::has('error'))
+                                    <div class="alert alert-danger" >{{ Session::get('error') }}</div>
+                                @endif
+                            </div>
+                            <form id="contactform" class="row" action="{{route('web.contact_submit')}}" name="contactform" method="post">
+                                @csrf;
                                 <div class="col-md-12">
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Name"> 
                                 <input type="text" name="email" id="email" class="form-control" placeholder="Email"> 
-                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone"> 
+                                <input type="text" name="mobile" id="phone" class="form-control" placeholder="Phone"> 
                                 <input type="text" name="subject" id="subject" class="form-control" placeholder="Subject"> 
-                                <textarea class="form-control" name="comments" id="comments" rows="6" placeholder="Message Below"></textarea>
+                                <textarea class="form-control" name="message" id="comments" rows="6" placeholder="Message Below"></textarea>
                                 <button type="submit" value="SEND" id="submit" class="btn btn-primary"> Send enquiry</button>
                                 </div>
                             </form> 

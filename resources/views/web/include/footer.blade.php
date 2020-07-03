@@ -30,13 +30,13 @@
 
                             <div class="link-widget">
                                 <ul class="check">
-                                    <li><a href="#">Cart</a></li>
+                                    <li><a href="http://orders.proalbums.co.za/Login.aspx?CompanyID=rfdQoTDga7aQhXaPLdOEBg==">Cart</a></li>
                                     @auth('users')
                                         <li><a href="{{ route('web.my_profile')}}">Profile</a></li>
                                         <li><a href="{{route('web.logout')}}">Logout</a></li>
                                     @else
-                                        <li><a href="{{ route('web.login') }}">Login</a></li>
-                                        <li><a href="{{ route('web.registration_page') }}">Register</a></li>
+                                        <li><a href="http://orders.proalbums.co.za/Login.aspx?CompanyID=rfdQoTDga7aQhXaPLdOEBg==">Login</a></li>
+                                        <li><a href="http://orders.proalbums.co.za/Login.aspx?CompanyID=rfdQoTDga7aQhXaPLdOEBg==">Register</a></li>
                                     @endauth
                                 </ul>
                             </div><!-- end link -->
