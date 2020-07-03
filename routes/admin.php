@@ -6,6 +6,8 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
 
     Route::group(['middleware'=>'auth:admin'],function(){
         Route::get('/dashboard', 'DashboardController@dashboardView')->name('admin.deshboard');
+        Route::get('/order/contact', 'DashboardController@viewOrderContact')->name('admin.order_contatc');
+        Route::get('/contact/us/', 'DashboardController@viewContactUs')->name('admin.contact_us');
 
         // Category Route
         Route::group(['prefix'=>'category'],function(){

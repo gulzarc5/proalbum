@@ -13,6 +13,7 @@ use App\GalleryAlbum;
 use App\Gallery;
 use App\Blog;
 use App\ContactUs;
+use App\OrderContact;
 
 class IndexController extends Controller
 {
@@ -114,5 +115,13 @@ class IndexController extends Controller
             'email' => 'required',
             'mobile' => 'required',
         ]);
+
+        $contact_us = new OrderContact();
+        $contact_us->name = $request->input('name');
+        $contact_us->email = $request->input('email');
+        $contact_us->mobile = $request->input('mobile');
+        $contact_us->save();
+
+        return redirect()->to('http://orders.proalbums.co.za/Login.aspx?CompanyID=rfdQoTDga7aQhXaPLdOEBg==');
     }
 }

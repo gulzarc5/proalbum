@@ -126,6 +126,13 @@
                     </ul>
                   </li>
 
+                  <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Contact <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li class="sub_menu"><a href="{{route('admin.order_contatc')}}">Order Contact</a></li>
+                      <li class="sub_menu"><a href="{{route('admin.contact_us')}}">Contact Ust</a></li>
+                    </ul>
+                  </li>
+
 
                   <li><a href="{{route('admin.change_password_form')}}"><i class="fa fa-key" aria-hidden="true"></i>Change Password</a></li>
 

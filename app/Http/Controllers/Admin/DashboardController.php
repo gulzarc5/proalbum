@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\ContactUs;
+use App\OrderContact;
 
 class DashboardController extends Controller
 {
@@ -22,5 +24,17 @@ class DashboardController extends Controller
             ->limit(10)
             ->get();
         return view('admin.dashboard',compact('total_products','total_customers','new_orders','processing_orders','dispatched_orders','last_orders'));
+    }
+
+    public function viewContactUs()
+    {
+        $contact = ContactUs::orderBy('id','desc')->get();
+        return view('admin.contact_us.contact_us',compact('contact'));
+    }
+
+    public function viewOrderContact()
+    {
+        $contact = orderContact::orderBy('id','desc')->get();
+        return view('admin.order_contact.order_contact',compact('contact'));
     }
 }

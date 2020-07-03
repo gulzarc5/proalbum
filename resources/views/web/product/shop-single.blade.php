@@ -265,7 +265,7 @@
                         <form class="contact_form">
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name" required> 
                             <input type="text" name="email" id="email" class="form-control" placeholder="Email" required> 
-                            <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone" required> 
+                            <input type="text" name="mobile" id="phone" class="form-control" placeholder="Phone" required> 
                         </form>
                     </div>
                     <div class="modal-footer">
