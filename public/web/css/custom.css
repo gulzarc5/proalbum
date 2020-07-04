@@ -1036,8 +1036,11 @@ footer.footer .social-icons li.google {
 footer.footer .social-icons li.twitter {
   background: #00acee;
 }
-footer.footer .social-icons li..whatsapp{
+footer.footer .social-icons li.whatsapp{
   background: #4AC959;
+}
+footer.footer .social-icons li.linkedin{
+  background: #0e76a8;
 }
 /* SHARE */
 #share {
@@ -1074,15 +1077,15 @@ footer.footer .social-icons li..whatsapp{
 
 /* colors */
 
-.facebook {
+#share .facebook {
  	background: #3b5998;
 }
 
-.twitter {
+#share .twitter {
   	background: #55acee;
 }
 
-.whatsapp {
+#share .whatsapp {
   	background: #4AC959;
 }
 .blog-body p, .blog-body h1, .blog-body h2, .blog-body h3, .blog-body h4, .blog-body h5, .blog-body h6, .blog-body div {

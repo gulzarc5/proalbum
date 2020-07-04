@@ -22,7 +22,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3590.8928984448935!2d28.10335504432705!3d-25.84007425530538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957b29cadbefc3%3A0x4a7e9c2e2b4a1718!2sPremium%20Photobooks!5e0!3m2!1sen!2sza!4v1582800682122!5m2!1sen!2sza" width="100%" height="450" frameborder="0" style="border-radius: 10px;border: 3px solid #8f969c;filter: grayscale(1);" allowfullscreen=""></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3590.8928984448935!2d28.10335504432705!3d-25.84007425530538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e957b29cadbefc3%3A0x4a7e9c2e2b4a1718!2sPremium%20Photobooks!5e0!3m2!1sen!2sza!4v1582800682122!5m2!1sen!2sza" width="100%" height="450" frameborder="0" style="border-radius: 10px;border: 3px solid #8f969c;" allowfullscreen=""></iframe>
                     </div>
                 </div><!-- end googlemap -->
 
@@ -43,7 +43,7 @@
                             <div class="social-icons">
                                 <ul class="list-inline">
                                 <li class="facebook"><a data-tooltip="tooltip" data-placement="top" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="google"><a data-tooltip="tooltip" data-placement="top" title="Google Plus" href="#"><i class="fa fa-whtasapp"></i></a></li>
+                                <li class="google"><a data-tooltip="tooltip" data-placement="top" title="Google Plus" href="#"><i class="fa fa-whatsapp"></i></a></li>
                                 <li class="twitter"><a data-tooltip="tooltip" data-placement="top" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li class="linkedin"><a data-tooltip="tooltip" data-placement="top" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                                 <li class="youtube"><a data-tooltip="tooltip" data-placement="top" title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
