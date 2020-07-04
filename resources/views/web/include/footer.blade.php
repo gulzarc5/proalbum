@@ -93,7 +93,7 @@
                     </div><!-- end col -->
 
                     <div class="col-md-8 col-sm-8 col-xs-12 text-center payments">
-                        <h4>Copyright 2020 Premium PhotoBook </h4>
+                        <h4>Copyright 2020 Premium PhotoBooks </h4>
                     </div><!-- end col -->
 
                     <div class="col-md-2">
