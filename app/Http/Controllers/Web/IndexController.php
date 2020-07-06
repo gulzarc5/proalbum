@@ -72,8 +72,9 @@ class IndexController extends Controller
         }catch(DecryptException $e) {
             return redirect()->back();
         }
+        $album = GalleryAlbum::find($album_id);
         $images = Gallery::where('album_id',$album_id)->orderBy('id','desc')->get();
-        return view('web.gallery',compact('images'));
+        return view('web.gallery',compact('images','album'));
     }
 
     public function showBlog()
