@@ -22,7 +22,7 @@
                     <div class="well" style="overflow: auto;">
                             <div class="form-row mb-10">
                                 <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                                    <label for="name">Choose Image</label>
+                                    <label for="name">Choose Image (600*600)</label>
                                     <input type="file" class="form-control" name="img" placeholder="Enter Name" value="" id="name" multiple>
                                 </div> 
                             </div>

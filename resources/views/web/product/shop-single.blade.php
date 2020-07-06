@@ -164,7 +164,7 @@
                                         <div class="row price-div">
                                             <div class="col-sm-6">
                                                 <h5>Total :  R <b id="showPriceProduct">{{ $product_detail->sheet_price }}</b></h5>
-                                                <h5>Vat@15% : R <b id="showPriceVat">{{ (($product_detail->sheet_price*15)/100) }}</b></h5>
+                                                <h5>Vat @ 15% : R <b id="showPriceVat">{{ (($product_detail->sheet_price*15)/100) }}</b></h5>
                                                 <h5>Sub Total : R <b id="showPricetotal">{{ ($product_detail->sheet_price + (($product_detail->sheet_price*15)/100)) }}</b></h5>
                                             </div>
                                             <div class="col-sm-6 flex">
@@ -261,7 +261,7 @@
                             <span aria-hidden="true" style="font-size: 30px;color: #2f2f2f;">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body contact_form">
                         <form class="contact_form">
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name" required> 
                             <input type="text" name="email" id="email" class="form-control" placeholder="Email" required> 

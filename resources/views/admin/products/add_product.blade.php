@@ -63,7 +63,7 @@
                         <div class="form-row mb-10">
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="video_thumb">Video Thumbnail 
-                                    <span>(  Size Should Be 100 X 130 Pixels )</span> </label>
+                                <span>( Size Should Be 500 X 600 Pixels )</span></label>
                                 <input type="file"  class="form-control" name="video_thumb" ></input>
                                  @if($errors->has('video_thumb'))
                                       <span class="invalid-feedback" role="alert" style="color:red">
