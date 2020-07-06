@@ -42,7 +42,7 @@
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="banner">Banner</label>
                                 <input type="file"  class="form-control" name="banner"></input> 
-                                <span>Image Size Should Be 1000 X 200 Pixels</span>                                        
+                                <span>Image Size Should Be 1000 X 200 Pixels Under slider</span>                                        
                             </div>
 
                         </div>
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="well" style="overflow: auto">
-                        <h3 style="text-align: center">Product Display Section</h3>
+                        <h3 style="text-align: center">Homepage Our Product Section</h3>
 
                         <div class="form-row mb-10">
 
@@ -70,13 +70,13 @@
                         <div class="form-row mb-10">
                             
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="pro_cat_1">1st Category Name</label>
+                                <label for="pro_cat_1">1st Place Category Name</label>
                                 <input type="text" class="form-control" name="pro_cat_1"  placeholder="Enter 1st Category Name" value="{{$home_page->pro_cat_1}}">
                             </div>
 
                             
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="pro_cat_2">2nd Category Name</label>
+                                <label for="pro_cat_2">2nd Place Category Name</label>
                                 <input type="text" class="form-control" name="pro_cat_2"  placeholder="Enter 2nd Category Name" value="{{$home_page->pro_cat_2}}">
                             </div>
 
@@ -86,13 +86,13 @@
                         <div class="form-row mb-10">
                             
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="pro_cat_3">3rd Category Name</label>
+                                <label for="pro_cat_3">3rd Place Category Name</label>
                                 <input type="text" class="form-control" name="pro_cat_3"  placeholder="Enter 3rd Category Name" value="{{$home_page->pro_cat_3}}">
                             </div>
 
                             
                             <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                <label for="pro_cat_4">4th Category Name</label>
+                                <label for="pro_cat_4">4th Place Category Name</label>
                                 <input type="text" class="form-control" name="pro_cat_4"  placeholder="Enter 4th Category Name" value="{{$home_page->pro_cat_4}}">
                             </div>
 
@@ -100,7 +100,7 @@
                     </div>
 
                     <div class="well" style="overflow: auto">
-                        <h3 style="text-align: center">Category Display Section</h3>
+                        <h3 style="text-align: center">Category Section</h3>
 
                         <div class="form-row mb-10">
 
@@ -120,7 +120,7 @@
                     </div>
 
                     <div class="well" style="overflow: auto">
-                        <h3 style="text-align: center">Video</h3>
+                        <h3 style="text-align: center">Video Section</h3>
 
                         <div class="form-row mb-10">
 

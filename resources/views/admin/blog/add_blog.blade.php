@@ -49,7 +49,7 @@
                               <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
                                 <label for="banner">Blog Banner</label>
                                 <input type="file" onchange="readURL(this)" class="form-control" name="banner" value="{{old('banner')}}"></input>
-                                <span>Image Size Should Be 500 X 600 Pixels</span>
+                                <span>Image Size Should Be 1150 X 400 Pixels</span>
                                  @if($errors->has('banner'))
                                       <span class="invalid-feedback" role="alert" style="color:red">
                                           <strong>{{ $errors->first('img') }}</strong>

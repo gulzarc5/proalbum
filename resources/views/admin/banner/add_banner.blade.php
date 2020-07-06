@@ -8,7 +8,7 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2>Add Banner</h2>
+                    <h2>Add Slider Image</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div>
@@ -26,7 +26,7 @@
                         <div class="well" style="overflow: auto">
                             <div class="form-row mb-10">
                                 <div class="col-md-6 col-sm-12 col-xs-12 mb-3">
-                                    <label for="banner">Slider</label>
+                                    <label for="banner">Image (1366*500)</label>
                                     <input type="file" class="form-control" name="banner"  placeholder="Enter Banner" id="banner">
                                     @if($errors->has('banner'))
                                         <span class="invalid-feedback" role="alert" style="color:red">
@@ -62,7 +62,7 @@
         <div class="col-md-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Slider List</h2>
+                    <h2>Slider Images</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div>

@@ -67,7 +67,7 @@
                                     <div style="width:100%">
                                         <p id="product_desc">{{ $product_detail->p_short_desc }}</p>
 
-                                        <a class="button button--aylen btn" id="product_selection_btn">Product Selection</a>                                        
+                                        <a class="button button--aylen btn" id="product_selection_btn">Get Estimates</a>                                        
                                     </div>
                                     <hr>
                                     <div style="width:100%" id="feature_details"> 
@@ -164,12 +164,12 @@
                                         <div class="row price-div">
                                             <div class="col-sm-6">
                                                 <h5>Total :  R <b id="showPriceProduct">{{ $product_detail->sheet_price }}</b></h5>
-                                                <h5>Vat@15% : R <b id="showPriceVat">{{ (($product_detail->sheet_price*15)/100) }}</b></h5>
+                                                <h5>Vat @ 15% : R <b id="showPriceVat">{{ (($product_detail->sheet_price*15)/100) }}</b></h5>
                                                 <h5>Sub Total : R <b id="showPricetotal">{{ ($product_detail->sheet_price + (($product_detail->sheet_price*15)/100)) }}</b></h5>
                                             </div>
                                             <div class="col-sm-6 flex">
                                                 <a class="btn btn-cancel" id="cancel_btn" style="margin-right:10px">Cancel</a>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Proceed to cart</button>                               
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>                               
                                             </div>
                                         </div>
                                         {{Form::close()}}
@@ -261,7 +261,7 @@
                             <span aria-hidden="true" style="font-size: 30px;color: #2f2f2f;">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body contact_form">
                         <form class="contact_form">
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name" required> 
                             <input type="text" name="email" id="email" class="form-control" placeholder="Email" required> 

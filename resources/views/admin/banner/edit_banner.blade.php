@@ -8,7 +8,7 @@
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2>Edit Slider</h2>
+                    <h2>Edit Slider Image</h2>
                     <div class="clearfix"></div>
                 </div>
                 <div>

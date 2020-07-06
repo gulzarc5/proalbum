@@ -13,14 +13,14 @@
 
         <div class="col-md-6" style="display: none;" id="add_new_image_div">
           <div class="x_panel">
-              <h3>Add New Image</h3>
+              <h3>Add New Album</h3>
               <div class="x_content">
                 <div class="row">                
                   {{ Form::open(['method' => 'post','route'=>'admin.add_album','enctype'=>'multipart/form-data']) }}
                     <div class="well" style="overflow: auto;">
                             <div class="form-row mb-10">
                                 <div class="col-md-12 col-sm-12 col-xs-12 mb-3">
-                                    <label for="name">Choose Album Cover</label>
+                                    <label for="name">Choose Album Cover (600*600)</label>
                                     <input type="file" class="form-control" name="img" placeholder="Enter Name" value="" id="name" multiple>
                                 </div> 
                             </div>
@@ -47,7 +47,7 @@
           <div class="x_panel">
             <div class="x_title">
               <h2>Gallery Albums</h2>
-              <a href="#" class="btn btn-warning" style="float:right;" onclick="imageAddDivOpen()">+ Add More</a>
+              <a href="#" class="btn btn-warning" style="float:right;" onclick="imageAddDivOpen()">+ Add Albums</a>
               <div class="clearfix"></div>
             </div>
             <div class="x_content">
