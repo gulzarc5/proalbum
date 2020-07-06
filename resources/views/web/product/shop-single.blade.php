@@ -67,7 +67,7 @@
                                     <div style="width:100%">
                                         <p id="product_desc">{{ $product_detail->p_short_desc }}</p>
 
-                                        <a class="button button--aylen btn" id="product_selection_btn">Product Selection</a>                                        
+                                        <a class="button button--aylen btn" id="product_selection_btn">Get Estimates</a>                                        
                                     </div>
                                     <hr>
                                     <div style="width:100%" id="feature_details"> 
@@ -169,7 +169,7 @@
                                             </div>
                                             <div class="col-sm-6 flex">
                                                 <a class="btn btn-cancel" id="cancel_btn" style="margin-right:10px">Cancel</a>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Proceed to cart</button>                               
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>                               
                                             </div>
                                         </div>
                                         {{Form::close()}}
