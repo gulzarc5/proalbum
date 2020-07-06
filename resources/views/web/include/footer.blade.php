@@ -63,7 +63,7 @@
                     <div class="col-md-3 col-sm-12">
                         <div class="footer-logo">
                             @if (isset($footer_home) && !empty($footer_home))
-                                <a class="navbar-brand" href="index-2.html" style="width: 100%;padding-left: 0;"><img src="{{asset('assets/home_page/'.$footer_home->footer_logo.'')}}" alt=""></a>
+                                <a class="navbar-brand" href="{{route('web.index')}}" style="width: 100%;padding-left: 0;"><img src="{{asset('assets/home_page/'.$footer_home->footer_logo.'')}}" alt=""></a>
                                 <div class="social-icons">
                                     <ul class="list-inline">
                                     <li class="facebook"><a data-tooltip="tooltip" data-placement="top" href="#" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>

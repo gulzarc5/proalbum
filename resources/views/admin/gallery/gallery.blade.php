@@ -50,7 +50,7 @@
           <div class="x_panel">
             <div class="x_title">
               <h2>Gallery Images Of Album</h2>
-              <a href="#" class="btn btn-warning" style="float:right;" onclick="imageAddDivOpen()">+ Add More</a>
+              <a href="#" class="btn btn-warning" style="float:right;" onclick="imageAddDivOpen()">+ Add Images</a>
               <div class="clearfix"></div>
             </div>
             <div class="x_content">

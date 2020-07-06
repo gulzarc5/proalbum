@@ -259,25 +259,25 @@
               <div id="owl-client" class="clients">
                 @if (isset($home_page->quality1) && !empty($home_page->quality1))
                 <div class="client-logo GrayScale">
-                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality1.'')}}" alt="" class="img-responsive"></a>
+                    <a><img src="{{asset('assets/home_page/'.$home_page->quality1.'')}}" alt="" class="img-responsive"></a>
                 </div>
                 @endif
 
                 @if (isset($home_page->quality2) && !empty($home_page->quality2))
                 <div class="client-logo GrayScale">
-                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality2.'')}}" alt="" class="img-responsive"></a>
+                    <a><img src="{{asset('assets/home_page/'.$home_page->quality2.'')}}" alt="" class="img-responsive"></a>
                 </div>
                 @endif
 
                 @if (isset($home_page->quality3) && !empty($home_page->quality3))
                 <div class="client-logo GrayScale">
-                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality3.'')}}" alt="" class="img-responsive"></a>
+                    <a><img src="{{asset('assets/home_page/'.$home_page->quality3.'')}}" alt="" class="img-responsive"></a>
                 </div>
                 @endif
 
                 @if (isset($home_page->quality4) && !empty($home_page->quality4))
                 <div class="client-logo GrayScale">
-                    <a href="#"><img src="{{asset('assets/home_page/'.$home_page->quality4.'')}}" alt="" class="img-responsive"></a>
+                    <a><img src="{{asset('assets/home_page/'.$home_page->quality4.'')}}" alt="" class="img-responsive"></a>
                 </div>
                 @endif
 

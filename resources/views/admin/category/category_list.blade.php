@@ -17,10 +17,10 @@
                       <thead>
                         <tr>
                             <th>Category</th>
-                            <th>Status</th>
-                            <th>Top Category Show</th>
+                            <th>Navbar Status</th>
+                            <th>Category Show / Hide</th>
                             <th>Option</th>
-                            <th>Sort</th>
+                            <th>Order</th>
                         </tr>
                       </thead>
                       <tbody class="form-text-element">

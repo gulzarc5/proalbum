@@ -96,7 +96,7 @@
                      <ul class="nav child_menu">
                       <li class="sub_menu"><a href="{{route('admin.category_list')}}">Category</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.home_edit') }}">Home Page</a></li>
-                      <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Banner</a></li>
+                      <li class="sub_menu"><a href="{{ route('admin.banner_add_form') }}">Slider</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.Happy_client_add_form') }}">Happy Client</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.about_us') }}">About Us</a></li>
                       <li class="sub_menu"><a href="{{ route('admin.terms_condition') }}">Terms & Condition</a></li>
@@ -105,12 +105,12 @@
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Our Products <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Home Product <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                     <li class="sub_menu"><a href="{{route('admin.home_first_cat')}}">First Category</a></li>
-                     <li class="sub_menu"><a href="{{ route('admin.home_second_cat') }}">Second Category</a></li>
-                     <li class="sub_menu"><a href="{{ route('admin.home_third_cat') }}">Third Category</a></li>
-                     <li class="sub_menu"><a href="{{ route('admin.home_fourth_cat') }}">Fourth Category</a></li>
+                     <li class="sub_menu"><a href="{{route('admin.home_first_cat')}}">First Place</a></li>
+                     <li class="sub_menu"><a href="{{ route('admin.home_second_cat') }}">Second Place</a></li>
+                     <li class="sub_menu"><a href="{{ route('admin.home_third_cat') }}">Third Place</a></li>
+                     <li class="sub_menu"><a href="{{ route('admin.home_fourth_cat') }}">Fourth Place</a></li>
                    </ul>
 
                   <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Blog <span class="fa fa-chevron-down"></span></a>
@@ -129,7 +129,7 @@
                   <li><a><i class="fa fa-cogs" aria-hidden="true"></i> Contact <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li class="sub_menu"><a href="{{route('admin.order_contatc')}}">Order Contact</a></li>
-                      <li class="sub_menu"><a href="{{route('admin.contact_us')}}">Contact Ust</a></li>
+                      <li class="sub_menu"><a href="{{route('admin.contact_us')}}">Enquiry List</a></li>
                     </ul>
                   </li>
 
