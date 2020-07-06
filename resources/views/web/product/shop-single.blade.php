@@ -164,7 +164,7 @@
                                         <div class="row price-div">
                                             <div class="col-sm-6">
                                                 <h5>Total : 100</h5>
-                                                <h5>Vat@15% : 15</h5>
+                                                <h5>Vat @ 15% : 15</h5>
                                                 <h5>Sub Total : R <b id="showPriceProduct">{{ $product_detail->sheet_price }}</b></h5>
                                             </div>
                                             <div class="col-sm-6 flex">
