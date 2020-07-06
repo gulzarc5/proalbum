@@ -19,7 +19,11 @@
     <section class="catagory-section gallery-container" style="background-color: #c1bebe36;">
         <div class="container">
             <div class="section-title text-center clearfix">
-                <h4>Photobook Guide</h4>
+                <h4>
+                  @if (isset($album) && !empty($album))
+                      {{$album->name}}
+                  @endif
+                </h4>
                 <hr>
             </div><!-- end title -->
 

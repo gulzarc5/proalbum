@@ -54,6 +54,10 @@ function priceGetValue() {
         success:function(data){
             $("#price_loader").hide();
             $("#showPriceProduct").html(data);
+            var vat = ((data*15)/100);
+            $("#showPriceVat").html(vat);
+            var total = parseFloat(data)+parseFloat(vat);
+            $("#showPricetotal").html(total);
         },
         error:function (error) {
             
