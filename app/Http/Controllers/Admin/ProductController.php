@@ -29,7 +29,12 @@ class ProductController extends Controller
             ->addIndexColumn()
             ->addColumn('action', function($row){
                 $btn ='<a href="'.route('admin.product_single_view',['p_id'=>encrypt($row->id)]).'" class="btn btn-info btn-sm" target="_blank">View</a>';
-                
+                if ($row->status == '1') {
+                    $btn .= '<a class="btn btn-sm btn-danger" href="'.route('admin.product_status_update',['p_id'=>$row->id,'status'=>'2']).'">Disable</a>';
+                } else {
+                    $btn .= '<a class="btn btn-sm btn-success" href="'.route('admin.product_status_update',['p_id'=>$row->id,'status'=>'1']).'">Enable</a>';
+                }
+                $btn .='<a href="'.route('admin.product_delete',['p_id'=>$row->id]).'" class="btn btn-danger btn-sm" >Delete</a>';
                 if ($row->best_seller == '1') {
                     $btn .='<a href="'.route('admin.product_home_page_cat_update',['p_id'=>$row->id,'status'=>'2','type'=>'1']).'" class="btn btn-warning btn-sm" >First Category</a>';
                 }
@@ -55,6 +60,28 @@ class ProductController extends Controller
             })
             ->rawColumns(['action','status_tab'])
             ->make(true);
+    }
+
+    public function productStatusUpdate($p_id,$status)
+    {
+        $product = DB::table('products')
+            ->where('id',$p_id)
+            ->update([
+                'status' => $status,
+            ]);
+        return redirect()->back();
+    }
+
+    public function productDelete($p_id)
+    {
+        $product = DB::table('products')->where('id',$p_id)->delete();
+        DB::table('product_images')->where('product_id',$p_id)->delete();
+
+        DB::table('product_size')->where('p_id',$p_id)->delete();
+
+        DB::table('product_option')->where('p_id',$p_id)->delete();
+
+        return redirect()->back();
     }
 
     public function singleView($product_id)
