@@ -56,7 +56,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="text-center">
-                        <ul class="nav nav-tabs" style="display:inline-block;margin:auto">
+                        <ul class="nav nav-tabs home-product-section">
                             <li class="active"><a class="tab-btn" href="#1" data-toggle="tab">{{$home_page->pro_cat_1}}</a></li>
                             <li><a class="tab-btn" href="#2" data-toggle="tab">{{$home_page->pro_cat_2}}</a></li> 
                             <li><a class="tab-btn" href="#3" data-toggle="tab">{{$home_page->pro_cat_3}}</a></li>
