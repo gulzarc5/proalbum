@@ -66,11 +66,11 @@
                                 <a class="navbar-brand" href="{{route('web.index')}}"><img src="{{asset('assets/home_page/'.$footer_home->footer_logo.'')}}" style="margin: 0 auto" alt=""></a>
                                 <div class="social-icons">
                                     <ul class="list-inline">
-                                    <li class="facebook"><a data-tooltip="tooltip" data-placement="top" href="#" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="google"><a data-tooltip="tooltip" data-placement="top" href="#" data-original-title="Instagram"><i class="fa fa-instagram"></i></a></li>
-                                    <li class="twitter"><a data-tooltip="tooltip" data-placement="top" href="#" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="whatsapp"><a data-tooltip="tooltip" data-placement="top" href="#" data-original-title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
-                                    <li class="linkedin"><a data-tooltip="tooltip" data-placement="top" href="#" data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                        <li class="facebook"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://www.facebook.com/ProAlbumsSA/" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="google"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://www.instagram.com/proalbumssa/" data-original-title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li class="twitter"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://twitter.com/Proalbums_sa" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="whatsapp"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://api.whatsapp.com/send?phone=+27 73 287 7622&text=Hi.. I need your help.. please contact me soon" data-original-title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+                                        <li class="linkedin"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://za.linkedin.com/in/pro-albums-sa-a3b5361aa" data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                                     </ul>
                                 </div>
                                 <p style="color: #fff">

@@ -1909,8 +1909,8 @@ hr.invis {
 }
 
 .social-icons li {
-    font-size: 14px;
-    width: 35px;
+    font-size: 35px;
+    width: 55px;
     height: 40px;
     line-height: 40px;
     text-align: center;
@@ -1933,8 +1933,8 @@ li.twitter:hover i {
     color: #00B6F1;
 }
 
-li.pinterest:hover i {
-    color: #cb2027;
+li.whatsapp:hover i {
+    color: #4AC959;
 }
 
 li.linkedin:hover i {
@@ -1942,7 +1942,7 @@ li.linkedin:hover i {
 }
 
 li.google:hover i {
-    color: #DA5333;
+    color: #c13584;
 }
 
 li.skype:hover i {

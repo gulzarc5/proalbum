@@ -32,21 +32,22 @@
                     <div class="col-md-5">
                         <div class="widget">
                             <p>If you need help before, during or after your purchase, this is the place to be. Please use below contact details to get in touch with us</p>
-                            <hr class="invis">
+                            <hr class="invis" style="border-color: #8f969c;">
                             <ul class="contact-details">
                                 <li><i class="fa fa-link"></i> <a href="#">premiumphotobooks.co.za</a></li>
                                 <li><i class="fa fa-home"></i>Unit 04, C/o, 2 Van Tonder Street, Rudolph St, Sunderland Ridge, Centurion, 0157.</li>
                                 <li><i class="fa fa-envelope-o"></i> <a>info@premiumphotobooks.co.za</a></li>
                                 <li><i class="fa fa-phone"></i> 012 666 7037</li>
                             </ul>
-                            <hr class="invis">
-                            <div class="social-icons">
+                            <hr class="invis" style="border-color: #8f969c;">
+                            <div class="social-icons"style="margin-bottom: 20px;">
+                                <p><strong>STAY CONNECTED</strong></p>
                                 <ul class="list-inline">
-                                <li class="facebook"><a data-tooltip="tooltip" data-placement="top" title="Facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="google"><a data-tooltip="tooltip" data-placement="top" title="Google Plus" href="#"><i class="fa fa-whatsapp"></i></a></li>
-                                <li class="twitter"><a data-tooltip="tooltip" data-placement="top" title="Twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li class="linkedin"><a data-tooltip="tooltip" data-placement="top" title="Linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li class="youtube"><a data-tooltip="tooltip" data-placement="top" title="Youtube" href="#"><i class="fa fa-youtube"></i></a></li>
+                                    <li class="facebook"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://www.facebook.com/ProAlbumsSA/" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="google"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://www.instagram.com/proalbumssa/" data-original-title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                                    <li class="twitter"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://twitter.com/Proalbums_sa" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="whatsapp"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://api.whatsapp.com/send?phone=+27 73 287 7622&text=Hi.. I need your help.. please contact me soon" data-original-title="Whatsapp"><i class="fa fa-whatsapp"></i></a></li>
+                                    <li class="linkedin"><a target="_blank" data-tooltip="tooltip" data-placement="top" href="https://za.linkedin.com/in/pro-albums-sa-a3b5361aa" data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
                                 </ul>
                             </div><!-- end social icons -->
                         </div><!-- end widget -->
