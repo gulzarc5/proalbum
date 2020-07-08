@@ -224,6 +224,10 @@ fieldset[disabled] .btn-primary.focus,
 } 
 .footer-logo a{
     margin-bottom: 10px;
+    width: 100%;
+    padding: 0;
+    height: auto;
+    padding-bottom: 0;
 }   
 .home-gallery{
     padding-top: 30px;
@@ -243,7 +247,6 @@ fieldset[disabled] .btn-primary.focus,
     box-shadow: none;
 }
 .home-gallery .nav.nav-tabs {
-    display: inline-block;
     margin: auto;
     border-bottom: none;
 }
@@ -1102,4 +1105,9 @@ footer.footer .social-icons li.linkedin{
 }
 .header.affix .navbar-brand img {
   width: 90%;
+}
+.home-product-section {
+  display: flex;
+  overflow: auto;
+  white-space: nowrap;
 }

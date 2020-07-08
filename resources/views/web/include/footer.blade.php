@@ -1,7 +1,7 @@
         <footer class="section footer" style="padding: 30px 0 10px">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="widget clearfix">
                             <div class="widget-title">
                                 <h4>Addtional Links</h4>
@@ -20,7 +20,7 @@
                         </div><!-- end widget -->
                     </div><!-- end col -->
 
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
 
                         <div class="widget clearfix">
                             <div class="widget-title">
@@ -43,7 +43,7 @@
                         </div><!-- end widget -->
                     </div><!-- end col -->
 
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="widget clearfix">
                             <div class="widget-title">
                                 <h4>Copyrights</h4>
@@ -60,10 +60,10 @@
                         </div><!-- end widget -->
                     </div><!-- end col -->
 
-                    <div class="col-md-3 col-sm-12">
-                        <div class="footer-logo">
+                    <div class="col-md-3 col-sm-12 col-xs-12">
+                        <div class="footer-logo text-center">
                             @if (isset($footer_home) && !empty($footer_home))
-                                <a class="navbar-brand" href="{{route('web.index')}}" style="width: 100%;padding-left: 0;"><img src="{{asset('assets/home_page/'.$footer_home->footer_logo.'')}}" alt=""></a>
+                                <a class="navbar-brand" href="{{route('web.index')}}"><img src="{{asset('assets/home_page/'.$footer_home->footer_logo.'')}}" style="margin: 0 auto" alt=""></a>
                                 <div class="social-icons">
                                     <ul class="list-inline">
                                     <li class="facebook"><a data-tooltip="tooltip" data-placement="top" href="#" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
