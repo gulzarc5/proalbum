@@ -67,7 +67,7 @@
                                     <div style="width:100%">
                                         <p id="product_desc">{{ $product_detail->p_short_desc }}</p>
 
-                                        <a class="button button--aylen btn" id="product_selection_btn">Get Estimates</a>                                        
+                                        <a class="button button--aylen btn"  data-toggle="modal" data-target="#exampleModalCenter">Get Estimates</a>                                        
                                     </div>
                                     <hr>
                                     <div style="width:100%" id="feature_details"> 
@@ -169,7 +169,7 @@
                                             </div>
                                             <div class="col-sm-6 flex">
                                                 <a class="btn btn-cancel" id="cancel_btn" style="margin-right:10px">Cancel</a>
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Order Now</button>                               
+                                                <a href="http://orders.proalbums.co.za/Login.aspx?CompanyID=rfdQoTDga7aQhXaPLdOEBg==" class="btn btn-primary">Order Now</a>                               
                                             </div>
                                         </div>
                                         {{Form::close()}}
@@ -263,6 +263,7 @@
                     </div>
                     <div class="modal-body contact_form">
                         <form class="contact_form">
+                            <input type="hidden" name="p_id" value="{{$product_detail->id}}">
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name" required> 
                             <input type="text" name="email" id="email" class="form-control" placeholder="Email" required> 
                             <input type="text" name="mobile" id="phone" class="form-control" placeholder="Phone" required> 
@@ -288,4 +289,14 @@
         <script src="{{asset('web/js/product_detail.js')}}"></script>
 
         <script type="text/javascript" src="{{asset('web/js/html5gallery.js')}}"></script>
+
+        @if (isset($data_status) && !empty($data_status))
+            <script>
+                $("#product_name").hide();
+                $("#product_desc").hide();
+                $("#product_selection_btn").hide();
+                $("#feature_details").hide();
+                $("#product-select").show();
+            </script>
+        @endif
     @endsection     
