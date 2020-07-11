@@ -78,12 +78,6 @@
                                             <span><strong>Product Code:</strong> <a>{{ $product_detail->product_code }}</a></span>
                                         </div>
                                         <div class="shopmeta">
-                                            <span><strong>Unit:</strong> <a>{{ $product_detail->unit }}</a></span>
-                                        </div>
-                                        <div class="shopmeta">
-                                            <span><strong>Dpi:</strong> <a>{{ $product_detail->dpi }}</a></span>
-                                        </div>
-                                        <div class="shopmeta">
                                             <span><strong>Min Order {{$product_detail->sheet_name}} :</strong> <a>{{ $product_detail->sheet_value }}</a></span>
                                         </div>
                                         <div class="shopmeta">
