@@ -213,7 +213,7 @@
             </div><!-- end container -->
         </section><!-- end section -->
 
-        <section class="section lb">
+        <section class="home-gallery">
             <div class="container">
                 <div class="section-title text-center clearfix">
                     <h4>Related Items</h4>
@@ -221,30 +221,31 @@
                     <hr>
                 </div><!-- end title -->
 
-                <div class="row">
-                    @if(!empty($related_product) && (count($related_product) > 0))
-                        @foreach($related_product as $key => $item)
-                        <div class="col-md-3 col-sm-6 col-xs-6">
-                            <div class="shop-item text-center">
-                                <div class="shop-thumbnail">
-                                    <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}"><img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive"></a>
-                                </div><!-- end shop-thumbnail -->
-                                <div class="shop-desc">
-                                    <h3><a href="shop-single.html" title="">{{ $item->name }}</a></h3>
-                                    <p class="regular">Starting from <span>R {{$item->price}}</span></p>   
-                                </div><!-- end shop-desc -->
+                <div class="tab-content">
+                    <!-- Tab 1 -->
+                    <div class="tab-pane fade in active" id="1">
+                        <div class=row>
+                        @if(!empty($related_product) && (count($related_product) > 0))
+                            @foreach($related_product as $key => $item)
+                            <div class="col-md-3 col-xs-6">
+                                <div class="tab-block">
+                                    <a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}"><img src="{{asset('assets/product/thumb/'.$item->image.'')}}" alt="" class="img-responsive">
+                                        <figcaption>
+                                            <h5 class="f-w-6">{{ $item->name }}</h5>
+                                            <p class="regular">Starting from <span>R {{$item->price}}</span></p>
+                                            <p class="index-product-detail"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></p>
+                                        </figcaption>
+                                    </a>
+                                </div>
+                            </div>
+                            @endforeach
+                        @endif
+                        </div>
+                    </div>
 
-                                <div class="shop-meta clearfix">
-                                    <ul class="">
-                                        <li><a href="{{ route('web.product_detail', ['slug' => $item->slug, 'product_id' => $item->id]) }}"><i class="fa fa-shopping-basket"></i> <span class="hidden-xs">Details</span></a></li>
-                                    </ul><!-- end list -->
-                                </div><!-- end shop-meta --> 
-                            </div><!-- end shop-item -->
-                        </div><!-- end col -->
-                        @endforeach
-                    @endif
-                </div><!-- end row -->
-            </div><!-- end container -->
+                </div><!-- end div -->
+
+            </div><!-- end container-fluid -->
         </section><!-- end section -->
 
         
