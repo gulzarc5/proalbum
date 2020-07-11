@@ -158,7 +158,7 @@
                                         <div class="row price-div">
                                             <div class="col-sm-6">
                                                 <h5>Total :  R <b id="showPriceProduct">{{ $product_detail->sheet_price }}</b></h5>
-                                                <h5>Vat @ 15% : R <b id="showPriceVat">{{ (($product_detail->sheet_price*15)/100) }}</b></h5>
+                                                <h5>Vat 15% : R <b id="showPriceVat">{{ (($product_detail->sheet_price*15)/100) }}</b></h5>
                                                 <h5>Sub Total : R <b id="showPricetotal">{{ ($product_detail->sheet_price + (($product_detail->sheet_price*15)/100)) }}</b></h5>
                                             </div>
                                             <div class="col-sm-6 flex">
