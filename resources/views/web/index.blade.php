@@ -38,7 +38,7 @@
         @if (isset($home_page->banner) && !empty($home_page->banner))
           <div class="container">
               <div class="mt-20">
-                  <img src="{{asset('assets/home_page/'.$home_page->banner.'')}}" alt="" class="img-responsive">
+                  <img src="{{asset('assets/home_page/'.$home_page->banner.'')}}" style="margin:auto" class="img-responsive">
               </div><!-- end title -->
 
           </div><!-- end container -->
