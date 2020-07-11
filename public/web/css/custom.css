@@ -535,10 +535,7 @@ html:not(.touch) .gallery-image:hover:after {
 }
 .shop-thumbnail img.img-responsive {
   width: auto!important;
-  height: 200px;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 10px 10px 0;
 }
 /*------- CART ------*/
 .singleorder {
