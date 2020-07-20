@@ -356,14 +356,14 @@
                                 hide_onmobile: true,
                                 hide_under: 600,
                                 style: "metis",
-                                hide_onleave: true,
+                                hide_onleave: false,
                                 hide_delay: 200,
                                 hide_delay_mobile: 1200,
                                 direction: "horizontal",
                                 h_align: "center",
                                 v_align: "bottom",
                                 h_offset: 0,
-                                v_offset: 30,
+                                v_offset: 0,
                                 space: 5,
                                 tmp: '<span class="tp-bullet-img-wrap">  <span class="tp-bullet-image"></span></span>'
                             }

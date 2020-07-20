@@ -1961,10 +1961,10 @@ website:    http://www.themepunch.com
  
 
 /* BULLETS */
-.metis .tp-bullet { 
+.metis .tp-bullet {
     opacity:1;
-    width:50px;
-    height:50px;    
+    width: 20px;
+    height: 20px;
     padding:3px;
     background:#000;
     background-color:rgba(0,0,0,0.25);
@@ -1977,18 +1977,29 @@ website:    http://www.themepunch.com
 
 .metis .tp-bullet-image {
 
-   border-radius:50%;
-   display:block;
-   box-sizing:border-box;
-   position:relative;
-    -webkit-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
-  -moz-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
-  box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
-  width:44px;
-  height:44px;
-  background-size:cover;
-  background-position:center center;
- }  
+border-radius:50%;
+
+display:block;
+
+box-sizing:border-box;
+
+position:relative;
+
+-webkit-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+
+-moz-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+
+box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+
+width: 14px;
+
+height: 14px;
+
+background-size:cover;
+
+background-position:center center;
+
+}  
 .metis .tp-bullet-title { 
      position:absolute; 
 	 bottom:65px;
