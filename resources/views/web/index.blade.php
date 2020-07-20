@@ -363,7 +363,7 @@
                                 h_align: "center",
                                 v_align: "bottom",
                                 h_offset: 0,
-                                v_offset: 0,
+                                v_offset: 30,
                                 space: 5,
                                 tmp: '<span class="tp-bullet-img-wrap">  <span class="tp-bullet-image"></span></span>'
                             }
